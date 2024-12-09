@@ -1,0 +1,6 @@
+F:\Quản lý cửa hàng bán máy tính\Admin\Admin\obj\Debug\net8.0\Admin.csproj.AssemblyReference.cache
+F:\Quản lý cửa hàng bán máy tính\Admin\Admin\obj\Debug\net8.0\Admin.GeneratedMSBuildEditorConfig.editorconfig
+F:\Quản lý cửa hàng bán máy tính\Admin\Admin\obj\Debug\net8.0\Admin.AssemblyInfoInputs.cache
+F:\Quản lý cửa hàng bán máy tính\Admin\Admin\obj\Debug\net8.0\Admin.AssemblyInfo.cs
+F:\Quản lý cửa hàng bán máy tính\Admin\Admin\obj\Debug\net8.0\Admin.csproj.CoreCompileInputs.cache
+F:\Quản lý cửa hàng bán máy tính\Admin\Admin\obj\Debug\net8.0\Admin.MvcApplicationPartsAssemblyInfo.cache

@@ -1,0 +1,169 @@
+body {height: auto;}
+.frame {padding-top: 25px;padding-bottom: 25px;margin: auto;width: 95%; }
+hr {margin: 0;}
+a {text-decoration: none;}
+/*----------------------------------------------PHẦN TOP-------------------------------------------*/
+.header {width: 100%; height: 240px;} 
+/*----------------Phần đầu---------------*/
+.head {width: 100%;height: 100px;background-color: #E2E2E2;}   
+.head .frame {height: 55px}
+/*Phần bên trái*/
+.frame #content-left {width: 50%;height: 55px;float: left;}
+.frame #content-left h2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    line-height: 50px;
+    font: 48px "Work Sans", Arial, sans-serif;
+    color: red;
+    width: 20%;
+    float: left;}
+/*Trái*/
+#content-left #label-left {width: 50%;height: 50px;float: left;margin-top: 5px;}
+#content-left #label-left h3 {margin-top: 0px;margin-bottom: 0px;font: 24px "Work Sans", Arial, sans-serif;}
+/*Phải*/
+#content-left #label-right {width: 30%;height: 50px;float: left;margin-top: 5px;}
+#content-left #label-right h4 {margin-top: 5px;margin-bottom: 0px;font: 18px "Work Sans", Arial, sans-serif;color: red;}
+/*Thẻ span*/
+#content-left #label-left span,
+#content-left #label-right span{color: grey;}
+/*Phần bên phải*/
+#content-right {width: 50%;height: 55px;float: right;}
+#content-right #link{
+    height: 35px;
+    background-color: #F14705;
+    float: right;
+    width: 20%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;}
+#content-right #link a {line-height: 35px;margin-left: 25px;color: #FFF;}
+/*----------------Phần giữa----------------*/
+/*Phần bên trái*/
+.content {height: 90px; width: 100%;}
+.content .frame {height: 40px}
+.content .frame #logo {width: 20%;height: 40px;float: left;}
+.content .frame #logo img {width: 100%;line-height: 40px;margin-top: 10px;margin-bottom: 8px;}
+/*Phần giữa*/
+.content .frame .content-right {height: 40px; width: 80%; float: right;}
+.search-bar {display: flex; border: 1px solid #ccc; border-radius: 2px;float: left;width: 60%;height: 39px;margin-left: 30px;}
+.search-bar input, .search-bar button {border: none;padding: 10px;}
+.search-bar input {width: 83%;}
+.search-bar button {background-color: #FCB800; color: black; border-radius:2px;width: 15%;font-size: bold;}
+::placeholder {color: rgb(176, 172, 172);}
+/*Phần bên phải*/
+.content-right .extra-Menu {
+    float: right;
+    width:35%;
+    height: 40px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    list-style: none; /* Bỏ dấu chấm */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Xếp hàng ngang */}
+.extra-Menu #item-tym, .extra-Menu #item-cart, .extra-Menu #item-account {width: 12%;padding-left: 10px;padding-right: 10px;}
+.extra-Menu #item-tym span, .extra-Menu #item-cart span {
+    position: absolute; /* Định vị tuyệt đối số lượng so với liên kết */
+    bottom: 0; /* Đặt vị trí ở đầu hình ảnh */
+    right: 0; /* Đặt vị trí ở bên phải hình ảnh */
+    background-color: #FCB800; border-radius: 30px; 
+    padding: 5px; /* Đệm cho số lượng */
+    color: black; font-weight: bold; 
+    display: flex; /* Sử dụng flexbox để căn giữa */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    height: 10px;width: 10px;}
+.extra-Menu li a {position: relative; /* Đặt vị trí tương đối cho liên kết để định vị số lượng */}
+.extra-Menu img {width: 100%; height: 40px;}
+.extra-Menu a {padding-top: 10px;color: black;}
+.extra-Menu #login:hover {color: #666666;}
+.extra-Menu #register:hover {color: #EF1200;}
+/*----------------Phần cuối----------------*/
+.bottom {height: 50px; width: 100%;}
+.bottom .frame {height: 50px;padding-top: 0px;padding-bottom: 0px;margin: auto; position: relative; }
+.bottom .frame .navbar {overflow: hidden; }
+.frame .navbar .nav-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    height: 50px;}
+.navbar .nav-menu #nav-item {display: flex;  align-items: center;  padding: 14px 16px; color: white; text-decoration: none;
+transition: background-color 0.3s; /* Hiệu ứng chuyển màu khi hover */}
+.nav-menu #nav-item a:hover {color: #FFF;} 
+.nav-menu #nav-item:hover {background-color: #44A8E7;}
+.nav-menu #nav-item a { color: black; margin-left: 8px;}
+.nav-menu #nav-item img { width: auto; height: 30px;}
+.nav-menu #nav-item #dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFF;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    top: 45px; /* Đặt menu con xuất hiện ngay dưới .nav-item */
+    padding: 10px;
+    width: 200px;
+    list-style: none;
+    border-radius: 5px;
+    z-index: 1000;/* đảm bảo thẻ dropdown luôn nằm trên tất cả*/}
+#nav-item:hover #dropdown-content { display: block; }
+#nav-item #dropdown-content a {color: black; display: flex;font-size: 17px; line-height: 30px;}
+#dropdown-content a:hover {background-color: grey; /* Màu nền khi hover */}
+
+/*----------------------------------------------PHẦN BODY-------------------------------------------*/
+.middle { height: auto; }
+.middle .frame .deal { height: auto; width: 100%; border-radius: 10px; overflow: hidden; margin-bottom: 50px; }
+.product-list { width: 100%; height: auto; display: flex; background-color: #F5F5F5; flex-wrap: wrap; }
+.product-list .product-item:hover p { color: #69B6F3; }
+.product-list .product-item:hover img { transform: scale(0.90); transition: transform 0.3s ease-in-out; }
+.product-list .product-item {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    text-align: center;
+    height: auto; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #FFF;
+    margin: 5px;
+    width: 19%;}
+.product-item img { border-radius: 5px; margin: 5px 0; width: 90%; height: 190px; transition: transform 0.3s ease-in-out; }
+.product-item p { color: black; text-align: center; text-decoration: none; margin: 0 2px; font-size: 15px; }
+.deal .product-item p { height: 70px; }
+.product-item .price-all { width: 100%; height: 30px; margin-top: 10px; }
+.price-all #new-price { line-height: 30px; font-size: 20px; font-weight: 1000; padding: 5px; color: #ec3237; }
+.price-all #old-price { text-decoration: line-through; color: grey; }
+
+/*-------------------------------------------------Phần FOOTER-------------------------------------------------*/
+/*foot-1*/
+.footer-1 { width: 100%;height: 360px;margin-top: 20px;}
+.footer-1 .title-foot {padding: 7px 0;border-bottom: 1px solid #eee;margin-bottom: 10px;font-size: 15px;font-weight: 700;}
+.footer-1 .title-foot p {font-weight: 500;margin: 0;font-size: 20px;color: #2B80DD;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+.list-Tin {display: flex;}
+.Tin-Tuc {height: 260px;width: 40%;padding: 5px;margin-bottom: 20px;}
+.item-Tin { width: 100%; background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); border-radius: 4px; height: 270px;}
+.item-Tin img { width: 100%; height: 150px; border-top-left-radius: 4px; border-top-right-radius: 4px;}
+.media-body { padding: 10px;}
+.Time-Tin .date {display: block; font-size: 12px; color: #666; margin-bottom: 5px;}
+.title-Tin a { font-size: 14px; color: #333; text-decoration: none; font-weight: bold;font-size: 15px;line-height: 20px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+/*foot-2*/
+.footer-2 {width: 100%;padding-top: 15px}
+.footer-2 .icon-row {display: flex;margin: 5px 0;width: 100%;}
+.icon-row .icon-item {height: 70px; width: 20%;margin: 0 5px;border-radius: 5px; box-shadow:0 2px 5px rgba(0,0,0,0.2) ;}
+.icon-item .icon {
+    float: left;
+    width: 35%;
+    height: 70px;
+    margin-right: 7px;  
+    background: #44A8E7;
+    clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);}
+.icon-item .icon img {width: 55%;height: 45px;margin-top: 10px;margin-left: 5px;}
+.media {display: flex; align-items: center; justify-content: center; height: 70px;}
+.media h5 { margin: 0; font-size: 14px; font-weight: 700;}
+/*Bottom*/
+.footer-2 .bottom {width: 100%;height: 300px;margin-top: 40px;display: flex; border-radius: 5px; border: solid 1px grey;}
+.footer-2 .bottom .bottom-content {width: 33%;margin: 0 5px; height: 250px;}
+.bottom-content b {line-height: 40px;margin-left: 10px;}
+.bottom-content li {margin-left: 10px;list-style: none;margin-bottom: 15px;font-size: 17px;}
+li a{color: black;}
+#MXH {width: 20%;height: 70px;margin-left: 5px;}
+#Chung-Nhan {width: 70%;text-align: center;height: 90px;}

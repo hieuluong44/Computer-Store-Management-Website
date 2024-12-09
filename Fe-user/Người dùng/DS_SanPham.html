@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cửa hàng máy tính HieuPC</title>
+    <link rel="stylesheet" href="css/DS_SanPham.css">
+</head>
+<body>
+    <div class="header">
+        <div class="top-bar">
+            <div class="frame">
+                <div class="left">
+                    <div class="H-content">
+                        <i class="fas fa-map-marker-alt" style="color: red;"></i>
+                        <marquee onmouseover="stop()" onmouseout="start()">Số 14A, đường Trưng Nhị, phường Lê Lợi, thành phố Hưng Yên, tỉnh Hưng Yên</marquee>
+                    </div>
+                    <div class="H-content">
+                        <a href="">
+                            <i class="fab fa-facebook" style="color: #3b5998;"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-instagram" style="color: #E1306C;"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-youtube" style="color: red;"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-tiktok" style="color: black;"></i>
+                        </a>
+                    </div>           
+                </div>
+                <div class="right">
+                    <div class="H-right-content" style=" width: 40%;border-right: 1px solid gray;">
+                        <i class="fas fas fa-phone-alt" style="color: #E1306C;"></i>
+                        <span>Hotline : 029 382 1922</span>
+                    </div>
+                    <div class="H-right-content" style="width: 10%;border-right: 1px solid gray;">
+                        <span id="selected-language">
+                            <i class="fas fa-globe" style="color: #0098D5;"></i> 
+                        </span>
+                        <div class="flag-section">
+                            <div class="dropdown-content">
+                                <div class="flag-container" onclick="selectLanguage('vn')">
+                                    <span class="flag-icon flag-icon-vn"></span>
+                                    <span>Việt Nam</span>
+                                </div>                            
+                                <div class="flag-container" onclick="selectLanguage('us')">
+                                    <span class="flag-icon flag-icon-us"></span>
+                                    <span>Mỹ</span>
+                                </div>                              
+                                <div class="flag-container" onclick="selectLanguage('jp')">
+                                    <span class="flag-icon flag-icon-jp"></span>
+                                    <span>Nhật Bản</span>
+                                </div>                          
+                                <div class="flag-container" onclick="selectLanguage('kr')">
+                                    <span class="flag-icon flag-icon-kr"></span>
+                                    <span>Korean</span>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="H-right-content" style="width:20%">
+                        <i class="fas fa-user-circle" style="color: black;"></i>
+                        <div class="login-section">
+                            <span class="login-text" style="cursor: pointer;">Tài khoản</span>
+                            <div class="dropdown-content">
+                                <a href="register.html" id="login-btn">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    Đăng nhập
+                                </a>
+                                <a href="#" id="logout-btn">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Đăng xuất
+                                </a>
+                            </div>
+                        </div>
+                    </div>             
+                </div>
+            </div>
+        </div>
+        <div class="H-head">
+            <div class="frame">
+                <a class="logo" href="Home.html">
+                    <img src="img/logo.png" alt="" style="width: 60%; height: 100%;">
+                </a>
+                <div class="body-search">
+                    <select name="category" id="category">
+                        <option value="">Tất cả sản phẩm</option>
+                        <option value="Gaming">Laptop Gaming</option>
+                        <option value="Office">Laptop Văn phòng</option>
+                        <option value="Do-hoa">Laptop Đồ hoạ</option>
+                        <option value="PC">PC Al</option>
+                        <option value="screen">Màn hình máy tính</option>
+                        <option value="phu-kien-1">Phụ kiện laptop, PC, khác</option>
+                        <option value="phu-kien-2">Chuột, bàn phím</option>
+                        <option value="bao-tri">Dịch vụ sửa chữa, bảo trì</option>
+                    </select>                        
+                    <form id="search-box">
+                        <input type="text" placeholder="Tìm kiếm...">
+                        <button type="submit">
+                            <img src="icon/find.png" alt="Search Icon">
+                        </button>
+                    </form>
+                </div>
+                <div class="icons">
+                    <a class="tym" href="Yeu_Thich.html">
+                        <i class="far fa-heart" style="color: red;"></i>
+                        <span>0</span>
+                    </a>          
+                    <a class="cart" href="Gio_Hang.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Giỏ hàng | 0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="H-body">
+            <div class="frame">
+                <div class="body-container">
+                    <div class="body-left">
+                        <div id="body-container">
+                            <img src="icon/menu.png" alt="">
+                            <span style="width: 400px;">DANH MỤC SẢN PHẨM</span>
+                            <img style="height: 12px;" src="icon/down.png" alt="">                      
+                            <div id="dropdown-content"> 
+                                <div class="dropdown-item">
+                                    <div class="down">
+                                        <img src="icon/laptop.png" alt="">
+                                        <span>Laptop</span> 
+                                        <img src="icon/right.png" alt="">
+                                    </div>
+                                    <div class="down-right">
+                                        <div class="title">
+                                            <div class="a">Apple</div>
+                                            <div class="b">
+                                                <a href="">Macbook Air</a>
+                                                <a href="">Macbook Pro</a>
+                                                <a href="">Mac Mini</a>
+                                                <a href="">iMac</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">Asus</div>
+                                            <div class="b">
+                                                <a href="">Vivobook</a>
+                                                <a href="">Zenbook</a>
+                                                <a href="">TUF Gaming</a>
+                                                <a href="">ROG Gaming</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">Acer</div>
+                                            <div class="b">
+                                                <a href="">Aspire</a>
+                                                <a href="">Nitro</a>
+                                                <a href="">Predator</a>
+                                                <a href="">Swift</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">Lenovo</div>
+                                            <div class="b">
+                                                <a href="">ThinkPad</a>
+                                                <a href="">IdeaPad</a>
+                                                <a href="">Legion</a>
+                                                <a href="">Yoga</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">Dell</div>
+                                            <div class="b">
+                                                <a href="">Inspiron</a>
+                                                <a href="">XPS</a>
+                                                <a href="">Alienware</a>
+                                                <a href="">Latitude</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-item">
+                                    <div class="down">
+                                        <img src="icon/Office.png" alt="">
+                                        <span>Thiết bị văn phòng</span>
+                                        <img src="icon/right.png" alt="">
+                                    </div>
+                                    <div class="down-right">
+                                        <div class="title">
+                                            <div class="a">Máy in</div>
+                                            <div class="b">
+                                                <a href="">Canon</a>
+                                                <a href="">Brother</a>
+                                                <a href="">Epson</a>
+                                                <a href="">Xerox</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">Máy chiếu</div>
+                                            <div class="b">
+                                                <a href="">Sony</a>
+                                                <a href="">Panasonic</a>
+                                                <a href="">Optoma</a>
+                                                <a href="">Epson</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">Máy photocopy</div>
+                                            <div class="b">
+                                                <a href="">Ricoh</a>
+                                                <a href="">Xerox</a>
+                                                <a href="">Canon</a>
+                                                <a href="">Konica</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">Phần mềm máy tính</div>
+                                            <div class="b">
+                                                <a href="">Microsoft</a>
+                                                <a href="">Adobe</a>
+                                                <a href="">Kaspersky</a>
+                                                <a href="">Bitdefender</a>
+                                            </div>
+                                        </div>
+                                    </div>                                
+                                </div>
+                                <div class="dropdown-item">
+                                    <div class="down">
+                                        <img src="icon/laptop-gaming.png" alt="">
+                                        <span>Laptop Gaming</span>
+                                        <img src="icon/right.png" alt="">
+                                    </div>
+                                    <div class="down-right">
+                                        <div class="title">
+                                            <div class="a">LCD</div>
+                                            <div class="b">
+                                                <a href="">Dell</a>
+                                                <a href="">HP</a>
+                                                <a href="">Samsung</a>
+                                                <a href="">LG</a>
+                                                <a href="">Philips</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">LED</div>
+                                            <div class="b">
+                                                <a href="">Asus</a>
+                                                <a href="">BenQ</a>
+                                                <a href="">Acer</a>
+                                                <a href="">ViewSonic</a>
+                                                <a href="">MSI</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">OLED</div>
+                                            <div class="b">
+                                                <a href="">LG</a>
+                                                <a href="">Sony</a>
+                                                <a href="">Samsung</a>
+                                                <a href="">Panasonic</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">QLED</div>
+                                            <div class="b">
+                                                <a href="">Samsung</a>
+                                                <a href="">TCL</a>
+                                                <a href="">Hisense</a>
+                                                <a href="">Vizio</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                            
+                                <div class="dropdown-item">
+                                    <div class="down">
+                                        <img src="icon/pc.png" alt="">
+                                        <span>PC</span>
+                                        <img src="icon/right.png" alt="">
+                                    </div>
+                                    <div class="down-right">
+                                        <div class="title">
+                                            <div class="a">PC Gaming</div>
+                                            <div class="b">
+                                                <a href="">Alienware</a>
+                                                <a href="">ASUS ROG</a>
+                                                <a href="">MSI Gaming</a>
+                                                <a href="">HP OMEN</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">Workstation</div>
+                                            <div class="b">
+                                                <a href="">Dell Precision</a>
+                                                <a href="">HP Z</a>
+                                                <a href="">Lenovo ThinkStation</a>
+                                                <a href="">Apple Mac Pro</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">Mini PC</div>
+                                            <div class="b">
+                                                <a href="">Intel NUC</a>
+                                                <a href="">ASUS Mini PC</a>
+                                                <a href="">MSI Cubi</a>
+                                                <a href="">Apple Mac Mini</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">All-in-One PC</div>
+                                            <div class="b">
+                                                <a href="">HP All-in-One</a>
+                                                <a href="">Dell Inspiron</a>
+                                                <a href="">Lenovo Yoga AIO</a>
+                                                <a href="">Apple iMac</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">Server PC</div>
+                                            <div class="b">
+                                                <a href="">Dell PowerEdge</a>
+                                                <a href="">HP ProLiant</a>
+                                                <a href="">Lenovo ThinkServer</a>
+                                                <a href="">Supermicro</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                      
+                                <div class="dropdown-item">
+                                    <div class="down">
+                                        <img src="icon/monitor.png" alt="">
+                                        <span>Màn hình</span>
+                                        <img src="icon/right.png" alt="">
+                                    </div>
+                                    <div class="down-right">
+                                        <div class="title">
+                                            <div class="a">LCD</div>
+                                            <div class="b">
+                                                <a href="">Dell</a>
+                                                <a href="">HP</a>
+                                                <a href="">Samsung</a>
+                                                <a href="">LG</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">LED</div>
+                                            <div class="b">
+                                                <a href="">Asus</a>
+                                                <a href="">BenQ</a>
+                                                <a href="">Acer</a>
+                                                <a href="">ViewSonic</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">OLED</div>
+                                            <div class="b">
+                                                <a href="">Sony</a>
+                                                <a href="">Panasonic</a>
+                                                <a href="">Philips</a>
+                                                <a href="">Vizio</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">QLED</div>
+                                            <div class="b">
+                                                <a href="">Samsung</a>
+                                                <a href="">TCL</a>
+                                                <a href="">Hisense</a>
+                                                <a href="">Vizio</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">Plasma</div>
+                                            <div class="b">
+                                                <a href="">Pioneer</a>
+                                                <a href="">Panasonic</a>
+                                                <a href="">LG</a>
+                                                <a href="">Samsung</a>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>              
+                                <div class="dropdown-item">
+                                    <div class="down">
+                                        <img src="icon/cpu-tower.png" alt="">
+                                        <span>Linh kiện máy tính</span>
+                                        <img src="icon/right.png" alt="">
+                                    </div>
+                                    <div class="down-right">
+                                        <div class="title">
+                                            <div class="a">CPU</div>
+                                            <div class="b">
+                                                <a href="">Intel Core i7</a>
+                                                <a href="">Intel Core i5</a>
+                                                <a href="">AMD Ryzen 7</a>
+                                                <a href="">AMD Ryzen 5</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">SSD</div>
+                                            <div class="b">
+                                                <a href="">SSD 256GB</a>
+                                                <a href="">SSD 512GB</a>
+                                                <a href="">SSD 1TB</a>
+                                                <a href="">SSD 2TB</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">RAM</div>
+                                            <div class="b">
+                                                <a href="">8GB</a>
+                                                <a href="">16GB</a>
+                                                <a href="">32GB</a>
+                                                <a href="">64GB</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">GPU</div>
+                                            <div class="b">
+                                                <a href="">NVIDIA RTX 3060</a>
+                                                <a href="">NVIDIA RTX 3070</a>
+                                                <a href="">AMD Radeon RX 6800</a>
+                                                <a href="">AMD Radeon RX 6900</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-item">
+                                    <div class="down">
+                                        <img src="icon/flash-disk.png" alt="">
+                                        <span>Thiết bị lưu trữ</span>
+                                        <img src="icon/right.png" alt="">
+                                    </div>
+                                    <div class="down-right">
+                                        <div class="title">
+                                            <div class="a">USB</div>
+                                            <div class="b">
+                                                <a href="">USB 16GB</a>
+                                                <a href="">USB 32GB</a>
+                                                <a href="">USB 64GB</a>
+                                                <a href="">USB 128GB</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">Ổ cứng di động</div>
+                                            <div class="b">
+                                                <a href="">WD My Passport</a>
+                                                <a href="">Seagate Expansion</a>
+                                                <a href="">Toshiba Canvio</a>
+                                                <a href="">Samsung T5</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">Thẻ nhớ SD</div>
+                                            <div class="b">
+                                                <a href="">Sandisk</a>
+                                                <a href="">Kingston</a>
+                                                <a href="">Samsung</a>
+                                                <a href="">Lexar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-item">
+                                    <div class="down">
+                                        <img src="icon/keyboard-and-mouse.png" alt="">
+                                        <span>Phụ kiện</span>
+                                        <img src="icon/right.png" alt="">
+                                    </div>
+                                    <div class="down-right">
+                                        <div class="title">
+                                            <div class="a">Chuột</div>
+                                            <div class="b">
+                                                <a href="">Logitech</a>
+                                                <a href="">Razer</a>
+                                                <a href="">SteelSeries</a>
+                                                <a href="">Corsair</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">Bàn phím</div>
+                                            <div class="b">
+                                                <a href="">Mechanical Keyboard</a>
+                                                <a href="">Membrane Keyboard</a>
+                                                <a href="">Bluetooth Keyboard</a>
+                                                <a href="">Gaming Keyboard</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">Tai nghe</div>
+                                            <div class="b">
+                                                <a href="">Sony</a>
+                                                <a href="">Sennheiser</a>
+                                                <a href="">Razer</a>
+                                                <a href="">SteelSeries</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">Webcam</div>
+                                            <div class="b">
+                                                <a href="">Logitech</a>
+                                                <a href="">Microsoft</a>
+                                                <a href="">Razer</a>
+                                                <a href="">Creative</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-item">
+                                    <div class="down">
+                                        <img src="icon/router.png" alt="">
+                                        <span>Thiết bị mạng</span>
+                                        <img src="icon/right.png" alt="">
+                                    </div>
+                                    <div class="down-right">
+                                        <div class="title">
+                                            <div class="a">Router</div>
+                                            <div class="b">
+                                                <a href="">TP-Link</a>
+                                                <a href="">Asus</a>
+                                                <a href="">Netgear</a>
+                                                <a href="">Linksys</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">Switch</div>
+                                            <div class="b">
+                                                <a href="">Cisco</a>
+                                                <a href="">D-Link</a>
+                                                <a href="">Netgear</a>
+                                                <a href="">TP-Link</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">Wi-Fi Extender</div>
+                                            <div class="b">
+                                                <a href="">Netgear</a>
+                                                <a href="">TP-Link</a>
+                                                <a href="">D-Link</a>
+                                                <a href="">Asus</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-item">
+                                    <div class="down">
+                                        <img src="icon/gaming.png" alt="">
+                                        <span>Gaming Gear</span>
+                                        <img src="icon/right.png" alt="">
+                                    </div>
+                                    <div class="down-right">
+                                        <div class="title">
+                                            <div class="a">Gaming Chair</div>
+                                            <div class="b">
+                                                <a href="">DXRacer</a>
+                                                <a href="">Secretlab</a>
+                                                <a href="">Anda Seat</a>
+                                                <a href="">Corsair</a>
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <div class="a">Gamepad</div>
+                                            <div class="b">
+                                                <a href="">Xbox</a>
+                                                <a href="">PlayStation</a>
+                                                <a href="">Razer</a>
+                                                <a href="">SteelSeries</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </div>                        
+                        </div>                    
+                    </div>            
+                    <div class="nav-bar">
+                        <div class="menu">
+                            <a href="Home.html">Trang chủ</a>
+                            <a href="#">Giới thiệu</a>
+                            <a href="Product-List.html">Sản phẩm</a>
+                            <a href="#">Hệ thống cửa hàng</a>
+                            <a href="#">Tin tức</a>
+                            <a href="#">Chính sách</a>
+                            <a href="#">Liên hệ</a>
+                        </div>                 
+                    </div>  
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="middle">
+        <div class="frame">
+            <div class="deal">               
+                <div class="product-list">
+                    <div class="product-item">
+                        <a href="Sản phẩm.html">
+                            <img src="img/deal-1.jpg" alt="Sản phẩm 1">
+                            <p>[New 100%] Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)</p>
+                            <div class="price-all">
+                                <span id="new-price">29.490.000</span>
+                                <span id="old-price">36.990.000</span>
+                            </div>                     
+                        </a>                       
+                    </div>
+                    <div class="product-item">
+                        <a href="Sản phẩm 2.html">
+                            <img src="img/deal-2.jpg" alt="Sản phẩm 1">
+                            <p>[New 100%] Acer Predator Helios 2023 (Core i5-13500HX, 16GB, 512GB, RTX 4050 6GB, 16" FHD+ 165Hz)</h5>
+                            <div class="price-all">
+                                <span id="new-price">24.490.000</span>
+                                <span id="old-price">29.890.000</span>
+                            </div>                     
+                        </a>
+                    </div>
+                    <div class="product-item">
+                        <a href="">
+                            <img src="img/deal-3.jpg" alt="Sản phẩm 1">
+                            <p>[New 100%] Lenovo Legion 5 R7000 APH9 (Ryzen 7-7840H, 16GB, 512GB, RTX 4060 8GB, 15.6'' FHD 144Hz)</p>
+                            <div class="price-all">
+                                <span id="new-price">29.990.000</span>
+                                <span id="old-price">29.990.000</span>
+                            </div>                   
+                        </a>
+                    </div>
+                    <div class="product-item">
+                        <a href="">
+                            <img src="img/deal-4.jpg" alt="Sản phẩm 1">
+                            <p>[New 100%] Lenovo GeekPro G5000 2024 (Core i7-13650HX, 16GB, 512GB, RTX 4060 8GB, 15.6" FHD 144Hz)</p>
+                            <div class="price-all">
+                                <span id="new-price">26.890.000</span>
+                                <span id="old-price">32.990.000</span>
+                            </div>                     
+                        </a>
+                    </div>
+                    <div class="product-item">
+                        <a href="">
+                            <img src="img/deal-5.jpg" alt="Sản phẩm 1">
+                            <p>[New 100%] Laptop Gaming HP Victus 2023 15-fa1093dx (Core i5-13420H, 8GB, 512GB, RTX 3050 6GB, 15.6" FHD 144Hz)</p>
+                            <div class="price-all">
+                                <span id="new-price">17.990.000</span>
+                                <span id="old-price">22.990.000</span>
+                            </div>                    
+                        </a>
+                    </div>
+                    <div class="product-item">
+                        <a href="">
+                            <img src="img/Acer.jpg" alt="Sản phẩm 1">
+                            <p style="font-size: 14px;">[New 100%] Laptop Gaming Acer Nitro 5 2021(Core i5 - 11400H, 16GB, 512GB, RTX3050Ti, 15.6'' FHD IPS 144Hz)</p>
+                            <div class="price-all">
+                                <span id="new-price">15.990.000</span>
+                                <span id="old-price">18.990.000</span>
+                            </div>                     
+                        </a>                       
+                    </div>
+                    <div class="product-item">
+                        <a href="">
+                            <img src="img/Acer-2.jpg" alt="Sản phẩm 1">
+                            <p>[New 100%] Acer Nitro 5 Tiger AN515-58 (Core i5 - 12500H, 8GB, 512GB, RTX 3050, 15.6" FHD IPS 144Hz)</h5>
+                            <div class="price-all">
+                                <span id="new-price">18.490.000</span>
+                                <span id="old-price">22.990.000</span>
+                            </div>                     
+                        </a>
+                    </div>
+                    <div class="product-item">
+                        <a href="">
+                            <img src="img/Acer-4.jpg" alt="Sản phẩm 1">
+                            <p>[Like New] Acer Nitro 5 AN515-54-50TP (Core i5-9300H, 8GB, 512GB, GTX 1650 4GB, 15.6 FHD IPS)</p>
+                            <div class="price-all">
+                                <span id="new-price">12.490.000</span>
+                                <span id="old-price">15.990.000</span>
+                            </div>                   
+                        </a>
+                    </div>
+                    <div class="product-item">
+                        <a href="">
+                            <img src="img/Acer-3.jpg" alt="Sản phẩm 1">
+                            <p>[Like New] Acer Nitro 5 AN515-45-R7WA (Ryzen 7 - 5800H, 16GB, 512GB, RTX 3060 6GB, 15.6" FHD IPS 144Hz)</p>
+                            <div class="price-all">
+                                <span id="new-price">17.590.000</span>
+                                <span id="old-price">24.990.000</span>
+                            </div>                     
+                        </a>
+                    </div>
+                    <div class="product-item">
+                        <a href="Sản phẩm.html">
+                            <img src="img/lenovo-1.png" alt="Sản phẩm 1">
+                            <p>[New 100%] Lenovo Legion Pro 5 Y9000P 2023 (Core i9-13900HX, 16GB, 1TB, RTX 4050 6GB, 16" 2K+ 240Hz)</p>
+                            <div class="price-all">
+                                <span id="new-price">34.590.000</span>
+                                <span id="old-price">39.990.000</span>
+                            </div>                     
+                        </a>                       
+                    </div>
+                    <div class="product-item">
+                        <a href="Sản phẩm 2.html">
+                            <img src="img/lenovo-2.jpg" alt="Sản phẩm 1">
+                            <p>[New 100%] Lenovo Legion Slim 5 Y7000P (Core i7-13620H, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)</h5>
+                            <div class="price-all">
+                                <span id="new-price">27.890.000</span>
+                                <span id="old-price">30.890.000</span>
+                            </div>                     
+                        </a>
+                    </div>
+                    <div class="product-item">
+                        <a href="">
+                            <img src="img/lenovo-3.jpg" alt="Sản phẩm 1">
+                            <p>[New 100%]Laptop Lenovo ThinkPad Gen 3 Core i7-10750H, 8GB, 256GB, NVIDIA® Quadro T1000 4GB Max-Q, 15.6 FHD IPS</p>
+                            <div class="price-all">
+                                <span id="new-price">36.490.000</span>
+                                <span id="old-price">38.400.009</span>
+                            </div>                   
+                        </a>
+                    </div>
+                    <div class="product-item">
+                        <a href="">
+                            <img src="img/lenovo-4.jpg" alt="Sản phẩm 1">
+                            <p>[New 100%] Lenovo Legion 5 15ARP8 (Ryzen 7-7735HS, 16GB, 512GB, RTX 4060 8GB, 15.6'' 2K+ 165Hz)</p>
+                            <div class="price-all">
+                                <span id="new-price">26.390.000</span>
+                                <span id="old-price">33.990.000</span>
+                            </div>                     
+                        </a>
+                    </div>                  
+                </div>
+            </div>
+            <div class="footer-1">
+                <div class="title-foot">
+                    <p>TIN TỨC CÔNG NGHỆ MỚI</p>
+                </div>
+                <div class="list-Tin">
+                    <div class="Tin-Tuc">
+                        <div class="item-Tin">
+                            <img src="img/Tin-1.jpg" alt="">
+                            <div class="media-body">
+                                <div class="Time-Tin">
+                                    <span class="date">05-05-2024, 4:25 pm</span>
+                                </div>
+                                <div class="title-Tin">
+                                    <a href="">HÈ RỰC RỠ DEAL HẾT CỠ - TẶNG TỚI 5 TRIỆU ĐỒNG!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>             
+                    <div class="Tin-Tuc">
+                        <div class="item-Tin">
+                            <img src="img/Tin-2.jpg" alt="">
+                            <div class="media-body">
+                                <div class="Time-Tin">
+                                    <span class="date">05-05-2024, 4:25 pm</span>
+                                </div>
+                                <div class="title-Tin">
+                                    <a href="">TOP 4 Laptop Bán Chạy Nhất Chương Trình Hè Rực Rỡ Deal Hết Cỡ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>              
+                    <div class="Tin-Tuc">
+                        <div class="item-Tin">
+                            <img src="img/Tin-3.jpg" alt="">
+                            <div class="media-body">
+                                <div class="Time-Tin">
+                                    <span class="date">05-05-2024, 4:25 pm</span>
+                                </div>
+                                <div class="title-Tin">
+                                    <a href="">Chuẩn Ram Mới LPCAMM2 - Tương Lai Của Laptop</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>              
+                    <div class="Tin-Tuc">
+                        <div class="item-Tin">
+                            <img src="img/Tin-4.jpg" alt="">
+                            <div class="media-body">
+                                <div class="Time-Tin">
+                                    <span class="date">05-05-2024, 4:25 pm</span>
+                                </div>
+                                <div class="title-Tin">
+                                    <a href="">AMD ra mắt Ryzen 9000 series và Ryzen AI 300 series </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>         
+    </div>  
+    <div class="footer-2">
+        <div class="icon-row">
+            <div class="icon-item">
+                <div class="icon"> <img src="img/truck.png" alt="Technical Support"></div>
+                <div class="media"><h5>Giao hàng miễn phí toàn quốc</h5></div>                    
+            </div>
+            <div class="icon-item">
+                <div class="icon"> <img src="img/location.png" alt="Technical Support"></div>
+                <div class="media"><h5>Mua hàng từ xa</h5></div> 
+            </div>
+            <div class="icon-item">
+                <div class="icon"> <img src="img/return.png" alt="Technical Support"></div>
+                <div class="media"><h5>Đổi trả hàng trong 15 ngày</h5></div> 
+            </div>
+            <div class="icon-item">
+                <div class="icon"> <img src="img/card.png" alt="Technical Support"></div>
+                <div class="media"><h5>Thanh toán linh hoạt</h5></div> 
+            </div>
+            <div class="icon-item">
+                <div class="icon"> <img src="img/phone.png" alt="Technical Support"></div>
+                <div class="media"><h5>Hotline: <span>0385 555 849</span></h5></div> 
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="bottom-content"><b>HỆ THỐNG CỬA HÀNG MÁY TÍNH HIEUPC</b>
+                <li>Địa chỉ: Số 18, ngõ 121, Thành Phố Hưng Yên, Hưng Yên</li>
+                <li>Hotline: 0385 555 849 </li>
+                <li>Email: hotrolaptopHieuPC@gmail.com</li>
+                <img id="MXH" src="img/face.jpg" alt="">
+                <img id="MXH" src="img/youtube.jpg" alt="">
+                <img id="MXH" src="img/tiktok.jpg" alt="">
+            </div> 
+            <div class="bottom-content"><b>THÔNG TIN CỬA HÀNG</b>
+                <li><a href="">Giới thiệu về cửa hàng</a></li>
+                <li><a href="">Tuyển dụng</a></li>
+                <li><a href="">Gửi góp ý, khiếu nại</a></li>
+                <img id="Chung-Nhan" src="img/Chung-Nhan.jpg" alt="">
+            </div>
+            <div class="bottom-content"><b>CHÍNH SÁCH CỬA HÀNG</b>
+                <li><a href="">Chính sách chất lượng</a></li>
+                <li><a href="">Chính sách bảo hành - bảo trì</a></li>
+                <li><a href="">Chính sách đổi trả</a></li>
+                <li><a href="">Chính sách bảo mật thông tin</a></li>
+                <li><a href="">Chính sách vận chuyển</a></li>
+                <li><a href="">Hướng dẫn mua hàng - thanh toán</a></li> 
+            </div>       
+        </div> 
+    </div>
+    <script src="js/DS_SanPham.js"></script>
+</body>
+</html>

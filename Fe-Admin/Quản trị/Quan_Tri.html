@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản trị quản lý cửa hàng máy tính HIEUPC</title>
+    <link rel="icon" type="image/png" href="img/logo1.png">
+    <link rel="stylesheet" href="css/Quan_Tri.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href='https://unpkg.com/boxicons/css/boxicons.min.css' rel='stylesheet'>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body ng-app="AppAdmin">	
+
+	<!-- MENU -->	
+	<div id="left" ng-controller = "TabController">
+		<div class="container">
+			<a class="button" data-tab="Home" id="logo">
+				<img src="img/logo1.png" alt="">
+				<h3>HIEUPC STORE</h3>
+			</a>
+			<div class="content">
+				<div class="content-1">
+					<h3 class="title">
+						<span id="một">Đơn hàng</span>
+						<span id="hai">---</span>
+					</h3>
+					<ul class="menu">
+						<li class="menu-content">
+							<div class="button BanHang" data-tab="BanHang">
+								<div class="content-body">
+									<i class="fas fa-warehouse"></i>
+									<span>Đơn đặt hàng</span>
+								</div>
+							</div>
+						</li>
+						<li class="menu-content">
+							<div class="button NhapHang" data-tab="NhapHang">
+								<div class="content-body">
+									<i class="fas fa-chart-line"></i>
+									<span>Nhập hàng</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+				<div class="content-2">
+					<h3 class="title">
+						<span id="một">Danh mục quản lý</span>
+						<span id="hai">---</span>
+					</h3>
+					<ul class="menu">
+						<li class="menu-content">
+								<div>
+									<div class="content-body">
+										<i class="fas fa-laptop"></i>
+										<span>Mục mặt hàng</span>
+										<i class="bi bi-arrow-down"></i>
+									</div>
+							</div>
+							<div class="dropdown-content">
+								<ul>
+									<li class="button DanhMuc" data-tab="DanhMuc"><a href="#"><span>Danh mục loại hàng</span></a></li>
+									<li class="button MatHang" data-tab="MatHang"><a href="#"><span>Danh sách mặt hàng</span></a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="menu-content">
+							<div>
+								<div class="content-body" >
+									<i class="fas fa-users"></i>
+									<span>Mục người dùng</span>
+									<i class="bi bi-arrow-down"></i>
+								</div>
+							</div>
+							<div class="dropdown-content">
+								<ul>
+									<li class="button Nguoi_Dung" data-tab="NguoiDung"><a href="#"><span>Thông tin khách hàng</span></a></li>
+									<li class="button DanhGia" data-tab="DanhGia"><a href="#"><span>Đánh giá mặt hàng</span></a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="menu-content">
+							<div>
+								<div class="content-body">
+									<i class="fas fa-file-invoice"></i>
+									<span>Mục hoá đơn</span>
+									<i class="bi bi-arrow-down"></i>
+								</div>
+							</div>
+							<div class="dropdown-content">
+								<ul>
+									<li class="button HoaDonNhap" data-tab="DonNhap"><a href="#"><span>Hoá đơn nhập hàng</span></a></li>
+									<li class="button HoaDonBan" data-tab="DonBan"><a href="#"><span>Hoá đơn bán hàng</span></a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="menu-content" >
+							<div class="button NhaCungCap" data-tab="NhaCungCap">
+								<div class="content-body">
+									<i class="fas fa-industry"></i>
+									<span>Thông tin nhà cung cấp</span>
+								</div>
+							</div>
+						</li>
+						<li class="menu-content" >
+							<div class="button GiamGia" data-tab="GiamGia">
+								<div class="content-body">
+									<i class="fas fa-tags"></i>
+									<span>Deal - Voucher</span>
+								</div>
+							</div>
+						</li>
+						<li class="menu-content">
+							<div class="button Kho" data-tab="Kho">
+								<div class="content-body">
+									<i class="fas fa-warehouse"></i>
+									<span>Kho hàng</span>
+								</div>
+							</div>
+						</li>
+						<li class="menu-content">
+							<div class="button" data-tab="ThongKe">
+								<div class="content-body">
+									<i class="fas fa-chart-line"></i>
+									<span>Thống kê, báo cáo</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+				<div class="content-3" >
+					<h3 class="title">
+						<span id="một">Cài đặt</span>
+						<span id="hai">---</span>
+					</h3>
+					<ul class="menu">
+						<li class="menu-content">
+							<a>
+								<div class="content-body">
+									<i class="fas fa-user"></i>
+									<span>Tài khoản</span>
+									<i class="bi bi-arrow-down"></i>
+								</div>
+							</a>
+							<div class="dropdown-content">
+								<ul>
+									<li><a href="Dang_Nhap.html"><span>Đăng nhập</span></a></li>
+									<li><a href=""><span>Quên mật khẩu</span></a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="menu-content">
+							<a>
+								<div class="content-body">
+									<i class="fas fa-server"></i>
+									<span>Hệ thống</span>
+									<i class="bi bi-arrow-down"></i>
+								</div>
+							</a>
+							<div class="dropdown-content">
+								<ul>
+									<li><a href=""><span>Cấu hình hệ thống</span></a></li>
+									<li><a href=""><span>Cập nhật phần mềm</span></a></li>
+									<li><a href=""><span>Giám sát hệ thống</span></a></li>
+									<li><a href=""><span>Dự phòng và phục hồi</span></a></li>
+									<li><a href=""><span>Báo cáo hệ thống</span></a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="menu-content">
+							<a>
+								<div class="content-body">
+									<i class="fas fa-tools"></i>
+									<span>Bảo trì</span>
+									<i class="bi bi-arrow-down"></i>
+								</div>
+							</a>
+							<div class="dropdown-content">
+								<ul>
+									<li><a href=""><span>Lịch bảo trì</span></a></li>
+									<li><a href=""><span>Kiểm tra và sửa chữa</span></a></li>
+									<li><a href=""><span>Quản lý thiết bị</span></a></li>
+									<li><a href=""><span>Cập nhật bảo trì</span></a></li>
+									<li><a href=""><span>Dịch vụ và hỗ trợ</span></a></li>
+									<li><a href=""><span>Báo cáo bảo trì</span></a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>               
+			</div>	
+			<div class="logout">
+				<i class='bx bx-log-out'></i> 
+				<span>Đăng xuất</span>
+			</div>			
+		</div>
+	</div>
+
+	<!-- TRANG CHỦ -->
+	<div id="right">	
+
+		<div class="nav">
+			<div class="left-section">
+			</div>
+			<div class="right-section">
+				<div class="content">
+					<div class="info">
+						<i class="bx bx-bell noti-icon"></i>
+						<div class="dropdown-content noti-box">
+							<div class="noti-header">
+								<div>Thông báo trong ngày</div>
+							</div>
+								<div class="notif-wrapper">
+								  <div class="notif-center">
+									<a href="#">
+									  <div class="notif-icon notif-primary">
+										<i class="fa fa-user-plus"></i>
+									  </div>
+									  <div class="notif-content">
+										<span class="block"> New user registered </span>
+										<span class="time">5 minutes ago</span>
+									  </div>
+									</a>
+									<a href="#">
+									  <div class="notif-icon notif-success">
+										<i class="fa fa-comment"></i>
+									  </div>
+									  <div class="notif-content">
+										<span class="block"> Rahmad commented on Admin </span>
+										<span class="time">12 minutes ago</span>
+									  </div>
+									</a>
+									<a href="#">
+										<div class="notif-icon notif-success">
+										  <i class="fa fa-comment"></i>
+										</div>
+										<div class="notif-content">
+										  <span class="block"> Rahmad commented on Admin </span>
+										  <span class="time">12 minutes ago</span>
+										</div>
+									  </a>
+									<a href="#">
+									  <div class="notif-img">
+										<img src="User/hieu.jpg" alt="Img Profile">
+									  </div>
+									  <div class="notif-content">
+										<span class="block"> Reza sent messages to you </span>
+										<span class="time">12 minutes ago</span>
+									  </div>
+									</a>
+									<a href="#">
+									  <div class="notif-icon notif-danger">
+										<i class="fa fa-heart"></i>
+									  </div>
+									  <div class="notif-content">
+										<span class="block"> Farrah liked Admin </span>
+										<span class="time">17 minutes ago</span>
+									  </div>
+									</a>
+								  </div>
+								</div>						  
+							<div class="noti-footer">
+								<a href="#">Xem tất cả thông báo</a>
+								<i class="fas fa-angle-right"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content">
+					<div class="profile">
+						<div class="info">
+							<img src="User//hieu.jpg">
+							<div>
+								<a href="#">HieuLuong</a>
+								<p>Administrator</p>
+							</div>
+						</div>
+						<i class='bx bx-chevron-down'></i>
+						<div class="dropdown-content login" >
+							<a class="noti-item unread" href="Dang_Nhap.html">
+								<i class="fas fa-sign-in-alt"></i>
+								<span>Đăng nhập</span>
+							</a>
+							<a class="noti-item unread" href="">
+								<i class="fas fa-sign-out-alt"></i>
+								<span>Đăng xuất</span>
+							</a>								
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+
+		<!-- DỮ LIỆU -->
+		<div class="container">		
+
+			<!-- Home -->
+			<div class="tab-content" id="Home">
+				<div class="body">
+					<div class="status">
+						<div class="items-list">
+							<div class="item">
+								<div class="info">
+									<div>
+										<h5>Doanh thu</h5>
+										<p>- 3 lessons left</p>
+										<p>- 1 project left</p>
+									</div>
+									<i class='bx bx-dollar'></i>
+								</div>
+								<div class="progress">
+									<div class="bar"></div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="info">
+									<div>
+										<h5>Số lượng Order</h5>
+										<p>- 2 assignments left</p>
+										<p>- 5 tutorials left</p>
+									</div>
+									<i class='bx bx-cart'></i>
+								</div>
+								<div class="progress">
+									<div class="bar"></div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="info">
+									<div>
+										<h5>Số lượng View</h5>
+										<p>- 4 chapters left</p>
+										<p>- 8 quizzes left</p>
+									</div>
+									<i class='bx bx-show'></i>
+								</div>
+								<div class="progress">
+									<div class="bar"></div>
+								</div>
+							</div>
+							<div class="item">
+								<canvas class="activity-chart" style="height: 105px;"></canvas>
+							</div>
+						</div>
+					</div>
+					<div class="bottom-container">
+						<div class="prog-status">
+							<div class="header">
+								<h4>learning Progress</h4>
+								<div class="tabs">
+									<a href="#" class="active">1Y</a>
+									<a href="#">6M</a>
+									<a href="#">3M</a>
+								</div>
+							</div>
+				
+							<div class="details">
+								<div class="item">
+									<h2>3.45</h2>
+									<p>Current GPA</p>
+								</div>
+								<div class="separator"></div>
+								<div class="item">
+									<h2>4.78</h2>
+									<p>Class Average GPA</p>
+								</div>
+							</div>
+							<canvas class="prog-chart"></canvas>
+						</div>			
+						<div class="popular">
+							<div class="header">
+								<h4>Popular</h4>
+								<a href="#"># Data</a>
+							</div>
+				
+							<!-- <img src="assets/podcast.jpg"> -->
+							<div class="audio">
+								<i class='bx bx-podcast'></i>
+								<a href="#">Poedcast: Mastering Data Visualization</a>
+							</div>
+							<p>Learn to create compelling visualizations with data.</p>
+							<div class="listen">
+								<div class="author">
+									<!-- <img src="assets/profile.png"> -->
+									<div>
+										<a href="#">Alex</a>
+										<p>Data Analyst</p>
+									</div>
+								</div>
+								<button>Listen<i class='bx bx-right-arcolumn-alt'></i></button>
+							</div>		
+						</div>
+					</div>
+					<div class="map">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.2610309563406!2d106.0599275922326!3d20.94202998855618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a30555555555%3A0x39a8acd006ab8e69!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBTxrAgUGjhuqFtIEvhu7kgVGh14bqtdCBIxrBuZyBZw6puLCBDxqEgc-G7nyAy!5e0!3m2!1svi!2s!4v1732110944979!5m2!1svi!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
+				</div>
+				
+			</div>
+
+			<div class="tab-content" id="NhapHang" ng-controller="NhapHangController">
+				<div class="container">
+					<div class="title">
+						<h1>Quản lý Nhập Hàng</h1>
+					</div>
+			
+					<div class="body">
+						<!-- Hiển thị dữ liệu danh sách Nhập Hàng -->
+						<div class="table">
+							<table class="product-table">
+								<thead>
+									<tr>
+										<th>STT</th>
+										<th>ID Hóa Đơn Nhập</th>
+										<th>Tên Nhà Cung Cấp</th>
+										<th>ID Chi Tiết Nhập</th>
+										<th>Tên Mặt Hàng</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="item in getAllNhapHang()">
+										<td>{{ $index + 1 }}</td>
+										<td>{{ item.idHoaDonNhap }}</td>
+										<td>{{ item.tenNhaCungCap }}</td>
+										<td>{{ item.idChiTietNhap }}</td>
+										<td>{{ item.tenMatHang }}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+			
+						<!-- Form nhập hàng -->
+						<div class="form">
+							<div class="container-form">
+								<div class="columns">
+									<!-- Cột 1: Thông tin Nhà Cung Cấp -->
+									<div class="column">
+										<h4>Thông tin Nhà Cung Cấp</h4>
+										<ul>
+											<li>
+												<label>ID Nhà Cung Cấp:</label>
+												<input type="text" ng-model="nhaCungCap.idNhaCungCap" class="form-control" readonly />
+											</li>
+											<li>
+												<label>Tên Nhà Cung Cấp:</label>
+												<input type="text" ng-model="nhaCungCap.tenNhaCungCap" class="form-control" readonly />
+											</li>
+											<li>
+												<label>Email:</label>
+												<input type="text" ng-model="nhaCungCap.email" class="form-control" readonly />
+											</li>
+											<li>
+												<label>Số Điện Thoại:</label>
+												<input type="text" ng-model="nhaCungCap.sdt" class="form-control" readonly />
+											</li>
+											<li>
+												<label>Địa Chỉ:</label>
+												<textarea ng-model="nhaCungCap.diaChi" class="form-control" readonly></textarea>
+											</li>
+										</ul>
+									</div>
+			
+									<!-- Cột 2: Thông tin Đơn Nhập -->
+									<div class="column">
+										<h4>Thông tin Đơn Nhập</h4>
+										<ul>
+											<li>
+												<label>ID Đơn Nhập:</label>
+												<input type="text" ng-model="donNhap.idDonNhap" class="form-control" readonly />
+											</li>
+											<li>
+												<label>Ngày Nhập:</label>
+												<input type="date" ng-model="donNhap.ngayNhap" class="form-control" />
+											</li>
+											<li>
+												<label>Trạng Thái:</label>
+												<input type="text" ng-model="donNhap.trangThai" class="form-control" />
+											</li>
+											<li>
+												<label>Ghi Chú:</label>
+												<textarea ng-model="donNhap.ghiChu" class="form-control"></textarea>
+											</li>
+											<li>
+												<label>Tổng Tiền:</label>
+												<input type="number" ng-model="donNhap.tongTien" class="form-control" readonly />
+											</li>
+										</ul>
+									</div>
+			
+									<!-- Cột 3: Chi Tiết Nhập -->
+									<div class="column">
+										<h4>Chi Tiết Nhập</h4>
+										<ul>
+											<li>
+												<label>ID Đơn Nhập:</label>
+												<input type="text" ng-model="chiTietNhap.idDonNhap" class="form-control" readonly />
+											</li>
+											<li>
+												<label>ID Mặt Hàng:</label>
+												<input type="text" ng-model="chiTietNhap.idMatHang" class="form-control" placeholder="Chọn ID Mặt Hàng" />
+											</li>
+											<li>
+												<label>Số Lượng:</label>
+												<input type="number" ng-model="chiTietNhap.soLuong" class="form-control" />
+											</li>
+											<li>
+												<label>Giá Nhập:</label>
+												<input type="number" ng-model="chiTietNhap.giaNhap" class="form-control" />
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+			
+							<div class="foot">
+								<button class="btn" ng-click="refreshNhapHang()">Làm mới</button>
+								<button class="btn-success" ng-click="saveNhapHang()">Lưu</button>
+								<button class="btn-Update" ng-click="resetNhapHang()">Hủy</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- DANH MỤC -->
+			<div class="tab-content" id="DanhMuc" ng-controller = "DanhMuccontroller">
+					
+				<!-- Danh mục cha -->
+					<div class="container">
+						<div class="title">
+							<h1>Danh mục</h1>
+						</div>
+						<div class="form">
+							<div class="option">									
+								<div ng-show="showFormDMCha" class="overlay" ng-click="showFormDMCha = false"></div>
+								<div class="form" ng-show="showFormDMCha">
+									<div class="container-form">
+										<div class="head">
+											<h4>Danh mục cha</h4>
+										</div>
+										<div class="between">
+											<ul>
+												<li>
+													<label>ID Danh mục</label>
+													<input  ng-model="newDanhMuc.idDanhMuc" type="text" class="form-control" placeholder="ID Danh mục">
+												</li>
+												<li>
+													<label>Tên Danh mục</label>
+													<input ng-model="newDanhMuc.tenDanhMuc" type="text" class="form-control" placeholder="Tên Danh mục">
+												</li>
+											</ul>
+										</div>
+										<div class="foot">
+											<button ng-click="refresh()">Làm mới</button>
+											<button ng-click="AddDanhMuc()" class="btn-success">Thêm</button>
+											<button ng-click="UpdateDanhMuc()" class="btn-Update">Sửa</button>
+											<button ng-click="reset()" class="btn-danger">Hủy</button>
+										</div>
+									</div>
+								</div>		
+								<div class="op">
+									<form action="#">
+										<div class="filter">
+											<label>Search:
+											<input type="search" class="form-control" placeholder="Nhập thông tin...." ng-model = "searchDanhMuc"></label>
+										</div>
+									</form>
+								</div>	
+								<div class="action">					
+									<button class="ChiTiet" ng-click="showFormChiTietDanhMuc = !showFormChiTietDanhMuc"> 
+										<i class='bx bx-detail'></i>Chi tiết danh mục phụ
+									</button>
+									<button class="btn-add" ng-click="showFormDMCha = !showFormDMCha">
+										<i class='bx bx-plus'></i> Thêm mới
+									</button>
+									<button class="btn-Update" ng-click="editSelectedDanhMucCha">
+										<i class='bx bx-edit'></i> sửa
+									</button>
+									<button class="btn-Delete" ng-click="deleteDanhMucCha(user)">
+										<i class='bx bx-trash'></i> sửa
+									</button>
+								</div>		
+							</div>
+							<div class="table">
+								<table class="product-table">
+									<thead>
+										<tr>
+											<th>
+												<input type="checkbox">
+											</th>
+											<th>STT</th>
+											<th>ID danh mục</th>
+											<th>Tên danh mục</th>
+											<th>Hành động</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="item in Get_ALL_DanhMuc1">
+											<td><input type="checkbox"></td>
+											<td>{{ $index + 1 }}</td>
+											<td>{{item.idDanhMuc}}</td>
+											<td>{{item.tenDanhMuc}}</td>
+											<td>
+												<button class="btn-Delete">
+													<i class='bx bx-trash'></i> Xoá
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>		
+							</div>
+						</div>
+					</div>		
+
+				<!-- Danh mục con -->
+					<div class="container">
+						<div class="title">
+							<h1>Danh mục</h1>
+						</div>
+						<div class="form" >
+							<div class="option">									
+								<div ng-show="showFormDMCha" class="overlay" ng-click="showFormDMCha = false"></div>
+								<div class="form" ng-show="showFormDMCha">
+									<div class="container-form">
+										<div class="head">
+											<h4>Danh mục cha</h4>
+										</div>
+										<div class="between">
+											<ul>
+												<li>
+													<label>ID Danh mục</label>
+													<input  ng-model="newDanhMuc.idDanhMuc" type="text" class="form-control" placeholder="ID Danh mục">
+												</li>
+												<li>
+													<label>Tên Danh mục</label>
+													<input ng-model="newDanhMuc.tenDanhMuc" type="text" class="form-control" placeholder="Tên Danh mục">
+												</li>
+											</ul>
+										</div>
+										<div class="foot">
+											<button ng-click="refresh()">Làm mới</button>
+											<button ng-click="AddDanhMuc()" class="btn-success">Thêm</button>
+											<button ng-click="UpdateDanhMuc()" class="btn-Update">Sửa</button>
+											<button ng-click="reset()" class="btn-danger">Hủy</button>
+										</div>
+									</div>
+								</div>		
+								<div class="op">
+									<form action="#">
+										<div class="filter">
+											<label>Search:
+											<input type="search" class="form-control" placeholder="Nhập thông tin...." ng-model = "searchDanhMuc"></label>
+										</div>
+									</form>
+								</div>	
+								<div class="action">					
+									<button class="ChiTiet" ng-click="showFormChiTietDanhMuc = !showFormChiTietDanhMuc"> 
+										<i class='bx bx-detail'></i>Chi tiết danh mục phụ
+									</button>
+									<button class="btn-add" ng-click="showFormDMCha = !showFormDMCha">
+										<i class='bx bx-plus'></i> Thêm mới
+									</button>
+									<button class="btn-Update" ng-click="editSelectedDanhMucCha">
+										<i class='bx bx-edit'></i> sửa
+									</button>
+									<button class="btn-Delete" ng-click="deleteDanhMucCha(user)">
+										<i class='bx bx-trash'></i> sửa
+									</button>
+								</div>		
+							</div>
+							<div class="table">
+								<table class="product-table">
+									<thead>
+										<tr>
+											<th>
+												<input type="checkbox">
+											</th>
+											<th>STT</th>
+											<th>ID danh mục</th>
+											<th>Tên danh mục</th>
+											<th>Hành động</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="item in Get_ALL_DanhMuc1">
+											<td><input type="checkbox"></td>
+											<td>{{ $index + 1 }}</td>
+											<td>{{item.idDanhMuc}}</td>
+											<td>{{item.tenDanhMuc}}</td>
+											<td>
+												<button class="btn-Delete">
+													<i class='bx bx-trash'></i> Xoá
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>		
+							</div>
+						</div>
+					</div>	
+				
+				<!-- Danh mục cháu -->
+					<div class="container">
+						<div class="title">
+							<h1>Danh mục</h1>
+						</div>
+						<div class="form" >
+							<div class="option">									
+								<div ng-show="showFormDMCha" class="overlay" ng-click="showFormDMCha = false"></div>
+								<div class="form" ng-show="showFormDMCha">
+									<div class="container-form">
+										<div class="head">
+											<h4>Danh mục cha</h4>
+										</div>
+										<div class="between">
+											<ul>
+												<li>
+													<label>ID Danh mục</label>
+													<input  ng-model="newDanhMuc.idDanhMuc" type="text" class="form-control" placeholder="ID Danh mục">
+												</li>
+												<li>
+													<label>Tên Danh mục</label>
+													<input ng-model="newDanhMuc.tenDanhMuc" type="text" class="form-control" placeholder="Tên Danh mục">
+												</li>
+											</ul>
+										</div>
+										<div class="foot">
+											<button ng-click="refresh()">Làm mới</button>
+											<button ng-click="AddDanhMuc()" class="btn-success">Thêm</button>
+											<button ng-click="UpdateDanhMuc()" class="btn-Update">Sửa</button>
+											<button ng-click="reset()" class="btn-danger">Hủy</button>
+										</div>
+									</div>
+								</div>		
+								<div class="op">
+									<form action="#">
+										<div class="filter">
+											<label>Search:
+											<input type="search" class="form-control" placeholder="Nhập thông tin...." ng-model = "searchDanhMuc"></label>
+										</div>
+									</form>
+								</div>	
+								<div class="action">					
+									<button class="ChiTiet" ng-click="showFormChiTietDanhMuc = !showFormChiTietDanhMuc"> 
+										<i class='bx bx-detail'></i>Chi tiết danh mục phụ
+									</button>
+									<button class="btn-add" ng-click="showFormDMCha = !showFormDMCha">
+										<i class='bx bx-plus'></i> Thêm mới
+									</button>
+									<button class="btn-Update" ng-click="editSelectedDanhMucCha">
+										<i class='bx bx-edit'></i> sửa
+									</button>
+									<button class="btn-Delete" ng-click="deleteDanhMucCha(user)">
+										<i class='bx bx-trash'></i> sửa
+									</button>
+								</div>		
+							</div>
+							<div class="table">
+								<table class="product-table">
+									<thead>
+										<tr>
+											<th>
+												<input type="checkbox">
+											</th>
+											<th>STT</th>
+											<th>ID danh mục</th>
+											<th>Tên danh mục</th>
+											<th>Hành động</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="item in Get_ALL_DanhMuc1">
+											<td><input type="checkbox"></td>
+											<td>{{ $index + 1 }}</td>
+											<td>{{item.idDanhMuc}}</td>
+											<td>{{item.tenDanhMuc}}</td>
+											<td>
+												<button class="btn-Delete">
+													<i class='bx bx-trash'></i> Xoá
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>		
+							</div>
+						</div>
+					</div>				
+			</div>			
+					
+			<!-- MẶT HÀNG -->
+			<div class="tab-content" id="MatHang" ng-controller = "MatHangController">
+				<div class="container">
+					<div class="title">
+						<h1>Mặt hàng</h1>
+						<button class="btn-add" ng-click="showFormMH = !showFormMH">
+							<i class="bx bx-plus"></i> Thêm mới
+						</button>
+					</div>
+					<div class="body">
+
+						<!-- Phần tùy chọn -->
+						<div class="option">
+							<div ng-show="showFormMH" class="overlay" ng-click="showFormMH = false"></div>
+							<div ng-show="showFormMH" class="form">
+								<div class="container-form">
+									<div class="head">
+										<h4>{{ isEditing ? 'Chỉnh sửa mặt hàng' : 'Thêm mới mặt hàng' }}</h4>
+									</div>
+									<div class="between">
+										<ul>
+											<div id="column">
+												<li>
+													<div class="avatar-wrapper">
+														<img id="profile-img" ng-src="{{ matHang.hinhAnh1 }}" alt="Ảnh mặt hàng" class="profile-img-item">
+														<input type="file" id="HinhAnh" name="HinhAnh" accept="image/*" class="btn-upload">
+													</div>													
+												</li>
+												<li>
+													<label>Đơn giá:</label>
+													<input type="number" class = "form-control" ng-model="matHang.donGia" placeholder="Nhập đơn giá" />
+												</li>
+											</div>
+											<div id="column">
+												<li>	
+													<label>Danh mục:</label>
+													<select ng-model="matHang.idDanhMuc" ng-options="dm.idDanhMuc as dm.tenDanhMuc for dm in listDanhMuc"></select>			
+													<input type="text" class = "form-control" name="" id="" placeholder="ID Danh mục">
+												</li>	
+												<li>
+													<label>Tên mặt hàng:</label>
+													<textarea type="text" ng-model="matHang.tenMatHang" class = "form-control Mat_Hang" placeholder="Nhập tên mặt hàng"></textarea>	
+												</li>
+												<li>
+													<label>Trạng thái:</label>
+													<select ng-model="matHang.trangThai" class = "form-control">
+														<option>Còn hàng</option>
+														<option>Số lượng dưới 5</option>
+														<option>Hết hàng</option>
+													</select>
+												</li>
+											</div>
+											<div id="column" class="ThongSo">
+												<div class="title">
+													<h1>Thông số kĩ thuật</h1>
+												</div>
+												<li>
+                                                    <label>Tên thông số:</label>
+                                                    <input class = "form-control" ng-model="thongSo.tenThongSo" placeholder="Tên thông số" />
+                                                </li>
+                                                <li>
+                                                    <label>Giá trị:</label>
+                                                    <input class = "form-control" ng-model="thongSo.giaTri" placeholder="Giá trị thông số" />
+                                                </li>
+												<div class="foot">
+													<button class="btn-refresh" ng-click="refresh()">Làm mới</button>
+													<button class="btn-add" ng-click="AddNhaCungCap()" >Thêm</button>
+													<button class="btn-Update" ng-click="UpdateNhaCungCap()" >Sửa</button>	
+												</div>
+											</div>
+										</ul>
+										<div class="table">
+											<table class="product-table">
+												<thead>
+													<tr>
+														<th><input type="checkbox"/></th>
+														<th>ID</th>
+														<th>Tên thông số</th>
+														<th>Giá trị</th>
+														<th>Hành động</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr ng-repeat="item in listThongSo">
+														<td><input type="checkbox"></td>
+														<td>{{ item.idThongSo }}</td>
+														<td>{{ item.tenThongSo }}</td>
+														<td>{{ item.giaTriThongSo }}</td>
+														<td>
+															<button ng-click="deleteThongSo(item)">Xóa</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="foot">
+										<button class="btn-refresh" ng-click="refresh()">Làm mới</button>
+										<button class="btn-add" ng-click="AddNhaCungCap()" >Thêm</button>
+										<button class="btn-Update" ng-click="UpdateNhaCungCap()" >Sửa</button>
+										<button ng-click="reset()" class="btn-Delete">Hủy</button>
+									</div>
+								</div>
+							</div>		
+
+							<!-- Tìm kiếm -->
+							<div class="op">
+								<form action="#">
+									<div class="filter">
+										<label>Search:
+											<input type="search" class="form-control" placeholder="Tìm kiếm mặt hàng..."
+												ng-model="searchMatHang" ng-change="updateFilteredMatHang()">
+										</label>									</div>
+								</form>
+							</div>	
+								
+							<!-- Hành động -->
+							<div class="action">
+								<button class="btn-show" ng-click="showFormMH = !showFormMH">
+									<i class="bx bx-plus"></i> Thông số kỹ thuật
+								</button>
+								<button class="btn-Update" ng-click="editSelectedmatHang()">
+									<i class="bx bx-edit"></i> Sửa
+								</button>					
+								<button class="btn-Delete" ng-click="deleteMatHang(item)">
+									<i class="bx bx-trash"></i> Xóa
+								</button>
+							</div>	
+						</div>
+
+						<!-- Bảng hiển thị dữ liệu -->
+						<div class="table">
+							<table class="product-table">
+								<thead>
+									<tr>
+										<th><input type="checkbox" /></th>
+										<th>STT</th>
+										<th>ID mặt hàng</th>
+										<th>Danh mục</th>
+										<th>Mặt hàng</th>
+										<th>Đơn giá</th>
+										<th>Bảo hành</th>
+										<th>Trạng thái</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="item in getPaginatedMatHang()">
+										<td><input type="checkbox" ng-model="item.selected"></td>
+										<td>{{ ($index + 1) + (currentPageMatHang - 1) * pageSizeMatHang }}</td>
+										<td>{{ item.idMatHang }}</td>
+										<td>{{ item.tenDanhMuc }}</td>
+										<td class="center-content">
+											<img ng-src="{{ item.hinhAnh1 ? './item/' + item.hinhAnh1 : './item/Default.png' }}" class="avatar">
+											{{ item.tenMatHang }}
+										</td>
+										<td>{{ item.donGia | currency:" " }}</td>
+										<td>{{ item.baoHanh }}</td>
+										<td ng-class="{'text-success': item.trangThai === 'Còn hàng', 'text-danger': item.trangThai === 'Hết hàng', 'text-warning': item.trangThai === 'Số lượng dưới 5'}">
+											{{ item.trangThai }}
+										</td>
+									</tr>
+								</tbody>
+							</table>	
+						</div>
+
+						<!-- Phân trang -->
+						<div class="pagination-container">
+							<div class="results-per-page">
+								<label for="page-size">Results per page:</label>
+								<select id="page-size" ng-model="pageSizeMatHang" ng-change="updatePageSizeMatHang()">
+									<option value="10">10</option>
+									<option value="12" selected>12</option>
+									<option value="15">15</option>
+								</select>
+							</div>
+							<div class="pagination">
+								<button class="pagination-btn" ng-disabled="currentPageMatHang === 1" ng-click="changePageMatHang(currentPageMatHang - 1)">
+									« Previous
+								</button>
+								<button class="page-number" ng-repeat="page in [].constructor(Math.ceil(filteredMatHang.length / pageSizeMatHang)) track by $index"
+										ng-click="changePageMatHang($index + 1)"
+										ng-class="{'active': $index + 1 === currentPageMatHang}">
+									{{ $index + 1 }}
+								</button>
+								<button class="pagination-btn" ng-disabled="currentPageMatHang === Math.ceil(filteredMatHang.length / pageSizeMatHang)" 
+										ng-click="changePageMatHang(currentPageMatHang + 1)">
+									Next »
+								</button>
+							</div>
+						</div>	
+					</div>
+				</div>	
+			</div>
+
+			<!-- NGƯỜI DÙNG -->
+			<div class="tab-content" id="NguoiDung" ng-controller = "NguoiDungController">
+					<div class="container">
+						<div class="title">
+							<h1>Danh sách người dùng</h1>
+							<button class="btn-add" ng-click="showFormND = !showFormND">
+								<i class='bx bx-plus'></i> Thêm mới
+							</button>
+						</div>
+
+						<div class="body">
+
+							<div class="option">
+								<div ng-show="showFormND" class="overlay" ng-click="showFormND = false"></div>
+								<div class="form" ng-show="showFormND">
+								<div class="container-form">
+									<div class="head">
+										<h4>Người dùng</h4>
+									</div>
+									<div class="between">
+										<ul>
+											<div id="column">
+												<li>
+													<label>Ảnh đại diện</label>
+													<div class="avatar-wrapper">
+														<img src="User/Default.png" id="profile-img" class="profile-img-user" alt="Ảnh đại diện">
+														<input type="file" id="HinhAnh" name="HinhAnh" accept="image/*" class="btn-upload">								
+													</div>
+												</li>
+												<li>
+													<label>Họ tên</label>
+													<input ng-model="NguoiDung.tenNguoiDung" type="text" class="form-control" placeholder="Tên người dùng">
+												</li>		
+											</div>
+											<div id="column">
+												<li>
+													<label>Số điện thoại</label>
+													<input ng-model="NguoiDung.soDienThoai" type="text" class="form-control" placeholder="Số điện thoại">
+												</li>
+												<li>
+													<label>Mật khẩu</label>
+													<input ng-model="NguoiDung.matKhau" type="password" class="form-control" placeholder="Mật khẩu">
+												</li>
+												<li>
+													<label style="display: block;">Email</label>
+													<div style="height: max-content; display: flex;">
+														<input id="mail" ng-model="NguoiDung.email" type="text" class="form-control" placeholder="Email">
+														<span class="input-group-text">@gmail.com</span>
+													</div>
+												</li>
+											</div>
+										</ul>
+									</div>
+									<div class="foot">
+										<button class="btn" ng-click="refresh()">Làm mới</button>
+										<button class="btn" ng-click="AddNguoiDung()" class="btn-success">Thêm</button>
+										<button class="btn" ng-click="UpdateNguoiDung()" class="btn-Update">Sửa</button>
+										<button ng-click="reset()" class="btn-Update">Hủy</button>
+									</div>
+								</div>
+								</div>
+								<div class="op">
+								<form action="#">
+									<div class="filter">
+										<label>Search:
+										<input type="search" class="form-control" placeholder="Nhập thông tin...." ng-model = "searchNguoiDung"></label>
+									</div>
+								</form>
+								</div>
+								<div class="action">							
+									<button class="btn-Update" ng-click="editSelectedNguoiDung()">
+									<i class="bx bx-edit"></i> Sửa
+									</button>
+									<button class="btn-Delete" ng-click="deleteSelectedNguoiDung()">
+									<i class="bx bx-trash"></i> Xóa
+									</button>							
+								</div>		
+							</div>
+
+							<div class="table">
+								<table class="product-table">
+									<thead>
+										<tr>
+											<th>
+												<input type="checkbox">
+											</th>
+											<th>STT</th>
+											<th>ID</th>
+											<th>Họ tên</th>
+											<th>Số Điện Thoại</th>
+											<th>Email</th>
+											<th>Mật khẩu</th>
+											<th>Vai trò</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="user in getPaginatedNguoiDung()">
+											<td><input type="checkbox" ng-model="user.selected"></td>
+												<td>{{ ($index + 1) + (currentPageNguoiDung - 1) * pageSizeNguoiDung }}</td>
+											<td id="ID">{{ user.idNguoiDung }}</td>
+											<td class="center-content">
+												<img ng-src="{{ user.hinhAnh ? './user/' + user.hinhAnh : './user/Default.png' }}" class="avatar">
+													{{ user.tenNguoiDung }}
+											</td>
+											<td>{{ user.soDienThoai }}</td>
+											<td>{{ user.email }}</td>
+											<td>{{ user.matKhau}}</td>
+											<td>{{ user.vaiTro }}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>	
+
+							<!-- Phân trang -->
+							<div class="pagination-container">
+								<div class="results-per-page">
+									<label for="page-size">Results per page:</label>
+									<select id="page-size" ng-model="pageSizeNguoiDung" ng-change="updatePageSizeNguoiDung()">
+										<option value="10">10</option>
+										<option value="12" selected>12</option>
+										<option value="15">15</option>
+									</select>
+								</div>
+								<div class="pagination">
+									<button class="pagination-btn" ng-disabled="currentPageNguoiDung === 1" ng-click="changePageNguoiDung(currentPageNguoiDung - 1)">
+										« Previous
+									</button>
+									<button class="page-number" ng-repeat="page in [].constructor(Math.ceil(filteredNguoiDung.length / pageSizeNguoiDung)) track by $index"
+											ng-click="changePageNguoiDung($index + 1)"
+											ng-class="{'active': $index + 1 === currentPageNguoiDung}">
+										{{ $index + 1 }}
+									</button>
+									<button class="pagination-btn" ng-disabled="currentPageNguoiDung === Math.ceil(filteredNguoiDung.length / pageSizeNguoiDung)" 
+											ng-click="changePageNguoiDung(currentPageNguoiDung + 1)">
+										Next »
+									</button>
+								</div>
+							</div>	
+						</div>
+					</div>				
+			</div>
+
+			<!-- ĐÁNH GIÁ -->
+			<div class="tab-content" id="DanhGia" ng-controller = "DanhGiaController">
+				<div class="container">
+					<div class="title">
+							<h1>Đánh giá của khách hàng</h1>
+					</div>
+					<div class="body">
+
+						<div class="option">
+							<div class="op">
+								<form action="#">
+									<div class="filter">
+										<label>Search:
+										<input type="search" class="form-control" placeholder="Nhập thông tin...." ng-model = "searchDanhGia"></label>
+									</div>
+								</form>
+							</div>
+							<div class="action">
+								<button class="btn-Delete" ng-click="deleteSelectedDanhGia()">
+									<i class="bx bx-trash"></i> Xóa
+								</button>
+							</div>
+						</div>
+
+						<!-- Bảng -->
+						<div class="table">
+							<table class="product-table">
+								<thead>
+									<tr>
+										<th>
+											<input type="checkbox">
+										</th>
+										<th>STT</th>
+										<th>ID</th>
+										<th>Mặt hàng</th>
+										<th>Khách hàng</th>
+										<th>Số sao</th>
+										<th>Nội dung</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="item in getPaginatedDanhGia()">
+										<td><input type="checkbox" ng-model="item.selected"></td>
+										<td>{{ ($index + 1) + (currentPageDanhGia - 1) * pageSizeDanhGia }}</td>
+										<td id="ID">{{ item.idDanhGia }}</td>
+										<td class="center-content">
+											<img ng-src="{{ item.hinhAnh1 ? './item/' + item.hinhAnh1 : './item/Default.png' }}" class="avatar">
+											{{ item.tenMatHang }}
+										</td>
+										<td>{{ item.tenNguoiDung }}</td>
+										<td>{{ item.soSao }}</td>
+										<td>{{ item.noiDung }}</td>
+									</tr>
+								</tbody>
+							</table>	
+						</div>		
+						
+						<!-- Phân trang -->
+						<div class="pagination-container">
+							<div class="results-per-page">
+								<label for="page-size">Results per page:</label>
+								<select id="page-size" ng-model="pageSizeDanhGia" ng-change="updatePageSizeDanhGia()">
+									<option value="10">10</option>
+									<option value="12" selected>12</option>
+									<option value="15">15</option>
+								</select>
+							</div>
+							<div class="pagination">
+								<button class="pagination-btn" ng-disabled="currentPageDanhGia === 1" ng-click="changePageDanhGia(currentPageDanhGia - 1)">
+									« Previous
+								</button>
+								<button class="page-number" ng-repeat="page in [].constructor(Math.ceil(filteredDanhGia.length / pageSizeDanhGia)) track by $index"
+										ng-click="changePageDanhGia($index + 1)"
+										ng-class="{'active': $index + 1 === currentPageDanhGia}">
+									{{ $index + 1 }}
+								</button>
+								<button class="pagination-btn" ng-disabled="currentPageDanhGia === Math.ceil(filteredDanhGia.length / pageSizeDanhGia)" 
+										ng-click="changePageDanhGia(currentPageDanhGia + 1)">
+									Next »
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+
+			<!-- Đơn Nhập -->
+			<div class="tab-content" id="NhapHang" ng-controller="NhapHangController">
+				<div class="container">
+					<div class="title">
+						<h1>Quản lý Nhập Hàng</h1>
+					</div>
+
+					<div class="body">
+						<!-- Tùy chọn -->
+						<div class="option">
+							<div ng-show="showFormNhapHang" class="overlay" ng-click="showFormNhapHang = false"></div>
+							<div ng-show="showFormNhapHang" class="form">
+								<div class="container-form">
+									<div class="head">
+										<h4>{{ isEditingNhapHang ? 'Chỉnh sửa Đơn Nhập' : 'Tạo mới Đơn Nhập' }}</h4>
+									</div>
+
+									<div class="between">
+										<div class="columns">
+											<!-- Cột 1: Thông tin Nhà Cung Cấp -->
+											<div class="column">
+												<h4>Thông tin Nhà Cung Cấp</h4>
+												<ul>
+													<li>
+														<label>ID Nhà Cung Cấp:</label>
+														<input type="text" ng-model="nhaCungCap.idNhaCungCap" class="form-control" readonly />
+													</li>
+													<li>
+														<label>Tên Nhà Cung Cấp:</label>
+														<input type="text" ng-model="nhaCungCap.tenNhaCungCap" class="form-control" readonly />
+													</li>
+													<li>
+														<label>Email:</label>
+														<input type="text" ng-model="nhaCungCap.email" class="form-control" readonly />
+													</li>
+													<li>
+														<label>Số Điện Thoại:</label>
+														<input type="text" ng-model="nhaCungCap.sdt" class="form-control" readonly />
+													</li>
+													<li>
+														<label>Địa Chỉ:</label>
+														<textarea ng-model="nhaCungCap.diaChi" class="form-control" readonly></textarea>
+													</li>
+												</ul>
+											</div>
+
+											<!-- Cột 2: Thông tin Đơn Nhập -->
+											<div class="column">
+												<h4>Thông tin Đơn Nhập</h4>
+												<ul>
+													<li>
+														<label>ID Đơn Nhập:</label>
+														<input type="text" ng-model="donNhap.idDonNhap" class="form-control" readonly />
+													</li>
+													<li>
+														<label>Ngày Nhập:</label>
+														<input type="date" ng-model="donNhap.ngayNhap" class="form-control" />
+													</li>
+													<li>
+														<label>Trạng Thái:</label>
+														<input type="text" ng-model="donNhap.trangThai" class="form-control" />
+													</li>
+													<li>
+														<label>Ghi Chú:</label>
+														<textarea ng-model="donNhap.ghiChu" class="form-control"></textarea>
+													</li>
+													<li>
+														<label>Tổng Tiền:</label>
+														<input type="number" ng-model="donNhap.tongTien" class="form-control" readonly />
+													</li>
+												</ul>
+											</div>
+
+											<!-- Cột 3: Chi Tiết Nhập -->
+											<div class="column">
+												<h4>Chi Tiết Nhập</h4>
+												<ul>
+													<li>
+														<label>ID Đơn Nhập:</label>
+														<input type="text" ng-model="chiTietNhap.idDonNhap" class="form-control" readonly />
+													</li>
+													<li>
+														<label>ID Mặt Hàng:</label>
+														<input type="text" ng-model="chiTietNhap.idMatHang" class="form-control" />
+													</li>
+													<li>
+														<label>Số Lượng:</label>
+														<input type="number" ng-model="chiTietNhap.soLuong" class="form-control" />
+													</li>
+													<li>
+														<label>Giá Nhập:</label>
+														<input type="number" ng-model="chiTietNhap.giaNhap" class="form-control" />
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+									<div class="foot">
+										<button class="btn" ng-click="refreshNhapHang()">Làm mới</button>
+										<button class="btn-success" ng-click="saveNhapHang()">Lưu</button>
+										<button class="btn-Update" ng-click="resetNhapHang()">Hủy</button>
+									</div>
+								</div>
+							</div>
+
+							<!-- Hành động -->
+							<div class="action">
+								<button class="btn-show" ng-click="showFormNhapHang = true">
+									<i class="bx bx-plus"></i> Tạo Đơn Nhập
+								</button>
+							</div>
+						</div>
+
+						<!-- Bảng hiển thị dữ liệu -->
+						<div class="table">
+							<table class="product-table">
+								<thead>
+									<tr>
+										<th>STT</th>
+										<th>ID Đơn Nhập</th>
+										<th>Tên Nhà Cung Cấp</th>
+										<th>Ngày Nhập</th>
+										<th>Trạng Thái</th>
+										<th>Tổng Tiền</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="item in getAllNhapHang()">
+										<td>{{ $index + 1 }}</td>
+										<td>{{ item.idDonNhap }}</td>
+										<td>{{ item.tenNhaCungCap }}</td>
+										<td>{{ item.ngayNhap }}</td>
+										<td>{{ item.trangThai }}</td>
+										<td>{{ item.tongTien }}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- ĐƠN BÁN -->
+			<div class="tab-content" id="DonBan" ng-controller="HoaDonBanController">
+				<div class="container">
+					<div class="title">
+						<h1>Hóa đơn bán</h1>
+					</div>
+
+					<div class="body">
+						<!-- Tùy chọn -->
+						<div class="option">
+							<div ng-show="showFormHDB" class="overlay" ng-click="showFormHDB = false"></div>
+							<div ng-show="showFormHDB" class="form">
+								<div class="container-form">
+									<div class="head">
+										<h4>{{ isEditingHDB ? 'Chỉnh sửa hóa đơn' : 'Thêm mới hóa đơn' }}</h4>
+									</div>
+									<div class="between">
+										<ul>
+											<div id="column">
+												<li>
+													<label>ID Đơn Bán:</label>
+													<input type="text" ng-model="hoaDonBan.idDonBan" class="form-control" readonly />
+												</li>
+												<li>
+													<label>Người dùng:</label>
+													<input type="text" ng-model="hoaDonBan.idNguoiDung" class="form-control" placeholder="Nhập ID Người dùng" />
+												</li>
+												<li>
+													<label>Mã giảm giá:</label>
+													<input type="text" ng-model="hoaDonBan.idGiamGia" class="form-control" placeholder="Nhập mã giảm giá" />
+												</li>
+											</div>
+											<div id="column">
+												<li>
+													<label>Ngày bán:</label>
+													<input type="date" ng-model="hoaDonBan.ngayBan" class="form-control" />
+												</li>
+												<li>
+													<label>Trạng thái:</label>
+													<select ng-model="hoaDonBan.trangThai" class="form-control">
+														<option>Chờ xác nhận</option>
+														<option>Chờ lấy hàng</option>
+														<option>Đang vận chuyển</option>
+														<option>Trả hàng</option>
+														<option>Đã giao</option>
+														<option>Đã huỷ</option>
+													</select>
+												</li>
+												<li>
+													<label>Ghi chú:</label>
+													<textarea ng-model="hoaDonBan.ghiChu" class="form-control" placeholder="Nhập ghi chú"></textarea>
+												</li>
+											</div>
+											<div id="column">
+												<li>
+													<label>Tổng tiền:</label>
+													<input type="number" ng-model="hoaDonBan.tongTien" class="form-control" readonly />
+												</li>
+											</div>
+										</ul>
+									</div>
+									<!-- Bảng chi tiết hóa đơn -->
+									<div class="table">
+										<table class="product-table">
+											<thead>
+												<tr>
+													<th>ID Chi Tiết</th>
+													<th>Tên mặt hàng</th>
+													<th>Số lượng</th>
+													<th>Giá bán</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr ng-repeat="item in chiTietDonBan">
+													<td>{{ item.idChiTietDonBan }}</td>
+													<td>{{ item.tenMatHang }}</td>
+													<td>{{ item.soLuong }}</td>
+													<td>{{ item.giaBan }}</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="foot">
+										<button class="btn" ng-click="refreshHDB()">Làm mới</button>
+										<button class="btn" ng-click="updateHoaDonBan()" class="btn-success">Cập nhật</button>
+										<button class="btn" ng-click="resetHDB()" class="btn-Update">Hủy</button>
+									</div>
+								</div>
+							</div>
+
+							<!-- Tìm kiếm -->
+							<div class="op">
+								<form action="#">
+									<div class="filter">
+											<input type="text" class="form-control" placeholder="Tìm kiếm theo ID, Người Dùng hoặc Mặt Hàng"
+												ng-model="search.general" ng-change="updateFilteredHoaDonBan()" />
+										</label>
+									</div>
+									<div class="filter">
+										<label>Ngày Bán Từ:
+											<input type="date" class="form-control" ng-model="search.ngayBanStart" ng-change="updateFilteredHoaDonBan()" />
+										</label>
+										<label>Đến:
+											<input type="date" class="form-control" ng-model="search.ngayBanEnd" ng-change="updateFilteredHoaDonBan()" />
+										</label>
+									</div>
+								</form>
+							</div>
+
+
+							<!-- Hành động -->
+							<div class="action">
+								<button class="btn-show" ng-click="showFormHDB = !showFormHDB">
+									<i class="bx bx-plus"></i> Chi tiết hóa đơn
+								</button>
+								<button class="btn-Update" ng-click="editSelectedHoaDonBan()">
+									<i class="bx bx-edit"></i> Sửa
+								</button>
+								<button class="btn-Delete" ng-click="deleteHoaDonBan()">
+									<i class="bx bx-trash"></i> Xóa
+								</button>
+							</div>
+						</div>
+
+						<!-- Bảng hiển thị dữ liệu -->
+						<div class="table">
+							<table class="product-table">
+								<thead>
+									<tr>
+										<th><input type="checkbox" /></th>
+										<th>STT</th>
+										<th>ID Đơn Bán</th>
+										<th>Người dùng</th>
+										<th>Ngày bán</th>
+										<th>Trạng thái</th>
+										<th>Tổng tiền</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="item in getPaginatedHoaDonBan()">
+										<td><input type="checkbox" ng-model="item.selected" /></td>
+										<td>{{ ($index + 1) + (currentPageHoaDonBan - 1) * pageSizeHoaDonBan }}</td>
+										<td>{{ item.idDonBan }}</td>
+										<td>{{ item.tenNguoiDung }}</td>
+										<td>{{ item.ngayBan }}</td>
+										<td>{{ item.trangThai }}</td>
+										<td>{{ item.tongTien | currency:" " }}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<!-- Phân trang -->
+						<div class="pagination-container">
+							<div class="results-per-page">
+								<label for="page-size">Results per page:</label>
+								<select id="page-size" ng-model="pageSizeHoaDonBan" ng-change="updatePageSizeHoaDonBan()">
+									<option value="10">10</option>
+									<option value="12" selected>12</option>
+									<option value="15">15</option>
+								</select>
+							</div>
+							<div class="pagination">
+								<button class="pagination-btn" ng-disabled="currentPageHoaDonBan === 1" ng-click="changePageHoaDonBan(currentPageHoaDonBan - 1)">
+									« Previous
+								</button>
+								<button class="page-number" ng-repeat="page in [].constructor(Math.ceil(filteredHoaDonBan.length / pageSizeHoaDonBan)) track by $index"
+										ng-click="changePageHoaDonBan($index + 1)"
+										ng-class="{'active': $index + 1 === currentPageHoaDonBan}">
+									{{ $index + 1 }}
+								</button>
+								<button class="pagination-btn" ng-disabled="currentPageHoaDonBan === Math.ceil(filteredHoaDonBan.length / pageSizeHoaDonBan)" 
+										ng-click="changePageHoaDonBan(currentPageHoaDonBan + 1)">
+									Next »
+								</button>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+
+			<!-- NHÀ CUNG CẤP -->
+			<div class="tab-content" id="NhaCungCap" ng-controller="NhaCungCapController">
+				<div class="container">
+					<div class="title">
+						<h1>Danh sách nhà cung cấp</h1>
+						<button class="btn-add" ng-click="showFormNCC = !showFormNCC">
+							<i class='bx bx-plus'></i> Thêm mới
+						</button>
+					</div>
+					<div class="body">
+						<div class="option">
+							<div ng-show="showFormNCC" class="overlay" ng-click="showFormNCC = false"></div>
+							<div class="form" ng-show="showFormNCC">
+								<div class="container-form">
+									<div class="head">
+										<h4>Nhà cung cấp</h4>
+									</div>
+									<div class="between">
+										<ul>
+											<div id="column">
+												<li>
+													<label>Tên nhà cung cấp</label>
+													<input ng-model="nhaCungCap.tenNhaCungCap" type="text" class="form-control" placeholder="Tên nhà cung cấp">
+												</li>
+												<li>
+													<label>Số điện thoại</label>
+													<input ng-model="nhaCungCap.soDienThoai" type="text" class="form-control" placeholder="Số điện thoại">
+												</li>
+												<li>
+													<label style="display: block;">Email</label>
+													<div style="height: max-content; display: flex;">
+														<input id="mail" ng-model="nhaCungCap.email" type="text" class="form-control" placeholder="Email">
+														<span class="input-group-text">@gmail.com</span>
+													</div>
+												</li>
+											</div>
+											<div id="column">
+												<li>
+													<label>Địa chỉ</label>
+													<textarea ng-model="nhaCungCap.diaChi" type="text" class="form-control Nha_Cung_Cap" placeholder="Địa chỉ"></textarea>
+												</li>
+											</div>
+										</ul>
+									</div>
+									<div class="foot">
+										<button class="btn" ng-click="refresh()">Làm mới</button>
+										<button class="btn" ng-click="AddNhaCungCap()" class="btn-success">Thêm</button>
+										<button class="btn" ng-click="UpdateNhaCungCap()" class="btn-Update">Sửa</button>
+										<button ng-click="reset()" class="btn-Update">Hủy</button>
+									</div>
+								</div>
+							</div>
+							<div class="op">
+								<form action="#">
+									<div class="filter">
+										<label>Search:
+										<input type="search" class="form-control" placeholder="Nhập thông tin...." ng-model="searchNhaCungCap" ng-change="filterNhaCungCap()"></div>
+								</form>
+							</div>
+							<div class="action">
+								<button class="btn-Update" ng-click="editSelectedNhaCungCap()">
+									<i class="bx bx-edit"></i> Sửa
+								</button>
+								<button class="btn-Delete" ng-click="deleteSelectedNhaCungCap()">
+									<i class="bx bx-trash"></i> Xóa
+								</button>							
+							</div>
+						</div>
+						<div class="table">
+							<table class="product-table">
+								<thead>
+									<tr>
+										<th>
+											<input type="checkbox">
+										</th>
+										<th>STT</th>
+										<th>ID</th>
+										<th>Nhà cung cấp</th>
+										<th>Email</th>
+										<th>Số điện thoại</th>
+										<th>Địa chỉ</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="user in getPaginatedNhaCungCap()">
+										<td><input type="checkbox" ng-model="user.selected"></td>
+										<td>{{ ($index + 1) + (currentPageNhaCungCap - 1) * pageSizeNhaCungCap }}</td>
+										<td id="ID">{{ user.idNhaCungCap }}</td>
+										<td>{{ user.tenNhaCungCap }}</td>
+										<td>{{ user.email }}</td>
+										<td>{{ user.soDienThoai }}</td>
+										<td>{{ user.diaChi }}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!-- Phân trang -->
+						<div class="pagination">
+							<button class="pagination-btn" 
+									ng-disabled="currentPageNhaCungCap === 1" 
+									ng-click="changePageNhaCungCap(currentPageNhaCungCap - 1)">
+								« Previous
+							</button>
+							<button class="page-number" 
+									ng-repeat="page in [].constructor(Math.ceil(filteredNhaCungCap.length / pageSizeNhaCungCap)) track by $index"
+									ng-click="changePageNhaCungCap($index + 1)"
+									ng-class="{'active': $index + 1 === currentPageNhaCungCap}">
+								{{ $index + 1 }}
+							</button>
+							<button class="pagination-btn" 
+									ng-disabled="currentPageNhaCungCap === Math.ceil(filteredNhaCungCap.length / pageSizeNhaCungCap)"
+									ng-click="changePageNhaCungCap(currentPageNhaCungCap + 1)">
+								Next »
+							</button>
+						</div>
+					</div>
+				</div>	
+			</div>
+			
+			<!-- GIẢM GIÁ -->
+			<div class="tab-content" id="GiamGia" ng-controller = "GiamGiaController"> 
+					<div class="container">
+						<div class="title">
+							<h1>Voucher</h1>
+							<button class="btn-add" ng-click="showFormGG = !showFormGG">
+								<i class='bx bx-plus'></i> Thêm mới
+							</button>
+						</div>
+
+						<div class="body">
+							<div class="option">
+								<div ng-show="showFormGG" class="overlay" ng-click="showFormGG = false"></div>
+								<div class="form" ng-show="showFormGG">
+									<div class="container-form">
+										<div class="head">
+											<h4>Voucher</h4>
+										</div>
+										<div class="between">
+											<ul>
+												<div id="column">
+													<li>
+														<label>Phần trăm giảm</label>
+														<input ng-model="giamGia.TyLeGiam" type="number" class="form-control" placeholder="Nhập phần trăm giảm">
+													</li>
+													<li>
+														<label>Nội dung</label>
+														<textarea ng-model="giamGia.noiDung" type="text" class="form-control Giam_Gia" placeholder="Nhập nội dung giảm giá"></textarea>
+													</li>
+													<li>
+														<label>Ảnh giảm giá</label>
+														<input type="file" class="form-control" ng-model="giamGia.hinhAnhFile" onchange="angular.element(this).scope().fileChanged(this)" />
+													</li>
+												</div>
+												<div class="column">
+													<li>
+														<label>Ngày bắt đầu</label>
+														<input ng-model="giamGia.ngayBatDau" type="date" class="form-control">
+													</li>
+													<li>
+														<label>Ngày kết thúc</label>
+														<input ng-model="giamGia.ngayKetThuc" type="date" class="form-control">
+													</li>
+													<li>
+														<label>Trạng thái giảm giá</label>
+														<select ng-model="giamGia.trangThai" class="form-control">
+															<option value="dangApDung">Đang diễn ra</option>
+															<option value="hetHan">Đã kết thúc</option>
+															<option value="sapApDung">Sắp bắt đầu</option>
+														</select>
+													</li>
+												</div>
+											</ul>
+										</div>
+										<div class="foot">
+											<button class="btn" ng-click="refresh()">Làm mới</button>
+											<button class="btn" ng-click="AddGiamGia()" class="btn-success">Thêm</button>
+											<button class="btn" ng-click="UpdateGiamGia()" class="btn-Update">Sửa</button>
+											<button ng-click="reset()" class="btn-Update">Hủy</button>
+										</div>
+									</div>
+								</div>
+								
+								<div class="op">
+									<form action="#">
+										<div class="filter">
+											<label>Search:
+											<input type="search" class="form-control" placeholder="Nhập thông tin...." ng-model = "searchNhaCungCap"></label>
+										</div>
+									</form>
+								</div>
+								<div class="action">
+									<button class="btn-Update" ng-click="editSelectedGiamGia()">
+										<i class="bx bx-edit"></i> Sửa
+									</button>
+									<button class="btn-Delete" ng-click="deleteSelectedGiamGia()">
+										<i class="bx bx-trash"></i> Xóa
+									</button>							
+								</div>
+							</div>
+
+							<div class="table">
+								<table class="product-table">
+									<thead>
+										<tr>
+											<th>
+												<input type="checkbox">
+											</th>
+											<th>STT</th>
+											<th>ID</th>
+											<th>Nội dung</th>
+											<th>Phần trăm giảm</th>
+											<th>Ngày bắt đầu</th>
+											<th>Ngày kết thúc</th>
+											<th>Trạng thái giảm giá</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="item in listGiamGia">
+											<td><input type="checkbox" ng-model="item.selected"></td>
+											<td>{{ ($index + 1) + (currentPageGiamGia - 1) * pageSizeGiamGia }}</td>
+											<td>{{ item.idGiamGia }}</td>
+											<td class="center-content">
+												<img ng-src="{{ item.hinhAnh ? './item/' + item.hinhAnh : './item/Default.png' }}" class="avatar">
+												{{ item.noiDung }}
+											</td>
+											<td>{{ item.tyLeGiam }}</td>
+											<td>{{ item.ngayBatDau | date:'dd/MM/yyyy' }}</td>
+											<td>{{ item.ngayKetThuc | date:'dd/MM/yyyy' }}</td>
+											<td>{{ item.trangThaiGiamGia }}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>	
+
+							<!-- Phân trang -->
+							<div class="pagination-container">
+								<div class="results-per-page">
+									<label for="page-size">Results per page:</label>
+									<select id="page-size" ng-model="pageSizeGiamGia" ng-change="updatePageSizeGiamGia()">
+										<option value="10">10</option>
+										<option value="12" selected>12</option>
+										<option value="15">15</option>
+									</select>
+								</div>
+								<div class="pagination">
+									<button class="pagination-btn" ng-disabled="currentPageGiamGia === 1" ng-click="changePageGiamGia(currentPageGiamGia - 1)">
+										« Previous
+									</button>
+									<button class="page-number" ng-repeat="page in [].constructor(Math.ceil(filteredGiamGia.length / pageSizeGiamGia)) track by $index"
+											ng-click="changePageGiamGia($index + 1)"
+											ng-class="{'active': $index + 1 === currentPageGiamGia}">
+										{{ $index + 1 }}
+									</button>
+									<button class="pagination-btn" ng-disabled="currentPageGiamGia === Math.ceil(filteredGiamGia.length / pageSizeGiamGia)" 
+											ng-click="changePageGiamGia(currentPageGiamGia + 1)">
+										Next »
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>	
+			</div>
+
+			<!-- KHO -->
+			<div class="tab-content" id="Kho" ng-controller="KhoController">
+				<div class="container">
+					<div class="title">
+						<h1>Kho hàng</h1>
+					</div>
+					
+					<div class="body">
+						<!-- Tìm kiếm kho -->
+						<div class="option">
+							<form action="#">
+								<div class="filter">
+									<label>Search:
+										<input type="search" class="form-control" placeholder="Nhập thông tin...." ng-model="searchKho" ng-change="filterKho()">
+									</label>
+								</div>
+							</form>
+						</div>
+
+						<!-- Các thao tác Thêm, Sửa, Xoá -->
+						<div class="action">
+							<button class="btn-add" ng-click="showFormKho = !showFormKho">
+								<i class="bx bx-plus"></i> Thêm mới
+							</button>
+							<button class="btn-Update" ng-click="editSelectedKho()">
+								<i class="bx bx-edit"></i> Sửa
+							</button>
+							<button class="btn-Delete" ng-click="deleteSelectedKho()">
+								<i class="bx bx-trash"></i> Xóa
+							</button>
+						</div>
+
+						<!-- Bảng dữ liệu kho -->
+						<div class="table">
+							<table class="product-table">
+								<thead>
+									<tr>
+										<th><input type="checkbox" ng-click="selectAllKho()"></th>
+										<th>STT</th>
+										<th>ID Kho</th>
+										<th>Tên mặt hàng</th>
+										<th>Số lượng</th>
+										<th>Ngày cập nhật</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="item in filteredKho | limitTo: pageSizeKho : (currentPageKho - 1) * pageSizeKho">
+										<td><input type="checkbox" ng-model="item.selected" /></td>
+										<td>{{ ($index + 1) + (currentPageKho - 1) * pageSizeKho }}</td>
+										<td>{{ item.idKho }}</td>
+										<td class="center-content">
+											<img ng-src="{{ item.hinhAnh1 ? './item/' + item.hinhAnh1 : './item/Default.png' }}" class="avatar">
+											{{ item.tenMatHang }}
+										</td>
+										<td>{{ item.soLuong }}</td>
+										<td>{{ item.ngayCapNhat | date: 'dd/MM/yyyy' }}</td>
+									</tr>
+								</tbody>
+								
+							</table>
+						</div>
+					</div>
+
+					<!-- Phân trang -->
+					<div class="pagination-container">
+						<div class="pagination">
+							<button class="pagination-btn" ng-disabled="currentPageKho === 1" ng-click="changePageKho(currentPageKho - 1)">« Previous</button>
+							<button class="page-number" ng-repeat="page in [].constructor(Math.ceil(filteredKho.length / pageSizeKho)) track by $index" ng-click="changePageKho($index + 1)" ng-class="{'active': $index + 1 === currentPageKho}">
+								{{ $index + 1 }}
+							</button>
+							<button class="pagination-btn" ng-disabled="currentPageKho === Math.ceil(filteredKho.length / pageSizeKho)" ng-click="changePageKho(currentPageKho + 1)">Next »</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+			<!-- THỐNG KÊ -->
+			<div class="tab-content" id="ThongKe" ng-controller="ThongKeController">
+				<div class="container">
+					<div class="title">
+						<h1>Thống kê & báo cáo</h1>
+                    </div>
+					<div class="body">
+						<div class="option">
+							<button ng-click="setActiveTab('matHang')">Thống kê mặt hàng</button>
+							<button ng-click="setActiveTab('doanhThu')">Thống kê doanh thu</button>
+							<button ng-click="setActiveTab('hangTon')">Hàng tồn kho</button>
+	
+							<div class="op">
+								<form action="#">
+									<div class="filter" style="display: flex;">
+										<label>Từ ngày:
+										<input type="date" class="form-control" ng-model="startDate" />
+										</label>
+										<label>Đến ngày:
+										<input type="date" class="form-control" ng-model="endDate" />
+										</label>
+									</div>
+								</form>
+							</div>
+							<div class="action">
+								<button class="btn-update" ng-click="filterReport()">Xem thống kê</button>
+							</div>
+						</div>
+						<!-- Foot: Dynamic content -->
+						<div class="foot">
+							<div ng-show="activeTab === 'matHang'" class="stat-content">
+								<h3>Thống kê mặt hàng</h3>
+								<p>Danh sách các mặt hàng bán chạy...</p>
+								<button class="btn-print" ng-click="printReport('matHang')">In báo cáo</button>
+							</div>
+	
+							<div ng-show="activeTab === 'doanhThu'" class="stat-content">
+								<h3>Thống kê doanh thu</h3>
+								<p>Thông tin doanh thu theo thời gian...</p>
+								<button class="btn-print" ng-click="printReport('doanhThu')">In báo cáo</button>
+							</div>
+	
+							<div ng-show="activeTab === 'hangTon'" class="stat-content">
+								<h3>Hàng tồn kho</h3>
+								<p>Danh sách hàng tồn kho...</p>
+								<button class="btn-print" ng-click="printReport('hangTon')">In báo cáo</button>
+							</div>
+						</div>
+					</div>
+                    
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+
+	<ul class="notifications"></ul>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/Quan_Tri.js"></script>
+	<script src="back-end/angular.min.js"></script>
+	<script src="back-end/Quan_Tri.js"></script>
+	<script src="back-end/Nhap_hang.js"></script>
+	<script src="back-end/Danh_Muc.js"></script>
+	<script src="back-end/Mat_Hang.js"></script>
+	<script src="back-end/Nguoi_Dung.js"></script>
+	<Script src="back-end/Danh_Gia.js"></Script>
+	<Script src="back-end/Don_Nhap.js"></Script>
+	<script src="back-end/Don_Ban.js"></script>
+	<script src="back-end/NhaCC.js"></script>
+	<script src="back-end/Giam_Gia.js"></script>
+	<script src="back-end/Kho.js "></script>
+	<Script src="back-end/Thong_Ke.js"></Script>
+</body>
+</html>

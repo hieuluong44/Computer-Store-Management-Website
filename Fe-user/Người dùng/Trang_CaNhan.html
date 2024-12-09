@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIEUPC - Máy tính cao cấp & thiết bị điện tử hiện đại hàng đầu Việt Nam</title>
+    <link rel="icon" type="image/png" href="icon/logo.png">
+    <link rel="stylesheet" href="css/Trang_Chu.css">
+    <link rel="stylesheet" href="css/Trang_CaNhan.css">
+    <link href='https://unpkg.com/boxicons/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="frame">
+            <div class="left">
+                <div class="H-content">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <marquee onmouseover="stop()" onmouseout="start()">Số 14A, đường Trưng Nhị, phường Lê Lợi, thành phố Hưng Yên, tỉnh Hưng Yên</marquee>
+                </div>          
+            </div>
+            <div class="right">
+                <div class="H-right-content" style=" width: 40%;border-right: 1px solid #FFF;">
+                    <i class="fas fa-headphones"></i>
+                    <span>Hotline : 029 382 1922</span>
+                </div>
+                <div class="H-right-content" style="width: 10%;border-right: 1px solid #FFF;">
+                    <span id="selected-language">
+                        <i class="fas fa-globe"></i> 
+                    </span>
+                    <div class="flag-section">
+                        <div class="dropdown-content">
+                            <div class="flag-container" onclick="selectLanguage('vn')">
+                                <span class="flag-icon flag-icon-vn"></span>
+                                <span>Việt Nam</span>
+                            </div>                            
+                            <div class="flag-container" onclick="selectLanguage('us')">
+                                <span class="flag-icon flag-icon-us"></span>
+                                <span>Mỹ</span>
+                            </div>                              
+                            <div class="flag-container" onclick="selectLanguage('jp')">
+                                <span class="flag-icon flag-icon-jp"></span>
+                                <span>Nhật Bản</span>
+                            </div>                          
+                            <div class="flag-container" onclick="selectLanguage('kr')">
+                                <span class="flag-icon flag-icon-kr"></span>
+                                <span>Korean</span>
+                            </div>                                
+                        </div>
+                    </div>
+                </div>                    
+                <div class="H-right-content" style="width:20%">
+                    <i class="fas fa-user-circle"></i>
+                    <div class="login-section">
+                        <span class="login-text" style="cursor: pointer;">Tài khoản</span>
+                        <div class="dropdown-content">
+                            <a href="Dang_Nhap.html" id="login-btn">
+                                <i class="fas fa-sign-in-alt"></i>
+                                Đăng nhập
+                            </a>
+                            <a href="#" id="logout-btn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Đăng xuất
+                            </a>
+                        </div>
+                    </div>
+                </div>             
+            </div>
+        </div>
+    </div>
+    <div class="H-head">
+        <div class="frame">    
+            <a class="logo" href="Trang_Chu.html">
+                <img src="img/logo.png" alt="" style="width: 100%; height: 100%;">
+            </a>
+            <div class="title-categories">
+                <i class="bi bi-list"></i>
+                <span>Danh mục</span>
+            </div>
+            <div class="body-search">
+                <select name="category" id="category">
+                    <option value="">Tất cả sản phẩm</option>
+                    <option value="Gaming">Laptop Gaming</option>
+                    <option value="Office">Laptop Văn phòng</option>
+                    <option value="Do-hoa">Laptop Đồ hoạ</option>
+                    <option value="PC">PC Al</option>
+                    <option value="screen">Màn hình máy tính</option>
+                    <option value="phu-kien-1">Phụ kiện laptop, PC, khác</option>
+                    <option value="phu-kien-2">Chuột, bàn phím</option>
+                    <option value="bao-tri">Dịch vụ sửa chữa, bảo trì</option>
+                </select>                        
+                <form id="search-box">
+                    <input type="text" placeholder="Tìm kiếm...">
+                    <button type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="icons">
+                <a href="#">
+                    <div class="icon">
+                        <i class="fas fa-envelope noti-icon"></i>
+                        <div class="icon-badge" style="right: -5px;">
+                            <span>0</span>
+                        </div>
+                    </div>
+                </a>   
+                <a href="#">
+                    <div class="order">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span class="order-text">Tra cứu đơn hàng</span>
+                    </div>
+                </a>       
+                <a href="Yeu_Thich.html">
+                    <div class="heart">
+                        <i class="far fa-heart"></i>
+                        <div class="heart-badge">
+                            <span>0</span>
+                        </div>
+                        <span class="heart-text">Yêu thích</span>
+                    </div>
+                </a>       
+                <a href="Gio_Hang.html">
+                    <div class="cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <div class="cart-badge">
+                            <span>0</span>
+                        </div>
+                        <span class="cart-text">Giỏ hàng</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="frame">
+            <ul class="footer-items">
+                <li id="border">
+                    <a href="#" class="footer-link">
+                        <i class="bx bx-gift"></i><span>Săn Voucher</span>
+                    </a>
+                </li>
+                <li id="border">
+                    <a href="#" class="footer-link">
+                        <i class="bx bx-news"></i><span>Tin công nghệ</span>
+                    </a>
+                </li>
+                <li id="border">
+                    <a href="#" class="footer-link">
+                        <i class="bx bx-cog"></i><span>Dịch vụ sửa chữa</span>
+                    </a>
+                </li>
+                <li id="border">
+                    <a href="#" class="footer-link">
+                        <i class="bx bx-wrench"></i><span>Dịch vụ kỹ thuật tại nhà</span>
+                    </a>
+                </li>
+                <li id="border">
+                    <a href="#" class="footer-link">
+                        <i class="bx bx-refresh"></i><span>Thu cũ đổi mới VGA</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">
+                        <i class="bx bx-shield"></i><span>Tra cứu bảo hành</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div> 
+    <div class="personal_page">
+        <div class="frame">
+            <div class="left">
+                <div class="avatar">
+                    <div class="ava">
+                        <img src="User/Default.png" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="customer-name">Lương Hiếu</div>
+                        <div class="customer-phone"></div>
+                    </div>
+                </div>
+                <ul class="left-sidebar__list tabbed-nav">
+                        <li class="tab current" data-tab="profile">
+                            <a href="javascript:void(0);">
+                                <span class="icon">
+                                    <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15.76 13.1548C14.7712 12.1601 13.5712 11.3662 12.2357 10.8233C10.9001 10.2803 9.45796 10 8 10C6.54204 10 5.09988 10.2803 3.76434 10.8233C2.42881 11.3662 1.22883 12.1601 0.24 13.1548C0.0873333 13.3116 0.00193371 13.5149 0 13.7262V17.1544C0.00323597 17.3797 0.101915 17.5948 0.274676 17.753C0.447437 17.9113 0.680379 18 0.923077 18H15.0769C15.3217 18 15.5565 17.9097 15.7296 17.749C15.9027 17.5882 16 17.3703 16 17.143V13.7148C15.9951 13.5074 15.9099 13.3086 15.76 13.1548Z" fill="#535353"></path>
+                                        <path d="M8 8C10.2091 8 12 6.20914 12 4C12 1.79086 10.2091 0 8 0C5.79086 0 4 1.79086 4 4C4 6.20914 5.79086 8 8 8Z" fill="#535353"></path>
+                                    </svg>
+                                </span>
+                                <span>Thông tin tài khoản</span>
+                            </a>
+                        </li> 
+                        <li class="tab" data-tab="addresses">
+                            <a href="javascript:void(0);">
+                                <span class="icon">
+                                <svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 8.55C5.43168 8.55 4.88663 8.31295 4.48477 7.89099C4.08291 7.46903 3.85714 6.89674 3.85714 6.3C3.85714 5.70326 4.08291 5.13097 4.48477 4.70901C4.88663 4.28705 5.43168 4.05 6 4.05C6.56832 4.05 7.11337 4.28705 7.51523 4.70901C7.91709 5.13097 8.14286 5.70326 8.14286 6.3C8.14286 6.59547 8.08743 6.88806 7.97974 7.16104C7.87205 7.43402 7.71421 7.68206 7.51523 7.89099C7.31625 8.09992 7.08002 8.26566 6.82004 8.37873C6.56005 8.4918 6.2814 8.55 6 8.55ZM6 0C4.4087 0 2.88258 0.663748 1.75736 1.84523C0.632141 3.02671 0 4.62914 0 6.3C0 11.025 6 18 6 18C6 18 12 11.025 12 6.3C12 4.62914 11.3679 3.02671 10.2426 1.84523C9.11742 0.663748 7.5913 0 6 0Z" fill="#535353"></path>
+                                </svg>
+                                </span>
+                                <span>Sổ địa chỉ</span>
+                            </a>
+                        </li>
+                        <li class="tab" data-tab="orders-history">
+                            <a href="javascript:void(0);">
+                                <span class="icon">
+                                    <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.2499 3.6H10.4999C10.4999 1.611 8.93369 0 6.99995 0C5.06621 0 3.49998 1.611 3.49998 3.6H1.74999C0.787494 3.6 0 4.41 0 5.4V16.2C0 17.19 0.787494 18 1.74999 18H12.2499C13.2124 18 13.9999 17.19 13.9999 16.2V5.4C13.9999 4.41 13.2124 3.6 12.2499 3.6ZM5.24996 7.2C5.24996 7.695 4.85622 8.1 4.37497 8.1C3.89372 8.1 3.49998 7.695 3.49998 7.2V5.4H5.24996V7.2ZM6.99995 1.8C7.96244 1.8 8.74994 2.61 8.74994 3.6H5.24996C5.24996 2.61 6.03746 1.8 6.99995 1.8ZM10.4999 7.2C10.4999 7.695 10.1062 8.1 9.62493 8.1C9.14369 8.1 8.74994 7.695 8.74994 7.2V5.4H10.4999V7.2Z" fill="#535353"></path>
+                                    </svg>
+                                </span>
+                                <span>Quản lý đơn hàng</span>
+                            </a>
+                        </li>
+                        <li class="last">
+                            <a href="javascript:void(0);" class="js-btn-logout">
+                                <span class="icon">
+                                    <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.78947 8C3.78947 7.44772 4.23719 7 4.78947 7H11.3684V0.727273C11.3684 0.534388 11.2993 0.349404 11.1763 0.213013C11.0533 0.0766233 10.8865 0 10.7125 0H0.655882C0.481931 0 0.315105 0.0766233 0.192103 0.213013C0.0691017 0.349404 0 0.534388 0 0.727273V15.2727C0 15.4656 0.0691017 15.6506 0.192103 15.787C0.315105 15.9234 0.481931 16 0.655882 16H10.7125C10.8865 16 11.0533 15.9234 11.1763 15.787C11.2993 15.6506 11.3684 15.4656 11.3684 15.2727V9H4.78947C4.23719 9 3.78947 8.55229 3.78947 8ZM17.808 7.48591L13.9525 3.6804C13.5849 3.31761 12.9835 3.3553 12.6641 3.76113C12.3935 4.10505 12.4221 4.59688 12.7308 4.9071L14.8135 7H11.3684V9H14.8135L12.7308 11.0929C12.4221 11.4031 12.3935 11.8949 12.6641 12.2389C12.9835 12.6447 13.5849 12.6824 13.9525 12.3196L17.808 8.51409C17.931 8.37772 18 8.1928 18 8C18 7.8072 17.931 7.62229 17.808 7.48591Z" fill="#535353"></path>
+                                    </svg>
+                                </span>
+                                <span>Đăng xuất</span>
+                            </a>
+                        </li>
+                </ul>
+            </div>
+            <div class="right">
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+          <div class="footer-section">
+            <h3>Về GEARVN</h3>
+            <ul>
+              <li><a href="#">Giới thiệu</a></li>
+              <li><a href="#">Tuyển dụng</a></li>
+              <li><a href="#">Black Friday 2024</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Chính Sách</h3>
+            <ul>
+              <li><a href="#">Chính sách bảo hành</a></li>
+              <li><a href="#">Chính sách giao hàng</a></li>
+              <li><a href="#">Chính sách bảo mật</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Thông Tin</h3>
+            <ul>
+              <li><a href="#">Hệ thống cửa hàng</a></li>
+              <li><a href="#">Hướng dẫn mua hàng</a></li>
+              <li><a href="#">Hướng dẫn thanh toán</a></li>
+              <li><a href="#">Hướng dẫn trả góp</a></li>
+              <li><a href="#">Tra cứu địa chỉ bảo hành</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Tổng Đài Hỗ Trợ (8:00 - 21:00)</h3>
+            <ul>
+              <li>Mua hàng: <a href="tel:19005301">1900.5301</a></li>
+              <li>Bảo hành: <a href="tel:19005325">1900.5325</a></li>
+              <li>Kiếu nại: <a href="tel:18006173">1800.6173</a></li>
+              <li>Email: <a href="mailto:cskh@gearvn.com">cskh@gearvn.com</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Đơn Vị Vận Chuyển</h3>
+            <div class="logos">
+              <img src="ghn.png" alt="GHN">
+              <img src="ems.png" alt="EMS">
+              <img src="gvl.png" alt="GVN">
+              <img src="viettel.png" alt="Viettel">
+            </div>
+            <h3>Cách Thức Thanh Toán</h3>
+            <div class="payment-methods">
+              <img src="visa.png" alt="Visa">
+              <img src="mastercard.png" alt="MasterCard">
+              <img src="zalo.png" alt="ZaloPay">
+              <img src="momo.png" alt="Momo">
+            </div>
+          </div>
+        </div>
+      
+        <!-- Chat Button -->
+        <button id="chat-button">Chat tư vấn - Giải đáp mọi thắc mắc</button>
+      
+        <!-- Chat Box -->
+        <!-- Phần Chatbot -->
+        <div id="chatbot" class="chatbot">
+            <div id="chat-header">
+                <span>Chat với chúng tôi</span>
+                <button id="close-chat">X</button>
+            </div>
+            <div id="chat-content">
+            <!-- Nội dung chat sẽ hiển thị ở đây -->
+                <textarea id="chat-input" placeholder="Nhập tin nhắn..."></textarea>
+                <button id="send-message">Gửi</button>
+            </div>
+        </div>
+  
+    </footer>
+      
+    <script src="js/Trang_Chu.js"></script>
+    <script src="js/San_Pham.js"></script>
+    <script src="js/Gio_Hang.js"></script>
+    <script src="js/Yeu_Thich.js"></script>
+</body>
+</html>

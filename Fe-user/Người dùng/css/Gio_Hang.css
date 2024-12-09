@@ -1,0 +1,308 @@
+.Cart {
+  margin: auto;
+  height: max-content;
+  background-color: #f1f2f3;
+}
+
+.Cart .frame {
+  height: max-content;
+  display: block;
+  padding: 20px 0;
+}
+
+.Cart .frame .cart-head{
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+#list b {
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+#listP img {
+  max-width: 100%;
+  height: 40px;
+}
+
+.Cart .table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  height: max-content;
+  width: 100%;
+  background: #fff;
+}
+
+.Cart .table li {
+  list-style-type: none;
+  padding: 20px;
+  gap: 10px;
+  display: flex;
+  height: max-content;
+  font-size: 15px;
+}
+
+.Cart .table li .item-left {
+  width: 15%;
+}
+
+.Cart .table li .item-left .item-img {
+  border: solid 1px #ccc;  
+  padding: 5px;
+}
+
+.Cart .table li .item-left .item-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.Cart .table li .item-left .delete-btn {
+  color: grey ;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 15px; 
+  width : 100% ; 
+}
+
+.Cart .table li .item-left .delete-btn:hover {
+  color: #007bff;
+}
+
+.Cart .table li .item-right {
+  width: 80%;
+  gap: 10px;
+  display: flex;
+}
+
+
+.Cart .table li .item-right .item-name #IDmh,
+.Cart .table li .item-right .item-prices .sum {
+  color:#db0006;
+  display: flex;
+}
+
+.Cart .table li .item-right .item-prices .total {
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.Cart .table li .item-right .item-prices {
+  width: 40%;
+}
+
+.Cart .table li .item-right .item-prices #oldprice {
+  text-decoration: line-through;
+  font-size: 15px;
+  color: #5a5959;
+}
+
+.Cart .table li .item-right .item-prices p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.Cart .cart-head .cart-list {
+  height: max-content;
+  width: 65%;
+  background-color: #FFF;
+}
+
+.Cart .cart-head .cart-list .Voucher {
+    color: #1982F9;
+    cursor: pointer;
+    padding: 20px;
+    font-weight: 400;
+    height: max-content;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}
+
+.Cart .cart-head .cart-list .Voucher .Voucher-container {
+  width: max-content;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  display: flex;
+}
+.Cart .cart-head .cart-list .Voucher h2 {
+  font-size: 16px;
+  margin: 0;
+  width: 100% ;
+}
+
+.item-quantity {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  overflow: hidden;
+  width: 100px; 
+  height: 30px; 
+  color: #343232; 
+}
+
+.item-quantity button {
+  flex: 1;
+  border: none; 
+  background-color: white;
+  cursor: pointer;
+  font-size: 20px;
+
+}
+
+.item-quantity .quantity {
+  flex: 2;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  border-left: 1px solid #ccc; /* Đường phân cách trái */
+  border-right: 1px solid #ccc; /* Đường phân cách phải */
+}
+
+.shoping__checkout {
+  background: #f5f5f5;
+  padding: 30px;
+  width: 30%;
+}
+
+.shoping__checkout h5 {
+  color: #1c1c1c;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+.shoping__checkout ul {
+  margin-bottom: 28px;
+  padding: 0;
+}
+
+.shoping__checkout ul li span {
+  font-size: 18px;
+  color: #dd2222;
+  float: right;
+}
+
+.shoping__checkout ul li {
+  font-size: 16px;
+  color: #1c1c1c;
+  font-weight: 700;
+  list-style: none;
+  overflow: hidden;
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 13px;
+  margin-bottom: 18px;
+}
+
+.shoping__checkout .primary-btn {
+  display: block;
+  text-align: center;
+}
+
+.primary-btn {
+  display: inline-block;
+  padding: 10px 28px 10px;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 700;
+  background: #7fad39;
+  letter-spacing: 2px;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.infor-right .box {
+  width: 100%;
+  height: 200px;
+  margin-top: 10px;
+  border: solid 1px grey;
+  background-color: #f5f5f5;
+}
+
+.content-box-cart .table-infor {
+  margin-bottom: 0px;
+  background-color: #f5f5f5;
+}
+
+.content-box-cart .table-infor label {
+  font-size: 20px;
+}
+
+
+.order-form {
+  font-family: Arial, sans-serif;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #FFF;
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.order-form .customer {
+  width: 40%;
+}
+
+.order-form .pay {
+  width: 30%;
+}
+
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: none;
+  height: 60px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+
+

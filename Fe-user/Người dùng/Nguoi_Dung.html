@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HIEUPC</title>
+    <link rel="icon" type="image/png" href="img/logo1.png" />
+    <link rel="stylesheet" href="css/Trang_Chu.css" />
+    <link rel="stylesheet" href="css/Nguoi_Dung.css" />
+    <link href='https://unpkg.com/boxicons/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+  </head>
+  <body>
+      <div class="top-bar">
+        <div class="frame">
+          <div class="left">
+              <div class="H-content">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <marquee onmouseover="stop()" onmouseout="start()">Số 14A, đường Trưng Nhị, phường Lê Lợi, thành phố Hưng Yên, tỉnh Hưng Yên</marquee>
+              </div>          
+          </div>
+          <div class="right">
+              <div class="H-right-content" style=" width: 40%;border-right: 1px solid #FFF;">
+                  <i class="fas fa-headphones"></i>
+                  <span>Hotline : 029 382 1922</span>
+              </div>
+              <div class="H-right-content" style="width: 10%;border-right: 1px solid #FFF;">
+                  <span id="selected-language">
+                      <i class="fas fa-globe"></i> 
+                  </span>
+                  <div class="flag-section">
+                      <div class="dropdown-content">
+                          <div class="flag-container" onclick="selectLanguage('vn')">
+                              <span class="flag-icon flag-icon-vn"></span>
+                              <span>Việt Nam</span>
+                          </div>                            
+                          <div class="flag-container" onclick="selectLanguage('us')">
+                              <span class="flag-icon flag-icon-us"></span>
+                              <span>Mỹ</span>
+                          </div>                              
+                          <div class="flag-container" onclick="selectLanguage('jp')">
+                              <span class="flag-icon flag-icon-jp"></span>
+                              <span>Nhật Bản</span>
+                          </div>                          
+                          <div class="flag-container" onclick="selectLanguage('kr')">
+                              <span class="flag-icon flag-icon-kr"></span>
+                              <span>Korean</span>
+                          </div>                                
+                      </div>
+                  </div>
+              </div>                    
+              <div class="H-right-content" style="width:20%">
+                  <i class="fas fa-user-circle"></i>
+                  <div class="login-section">
+                      <span class="login-text" style="cursor: pointer;">Tài khoản</span>
+                      <div class="dropdown-content">
+                          <a href="" id="logout-btn">
+                            <i class="bi bi-person"></i>
+                              tài khoản của bạn
+                          </a>
+                          <a href="Dang_Nhap.html" id="login-btn">
+                              <i class="fas fa-sign-in-alt"></i>
+                              Đăng nhập
+                          </a>
+                          <a href="#" id="logout-btn">
+                              <i class="fas fa-sign-out-alt"></i>
+                              Đăng xuất
+                          </a>
+                      </div>
+                  </div>
+              </div>             
+          </div>
+      </div>
+      </div>
+      <div class="H-head">
+        <div class="frame">    
+          <a class="logo" href="Trang_Chu.html">
+              <img src="img/logo.png" alt="" style="width: 100%; height: 100%;">
+          </a>
+          <div class="title-categories">
+              <i class="bi bi-list"></i>
+              <span>Danh mục</span>
+          </div>
+          <div class="body-search">
+              <select name="category" id="category">
+                  <option value="">Tất cả sản phẩm</option>
+                  <option value="Gaming">Laptop Gaming</option>
+                  <option value="Office">Laptop Văn phòng</option>
+                  <option value="Do-hoa">Laptop Đồ hoạ</option>
+                  <option value="PC">PC Al</option>
+                  <option value="screen">Màn hình máy tính</option>
+                  <option value="phu-kien-1">Phụ kiện laptop, PC, khác</option>
+                  <option value="phu-kien-2">Chuột, bàn phím</option>
+                  <option value="bao-tri">Dịch vụ sửa chữa, bảo trì</option>
+              </select>                        
+              <form id="search-box">
+                  <input type="text" placeholder="Tìm kiếm...">
+                  <button type="submit">
+                      <i class="bi bi-search"></i>
+                  </button>
+              </form>
+          </div>
+          <div class="icons">
+              <a href="#">
+                  <div class="icon">
+                      <i class="fas fa-envelope noti-icon"></i>
+                      <div class="icon-badge" style="right: -5px;">
+                          <span>0</span>
+                      </div>
+                  </div>
+              </a>   
+              <a href="#">
+                  <div class="order">
+                      <i class="fa fa-shopping-cart"></i>
+                      <span class="order-text">Tra cứu đơn hàng</span>
+                  </div>
+              </a>       
+              <a href="Yeu_Thich.html">
+                  <div class="heart">
+                      <i class="far fa-heart"></i>
+                      <div class="heart-badge">
+                          <span>0</span>
+                      </div>
+                      <span class="heart-text">Yêu thích</span>
+                  </div>
+              </a>       
+              <a href="Gio_Hang.html">
+                  <div class="cart">
+                      <i class="fas fa-shopping-cart"></i>
+                      <div class="cart-badge">
+                          <span>0</span>
+                      </div>
+                      <span class="cart-text">Giỏ hàng</span>
+                  </div>
+              </a>
+          </div>
+      </div>
+      </div>
+      <div class="footer">
+        <div class="frame">
+          <ul class="footer-items">
+              <li id="border">
+                  <a href="#" class="footer-link">
+                      <i class="bx bx-gift"></i><span>Săn Voucher</span>
+                  </a>
+              </li>
+              <li id="border">
+                  <a href="#" class="footer-link">
+                      <i class="bx bx-news"></i><span>Tin công nghệ</span>
+                  </a>
+              </li>
+              <li id="border">
+                  <a href="#" class="footer-link">
+                      <i class="bx bx-cog"></i><span>Dịch vụ sửa chữa</span>
+                  </a>
+              </li>
+              <li id="border">
+                  <a href="#" class="footer-link">
+                      <i class="bx bx-wrench"></i><span>Dịch vụ kỹ thuật tại nhà</span>
+                  </a>
+              </li>
+              <li id="border">
+                  <a href="#" class="footer-link">
+                      <i class="bx bx-refresh"></i><span>Thu cũ đổi mới VGA</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="#" class="footer-link">
+                      <i class="bx bx-shield"></i><span>Tra cứu bảo hành</span>
+                  </a>
+              </li>
+          </ul>
+      </div>
+      </div> 
+      <footer>
+        <div class="footer-container">
+          <div class="footer-section">
+            <h3>Về GEARVN</h3>
+            <ul>
+              <li><a href="#">Giới thiệu</a></li>
+              <li><a href="#">Tuyển dụng</a></li>
+              <li><a href="#">Black Friday 2024</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Chính Sách</h3>
+            <ul>
+              <li><a href="#">Chính sách bảo hành</a></li>
+              <li><a href="#">Chính sách giao hàng</a></li>
+              <li><a href="#">Chính sách bảo mật</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Thông Tin</h3>
+            <ul>
+              <li><a href="#">Hệ thống cửa hàng</a></li>
+              <li><a href="#">Hướng dẫn mua hàng</a></li>
+              <li><a href="#">Hướng dẫn thanh toán</a></li>
+              <li><a href="#">Hướng dẫn trả góp</a></li>
+              <li><a href="#">Tra cứu địa chỉ bảo hành</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Tổng Đài Hỗ Trợ (8:00 - 21:00)</h3>
+            <ul  id="call">
+              <li>Mua hàng: <a href="tel:19005301">1900.5301</a></li>
+              <li>Bảo hành: <a href="tel:19005325">1900.5325</a></li>
+              <li>Kiếu nại: <a href="tel:18006173">1800.6173</a></li>
+              <li>Email: <a href="mailto:cskh@gearvn.com">cskh@gearvn.com</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Đơn Vị Vận Chuyển</h3>
+            <div class="logos">
+              <img src="transport/ghn.png" alt="GHN">
+              <img src="transport/ems.png" alt="EMS">
+              <img src="transport/gvl.png" alt="GVN">
+              <img src="transport/viettel.png" alt="Viettel">
+            </div>
+            <h3>Cách Thức Thanh Toán</h3>
+            <div class="payment-methods">
+              <img src="Pay/visa.png" alt="Visa">
+              <img src="Pay/mastercard.png" alt="MasterCard">
+              <img src="Pay/zalo.png" alt="ZaloPay">
+              <img src="Pay/momo.png" alt="Momo">
+            </div>
+          </div>
+        </div>
+      
+        <!-- Chat Button -->
+        <button id="chat-button">
+            <i class="bi bi-chat-right"></i>
+            Chat tư vấn - Giải đáp mọi thắc mắc
+        </button>
+      
+        <!-- Chat Box -->
+        <!-- Phần Chatbot -->
+        <div id="chatbot" class="chatbot">
+            <div id="chat-header">
+                <span>Chat với chúng tôi</span>
+                <button id="close-chat">X</button>
+            </div>
+            <div id="chat-content">
+            <!-- Nội dung chat sẽ hiển thị ở đây -->
+                <textarea id="chat-input" placeholder="Nhập tin nhắn..."></textarea>
+                <button id="send-message">Gửi</button>
+            </div>
+        </div>
+  
+    </footer>
+    <script src="js/Trang_Chu.js"></script>
+    <script src="js/Nguoi_Dung.js"></script>
+  </body>
+</html>

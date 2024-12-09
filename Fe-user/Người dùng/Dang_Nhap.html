@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="icon" type="image/png" href="icon/logo.png">
+    <link rel="stylesheet" href="css/Trang_Chu.css">
+    <link rel="stylesheet" href="css/Dang_Nhap.css">
+    <link href='https://unpkg.com/boxicons/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+</head>
+<body>
+    <div class="H-head">
+        <div class="frame">    
+            <a class="logo" href="Trang_Chu.html">
+                <img src="img/logo.png" alt="" style="width: 100%; height: 100%;">
+            </a>
+			<h2>Chào mừng đến với HIEUPC Store</h2>
+        </div>
+    </div> 
+	<div class="login">
+		<div class="container" id="container">
+			<div class="form-container sign-up-container">
+				<form action="#">
+					<h1>Đăng ký</h1>
+					
+					<input type="text" placeholder="Họ tên" />
+					<input type="email" placeholder="Email" />
+					<input type="password" placeholder="Mật khẩu" />
+					<button>Tạo tài khoản</button>
+
+					<span id="or">hoặc đăng ký bằng</span>
+					<div class="social-container">
+						<div class="social-list">
+							<a href="#" class="social" style="background-color: #0866FF;">
+								<i class="fab fa-facebook-f" ></i>
+								<span>Facebook</span>
+							</a>
+						</div>
+						<div class="social-list">
+							<a href="#" class="social" style="background-color: #D5482D;">
+								<i class="fab fa-google-plus-g"></i>
+								<span>Google</span>
+							</a>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="form-container sign-in-container">
+				<form action="#">
+					<h1>Đăng nhập</h1>
+					<input type="email" placeholder="Email" />
+					<input type="password" placeholder="Mật khẩu" />
+					<a id="Forgot-pass" href="#">
+						<i>Bạn quên mật khẩu?</i>
+					</a>
+					<button>Đăng Nhập</button>
+					<span id="or">hoặc đăng nhập bằng</span>
+					<div class="social-container">
+						<div class="social-list">
+							<a href="#" class="social" style="background-color: #0866FF;">
+								<i class="fab fa-facebook-f" ></i>
+								<span>Facebook</span>
+							</a>
+						</div>
+						<div class="social-list">
+							<a href="#" class="social" style="background-color: #D5482D;">
+								<i class="fab fa-google-plus-g"></i>
+								<span>Google</span>
+							</a>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="overlay-container">
+				<div class="overlay">
+					<div class="overlay-panel overlay-left">
+						<h1>Chào mừng bạn</h1>
+						<p>
+							<span>Bạn đã có tài khoản?</span>
+							<span>Hãy đăng nhập ở nút dưới đây</span>
+						</p>
+						<button class="ghost" id="signIn">Đăng nhập</button>
+					</div>
+					<div class="overlay-panel overlay-right">
+						<h1>chào mừng trở lại</h1>
+						<p>
+							<span>Bạn chưa có tài khoản?</span>
+							<span>Hãy đăng ký ở nút dưới đây</span>
+						</p>
+						<button class="ghost" id="signUp">Đăng ký</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+        <div class="footer-container">
+          <div class="footer-section">
+            <h3>Về GEARVN</h3>
+            <ul>
+              <li><a href="#">Giới thiệu</a></li>
+              <li><a href="#">Tuyển dụng</a></li>
+              <li><a href="#">Black Friday 2024</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Chính Sách</h3>
+            <ul>
+              <li><a href="#">Chính sách bảo hành</a></li>
+              <li><a href="#">Chính sách giao hàng</a></li>
+              <li><a href="#">Chính sách bảo mật</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Thông Tin</h3>
+            <ul>
+              <li><a href="#">Hệ thống cửa hàng</a></li>
+              <li><a href="#">Hướng dẫn mua hàng</a></li>
+              <li><a href="#">Hướng dẫn thanh toán</a></li>
+              <li><a href="#">Hướng dẫn trả góp</a></li>
+              <li><a href="#">Tra cứu địa chỉ bảo hành</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Tổng Đài Hỗ Trợ (8:00 - 21:00)</h3>
+            <ul  id="call">
+              <li>Mua hàng: <a href="tel:19005301">1900.5301</a></li>
+              <li>Bảo hành: <a href="tel:19005325">1900.5325</a></li>
+              <li>Kiếu nại: <a href="tel:18006173">1800.6173</a></li>
+              <li>Email: <a href="mailto:cskh@gearvn.com">cskh@gearvn.com</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Đơn Vị Vận Chuyển</h3>
+            <div class="logos">
+              <img src="transport/ghn.png" alt="GHN">
+              <img src="transport/ems.png" alt="EMS">
+              <img src="transport/gvl.png" alt="GVN">
+              <img src="transport/viettel.png" alt="Viettel">
+            </div>
+            <h3>Cách Thức Thanh Toán</h3>
+            <div class="payment-methods">
+              <img src="Pay/visa.png" alt="Visa">
+              <img src="Pay/mastercard.png" alt="MasterCard">
+              <img src="Pay/zalo.png" alt="ZaloPay">
+              <img src="Pay/momo.png" alt="Momo">
+            </div>
+          </div>
+        </div>
+    </footer>
+	
+    <script src="js/Gio_Hang.js"></script>
+    <script src="js/Yeu_Thich.js"></script>
+    <script src="js/Dang_Nhap.js"></script>
+</body>
+</html>

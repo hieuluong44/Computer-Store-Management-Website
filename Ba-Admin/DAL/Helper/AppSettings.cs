@@ -1,0 +1,12 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DAL.Helper
+{
+    public class AppSettings
+    {
+        public string Secret { get; set; }
+    }
+}
