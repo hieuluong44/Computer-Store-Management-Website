@@ -26,12 +26,11 @@ window.onload = function () {
               </div>
               <div class = "item-right">
                   <div class = "item-name">
-                    <b>${product.name}</b>
+                    <a href = "San_Pham.html"><b>${product.name}</b></a>
                     <p id="IDmh" >Mã mặt hàng : ${product.idMatHang}</p>
                     <p>Bảo hàng : ${product.warranty}</p>
                   </div>
                   <div class = "item-prices">
-                    <p id="oldprice">${product.oldprice} đ</p>
                     <p>${product.newprice} đ</p>
                     <div class = "sum">
                       <p style= "font-size : 18px">Tổng : </p> 

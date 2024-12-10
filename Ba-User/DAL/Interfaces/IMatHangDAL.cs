@@ -8,8 +8,8 @@ namespace DAL.Interfaces
 {
     public interface IMatHangDAL
     {
-        List<Tim_MatHang_TenDM> Tim_MH_TenDM(string TenDanhMuc);
-        List<HienThi_MHModel> HienThi_MH();
+        List<Get_MatHang_DanhMuc> get_MatHang_DanhMuc();
+        List<List_MatHang> list_MatHang();
         List<Tim_MatHang_Gia> tim_MatHang_Gia(float GiaMin, float GiaMax);
     }
 }

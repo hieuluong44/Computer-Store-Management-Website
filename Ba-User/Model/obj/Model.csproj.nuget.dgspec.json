@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Quản lý cửa hàng bán máy tính\\Ba-User\\Model\\Model.csproj": {}
+    "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\Model\\Model.csproj": {}
   },
   "projects": {
-    "F:\\Quản lý cửa hàng bán máy tính\\Ba-User\\Model\\Model.csproj": {
+    "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Quản lý cửa hàng bán máy tính\\Ba-User\\Model\\Model.csproj",
+        "projectUniqueName": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\Model\\Model.csproj",
         "projectName": "Model",
-        "projectPath": "F:\\Quản lý cửa hàng bán máy tính\\Ba-User\\Model\\Model.csproj",
+        "projectPath": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\Model\\Model.csproj",
         "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "F:\\Quản lý cửa hàng bán máy tính\\Ba-User\\Model\\obj\\",
+        "outputPath": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",

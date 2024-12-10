@@ -145,7 +145,7 @@
   },
   {
     "ContainingType": "API.Controllers.MatHangControllers",
-    "Method": "HienThi_MH",
+    "Method": "get_MatHang_DanhMuc",
     "RelativePath": "api/MatHangControllers/Get_MH",
     "HttpMethod": "GET",
     "IsController": true,
@@ -153,7 +153,27 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Model.HienThi_MHModel, Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Model.Get_MatHang_DanhMuc, Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.MatHangControllers",
+    "Method": "list_MatHang",
+    "RelativePath": "api/MatHangControllers/List_MH",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Model.List_MatHang, Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -185,32 +205,6 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.List\u00601[[Model.Tim_MatHang_Gia, Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "API.Controllers.MatHangControllers",
-    "Method": "Tim_MH_TenDM",
-    "RelativePath": "api/MatHangControllers/Search_NameDM/{TenDanhMuc}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "TenDanhMuc",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[Model.Tim_MatHang_TenDM, Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

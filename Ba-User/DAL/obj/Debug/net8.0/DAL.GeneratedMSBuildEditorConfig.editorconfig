@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DAL
-build_property.ProjectDir = F:\Quản lý cửa hàng bán máy tính\Ba-User\DAL\
+build_property.ProjectDir = F:\DoAn2_LuongCongHieu_10122166\Ba-User\DAL\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

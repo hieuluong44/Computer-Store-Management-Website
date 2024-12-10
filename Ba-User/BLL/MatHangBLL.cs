@@ -17,19 +17,19 @@ namespace BLL
             this.matHangDAL = matHang;
         }
 
-        public List<HienThi_MHModel> HienThi_MH()
+        public List<Get_MatHang_DanhMuc> get_MatHang_DanhMuc()
         {
-            return matHangDAL.HienThi_MH();
+            return matHangDAL.get_MatHang_DanhMuc();
+        }
+
+        public List<List_MatHang> list_MatHang()
+        {
+            return matHangDAL.list_MatHang();
         }
 
         public List<Tim_MatHang_Gia> tim_MatHang_Gia(float GiaMin, float GiaMax)
         {
             return matHangDAL.tim_MatHang_Gia(GiaMin, GiaMax);
-        }
-
-        public List<Tim_MatHang_TenDM> Tim_MH_TenDM(string TenDanhMuc)
-        {
-            return matHangDAL.Tim_MH_TenDM(TenDanhMuc);
         }
     }
 }

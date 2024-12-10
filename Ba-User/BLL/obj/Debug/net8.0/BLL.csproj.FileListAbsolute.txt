@@ -32,3 +32,21 @@ F:\Quản lý cửa hàng bán máy tính\Ba-User\BLL\obj\Debug\net8.0\BLL.dll
 F:\Quản lý cửa hàng bán máy tính\Ba-User\BLL\obj\Debug\net8.0\refint\BLL.dll
 F:\Quản lý cửa hàng bán máy tính\Ba-User\BLL\obj\Debug\net8.0\BLL.pdb
 F:\Quản lý cửa hàng bán máy tính\Ba-User\BLL\obj\Debug\net8.0\ref\BLL.dll
+F:\DoAn2_LuongCongHieu_10122166\Ba-User\BLL\bin\Debug\net8.0\BLL.deps.json
+F:\DoAn2_LuongCongHieu_10122166\Ba-User\BLL\bin\Debug\net8.0\BLL.dll
+F:\DoAn2_LuongCongHieu_10122166\Ba-User\BLL\bin\Debug\net8.0\BLL.pdb
+F:\DoAn2_LuongCongHieu_10122166\Ba-User\BLL\bin\Debug\net8.0\DAL.dll
+F:\DoAn2_LuongCongHieu_10122166\Ba-User\BLL\bin\Debug\net8.0\Model.dll
+F:\DoAn2_LuongCongHieu_10122166\Ba-User\BLL\bin\Debug\net8.0\DAL.pdb
+F:\DoAn2_LuongCongHieu_10122166\Ba-User\BLL\bin\Debug\net8.0\Model.pdb
+F:\DoAn2_LuongCongHieu_10122166\Ba-User\BLL\obj\Debug\net8.0\BLL.csproj.AssemblyReference.cache
+F:\DoAn2_LuongCongHieu_10122166\Ba-User\BLL\obj\Debug\net8.0\BLL.GeneratedMSBuildEditorConfig.editorconfig
+F:\DoAn2_LuongCongHieu_10122166\Ba-User\BLL\obj\Debug\net8.0\BLL.AssemblyInfoInputs.cache
+F:\DoAn2_LuongCongHieu_10122166\Ba-User\BLL\obj\Debug\net8.0\BLL.AssemblyInfo.cs
+F:\DoAn2_LuongCongHieu_10122166\Ba-User\BLL\obj\Debug\net8.0\BLL.csproj.CoreCompileInputs.cache
+F:\DoAn2_LuongCongHieu_10122166\Ba-User\BLL\obj\Debug\net8.0\BLL.sourcelink.json
+F:\DoAn2_LuongCongHieu_10122166\Ba-User\BLL\obj\Debug\net8.0\BLL.csproj.Up2Date
+F:\DoAn2_LuongCongHieu_10122166\Ba-User\BLL\obj\Debug\net8.0\BLL.dll
+F:\DoAn2_LuongCongHieu_10122166\Ba-User\BLL\obj\Debug\net8.0\refint\BLL.dll
+F:\DoAn2_LuongCongHieu_10122166\Ba-User\BLL\obj\Debug\net8.0\BLL.pdb
+F:\DoAn2_LuongCongHieu_10122166\Ba-User\BLL\obj\Debug\net8.0\ref\BLL.dll

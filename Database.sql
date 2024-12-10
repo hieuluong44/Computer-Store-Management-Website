@@ -10,8 +10,6 @@ create table DanhMuc (
 );
 go
 
-select * from MatHang where IDDanhMuc = 'DM00000014'
-
 create table GiamGia (
 	IDGiamGia varchar(10) primary key not null,
 	HinhAnh varchar(max) null,
@@ -29,9 +27,17 @@ create table MatHang (
     TenMatHang nvarchar(100) not null,
     DonGia float not null,
     BaoHanh nvarchar(10) null,
-    HinhAnh1 varchar(Max) null,
     TrangThai nvarchar(10) check (TrangThai in (N'Còn hàng', N'Số lượng dưới 5' ,N'Hết hàng')) null,
     foreign key( IDDanhMuc ) references DanhMuc( IDDanhMuc )
+);
+go
+
+create table AnhMatHang (
+	IDAnhMatHang varchar(10) primary key not null,
+    IDMatHang varchar(10) not null,
+    DuongDan varchar(MAX) not null, 
+    ThuTu int not null, 
+    foreign key (IDMatHang) references MatHang(IDMatHang)
 );
 go
 
@@ -466,108 +472,227 @@ values
 ('GG10293840','MuaHe.jpg', 40, N'Giảm giá mùa hè', '2025-06-01', '2025-06-15', N'Sắp bắt đầu'),
 ('GG57392040','GiuaThang.jpg', 10, N'Giảm giá giữa tháng', '2024-11-15', '2024-12-15', N'Đang diễn ra'),
 ('GG84920380','KhachVIP.jpg', 45, N'Giảm giá cho khách hàng VIP', '2024-12-15', '2024-12-20', N'Đang diễn ra'),
-('GG19384750','GiamGia.jpg', 5, N'Giảm giá', '2025-01-05', '2025-01-15', N'Sắp bắt đầu'),
 ('GG48291020','CyberDay.jpg', 40, N'Giảm giá cho ngày Cyber Monday', '2024-12-02', '2024-12-03', N'Sắp bắt đầu'),
 ('GG20394850','QuocKhanh.jpg', 15, N'Giảm giá mừng Quốc khánh', '2024-09-01', '2024-09-05', N'Đã kết thúc'),
 ('GG74839200','XaHang.jpg', 50, N'Giảm giá xả hàng cuối năm', '2024-12-25', '2025-01-05', N'Sắp bắt đầu');
 go
 
 /*-- Các sản phẩm thuộc danh mục con "Laptop" --*/
-INSERT INTO MatHang (IDMatHang, IDDanhMuc, TenMatHang, DonGia, BaoHanh, HinhAnh1, TrangThai) VALUES
+INSERT INTO MatHang (IDMatHang, IDDanhMuc, TenMatHang, DonGia, BaoHanh, TrangThai) VALUES
 -- Macbook Air
-('MH00000017', 'DM00000011',  N'Macbook Air M2 2023', 28000000, N'12 tháng', 'macbook_air_m2_2023.png', NULL),
+('MH00000017', 'DM00000011',  N'Macbook Air M2 2023', 28000000, N'12 tháng', NULL),
 -- Macbook Pro
-('MH00000018', 'DM00000011', N'Macbook Pro M1 2022', 32000000, N'12 tháng', 'macbook_pro_m1_2022.png', NULL),
+('MH00000018', 'DM00000011', N'Macbook Pro M1 2022', 32000000, N'12 tháng', NULL),
 -- Mac Mini
-('MH00000019', 'DM00000011', N'Mac Mini M1 2023', 12000000, N'12 tháng', 'mac_mini_m1_2023.png', NULL),
+('MH00000019', 'DM00000011', N'Mac Mini M1 2023', 12000000, N'12 tháng', NULL),
 -- iMac
-('MH00000020', 'DM00000011',  N'iMac 24-inch 2023', 25000000, N'12 tháng', 'imac_24_2023.png', NULL),
+('MH00000020', 'DM00000011',  N'iMac 24-inch 2023', 25000000, N'12 tháng', NULL),
 -- Asus Vivobook
-('MH00000021', 'DM00000012',  N'Asus Vivobook X 2023', 15000000, N'24 tháng', 'asus_vivobook_x_2023.png', NULL),
+('MH00000021', 'DM00000012',  N'Asus Vivobook X 2023', 15000000, N'24 tháng', NULL),
 -- Asus Zenbook
-('MH00000022', 'DM00000012',N'Asus Zenbook OLED 2023', 18000000, N'24 tháng', 'asus_zenbook_oled_2023.png', NULL),
+('MH00000022', 'DM00000012',N'Asus Zenbook OLED 2023', 18000000, N'24 tháng', NULL),
 -- Asus TUF Gaming
-('MH00000023', 'DM00000012',  N'Asus TUF Gaming F15 2023', 20000000, N'24 tháng', 'asus_tuf_gaming_f15_2023.png', NULL),
+('MH00000023', 'DM00000012',  N'Asus TUF Gaming F15 2023', 20000000, N'24 tháng', NULL),
 -- Asus ROG Gaming
-('MH00000024', 'DM00000012', N'Asus ROG Strix 2023', 25000000, N'24 tháng', 'asus_rog_strix_2023.png', NULL),
+('MH00000024', 'DM00000012', N'Asus ROG Strix 2023', 25000000, N'24 tháng', NULL),
 -- Acer Aspire
-('MH00000025', 'DM00000013',  N'Acer Aspire 5 2023', 13000000, N'18 tháng', 'acer_aspire_5_2023.png', NULL),
+('MH00000025', 'DM00000013',  N'Acer Aspire 5 2023', 13000000, N'18 tháng', NULL),
 -- Acer Nitro
-('MH00000026', 'DM00000013',  N'Acer Nitro 5 2023', 16000000, N'24 tháng', 'acer_nitro_5_2023.png', NULL),
+('MH00000026', 'DM00000013',  N'Acer Nitro 5 2023', 16000000, N'24 tháng', NULL),
 -- Acer Predator
-('MH00000027', 'DM00000013', N'Acer Predator Helios 2023', 22000000, N'24 tháng', 'acer_predator_helios_2023.png', NULL),
+('MH00000027', 'DM00000013', N'Acer Predator Helios 2023', 22000000, N'24 tháng', NULL),
 -- Acer Swift
-('MH00000028', 'DM00000013', N'Acer Swift 3 2023', 14000000, N'24 tháng', 'acer_swift_3_2023.png', NULL),
+('MH00000028', 'DM00000013', N'Acer Swift 3 2023', 14000000, N'24 tháng', NULL),
 -- Lenovo ThinkPad
-('MH00000029', 'DM00000014',  N'Lenovo ThinkPad X1 2023', 20000000, N'36 tháng', 'lenovo_thinkpad_x1_2023.png', NULL),
+('MH00000029', 'DM00000014',  N'Lenovo ThinkPad X1 2023', 20000000, N'36 tháng', NULL),
 -- Lenovo IdeaPad
-('MH00000030', 'DM00000014', N'Lenovo IdeaPad 5 2023', 13000000, N'24 tháng', 'lenovo_ideapad_5_2023.png', NULL),
+('MH00000030', 'DM00000014', N'Lenovo IdeaPad 5 2023', 13000000, N'24 tháng', NULL),
 -- Lenovo Legion
-('MH00000031', 'DM00000014',  N'Lenovo Legion 5 2023', 18000000, N'24 tháng', 'lenovo_legion_5_2023.png', NULL),
+('MH00000031', 'DM00000014',  N'Lenovo Legion 5 2023', 18000000, N'24 tháng', NULL),
 -- Lenovo Yoga
-('MH00000032', 'DM00000014', N'Lenovo Yoga Slim 2023', 17000000, N'24 tháng', 'lenovo_yoga_slim_2023.png', NULL),
+('MH00000032', 'DM00000014', N'Lenovo Yoga Slim 2023', 17000000, N'24 tháng', NULL),
 -- Dell Inspiron
-('MH00000033', 'DM00000015', N'Dell Inspiron 15 2023', 14000000, N'24 tháng', 'dell_inspiron_15_2023.png', NULL),
+('MH00000033', 'DM00000015', N'Dell Inspiron 15 2023', 14000000, N'24 tháng', NULL),
 -- Dell XPS
-('MH00000034', 'DM00000015', N'Dell XPS 13 2023', 22000000, N'36 tháng', 'dell_xps_13_2023.png', NULL),
+('MH00000034', 'DM00000015', N'Dell XPS 13 2023', 22000000, N'36 tháng', NULL),
 -- Dell Alienware
-('MH00000035', 'DM00000015',N'Dell Alienware M15 2023', 30000000, N'36 tháng', 'dell_alienware_m15_2023.png', NULL),
+('MH00000035', 'DM00000015',N'Dell Alienware M15 2023', 30000000, N'36 tháng', NULL),
 -- Dell Latitude
-('MH00000036', 'DM00000015',  N'Dell Latitude 7420 2023', 19000000, N'24 tháng', 'dell_latitude_7420_2023.png', NULL);
-go
+('MH00000036', 'DM00000015',  N'Dell Latitude 7420 2023', 19000000, N'24 tháng', NULL);
 
--- Các sản phẩm thuộc danh mục con "Thiết bị văn phòng"
-INSERT INTO MatHang (IDMatHang, IDDanhMuc, TenMatHang, DonGia, BaoHanh, HinhAnh1, TrangThai) VALUES
+/*-- Các sản phẩm thuộc danh mục con "Thiết bị văn phòng" --*/
+INSERT INTO MatHang (IDMatHang, IDDanhMuc, TenMatHang, DonGia, BaoHanh, TrangThai) VALUES
 -- Canon (Thiết bị văn phòng)
-('MH00000037', 'DM00000016', N'Máy in Canon LBP2900', 3500000, N'12 tháng', 'canon_lbp2900.png', NULL),
+('MH00000037', 'DM00000016', N'Máy in Canon LBP2900', 3500000, N'12 tháng', NULL),
 -- Brother (Thiết bị văn phòng)
-('MH00000038', 'DM00000017',  N'Máy in Brother HL-L2321D', 4000000, N'12 tháng', 'brother_hl_l2321d.png', NULL),
+('MH00000038', 'DM00000017',  N'Máy in Brother HL-L2321D', 4000000, N'12 tháng', NULL),
 -- Epson (Thiết bị văn phòng)
-('MH00000039', 'DM00000018', N'Máy in phun màu Epson L805', 7500000, N'12 tháng', 'epson_l805.png', NULL),
+('MH00000039', 'DM00000018', N'Máy in phun màu Epson L805', 7500000, N'12 tháng', NULL),
 -- Xerox (Thiết bị văn phòng)
-('MH00000040', 'DM00000019',N'Máy in Xerox Phaser 3020', 4500000, N'12 tháng', 'xerox_phaser_3020.png', NULL),
+('MH00000040', 'DM00000019',N'Máy in Xerox Phaser 3020', 4500000, N'12 tháng', NULL),
 -- Sony (Máy chiếu)
-('MH00000041', 'DM00000020',  N'Máy chiếu Sony VPL-DX220', 15000000, N'24 tháng', 'sony_vpl_dx220.png', NULL),
+('MH00000041', 'DM00000020',  N'Máy chiếu Sony VPL-DX220', 15000000, N'24 tháng', NULL),
 -- Panasonic (Máy chiếu)
-('MH00000042', 'DM00000021',N'Máy chiếu Panasonic PT-VX430', 22000000, N'24 tháng', 'panasonic_pt_vx430.png', NULL),
+('MH00000042', 'DM00000021',N'Máy chiếu Panasonic PT-VX430', 22000000, N'24 tháng', NULL),
 -- Optoma (Máy chiếu)
-('MH00000043', 'DM00000022', N'Máy chiếu Optoma HD27e', 18000000, N'24 tháng', 'optoma_hd27e.png', NULL),
+('MH00000043', 'DM00000022', N'Máy chiếu Optoma HD27e', 18000000, N'24 tháng', NULL),
 -- Epson (Máy chiếu)
-('MH00000044', 'DM00000023', N'Máy chiếu Epson EB-X41', 14000000, N'24 tháng', 'epson_eb_x41.png', NULL),
+('MH00000044', 'DM00000023', N'Máy chiếu Epson EB-X41', 14000000, N'24 tháng', NULL),
 -- Ricoh (Máy photocopy)
-('MH00000045', 'DM00000024', N'Máy photocopy Ricoh MP 2001L', 35000000, N'36 tháng', 'ricoh_mp_2001l.png', NULL),
+('MH00000045', 'DM00000024', N'Máy photocopy Ricoh MP 2001L', 35000000, N'36 tháng', NULL),
 -- Xerox (Máy photocopy)
-('MH00000046', 'DM00000025', N'Máy photocopy Xerox WorkCentre 3025', 28000000, N'36 tháng', 'xerox_workcentre_3025.png', NULL),
+('MH00000046', 'DM00000025', N'Máy photocopy Xerox WorkCentre 3025', 28000000, N'36 tháng', NULL),
 -- Canon (Máy photocopy)
-('MH00000047', 'DM00000026',  N'Máy photocopy Canon IR 2004', 30000000, N'36 tháng', 'canon_ir_2004.png', NULL),
+('MH00000047', 'DM00000026',  N'Máy photocopy Canon IR 2004', 30000000, N'36 tháng', NULL),
 -- Konica (Máy photocopy)
-('MH00000048', 'DM00000027',  N'Máy photocopy Konica Minolta Bizhub 185e', 27000000, N'36 tháng', 'konica_minolta_bizhub_185e.png', NULL),
+('MH00000048', 'DM00000027',  N'Máy photocopy Konica Minolta Bizhub 185e', 27000000, N'36 tháng', NULL),
 -- Microsoft (Phần mềm máy tính)
-('MH00000049', 'DM00000028',N'Phần mềm Microsoft Office 365', 1500000, N'12 tháng', 'microsoft_office_365.png', NULL),
+('MH00000049', 'DM00000028',N'Phần mềm Microsoft Office 365', 1500000, N'12 tháng', NULL),
 -- Adobe (Phần mềm máy tính)
-('MH00000050', 'DM00000029', N'Phần mềm Adobe Photoshop CC 2023', 12000000, N'12 tháng', 'adobe_photoshop_cc_2023.png', NULL),
+('MH00000050', 'DM00000029', N'Phần mềm Adobe Photoshop CC 2023', 12000000, N'12 tháng', NULL),
 -- Kaspersky (Phần mềm máy tính)
-('MH00000051', 'DM00000030', N'Phần mềm diệt virus Kaspersky Anti-Virus 2023', 500000, N'12 tháng', 'kaspersky_anti_virus_2023.png', NULL),
+('MH00000051', 'DM00000030', N'Phần mềm diệt virus Kaspersky Anti-Virus 2023', 500000, N'12 tháng', NULL),
 -- Bitdefender (Phần mềm máy tính)
-('MH00000052', 'DM00000031', N'Phần mềm diệt virus Bitdefender Total Security 2023', 700000, N'12 tháng', 'bitdefender_security_2023.png', NULL);
+('MH00000052', 'DM00000031', N'Phần mềm diệt virus Bitdefender Total Security 2023', 700000, N'12 tháng', NULL);
 go
 
 -- Các sản phẩm thuộc danh mục con "Linh kiện máy tính"
-INSERT INTO MatHang (IDMatHang, IDDanhMuc, TenMatHang, DonGia, BaoHanh, HinhAnh1, TrangThai) VALUES
-('MH00000053', 'DM00000032',  N'Dell G15 Gaming', 28000000, N'12 tháng', 'dell_g15_gaming.png', NULL),
-('MH00000054', 'DM00000033',  N'Asus ROG Strix G15', 32000000, N'24 tháng', 'asus_rog_strix_g15.png', NULL),
-('MH00000055', 'DM00000034',  N'LG OLED48C1', 42000000, N'36 tháng', 'lg_oled48c1.png', NULL),
-('MH00000056', 'DM00000035', N'Samsung QLED Q80T', 40000000, N'36 tháng', 'samsung_qled_q80t.png', NULL),
-('MH00000057', 'DM00000036',N'Alienware Aurora R10', 45000000, N'24 tháng', 'alienware_aurora_r10.png', NULL),
-('MH00000058', 'DM00000037', N'Dell Precision 7550', 65000000, N'36 tháng', 'dell_precision_7550.png', NULL),
-('MH00000059', 'DM00000038', N'Intel NUC 11', 15000000, N'12 tháng', 'intel_nuc_11.png', NULL),
-('MH00000060', 'DM00000039', N'HP All-in-One 24', 22000000, N'24 tháng', 'hp_all_in_one_24.png', NULL),
-('MH00000061', 'DM00000040', N'Dell PowerEdge T40', 30000000, N'36 tháng', 'dell_poweredge_t40.png', NULL),
-('MH00000062', 'DM00000041',  N'Dell UltraSharp U2720Q', 18000000, N'12 tháng', 'dell_ultrasharp_u2720q.png', NULL),
-('MH00000063', 'DM00000042',  N'Asus ROG Swift PG259QN', 23000000, N'24 tháng', 'asus_rog_swift_pg259qn.png', NULL),
-('MH00000064', 'DM00000043', N'Sony A8H OLED', 40000000, N'36 tháng', 'sony_a8h_oled.png', NULL),
-('MH00000065', 'DM00000044', N'Samsung QLED Q80T', 55000000, N'36 tháng', 'samsung_qled_q80t.png', NULL),
-('MH00000066', 'DM00000045', N'LG Plasma 55PV450', 28000000, N'24 tháng', 'lg_plasma_55pv450.png', NULL);
+INSERT INTO MatHang (IDMatHang, IDDanhMuc, TenMatHang, DonGia, BaoHanh, TrangThai) VALUES
+('MH00000053', 'DM00000032',  N'Dell G15 Gaming', 28000000, N'12 tháng', NULL),
+('MH00000054', 'DM00000033',  N'Asus ROG Strix G15', 32000000, N'24 tháng', NULL),
+('MH00000055', 'DM00000034',  N'LG OLED48C1', 42000000, N'36 tháng', NULL),
+('MH00000056', 'DM00000035', N'Samsung QLED Q80T', 40000000, N'36 tháng', NULL),
+('MH00000057', 'DM00000036',N'Alienware Aurora R10', 45000000, N'24 tháng', NULL),
+('MH00000058', 'DM00000037', N'Dell Precision 7550', 65000000, N'36 tháng', NULL),
+('MH00000059', 'DM00000038', N'Intel NUC 11', 15000000, N'12 tháng', NULL),
+('MH00000060', 'DM00000039', N'HP All-in-One 24', 22000000, N'24 tháng', NULL),
+('MH00000061', 'DM00000040', N'Dell PowerEdge T40', 30000000, N'36 tháng', NULL),
+('MH00000062', 'DM00000041',  N'Dell UltraSharp U2720Q', 18000000, N'12 tháng', NULL),
+('MH00000063', 'DM00000042',  N'Asus ROG Swift PG259QN', 23000000, N'24 tháng', NULL),
+('MH00000064', 'DM00000043', N'Sony A8H OLED', 40000000, N'36 tháng', NULL),
+('MH00000065', 'DM00000044', N'Samsung QLED Q80T', 55000000, N'36 tháng', NULL),
+('MH00000066', 'DM00000045', N'LG Plasma 55PV450', 28000000, N'24 tháng', NULL);
+go
+
+INSERT INTO MatHang (IDMatHang, IDDanhMuc, TenMatHang, DonGia, BaoHanh, TrangThai) VALUES
+('MH00000067', 'DM00000064', N'Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB,RTX 4050 6GB, 16'' 2K+ 165Hz)', '29490000', N'12 tháng', NULL);
+go
+
+INSERT INTO AnhMatHang (IDAnhMatHang, IDMatHang, DuongDan, ThuTu) values
+('AMH0000068', 'MH00000067', 'Lenovo_Legion_Y7000P_2024.1.jpg', 1),
+('AMH0000069', 'MH00000067', 'Lenovo_Legion_Y7000P_2024.2.jpg', 2),
+('AMH0000070', 'MH00000067', 'Lenovo_Legion_Y7000P_2024.3.jpg', 3),
+('AMH0000071', 'MH00000067', 'Lenovo_Legion_Y7000P_2024.4.jpg', 4),
+('AMH0000072', 'MH00000067', 'Lenovo_Legion_Y7000P_2024.5.jpg', 5),
+('AMH0000073', 'MH00000067', 'Lenovo_Legion_Y7000P_2024.6.jpg', 6),
+('AMH0000074', 'MH00000067', 'Lenovo_Legion_Y7000P_2024.7.jpg', 7),
+('AMH0000075', 'MH00000067', 'Lenovo_Legion_Y7000P_2024.8.jpg', 8),
+('AMH0000076', 'MH00000067', 'Lenovo_Legion_Y7000P_2024.9.jpg', 9),
+('AMH0000077', 'MH00000067', 'Lenovo_Legion_Y7000P_2024.10.jpg', 10),
+('AMH0000078', 'MH00000067', 'Lenovo_Legion_Y7000P_2024.11.jpg', 11),
+('AMH0000079', 'MH00000067', 'Lenovo_Legion_Y7000P_2024.12.jpg', 12);
+
+INSERT INTO ThongSoKyThuat (IDThongSo, IDMatHang, TenThongSo, GiaTriThongSo) VALUES
+('TS00000042', 'MH00000067', N'CPU', N'Intel® Core™ i7-13620H Processor 2.4 GHz (24M Cache, up to 4.9 GHz, 10 cores: 6 P-cores and 4 E-cores)'),
+('TS00000043', 'MH00000067', N'RAM', N'16GB (1x16GB) DDR5 4800MHz (2x SO-DIMM socket, up to 32GB SDRAM)'),
+('TS00000044', 'MH00000067', N'Ổ cứng', N'1TB PCIe® 4.0 NVMe™ M.2 SSD (Còn trống 1 khe SSD M.2 PCIE)'),
+('TS00000045', 'MH00000067', N'Card đồ họa', N'NVIDIA® GeForce RTX™ 4060 8GB GDDR6, Up to 2420MHz* at 140W (2370MHz Boost Clock+50MHz OC, 115W+25W Dynamic Boost)'),
+('TS00000046', 'MH00000067', N'Màn hình', N'15.6" FHD (1920 x 1080) IPS, 144Hz, Wide View, 250nits, Narrow Bezel, Non-Glare with 72% NTSC, 100% sRGB, 75.35% Adobe RGB, G-Sync'),
+('TS00000047', 'MH00000067', N'Cổng giao tiếp', N'1x Thunderbolt™ 4 support DisplayPort™\n1x USB 3.2 Gen 2 Type-C support DisplayPort™ / power delivery / G-SYNC\n2x USB 3.2 Gen 1 Type-A\n1x RJ45 LAN port\n1x HDMI 2.1 FRL\n1x 3.5mm Combo Audio Jack'),
+('TS00000048', 'MH00000067', N'Audio', N'2-speaker system, Dolby Atmos'),
+('TS00000049', 'MH00000067', N'Bàn phím', N'Backlit Chiclet Keyboard RGB'),
+('TS00000050', 'MH00000067', N'Chuẩn LAN', N'10/100/1000/Gigabits Base T'),
+('TS00000051', 'MH00000067', N'Chuẩn WIFI', N'802.11AX (2X2)'),
+('TS00000052', 'MH00000067', N'Bluetooth', N'v5.2'),
+('TS00000053', 'MH00000067', N'Webcam', N'HD 720p'),
+('TS00000054', 'MH00000067', N'Hệ điều hành', N'Windows 11 Home'),
+('TS00000055', 'MH00000067', N'Pin', N'4 Cell 90WHr'),
+('TS00000056', 'MH00000067', N'Trọng lượng', N'2.2 kg'),
+('TS00000057', 'MH00000067', N'Màu sắc', N'Jaeger Gray'),
+('TS00000058', 'MH00000067', N'Kích thước', N'35.4 x 25.1 x 2.24 ~ 2.49 cm');
+go
+
+
+-- Ảnh cho Macbook Air M2 2023
+INSERT INTO AnhMatHang (IDAnhMatHang, IDMatHang, DuongDan, ThuTu) VALUES
+('AMH0000001', 'MH00000017', 'macbook_air_m2_2023_1.png', 1),
+('AMH0000002', 'MH00000017', 'macbook_air_m2_2023_2.png', 2),
+('AMH0000003', 'MH00000017', 'macbook_air_m2_2023_3.png', 3),
+('AMH0000004', 'MH00000017', 'macbook_air_m2_2023_4.png', 4),
+('AMH0000005', 'MH00000017', 'macbook_air_m2_2023_5.png', 5),
+('AMH0000006', 'MH00000017', 'macbook_air_m2_2023_6.png', 6),
+('AMH0000007', 'MH00000017', 'macbook_air_m2_2023_7.png', 7),
+('AMH0000008', 'MH00000017', 'macbook_air_m2_2023_8.png', 8),
+('AMH0000009', 'MH00000017', 'macbook_air_m2_2023_9.png', 9),
+('AMH0000010', 'MH00000017', 'macbook_air_m2_2023_10.png',10);
+
+-- Ảnh cho Macbook Pro M1 2022
+INSERT INTO AnhMatHang (IDAnhMatHang, IDMatHang, DuongDan, ThuTu) VALUES
+('AMH0000011', 'MH00000018', 'macbook_pro_m1_2022_1.png', 1),
+('AMH0000012', 'MH00000018', 'macbook_pro_m1_2022_2.png', 2),
+('AMH0000013', 'MH00000018', 'macbook_pro_m1_2022_3.png', 3),
+('AMH0000014', 'MH00000018', 'macbook_pro_m1_2022_4.png', 4),
+('AMH0000015', 'MH00000018', 'macbook_pro_m1_2022_5.png', 5),
+('AMH0000016', 'MH00000018', 'macbook_pro_m1_2022_6.png', 6),
+('AMH0000017', 'MH00000018', 'macbook_pro_m1_2022_7.png', 7),
+('AMH0000018', 'MH00000018', 'macbook_pro_m1_2022_8.png', 8),
+('AMH0000019', 'MH00000018', 'macbook_pro_m1_2022_9.png', 9),
+('AMH0000020', 'MH00000018', 'macbook_pro_m1_2022_10.png',10);
+
+-- Các sản phẩm khác
+INSERT INTO AnhMatHang (IDAnhMatHang, IDMatHang, DuongDan, ThuTu) VALUES
+('AMH0000021', 'MH00000019', 'mac_mini_2023.jpg', 1),
+('AMH0000022', 'MH00000020', 'imac_2023.jpg', 1),
+('AMH0000023', 'MH00000021', 'asus_vivobook_x_2023.jpg', 1),
+('AMH0000024', 'MH00000022', 'asus_zenbook_oled_2023.jpg', 1),
+('AMH0000025', 'MH00000024', 'asus_rog_strix_2023.jpg', 1),
+('AMH0000026', 'MH00000025', 'acer_aspire_5_2023.jpg', 1),
+('AMH0000027', 'MH00000026', 'acer_nitro_5_2023.jpg', 1),
+('AMH0000028', 'MH00000027', 'acer_predator_helios_2023.jpg', 1),
+('AMH0000029', 'MH00000028', 'acer_swift_3_2023.jpg', 1),
+('AMH0000030', 'MH00000029', 'lenovo_thinkpad_x1_2023.jpg', 1),
+('AMH0000031', 'MH00000030', 'lenovo_ideapad_5_2023.jpg', 1),
+('AMH0000032', 'MH00000031', 'lenovo_legion_5_2023.jpg', 1),
+('AMH0000033', 'MH00000032', 'lenovo_yoga_slim_2023.jpg', 1),
+('AMH0000034', 'MH00000033', 'dell_inspiron_15_2023.jpg', 1),
+('AMH0000035', 'MH00000034', 'dell_xps_13_2023.jpg', 1),
+('AMH0000036', 'MH00000035', 'dell_alienware_m15_2023.jpg', 1),
+('AMH0000037', 'MH00000036', 'dell_latitude_7420_2023.jpg', 1),
+('AMH0000038', 'MH00000037', 'canon_lbp2900.jpg', 1),
+('AMH0000039', 'MH00000038', 'brother_hl_l2321d.jpg', 1),
+('AMH0000040', 'MH00000039', 'epson_l805.jpg', 1);
+
+INSERT INTO AnhMatHang (IDAnhMatHang, IDMatHang, DuongDan, ThuTu) VALUES
+('AMH0000041', 'MH00000040', 'xerox_phaser_3020.jpg', 1),
+('AMH0000042', 'MH00000041', 'sony_vpl_dx220.jpg', 1),
+('AMH0000043', 'MH00000042', 'panasonic_pt_vx430.jpg', 1),
+('AMH0000044', 'MH00000043', 'optoma_hd27e.jpg', 1),
+('AMH0000045', 'MH00000044', 'epson_eb_x41.jpg', 1),
+('AMH0000046', 'MH00000045', 'ricoh_mp_2001l.jpg', 1),
+('AMH0000047', 'MH00000046', 'xerox_workcentre_3025.jpg', 1),
+('AMH0000048', 'MH00000047', 'canon_ir_2004.jpg', 1),
+('AMH0000049', 'MH00000048', 'konica_minolta_bizhub_185e.jpg', 1),
+('AMH0000050', 'MH00000049', 'microsoft_office_365.jpg', 1),
+('AMH0000051', 'MH00000050', 'adobe_photoshop_cc_2023.jpg', 1),
+('AMH0000052', 'MH00000051', 'kaspersky_anti_virus_2023.jpg', 1),
+('AMH0000053', 'MH00000052', 'bitdefender_total_security_2023.jpg', 1);
+
+INSERT INTO AnhMatHang (IDAnhMatHang, IDMatHang, DuongDan, ThuTu) VALUES
+('AMH0000054', 'MH00000053', 'dell_g15_gaming.jpg', 1),
+('AMH0000055', 'MH00000054', 'asus_rog_strix_g15.jpg', 1),
+('AMH0000056', 'MH00000055', 'lg_oled48c1.jpg', 1),
+('AMH0000057', 'MH00000056', 'samsung_qled_q80t.jpg', 1),
+('AMH0000058', 'MH00000057', 'alienware_aurora_r10.jpg', 1),
+('AMH0000059', 'MH00000058', 'dell_precision_7550.jpg', 1),
+('AMH0000060', 'MH00000059', 'intel_nuc_11.jpg', 1),
+('AMH0000061', 'MH00000060', 'hp_all_in_one_24.jpg', 1),
+('AMH0000062', 'MH00000061', 'dell_poweredge_t40.jpg', 1),
+('AMH0000063', 'MH00000062', 'dell_ultrasharp_u2720q.jpg', 1),
+('AMH0000064', 'MH00000063', 'asus_rog_swift_pg259qn.jpg', 1),
+('AMH0000065', 'MH00000064', 'sony_a8h_oled.jpg', 1),
+('AMH0000066', 'MH00000065', 'samsung_qled_q80t_2.jpg', 1),
+('AMH0000067', 'MH00000066', 'lg_plasma_55pv450.jpg', 1);
+
 
 
 INSERT INTO ThongSoKyThuat (IDThongSo, IDMatHang, TenThongSo, GiaTriThongSo) VALUES
@@ -588,6 +713,37 @@ INSERT INTO ThongSoKyThuat (IDThongSo, IDMatHang, TenThongSo, GiaTriThongSo) VAL
 ('TS00000015', 'MH00000023', N'Trọng lượng', N'2.2 kg'),
 ('TS00000016', 'MH00000023', N'Màu sắc', N'Jaeger Gray'),
 ('TS00000017', 'MH00000023', N'Kích thước', N'35.4 x 25.1 x 2.24 ~ 2.49 cm');
+go
+
+INSERT INTO ThongSoKyThuat (IDThongSo, IDMatHang, TenThongSo, GiaTriThongSo) VALUES
+('TS00000018', 'MH00000017', N'CPU', N'Apple M2 chip with 8-core CPU and 8-core GPU'),
+('TS00000019', 'MH00000017', N'RAM', N'8GB unified memory'),
+('TS00000020', 'MH00000017', N'Ổ cứng', N'256GB SSD'),
+('TS00000021', 'MH00000017', N'Màn hình', N'13.6" Liquid Retina display with True Tone'),
+('TS00000022', 'MH00000017', N'Cổng giao tiếp', N'Two Thunderbolt/USB 4 ports'),
+('TS00000023', 'MH00000017', N'Camera', N'1080p FaceTime HD camera'),
+('TS00000024', 'MH00000017', N'Audio', N'Four-speaker sound system with Spatial Audio'),
+('TS00000025', 'MH00000017', N'Bàn phím', N'Magic Keyboard with Touch ID'),
+('TS00000026', 'MH00000017', N'Chuẩn WIFI', N'802.11ax Wi-Fi 6'),
+('TS00000027', 'MH00000017', N'Bluetooth', N'v5.0'),
+('TS00000028', 'MH00000017', N'Pin', N'Up to 18 hours of battery life'),
+('TS00000029', 'MH00000017', N'Màu sắc', N'Space Gray, Silver, Midnight, Starlight');
+go
+
+INSERT INTO ThongSoKyThuat (IDThongSo, IDMatHang, TenThongSo, GiaTriThongSo) VALUES
+('TS00000030', 'MH00000018', N'CPU', N'Apple M1 chip with 8-core CPU and 8-core GPU'),
+('TS00000031', 'MH00000018', N'RAM', N'8GB unified memory'),
+('TS00000032', 'MH00000018', N'Ổ cứng', N'256GB SSD'),
+('TS00000033', 'MH00000018', N'Màn hình', N'13.3" Retina display with True Tone'),
+('TS00000034', 'MH00000018', N'Cổng giao tiếp', N'Two Thunderbolt/USB 4 ports'),
+('TS00000035', 'MH00000018', N'Camera', N'720p FaceTime HD camera'),
+('TS00000036', 'MH00000018', N'Audio', N'Stereo speakers with high dynamic range'),
+('TS00000037', 'MH00000018', N'Bàn phím', N'Magic Keyboard with Touch Bar and Touch ID'),
+('TS00000038', 'MH00000018', N'Chuẩn WIFI', N'802.11ax Wi-Fi 6'),
+('TS00000039', 'MH00000018', N'Bluetooth', N'v5.0'),
+('TS00000040', 'MH00000018', N'Pin', N'Up to 20 hours of battery life'),
+('TS00000041', 'MH00000018', N'Màu sắc', N'Space Gray, Silver');
+go
 
 -- Bảng người dùng
 insert into NguoiDung (IDNguoiDung, HinhAnh, TenNguoiDung, SoDienThoai, Email, MatKhau, VaiTro) values
@@ -655,7 +811,7 @@ go
 insert into HoaDonBan (IDDonBan, IDNguoiDung, IDGiamGia,  NgayBan, TrangThai, GhiChu, TongTien) values
 ('DB00000001', 'ND00000001',null,  '2024-10-01', N'Chờ xác nhận', N'Đơn hàng đầu tiên',0),
 ('DB00000002', 'ND00000002','GG19283740', '2024-10-02', N'Chờ lấy hàng', N'Khách hàng đã thanh toán',0),
-('DB00000003', 'ND00000003','GG19384750', '2024-10-03', N'Đang vận chuyển', N'Đang trên đường giao hàng',0),
+('DB00000003', 'ND00000003','GG84920380', '2024-10-03', N'Đang vận chuyển', N'Đang trên đường giao hàng',0),
 ('DB00000004', 'ND00000004', 'GG10293840', '2024-10-04', N'Trả hàng', N'Khách hàng đã yêu cầu trả hàng',0),
 ('DB00000005', 'ND00000005', 'GG10293840', '2024-10-05', N'Đã giao', N'Đơn hàng đã được giao thành công',0),
 ('DB00000006', 'ND00000006', null, '2024-10-06', N'Chờ xác nhận', N'Chờ xác nhận từ người bán',0),
@@ -827,6 +983,7 @@ drop table if exists NhaCungCap;
 drop table if exists NguoiDung;
 drop table if exists ChiTietMatHang;
 drop table if exists ThongSoKyThuat
+drop table if exists AnhMatHang;
 drop table if exists MatHang;
 drop table if exists LoaiMatHang;
 drop table if exists GiamGia;

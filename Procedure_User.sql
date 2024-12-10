@@ -1,34 +1,9 @@
 ﻿/*------------------ TRANG NGƯỜI DÙNG -----------------------*/
 
 /*======================= MẶT HÀNG ==========================*/
-/*--- Thống kê mặt hàng bán chạy --*/
-alter proc ThongKeTop10MatHangBanChay
-as
-begin
-    -- Lấy top 10 mặt hàng bán chạy nhất dựa trên tổng số lượng đã bán
-    select top 10 
-        mh.IDMatHang, 
-        mh.TenMatHang, 
-        SUM(ctdb.SoLuong) AS TongSoLuongBan,
-        mh.DonGia,
-        mh.BaoHanh,
-		kh.SoLuong AS SoLuongTrongKho,
-        CASE 
-            WHEN kh.SoLuong = 0 THEN N'Hết hàng'
-            WHEN kh.SoLuong < 5 THEN N'Số lượng dưới 5'
-            ELSE N'Còn hàng'
-        END as TrangThai
-    from ChiTietDonBan ctdb
-    inner join MatHang mh on ctdb.IDMatHang = mh.IDMatHang
-	inner join Kho kh on mh.IDMatHang = kh.IDMatHang
-    group by mh.IDMatHang, mh.TenMatHang, mh.DonGia, mh.BaoHanh, kh.SoLuong, mh.TrangThai
-    order by TongSoLuongBan desc; -- Sắp xếp theo tổng số lượng bán giảm dần
-end;
-go
-
 
 /* Danh mục nổi bật */
-alter proc exec DanhMucHot 
+alter proc DanhMucHot 
 as
 begin 
 	SELECT TOP 6
@@ -46,24 +21,31 @@ end;
 go
 
 
-/*---Lấy thông tin mặt hàng---*/
-alter PROCEDURE  GetAllMatHang
-AS
-BEGIN
-    SELECT 
-        m.IDMatHang,
-        dm.TenDanhMuc AS TenDanhMuc,  -- Tên danh mục cháu
-        m.TenMatHang,   -- Tên mặt hàng
-        m.DonGia,       -- Đơn giá
-        m.BaoHanh,      -- Bảo hành
-        m.HinhAnh1,     -- Hình ảnh
-        m.TrangThai     -- Trạng thái
-    FROM 
-        MatHang m
-    LEFT JOIN 
-        DanhMuc dm ON m.IDDanhMuc = dm.IDDanhMuc   -- Join bảng DanhMuc để lấy tên danh mục cháu
-END;
-GO
+alter proc Get_MatHang_DanhMuc
+as
+begin
+    select 
+        MH.IDMatHang,                    
+        DMCha.TenDanhMuc AS TenDanhMucCha, 
+        MH.TenMatHang,                  
+        MH.DonGia,
+        AMH.DuongDan,   
+		AMH.ThuTu,
+        case 
+            WHEN kh.SoLuong = 0 THEN N'Liên hệ'
+            WHEN kh.SoLuong < 5 THEN N'Số lượng có hạn'
+            ELSE N'Còn hàng'
+        end as TrangThai                 
+    from 
+        MatHang MH
+    inner join  DanhMuc DM on MH.IDDanhMuc = DM.IDDanhMuc  
+    left join  DanhMuc DMCha on DM.IDDanhMucCha = DMCha.IDDanhMuc  
+    inner join  Kho KH on MH.IDMatHang = KH.IDMatHang  
+	inner join AnhMatHang AMH on MH.IDMatHang = AMH.IDMatHang
+    where  DMCha.IDDanhMuc IS NOT NULL and KH.SoLuong > 5        
+    order by  DMCha.TenDanhMuc, MH.TenMatHang;                  
+end;
+go
 
 
 /*-- Chi tiết mặt hàng --*/
@@ -71,10 +53,11 @@ create proc Get_ChiTietMatHang
 	@IDMatHang char(10)
 as
 begin
-	select from MatHang MH
+	select * from MatHang MH
 	inner join ThongSoKyThuat KT on MH.IDMatHang = KT.IDMatHang
 end;
 go
+
 /*--Tìm mặt hàng bằng giá--*/
 alter proc Tim_MatHang_Gia
 	@GiaMin float,
@@ -82,12 +65,40 @@ alter proc Tim_MatHang_Gia
 as
 begin	
 	select
-	DM.TenDanhMuc, MH.TenMatHang, MH.DonGia, MH.BaoHanh, MH.HinhAnh1, MH.TrangThai, CONCAT(GG.TyLeGiam, '%') as TyLeGiam, GG.NoiDung, GG.TrangThaiGiamGia
+	DM.TenDanhMuc, MH.TenMatHang, MH.DonGia, MH.BaoHanh, MH.HinhAnh1, MH.TrangThai
 	from MatHang MH Inner join  DanhMuc DM on DM.IDDanhMuc = MH.IDDanhMuc
-	inner join GiamGia GG on GG.IDGiamGia = MH.IDGiamGia
 	where @GiaMin <= DonGia and DonGia <= @GiaMax
 end;
 go
+
+
+/*Mặt hàng bán chạy*/
+alter proc MatHang_BanChay
+as
+begin
+   SELECT TOP 10 
+    MH.IDMatHang,
+    MH.TenMatHang,
+    MH.DonGia AS GiaBan,
+    AMH.DuongDan,
+    CASE 
+        WHEN KH.SoLuong = 0 THEN N'Liên hệ'
+        WHEN KH.SoLuong < 5 THEN N'Số lượng có hạn'
+        ELSE N'Còn hàng'
+    END AS TrangThai,
+    SUM(CTDB.SoLuong) AS TongSoLuongBan
+FROM MatHang MH
+JOIN ChiTietDonBan CTDB ON MH.IDMatHang = CTDB.IDMatHang
+JOIN HoaDonBan HDB ON CTDB.IDDonBan = HDB.IDDonBan
+INNER JOIN Kho KH ON KH.IDMatHang = MH.IDMatHang
+LEFT JOIN ( SELECT IDMatHang, DuongDan FROM AnhMatHang WHERE ThuTu = 1 ) AMH ON MH.IDMatHang = AMH.IDMatHang
+GROUP BY 
+    MH.IDMatHang, MH.TenMatHang, MH.DonGia, AMH.DuongDan, KH.SoLuong
+ORDER BY TongSoLuongBan DESC;
+end;
+go
+
+select * from ChiTietDonBan
 
 /*======================= GIẢM GIÁ ==========================*/
 /*----Hiển thị giảm giá----*/

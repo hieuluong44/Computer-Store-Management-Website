@@ -1,49 +1,57 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\",
+  "WorkspaceRootPath": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|f:\\qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\ba-admin\\model\\danhmucmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|solutionrelative:model\\danhmucmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6D17585-1323-4062-9A00-462D31B48355}|DAL\\DAL.csproj|f:\\qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\ba-admin\\dal\\danhmucdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6D17585-1323-4062-9A00-462D31B48355}|DAL\\DAL.csproj|solutionrelative:dal\\danhmucdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|f:\\qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\ba-admin\\model\\nguoidungmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|solutionrelative:model\\nguoidungmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|f:\\qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\ba-admin\\model\\donnhapmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|solutionrelative:model\\donnhapmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|f:\\qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\ba-admin\\model\\danhgiamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|solutionrelative:model\\danhgiamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6D17585-1323-4062-9A00-462D31B48355}|DAL\\DAL.csproj|f:\\qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\ba-admin\\dal\\khodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6D17585-1323-4062-9A00-462D31B48355}|DAL\\DAL.csproj|solutionrelative:dal\\khodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|f:\\qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\ba-admin\\model\\khomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|f:\\doan2_luongconghieu_10122166\\ba-admin\\model\\khomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|solutionrelative:model\\khomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6D17585-1323-4062-9A00-462D31B48355}|DAL\\DAL.csproj|f:\\qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\ba-admin\\dal\\chitietdonbandal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C6D17585-1323-4062-9A00-462D31B48355}|DAL\\DAL.csproj|f:\\doan2_luongconghieu_10122166\\ba-admin\\dal\\khodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6D17585-1323-4062-9A00-462D31B48355}|DAL\\DAL.csproj|solutionrelative:dal\\khodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6D17585-1323-4062-9A00-462D31B48355}|DAL\\DAL.csproj|f:\\doan2_luongconghieu_10122166\\ba-admin\\dal\\mathangdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6D17585-1323-4062-9A00-462D31B48355}|DAL\\DAL.csproj|solutionrelative:dal\\mathangdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|f:\\doan2_luongconghieu_10122166\\ba-admin\\model\\mathangmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|solutionrelative:model\\mathangmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|f:\\doan2_luongconghieu_10122166\\ba-admin\\model\\danhmucmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|solutionrelative:model\\danhmucmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6D17585-1323-4062-9A00-462D31B48355}|DAL\\DAL.csproj|f:\\doan2_luongconghieu_10122166\\ba-admin\\dal\\danhmucdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6D17585-1323-4062-9A00-462D31B48355}|DAL\\DAL.csproj|solutionrelative:dal\\danhmucdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|f:\\doan2_luongconghieu_10122166\\ba-admin\\model\\nguoidungmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|solutionrelative:model\\nguoidungmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|f:\\doan2_luongconghieu_10122166\\ba-admin\\model\\donnhapmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|solutionrelative:model\\donnhapmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|f:\\doan2_luongconghieu_10122166\\ba-admin\\model\\danhgiamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|solutionrelative:model\\danhgiamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6D17585-1323-4062-9A00-462D31B48355}|DAL\\DAL.csproj|f:\\doan2_luongconghieu_10122166\\ba-admin\\dal\\chitietdonbandal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6D17585-1323-4062-9A00-462D31B48355}|DAL\\DAL.csproj|solutionrelative:dal\\chitietdonbandal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|f:\\qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\ba-admin\\model\\chitietbanmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|f:\\doan2_luongconghieu_10122166\\ba-admin\\model\\chitietbanmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{370D6337-856F-49D9-B458-9080B5FC96C1}|Model\\Model.csproj|solutionrelative:model\\chitietbanmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24C40527-4DE7-489A-A652-745C579AEEF5}|Admin\\API.csproj|f:\\qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\ba-admin\\admin\\controllers\\chitietdonnhapcontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{24C40527-4DE7-489A-A652-745C579AEEF5}|Admin\\API.csproj|f:\\doan2_luongconghieu_10122166\\ba-admin\\admin\\controllers\\chitietdonnhapcontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{24C40527-4DE7-489A-A652-745C579AEEF5}|Admin\\API.csproj|solutionrelative:admin\\controllers\\chitietdonnhapcontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24C40527-4DE7-489A-A652-745C579AEEF5}|Admin\\API.csproj|f:\\qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\ba-admin\\admin\\controllers\\chitietdonbancontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{24C40527-4DE7-489A-A652-745C579AEEF5}|Admin\\API.csproj|f:\\doan2_luongconghieu_10122166\\ba-admin\\admin\\controllers\\chitietdonbancontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{24C40527-4DE7-489A-A652-745C579AEEF5}|Admin\\API.csproj|solutionrelative:admin\\controllers\\chitietdonbancontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -54,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,24 +74,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DanhMucModel.cs",
-              "DocumentMoniker": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\Model\\DanhMucModel.cs",
-              "RelativeDocumentMoniker": "Model\\DanhMucModel.cs",
-              "ToolTip": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\Model\\DanhMucModel.cs",
-              "RelativeToolTip": "Model\\DanhMucModel.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBkAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-08T10:00:22.942Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "DanhMucDAL.cs",
-              "DocumentMoniker": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\DAL\\DanhMucDAL.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\DAL\\DanhMucDAL.cs",
               "RelativeDocumentMoniker": "DAL\\DanhMucDAL.cs",
-              "ToolTip": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\DAL\\DanhMucDAL.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\DAL\\DanhMucDAL.cs",
               "RelativeToolTip": "DAL\\DanhMucDAL.cs",
               "ViewState": "AgIAAGMAAAAAAAAAAAAAwHQAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -91,11 +86,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "NguoiDungModel.cs",
-              "DocumentMoniker": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\Model\\NguoiDungModel.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Model\\NguoiDungModel.cs",
               "RelativeDocumentMoniker": "Model\\NguoiDungModel.cs",
-              "ToolTip": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\Model\\NguoiDungModel.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Model\\NguoiDungModel.cs",
               "RelativeToolTip": "Model\\NguoiDungModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -103,11 +98,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "DonNhapModel.cs",
-              "DocumentMoniker": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\Model\\DonNhapModel.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Model\\DonNhapModel.cs",
               "RelativeDocumentMoniker": "Model\\DonNhapModel.cs",
-              "ToolTip": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\Model\\DonNhapModel.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Model\\DonNhapModel.cs",
               "RelativeToolTip": "Model\\DonNhapModel.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAswBMAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -115,11 +110,76 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "KhoDAL.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\DAL\\KhoDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\KhoDAL.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\DAL\\KhoDAL.cs",
+              "RelativeToolTip": "DAL\\KhoDAL.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAwwEgAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T14:18:34.041Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "KhoModel.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Model\\KhoModel.cs",
+              "RelativeDocumentMoniker": "Model\\KhoModel.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Model\\KhoModel.cs",
+              "RelativeToolTip": "Model\\KhoModel.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAIwBEAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T14:18:19.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "DanhMucModel.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Model\\DanhMucModel.cs",
+              "RelativeDocumentMoniker": "Model\\DanhMucModel.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Model\\DanhMucModel.cs",
+              "RelativeToolTip": "Model\\DanhMucModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T10:00:22.942Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MatHangDAL.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\DAL\\MatHangDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\MatHangDAL.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\DAL\\MatHangDAL.cs",
+              "RelativeToolTip": "DAL\\MatHangDAL.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAqwBMAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T16:09:22.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MatHangModel.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Model\\MatHangModel.cs",
+              "RelativeDocumentMoniker": "Model\\MatHangModel.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Model\\MatHangModel.cs",
+              "RelativeToolTip": "Model\\MatHangModel.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAADwvyMAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T16:10:48.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "DanhGiaModel.cs",
-              "DocumentMoniker": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\Model\\DanhGiaModel.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Model\\DanhGiaModel.cs",
               "RelativeDocumentMoniker": "Model\\DanhGiaModel.cs",
-              "ToolTip": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\Model\\DanhGiaModel.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Model\\DanhGiaModel.cs",
               "RelativeToolTip": "Model\\DanhGiaModel.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -127,35 +187,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "KhoDAL.cs",
-              "DocumentMoniker": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\DAL\\KhoDAL.cs",
-              "RelativeDocumentMoniker": "DAL\\KhoDAL.cs",
-              "ToolTip": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\DAL\\KhoDAL.cs",
-              "RelativeToolTip": "DAL\\KhoDAL.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAuwDsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T14:18:34.041Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "KhoModel.cs",
-              "DocumentMoniker": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\Model\\KhoModel.cs",
-              "RelativeDocumentMoniker": "Model\\KhoModel.cs",
-              "ToolTip": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\Model\\KhoModel.cs",
-              "RelativeToolTip": "Model\\KhoModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T14:18:19.206Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "ChiTietDonBanDAL.cs",
-              "DocumentMoniker": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\DAL\\ChiTietDonBanDAL.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\DAL\\ChiTietDonBanDAL.cs",
               "RelativeDocumentMoniker": "DAL\\ChiTietDonBanDAL.cs",
-              "ToolTip": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\DAL\\ChiTietDonBanDAL.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\DAL\\ChiTietDonBanDAL.cs",
               "RelativeToolTip": "DAL\\ChiTietDonBanDAL.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAAABgAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -163,11 +199,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "ChiTietBanModel.cs",
-              "DocumentMoniker": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\Model\\ChiTietBanModel.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Model\\ChiTietBanModel.cs",
               "RelativeDocumentMoniker": "Model\\ChiTietBanModel.cs",
-              "ToolTip": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\Model\\ChiTietBanModel.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Model\\ChiTietBanModel.cs",
               "RelativeToolTip": "Model\\ChiTietBanModel.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -175,11 +211,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "ChiTietDonBanControllers.cs",
-              "DocumentMoniker": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\Admin\\Controllers\\ChiTietDonBanControllers.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Admin\\Controllers\\ChiTietDonBanControllers.cs",
               "RelativeDocumentMoniker": "Admin\\Controllers\\ChiTietDonBanControllers.cs",
-              "ToolTip": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\Admin\\Controllers\\ChiTietDonBanControllers.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Admin\\Controllers\\ChiTietDonBanControllers.cs",
               "RelativeToolTip": "Admin\\Controllers\\ChiTietDonBanControllers.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAAABcAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -187,11 +223,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "ChiTietDonNhapControllers.cs",
-              "DocumentMoniker": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\Admin\\Controllers\\ChiTietDonNhapControllers.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Admin\\Controllers\\ChiTietDonNhapControllers.cs",
               "RelativeDocumentMoniker": "Admin\\Controllers\\ChiTietDonNhapControllers.cs",
-              "ToolTip": "F:\\Qu\u1EA3n l\u00FD c\u1EEDa h\u00E0ng b\u00E1n m\u00E1y t\u00EDnh\\Ba-Admin\\Admin\\Controllers\\ChiTietDonNhapControllers.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Admin\\Controllers\\ChiTietDonNhapControllers.cs",
               "RelativeToolTip": "Admin\\Controllers\\ChiTietDonNhapControllers.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAAAB8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

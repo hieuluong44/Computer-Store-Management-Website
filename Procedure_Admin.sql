@@ -431,3 +431,29 @@ as
 begin
     delete from DanhGia where IDDanhGia = @IDDanhGia;
 end;
+go
+
+
+/*--- Thống kê mặt hàng bán chạy --*/
+alter proc ThongKeTop10MatHangBanChay
+as
+begin
+    -- Lấy top 10 mặt hàng bán chạy nhất dựa trên tổng số lượng đã bán
+    select top 10 
+        mh.IDMatHang, 
+        mh.TenMatHang, 
+        SUM(ctdb.SoLuong) AS TongSoLuongBan,
+        mh.DonGia,
+        mh.BaoHanh,
+        CASE 
+            WHEN kh.SoLuong = 0 THEN N'Hết hàng'
+            WHEN kh.SoLuong < 5 THEN N'Số lượng dưới 5'
+            ELSE N'Còn hàng'
+        END as TrangThai
+    from ChiTietDonBan ctdb
+    inner join MatHang mh on ctdb.IDMatHang = mh.IDMatHang
+	inner join Kho kh on mh.IDMatHang = kh.IDMatHang
+    group by mh.IDMatHang, mh.TenMatHang, mh.DonGia, mh.BaoHanh, kh.SoLuong, mh.TrangThai
+    order by TongSoLuongBan desc; -- Sắp xếp theo tổng số lượng bán giảm dần
+end;
+go

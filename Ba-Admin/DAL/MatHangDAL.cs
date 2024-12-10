@@ -45,7 +45,6 @@ namespace DAL
                    "@TenMatHang", matHangModel.TenMatHang,
                     "@DonGia", matHangModel.DonGia,
                     "@BaoHanh", matHangModel.BaoHanh,
-                    "@HinhAnh1", matHangModel.HinhAnh1,
                     "@TrangThai",matHangModel.TrangThai);
                 if (result != null && !string.IsNullOrEmpty(result.ToString()))
                 {
@@ -68,7 +67,6 @@ namespace DAL
                    "@TenMatHang", matHangModel.TenMatHang,
                     "@DonGia", matHangModel.DonGia,
                     "@BaoHanh", matHangModel.BaoHanh,
-                    "@HinhAnh1", matHangModel.HinhAnh1,
                     "@TrangThai", matHangModel.TrangThai);
                 if (result != null && !string.IsNullOrEmpty(result.ToString()))
                 {

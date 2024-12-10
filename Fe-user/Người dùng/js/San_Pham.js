@@ -118,12 +118,12 @@ var productInfo = {
   idMatHang : document.querySelector(".ID-item span").textContent,
   warranty : document.querySelector("#Bao_hanh span").textContent,
   newprice: document.getElementById("new-prices").textContent,
-  oldprice: document.getElementById("old-prices").textContent,
   quantity: 1,
 };
 
 
 document.getElementById("buy-now").addEventListener("click", function (event) {
+  console.log("hieu");
   event.preventDefault(); // Ngăn hành động mặc định
 
   var cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -140,32 +140,6 @@ document.getElementById("buy-now").addEventListener("click", function (event) {
   localStorage.setItem("cart", JSON.stringify(cart));
 
   updateCartQuantity();
-
-  setTimeout(() => {
-    window.location.href = "Gio_Hang.html";
-  }, 1000);
-});
-
-
-
-
-/*Thêm sản phẩm vào yêu thích*/
-document.getElementById("tim-now").addEventListener("click", function (event) {
-  var favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-  
-  // Kiểm tra sản phẩm đã tồn tại
-  var existingProduct = favorites.find(item => item.name === productInfo.name);
-  if (existingProduct) {
-    showToast("warning",`Sản phẩm "${productInfo.name}" đã tồn tại trong danh sách yêu thích.`);
-  } else {
-    favorites.push(productInfo);
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-    showToast("success",`Đã thêm sản phẩm "${productInfo.name}" vào danh sách yêu thích.`);
-    updateTymQuantity(); // Cập nhật số lượng yêu thích
-  }
-  setTimeout(() => {
-    window.location.href = "Yeu_Thich.html";
-  }, 1000);
 });
 
 
@@ -208,10 +182,12 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("reviews", JSON.stringify(storedReviews));
   }
 
-  // Hiển thị modal
   openModalBtn.addEventListener("click", function () {
-    reviewModal.style.display = "flex";
+    console.log("Mở modal");  // Kiểm tra sự kiện click
+    reviewModal.classList.add('show');
+
   });
+  
 
   // Đóng modal
   closeModalBtn.addEventListener("click", function () {

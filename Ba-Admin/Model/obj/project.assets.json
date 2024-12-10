@@ -60,11 +60,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Quản lý cửa hàng bán máy tính\\Ba-Admin\\Model\\Model.csproj",
+      "projectUniqueName": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Model\\Model.csproj",
       "projectName": "Model",
-      "projectPath": "F:\\Quản lý cửa hàng bán máy tính\\Ba-Admin\\Model\\Model.csproj",
+      "projectPath": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Model\\Model.csproj",
       "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "F:\\Quản lý cửa hàng bán máy tính\\Ba-Admin\\Model\\obj\\",
+      "outputPath": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Admin\\Model\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",

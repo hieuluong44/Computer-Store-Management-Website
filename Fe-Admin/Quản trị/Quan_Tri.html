@@ -944,7 +944,7 @@
 										<td>{{ item.idMatHang }}</td>
 										<td>{{ item.tenDanhMuc }}</td>
 										<td class="center-content">
-											<img ng-src="{{ item.hinhAnh1 ? './item/' + item.hinhAnh1 : './item/Default.png' }}" class="avatar">
+											<img ng-src="{{ item.duongDan ? './Item/' + item.duongDan : './item/Default.png' }}" class="avatar">
 											{{ item.tenMatHang }}
 										</td>
 										<td>{{ item.donGia | currency:" " }}</td>
@@ -1852,7 +1852,7 @@
 										<td>{{ ($index + 1) + (currentPageKho - 1) * pageSizeKho }}</td>
 										<td>{{ item.idKho }}</td>
 										<td class="center-content">
-											<img ng-src="{{ item.hinhAnh1 ? './item/' + item.hinhAnh1 : './item/Default.png' }}" class="avatar">
+											<img ng-src="{{ item.duongDan ? './Item/' + item.duongDan : './item/Default.png' }}" class="avatar">
 											{{ item.tenMatHang }}
 										</td>
 										<td>{{ item.soLuong }}</td>

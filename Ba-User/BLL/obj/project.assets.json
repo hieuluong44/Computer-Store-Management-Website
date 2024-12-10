@@ -814,11 +814,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Quản lý cửa hàng bán máy tính\\Ba-User\\BLL\\BLL.csproj",
+      "projectUniqueName": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\BLL\\BLL.csproj",
       "projectName": "BLL",
-      "projectPath": "F:\\Quản lý cửa hàng bán máy tính\\Ba-User\\BLL\\BLL.csproj",
+      "projectPath": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\BLL\\BLL.csproj",
       "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "F:\\Quản lý cửa hàng bán máy tính\\Ba-User\\BLL\\obj\\",
+      "outputPath": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\BLL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -838,11 +838,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "F:\\Quản lý cửa hàng bán máy tính\\Ba-User\\DAL\\DAL.csproj": {
-              "projectPath": "F:\\Quản lý cửa hàng bán máy tính\\Ba-User\\DAL\\DAL.csproj"
+            "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\DAL.csproj": {
+              "projectPath": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\DAL.csproj"
             },
-            "F:\\Quản lý cửa hàng bán máy tính\\Ba-User\\Model\\Model.csproj": {
-              "projectPath": "F:\\Quản lý cửa hàng bán máy tính\\Ba-User\\Model\\Model.csproj"
+            "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\Model\\Model.csproj": {
+              "projectPath": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\Model\\Model.csproj"
             }
           }
         }

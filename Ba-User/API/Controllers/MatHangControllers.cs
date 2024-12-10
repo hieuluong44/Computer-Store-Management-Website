@@ -19,17 +19,18 @@ namespace API.Controllers
         }
         [Route("Get_MH")]
         [HttpGet]
-        public List<HienThi_MHModel> HienThi_MH()
+        public List<Get_MatHang_DanhMuc> get_MatHang_DanhMuc()
         {
-            return matHangBLL.HienThi_MH();
+            return matHangBLL.get_MatHang_DanhMuc();
         }
 
-        [Route("Search_NameDM/{TenDanhMuc}")]
+        [Route("List_MH")]
         [HttpGet]
-        public List<Tim_MatHang_TenDM> Tim_MH_TenDM(string TenDanhMuc)
+        public List<List_MatHang> list_MatHang()
         {
-            return matHangBLL.Tim_MH_TenDM(TenDanhMuc);
+            return matHangBLL.list_MatHang();
         }
+
 
         [Route("Search_Gia")]
         [HttpGet]

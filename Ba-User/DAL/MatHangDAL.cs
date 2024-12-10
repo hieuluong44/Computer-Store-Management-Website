@@ -17,14 +17,13 @@ namespace DAL
             _databaseHelper = databaseHelper;
         }
 
-        public List<Tim_MatHang_TenDM> Tim_MH_TenDM(string TenDanhMuc)
+        public List<Get_MatHang_DanhMuc> get_MatHang_DanhMuc()
         {
             string msgError = "";
             try
             {
                 // Gọi stored procedure với tham số
-                var result = _databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "Tim_MatHang_TenDM",
-                    "@TenDanhMuc", TenDanhMuc);
+                var result = _databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "Get_MatHang_DanhMuc");
 
                 // Kiểm tra xem có lỗi xảy ra khi gọi stored procedure
                 if (!string.IsNullOrEmpty(msgError))
@@ -33,7 +32,7 @@ namespace DAL
                 }
 
                 // Chuyển đổi kết quả thành danh sách các đối tượng MatHangModel
-                return result.ConvertTo<Tim_MatHang_TenDM>().ToList();
+                return result.ConvertTo<Get_MatHang_DanhMuc>().ToList();
             }
             catch (Exception ex)
             {
@@ -41,13 +40,13 @@ namespace DAL
             }
         }
 
-        public List<HienThi_MHModel> HienThi_MH()
+        public List<List_MatHang> list_MatHang()
         {
             string msgError = "";
             try
             {
                 // Gọi stored procedure với tham số
-                var result = _databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "HienThi_MH");
+                var result = _databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "MatHang_BanChay");
 
                 // Kiểm tra xem có lỗi xảy ra khi gọi stored procedure
                 if (!string.IsNullOrEmpty(msgError))
@@ -56,7 +55,7 @@ namespace DAL
                 }
 
                 // Chuyển đổi kết quả thành danh sách các đối tượng MatHangModel
-                return result.ConvertTo<HienThi_MHModel>().ToList();
+                return result.ConvertTo<List_MatHang>().ToList();
             }
             catch (Exception ex)
             {

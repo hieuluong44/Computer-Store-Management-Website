@@ -15,7 +15,7 @@ namespace Model
     public class GetKho
     {
         public string IDKho { get; set; }   
-        public string HinhAnh1 { get; set; }
+        public string DuongDan { get; set; }
         public string TenMatHang { get; set; }
         public int SoLuong { get; set; }
         public DateTime NgayCapNhat { get; set; }

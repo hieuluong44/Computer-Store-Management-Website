@@ -13,7 +13,6 @@ namespace Model
         public string TenMatHang { get; set; }
         public float DonGia { get; set; }
         public string BaoHanh { get; set; }
-        public string HinhAnh1 { get; set; }
         public string TrangThai { get; set; }
     }
     public class ThemMatHang_ThongSo
@@ -24,7 +23,6 @@ namespace Model
         public string TenMatHang { get; set; }
         public float DonGia { get; set; }
         public string BaoHanh { get; set; }
-        public string HinhAnh1 { get; set; }
         public string TrangThai { get; set; }
 
         // Danh sách thông số kỹ thuật của mặt hàng này
@@ -38,7 +36,7 @@ namespace Model
         public string TenMatHang { get; set; }
         public float DonGia { get; set; }
         public string BaoHanh { get; set; }
-        public string HinhAnh1 { get; set; }
+        public string DuongDan { get; set; }
         public string TrangThai { get; set; }
     }
 }

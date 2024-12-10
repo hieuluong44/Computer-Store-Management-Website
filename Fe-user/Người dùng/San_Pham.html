@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="icon/logo.png" />
     <link rel="stylesheet" href="css/Trang_Chu.css" />
     <link rel="stylesheet" href="css/San_Pham.css" />
+    <script src="https://code.iconify.design/3/3.0.0/iconify.min.js"></script>
     <link href='https://unpkg.com/boxicons/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -112,16 +113,7 @@
                       <i class="fa fa-shopping-cart"></i>
                       <span class="order-text">Tra cứu đơn hàng</span>
                   </div>
-              </a>       
-              <a href="Yeu_Thich.html">
-                  <div class="heart">
-                      <i class="far fa-heart"></i>
-                      <div class="heart-badge">
-                          <span>0</span>
-                      </div>
-                      <span class="heart-text">Yêu thích</span>
-                  </div>
-              </a>       
+              </a>          
               <a href="Gio_Hang.html">
                   <div class="cart">
                       <i class="fas fa-shopping-cart"></i>
@@ -133,7 +125,7 @@
               </a>
           </div>
       </div>
-    </div>
+  </div>
     <div class="footer">
       <div class="frame">
           <ul class="footer-items">
@@ -230,8 +222,9 @@
               <div class="describe">
                 <div class="infor-item">
                   <div class="price">
-                    <span id="deal">Deal: <i id="new-prices">29.490.000</i></span>
-                    <span id="old-prices">36.990.000</span>  
+                    <span id="deal">
+                      <i id="new-prices">29.490.000</i>
+                    </span>
                   </div>
                   <div id="Bao_hanh">
                     <b>Bảo hành: </b>
@@ -242,13 +235,9 @@
                     <span class="status-quantity">Còn hàng</span>
                   </div>
                   <a id="Chi-tiet" href="#Muc-tieu">Xem chi tiết cấu hình</a>
-                  <a href="Gio_Hang.html" id="buy-now">
+                  <a id="buy-now" href="San_Pham.html">
                     <img src="img/shopping-cart.png" alt="" />Mua ngay
                     <span>Giao tận nơi hoặc nhận ở cửa hàng</span>
-                  </a>
-                  <a href="Yeu_Thich.html" id="tim-now">
-                    <img src="img/icon-tym.png" alt="" />
-                    Thêm vào món đồ yêu thích
                   </a>
                 </div>
                 <div class="free-gift">
@@ -270,18 +259,10 @@
                   </div>
                 </div>
               </div>
-              <div class="GiamGia">
-                <div class="head">
-                  <i class="fas fa-gift"></i>
-                  <span>Voucher được áp dụng</span>
-                </div>
-                <ul class="Voucher">
-                  <li> </li>
-                </ul>
-              </div>
             </div>              
           </div>
         </div>
+        
         <div class="Item-detail" id="Muc-tieu">
 
             <!-- Thông số kĩ thuật -->
@@ -507,6 +488,7 @@
         </div>
       </div>
     </div>
+    </div>
 
     <!-- end -->
     <footer>
@@ -539,7 +521,7 @@
         </div>
         <div class="footer-section">
           <h3>Tổng Đài Hỗ Trợ (8:00 - 21:00)</h3>
-          <ul id="call">
+          <ul  id="call">
             <li>Mua hàng: <a href="tel:19005301">1900.5301</a></li>
             <li>Bảo hành: <a href="tel:19005325">1900.5325</a></li>
             <li>Kiếu nại: <a href="tel:18006173">1800.6173</a></li>
@@ -563,28 +545,32 @@
           </div>
         </div>
       </div>
-    
-      <!-- Chat Button -->
-      <button id="chat-button">
-          <i class="bi bi-chat-right"></i>
-          Chat tư vấn - Giải đáp mọi thắc mắc
-      </button>
-    
-      <!-- Chat Box -->
-      <!-- Phần Chatbot -->
-      <div id="chatbot" class="chatbot">
-          <div id="chat-header">
-              <span>Chat với chúng tôi</span>
-              <button id="close-chat">X</button>
-          </div>
-          <div id="chat-content">
-          <!-- Nội dung chat sẽ hiển thị ở đây -->
-              <textarea id="chat-input" placeholder="Nhập tin nhắn..."></textarea>
-              <button id="send-message">Gửi</button>
+      <div class="footer-end">
+          <div class="frame">
+              <div class="contact">
+                  <span>KẾT NỐI VỚI CHÚNG TÔI</span>
+                  <!-- Facebook -->
+                  <span class="iconify" data-icon="logos:facebook" style="color: #4267B2;"></span>
+                              
+                  <!-- Messenger -->
+                  <span class="iconify" data-icon="logos:messenger" style="color: #0084FF;"></span>
+                
+                  <!-- YouTube -->
+                  <span class="iconify" data-icon="logos:youtube-icon" style="color: #FF0000;"></span>
+                
+                  <!-- Group Facebook -->
+                  <span class="iconify" data-icon="fluent:people-community-16-filled" style="color: #4267B2;"></span>
+                
+                  <!-- TikTok -->
+                  <span class="iconify" data-icon="logos:tiktok-icon" style="color: #000000;"></span>
+              </div>
+              <div class="Tick">
+                  <img src="img/logoSaleNoti.png" alt="">
+              </div>
           </div>
       </div>
+  </footer>
 
-    </footer>
 
     <ul class="notifications"></ul>
     <script src="js/Gio_Hang.js"></script>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YQS/pfQ1VpQ=",
+  "dgSpecHash": "+G2SJpslwwg=",
   "success": true,
-  "projectFilePath": "F:\\Quản lý cửa hàng bán máy tính\\Ba-User\\DAL\\DAL.csproj",
+  "projectFilePath": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
