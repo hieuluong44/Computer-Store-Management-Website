@@ -9,24 +9,26 @@ namespace Model
     public partial class MatHangModel
     {
         public string IDMatHang { get; set; }
-        public string IDLoaiMatHang { get; set; }
+        public string IDDanhMuc { get; set; }
         public string TenMatHang { get; set; }
         public float DonGia { get; set; }
         public string BaoHanh { get; set; }
         public string TrangThai { get; set; }
     }
-    public class ThemMatHang_ThongSo
+    public class ThemMatHang_ChiTiet
     {
         public string IDMatHang { get; set; }
-        public string IDLoaiMatHang { get; set; }
+        public string IDDanhMuc { get; set; }
         public string IDGiamGia { get; set; }
         public string TenMatHang { get; set; }
-        public float DonGia { get; set; }
-        public string BaoHanh { get; set; }
-        public string TrangThai { get; set; }
+        public decimal DonGia { get; set; }  
+        public string BaoHanh { get; set; }  
+        public string TrangThai { get; set; }  
 
-        // Danh sách thông số kỹ thuật của mặt hàng này
         public List<ThongSoKyThuatModel> ThongSoKyThuat { get; set; }
+
+        // Danh sách ảnh mặt hàng (nếu cần)
+        public List<AnhMatHangModel> AnhMatHang { get; set; }
 
     }
     public class GetMatHang

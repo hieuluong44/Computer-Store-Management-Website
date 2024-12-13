@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "API.Controllers.DangNhapControllers",
+    "Method": "DangNhap",
+    "RelativePath": "api/DangNhapControllers/Dang_Nhap",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dangNhap",
+        "Type": "Model.DangNhapModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API.Controllers.DanhMucControllers",
     "Method": "GetDanhMuc",
     "RelativePath": "api/DanhMucControllers/Get_DanhMuc",

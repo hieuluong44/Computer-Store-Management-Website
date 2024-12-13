@@ -98,8 +98,6 @@ ORDER BY TongSoLuongBan DESC;
 end;
 go
 
-select * from ChiTietDonBan
-
 /*======================= GIẢM GIÁ ==========================*/
 /*----Hiển thị giảm giá----*/
 alter proc HienThi_GiamGia
@@ -138,16 +136,16 @@ go
 
 /*======================= NGƯỜI DÙNG ==========================*/
 /*-------Xem thông tin tài khoản ---------*/
-create proc Hien_TK
+alter proc Hien_TK
 as 
 begin
-	select TenNguoiDung, SoDienThoai, Email, DiaChi, MatKhau
+	select TenNguoiDung, SoDienThoai, Email, MatKhau
 	from NguoiDung
 end;
 go
 
 /*------ Sửa thông tin tài khoản ------*/
-create proc Sua_TK
+alter proc Sua_TK
 	@IDNguoiDung char(10),
     @TenNguoiDung nvarchar(30),
     @SoDienThoai int,
@@ -166,51 +164,46 @@ begin
 end;
 go
 
--- g) Đăng nhập
-CREATE PROCEDURE sp_DangNhapNguoiDung
-    @Email VARCHAR(30),
-    @MatKhau NVARCHAR(30)
-AS
-BEGIN
-    -- Kiểm tra tài khoản với email và mật khẩu
-    IF EXISTS (SELECT 1 FROM NguoiDung WHERE Email = @Email AND MatKhau = @MatKhau)
-    BEGIN
-        -- Đăng nhập thành công
-        SELECT 1 AS Result;
-    END
-    ELSE
-    BEGIN
-        -- Đăng nhập thất bại
-        SELECT 0 AS Result;
-    END
-END;
-GO
+
+/*Đăng nhập*/
+create proc DangNhap_NguoiDung
+    @Email varchar(30),
+    @MatKhau nvarchar(30)
+as
+begin
+    select IDNguoiDung, HinhAnh, TenNguoiDung, SoDienThoai,Email, MatKhau
+    from NguoiDung
+    where Email = @Email and MatKhau = @MatKhau;
+end;
+go
 
 -- h) Đăng ký
-CREATE PROCEDURE sp_DangKyNguoiDung
-    @IDNguoiDung CHAR(10),
-    @TenNguoiDung NVARCHAR(30),
-    @SoDienThoai INT,
-    @Email VARCHAR(30),
-    @DiaChi NVARCHAR(200),
-    @MatKhau NVARCHAR(30),
-    @VaiTro NVARCHAR(20)
+alter proc DangKy_NguoiDung
+    @IDNguoiDung char(10),
+    @HinhAnh varchar(max) null,
+    @TenNguoiDung nvarchar(30),
+    @SoDienThoai varchar(10),
+    @Email varchar(30),
+    @MatKhau nvarchar(30),
+    @VaiTro nvarchar(20) = N'Khách hàng' 
 AS
 BEGIN
-    -- Kiểm tra email đã tồn tại chưa
     IF EXISTS (SELECT 1 FROM NguoiDung WHERE Email = @Email)
     BEGIN
+        PRINT 'Email đã tồn tại.';
         RETURN;
     END
 
-    -- Kiểm tra số điện thoại đã tồn tại chưa
     IF EXISTS (SELECT 1 FROM NguoiDung WHERE SoDienThoai = @SoDienThoai)
     BEGIN
+        PRINT 'Số điện thoại đã tồn tại.';
         RETURN;
     END
 
-    -- Thêm người dùng mới
-    INSERT INTO NguoiDung (IDNguoiDung, TenNguoiDung, SoDienThoai, Email, DiaChi, MatKhau, VaiTro)
-    VALUES (@IDNguoiDung, @TenNguoiDung, @SoDienThoai, @Email, @DiaChi, @MatKhau, @VaiTro);
+    INSERT INTO NguoiDung (IDNguoiDung, TenNguoiDung, SoDienThoai, Email, MatKhau)
+    VALUES (@IDNguoiDung, @TenNguoiDung, @SoDienThoai, @Email, @MatKhau);
+
+    PRINT 'Đăng ký thành công.';
 END;
-GO
+
+

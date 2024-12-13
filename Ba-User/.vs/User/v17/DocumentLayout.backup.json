@@ -3,6 +3,86 @@
   "WorkspaceRootPath": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{412418A6-E0D3-4706-9175-9C329D6CC594}|API\\API.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\api\\controllers\\dangkycontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{412418A6-E0D3-4706-9175-9C329D6CC594}|API\\API.csproj|solutionrelative:api\\controllers\\dangkycontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{412418A6-E0D3-4706-9175-9C329D6CC594}|API\\API.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\api\\controllers\\giamgiacontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{412418A6-E0D3-4706-9175-9C329D6CC594}|API\\API.csproj|solutionrelative:api\\controllers\\giamgiacontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9249612C-ACCF-4854-8C28-6192BAF4D5BF}|BLL\\BLL.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\bll\\dangkybll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9249612C-ACCF-4854-8C28-6192BAF4D5BF}|BLL\\BLL.csproj|solutionrelative:bll\\dangkybll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9249612C-ACCF-4854-8C28-6192BAF4D5BF}|BLL\\BLL.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\bll\\danhmucbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9249612C-ACCF-4854-8C28-6192BAF4D5BF}|BLL\\BLL.csproj|solutionrelative:bll\\danhmucbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9249612C-ACCF-4854-8C28-6192BAF4D5BF}|BLL\\BLL.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\bll\\interfaces\\idangkybll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9249612C-ACCF-4854-8C28-6192BAF4D5BF}|BLL\\BLL.csproj|solutionrelative:bll\\interfaces\\idangkybll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9249612C-ACCF-4854-8C28-6192BAF4D5BF}|BLL\\BLL.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\bll\\interfaces\\idangnhapbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9249612C-ACCF-4854-8C28-6192BAF4D5BF}|BLL\\BLL.csproj|solutionrelative:bll\\interfaces\\idangnhapbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\dal\\interfaces\\idangkydal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|solutionrelative:dal\\interfaces\\idangkydal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\dal\\dangkydal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|solutionrelative:dal\\dangkydal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\dal\\dangnhapdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|solutionrelative:dal\\dangnhapdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{412418A6-E0D3-4706-9175-9C329D6CC594}|API\\API.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\api\\controllers\\danhmuccontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{412418A6-E0D3-4706-9175-9C329D6CC594}|API\\API.csproj|solutionrelative:api\\controllers\\danhmuccontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\dal\\interfaces\\idangnhapdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|solutionrelative:dal\\interfaces\\idangnhapdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\dal\\giamgiadal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|solutionrelative:dal\\giamgiadal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4979F285-8FDC-42CF-AB75-494D7C4CBE82}|Model\\Model.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\model\\dangnhapmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4979F285-8FDC-42CF-AB75-494D7C4CBE82}|Model\\Model.csproj|solutionrelative:model\\dangnhapmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{412418A6-E0D3-4706-9175-9C329D6CC594}|API\\API.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\api\\controllers\\dangnhapcontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{412418A6-E0D3-4706-9175-9C329D6CC594}|API\\API.csproj|solutionrelative:api\\controllers\\dangnhapcontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{412418A6-E0D3-4706-9175-9C329D6CC594}|API\\API.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{412418A6-E0D3-4706-9175-9C329D6CC594}|API\\API.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9249612C-ACCF-4854-8C28-6192BAF4D5BF}|BLL\\BLL.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\bll\\dangnhapbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9249612C-ACCF-4854-8C28-6192BAF4D5BF}|BLL\\BLL.csproj|solutionrelative:bll\\dangnhapbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\dal\\danhmucdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|solutionrelative:dal\\danhmucdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\dal\\interfaces\\idanhmucdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|solutionrelative:dal\\interfaces\\idanhmucdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\dal\\mathangdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|solutionrelative:dal\\mathangdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4979F285-8FDC-42CF-AB75-494D7C4CBE82}|Model\\Model.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\model\\danhmucmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4979F285-8FDC-42CF-AB75-494D7C4CBE82}|Model\\Model.csproj|solutionrelative:model\\danhmucmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4979F285-8FDC-42CF-AB75-494D7C4CBE82}|Model\\Model.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\model\\mathangmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4979F285-8FDC-42CF-AB75-494D7C4CBE82}|Model\\Model.csproj|solutionrelative:model\\mathangmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,22 +103,6 @@
       "RelativeMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|solutionrelative:dal\\interfaces\\imathangdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\dal\\mathangdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|solutionrelative:dal\\mathangdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\dal\\giamgiadal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71F2CF25-52B8-4B79-89B5-5B017D07A99B}|DAL\\DAL.csproj|solutionrelative:dal\\giamgiadal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9249612C-ACCF-4854-8C28-6192BAF4D5BF}|BLL\\BLL.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\bll\\danhmucbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9249612C-ACCF-4854-8C28-6192BAF4D5BF}|BLL\\BLL.csproj|solutionrelative:bll\\danhmucbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{412418A6-E0D3-4706-9175-9C329D6CC594}|API\\API.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\api\\controllers\\danhmuccontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{412418A6-E0D3-4706-9175-9C329D6CC594}|API\\API.csproj|solutionrelative:api\\controllers\\danhmuccontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9249612C-ACCF-4854-8C28-6192BAF4D5BF}|BLL\\BLL.csproj|f:\\doan2_luongconghieu_10122166\\ba-user\\bll\\interfaces\\igiamgiabll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9249612C-ACCF-4854-8C28-6192BAF4D5BF}|BLL\\BLL.csproj|solutionrelative:bll\\interfaces\\igiamgiabll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -54,7 +118,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,20 +130,253 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MatHangModel.cs",
-              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\Model\\MatHangModel.cs",
-              "RelativeDocumentMoniker": "Model\\MatHangModel.cs",
-              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\Model\\MatHangModel.cs",
-              "RelativeToolTip": "Model\\MatHangModel.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAAvAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "GiamGiaControllers.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\API\\Controllers\\GiamGiaControllers.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\GiamGiaControllers.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\API\\Controllers\\GiamGiaControllers.cs",
+              "RelativeToolTip": "API\\Controllers\\GiamGiaControllers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T15:43:05.13Z",
+              "WhenOpened": "2024-12-13T03:16:54.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DangKyControllers.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\API\\Controllers\\DangKyControllers.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\DangKyControllers.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\API\\Controllers\\DangKyControllers.cs",
+              "RelativeToolTip": "API\\Controllers\\DangKyControllers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T03:16:53.195Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DangKyBLL.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\BLL\\DangKyBLL.cs",
+              "RelativeDocumentMoniker": "BLL\\DangKyBLL.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\BLL\\DangKyBLL.cs",
+              "RelativeToolTip": "BLL\\DangKyBLL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T03:15:40.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IDangKyBLL.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\BLL\\Interfaces\\IDangKyBLL.cs",
+              "RelativeDocumentMoniker": "BLL\\Interfaces\\IDangKyBLL.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\BLL\\Interfaces\\IDangKyBLL.cs",
+              "RelativeToolTip": "BLL\\Interfaces\\IDangKyBLL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T03:15:04.998Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DangKyDAL.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\DangKyDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\DangKyDAL.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\DangKyDAL.cs",
+              "RelativeToolTip": "DAL\\DangKyDAL.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAuwCgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T03:06:11.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IDangKyDAL.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\Interfaces\\IDangKyDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\Interfaces\\IDangKyDAL.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\Interfaces\\IDangKyDAL.cs",
+              "RelativeToolTip": "DAL\\Interfaces\\IDangKyDAL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T03:03:44.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DanhMucControllers.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\API\\Controllers\\DanhMucControllers.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\DanhMucControllers.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\API\\Controllers\\DanhMucControllers.cs",
+              "RelativeToolTip": "API\\Controllers\\DanhMucControllers.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAABYAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T14:25:51.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DangNhapDAl.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\DangNhapDAl.cs",
+              "RelativeDocumentMoniker": "DAL\\DangNhapDAl.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\DangNhapDAl.cs",
+              "RelativeToolTip": "DAL\\DangNhapDAl.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAwCAAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T01:17:22.332Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "DanhMucBLL.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\BLL\\DanhMucBLL.cs",
+              "RelativeDocumentMoniker": "BLL\\DanhMucBLL.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\BLL\\DanhMucBLL.cs",
+              "RelativeToolTip": "BLL\\DanhMucBLL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T14:24:10.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IDangNhapDAL.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\Interfaces\\IDangNhapDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\Interfaces\\IDangNhapDAL.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\Interfaces\\IDangNhapDAL.cs",
+              "RelativeToolTip": "DAL\\Interfaces\\IDangNhapDAL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T01:16:18.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IDangNhapBLL.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\BLL\\Interfaces\\IDangNhapBLL.cs",
+              "RelativeDocumentMoniker": "BLL\\Interfaces\\IDangNhapBLL.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\BLL\\Interfaces\\IDangNhapBLL.cs",
+              "RelativeToolTip": "BLL\\Interfaces\\IDangNhapBLL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T01:24:47.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DangNhapControllers.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\API\\Controllers\\DangNhapControllers.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\DangNhapControllers.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\API\\Controllers\\DangNhapControllers.cs",
+              "RelativeToolTip": "API\\Controllers\\DangNhapControllers.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T01:30:11.484Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "GiamGiaDAL.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\GiamGiaDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\GiamGiaDAL.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\GiamGiaDAL.cs",
+              "RelativeToolTip": "DAL\\GiamGiaDAL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T06:59:05.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DanhMucDAL.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\DanhMucDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\DanhMucDAL.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\DanhMucDAL.cs",
+              "RelativeToolTip": "DAL\\DanhMucDAL.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T01:17:30.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DangNhapModel.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\Model\\DangNhapModel.cs",
+              "RelativeDocumentMoniker": "Model\\DangNhapModel.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\Model\\DangNhapModel.cs",
+              "RelativeToolTip": "Model\\DangNhapModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T00:48:58.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DangNhapBLL.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\BLL\\DangNhapBLL.cs",
+              "RelativeDocumentMoniker": "BLL\\DangNhapBLL.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\BLL\\DangNhapBLL.cs",
+              "RelativeToolTip": "BLL\\DangNhapBLL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T01:25:22.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\API\\Program.cs",
+              "RelativeDocumentMoniker": "API\\Program.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\API\\Program.cs",
+              "RelativeToolTip": "API\\Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACUAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T01:35:23.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IDanhMucDAL.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\Interfaces\\IDanhMucDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\Interfaces\\IDanhMucDAL.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\Interfaces\\IDanhMucDAL.cs",
+              "RelativeToolTip": "DAL\\Interfaces\\IDanhMucDAL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T01:16:35.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "MatHangModel.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\Model\\MatHangModel.cs",
+              "RelativeDocumentMoniker": "Model\\MatHangModel.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\Model\\MatHangModel.cs",
+              "RelativeToolTip": "Model\\MatHangModel.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA1wBcAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T15:43:05.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
               "Title": "IMatHangBLL.cs",
               "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\BLL\\Interfaces\\IMatHangBLL.cs",
               "RelativeDocumentMoniker": "BLL\\Interfaces\\IMatHangBLL.cs",
@@ -87,12 +384,11 @@
               "RelativeToolTip": "BLL\\Interfaces\\IMatHangBLL.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T17:06:31.924Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-09T17:06:31.924Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 22,
               "Title": "MatHangBLL.cs",
               "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\BLL\\MatHangBLL.cs",
               "RelativeDocumentMoniker": "BLL\\MatHangBLL.cs",
@@ -100,12 +396,11 @@
               "RelativeToolTip": "BLL\\MatHangBLL.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAuwBoAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-08T07:17:24.158Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-08T07:17:24.158Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 21,
               "Title": "MatHangControllers.cs",
               "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\API\\Controllers\\MatHangControllers.cs",
               "RelativeDocumentMoniker": "API\\Controllers\\MatHangControllers.cs",
@@ -113,25 +408,11 @@
               "RelativeToolTip": "API\\Controllers\\MatHangControllers.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T14:27:21.093Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T14:27:21.093Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GiamGiaDAL.cs",
-              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\GiamGiaDAL.cs",
-              "RelativeDocumentMoniker": "DAL\\GiamGiaDAL.cs",
-              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\GiamGiaDAL.cs",
-              "RelativeToolTip": "DAL\\GiamGiaDAL.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAuwCMAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-08T06:59:05.547Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 24,
               "Title": "IMatHangDAL.cs",
               "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\Interfaces\\IMatHangDAL.cs",
               "RelativeDocumentMoniker": "DAL\\Interfaces\\IMatHangDAL.cs",
@@ -139,49 +420,36 @@
               "RelativeToolTip": "DAL\\Interfaces\\IMatHangDAL.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T17:07:40.041Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-09T17:07:40.041Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 18,
               "Title": "MatHangDAL.cs",
               "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\MatHangDAL.cs",
               "RelativeDocumentMoniker": "DAL\\MatHangDAL.cs",
               "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\DAL\\MatHangDAL.cs",
               "RelativeToolTip": "DAL\\MatHangDAL.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAYwDAAAABsAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwDsAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-08T07:11:13.931Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DanhMucBLL.cs",
-              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\BLL\\DanhMucBLL.cs",
-              "RelativeDocumentMoniker": "BLL\\DanhMucBLL.cs",
-              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\BLL\\DanhMucBLL.cs",
-              "RelativeToolTip": "BLL\\DanhMucBLL.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABgAAAA5AAAAAAAAAA==",
+              "DocumentIndex": 19,
+              "Title": "DanhMucModel.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\Model\\DanhMucModel.cs",
+              "RelativeDocumentMoniker": "Model\\DanhMucModel.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\Model\\DanhMucModel.cs",
+              "RelativeToolTip": "Model\\DanhMucModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T14:24:10.753Z"
+              "WhenOpened": "2024-12-12T01:03:39.288Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DanhMucControllers.cs",
-              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\API\\Controllers\\DanhMucControllers.cs",
-              "RelativeDocumentMoniker": "API\\Controllers\\DanhMucControllers.cs",
-              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\API\\Controllers\\DanhMucControllers.cs",
-              "RelativeToolTip": "API\\Controllers\\DanhMucControllers.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAACQAAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T14:25:51.142Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 25,
               "Title": "IGiamGiaBLL.cs",
               "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\BLL\\Interfaces\\IGiamGiaBLL.cs",
               "RelativeDocumentMoniker": "BLL\\Interfaces\\IGiamGiaBLL.cs",
@@ -193,7 +461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 26,
               "Title": "GiamGiaBLL.cs",
               "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-User\\BLL\\GiamGiaBLL.cs",
               "RelativeDocumentMoniker": "BLL\\GiamGiaBLL.cs",

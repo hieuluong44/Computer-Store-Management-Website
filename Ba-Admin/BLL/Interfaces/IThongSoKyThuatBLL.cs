@@ -8,7 +8,7 @@ namespace BLL.Interfaces
 {
     public interface IThongSoKyThuatBLL
     {
-        List<GetThongSoKyThuat> GetALL(string IDMatHang);
+        List<ThongSoKyThuatModel> GetALL(string IDMatHang);
         bool Create(ThongSoKyThuatModel thongSoKyThuatModel);
         bool Update(ThongSoKyThuatModel thongSoKyThuatModel);
         bool Delete(string IDThongSo);

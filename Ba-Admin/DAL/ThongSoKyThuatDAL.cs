@@ -61,19 +61,19 @@ namespace DAL
         }
 
         // Lấy tất cả thông số kỹ thuật theo mã mặt hàng
-        public List<GetThongSoKyThuat> GetALL(string IDMatHang)
+        public List<ThongSoKyThuatModel> GetALL(string IDMatHang)
         {
             string msgError = "";
             try
             {
-                var result = databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "Get_All_ThongSo",
+                var result = databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "getThongSoKyThuat",
                     "@IDMatHang", IDMatHang);
 
                 if (!string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(msgError);
                 }
-                return result.ConvertTo<GetThongSoKyThuat>().ToList();
+                return result.ConvertTo<ThongSoKyThuatModel>().ToList();
             }
             catch (Exception ex)
             {

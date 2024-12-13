@@ -9,6 +9,7 @@ namespace Model
     {
         public string IDDanhMuc { get; set; }
         public string TenDanhMuc { get; set; }
+        public string Icon { get; set; }
         public string IDDanhMucCha { get; set; }
     }
 

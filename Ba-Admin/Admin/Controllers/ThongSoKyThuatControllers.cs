@@ -19,7 +19,7 @@ namespace API.Controllers
         }
         [Route("Get-All/{IDMatHang}")]
         [HttpGet]
-        public IEnumerable<GetThongSoKyThuat> GetAll(string IDMatHang)
+        public IEnumerable<ThongSoKyThuatModel> GetAll(string IDMatHang)
         {
             return ThongSoKyThuat.GetALL(IDMatHang);
         }

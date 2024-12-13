@@ -34,5 +34,11 @@ namespace BLL
         {
             return matHangDAL.Update(matHangModel);
         }
+
+        public bool CreateMatHang_ChiTiet(ThemMatHang_ChiTiet matHangModel)
+        {
+            return matHangDAL.CreateMatHang_ChiTiet(matHangModel);
+        }
+
     }
 }

@@ -812,25 +812,28 @@
 										<h4>{{ isEditing ? 'Chỉnh sửa mặt hàng' : 'Thêm mới mặt hàng' }}</h4>
 									</div>
 									<div class="between">
+										<div class="avatar-wrapper">
+											<img id="profile-img" ng-repeat="item in ListAnhMatHang" 
+											ng-src="{{ item.duongDan ? './Item/' + item.duongDan : './item/Default.png' }}"
+												 alt="{{ item.thuTu }}" 
+												 class="profile-img-item" 
+												 style="cursor: pointer;" 
+												 ng-click="triggerFileInput()">
+											<input type="file" id="HinhAnh" name="HinhAnh" accept="image/*" class="btn-upload" style="display: none;" file-input="setImage($file)">
+										</div>										
 										<ul>
-											<div id="column">
-												<li>
-													<div class="avatar-wrapper">
-														<img id="profile-img" ng-src="{{ matHang.hinhAnh1 }}" alt="Ảnh mặt hàng" class="profile-img-item">
-														<input type="file" id="HinhAnh" name="HinhAnh" accept="image/*" class="btn-upload">
-													</div>													
-												</li>
-												<li>
-													<label>Đơn giá:</label>
-													<input type="number" class = "form-control" ng-model="matHang.donGia" placeholder="Nhập đơn giá" />
-												</li>
-											</div>
 											<div id="column">
 												<li>	
 													<label>Danh mục:</label>
 													<select ng-model="matHang.idDanhMuc" ng-options="dm.idDanhMuc as dm.tenDanhMuc for dm in listDanhMuc"></select>			
 													<input type="text" class = "form-control" name="" id="" placeholder="ID Danh mục">
 												</li>	
+												<li>
+													<label>Đơn giá:</label>
+													<input type="number" class = "form-control" ng-model="matHang.donGia" placeholder="Nhập đơn giá" />
+												</li>
+											</div>
+											<div id="column">
 												<li>
 													<label>Tên mặt hàng:</label>
 													<textarea type="text" ng-model="matHang.tenMatHang" class = "form-control Mat_Hang" placeholder="Nhập tên mặt hàng"></textarea>	
@@ -858,8 +861,8 @@
                                                 </li>
 												<div class="foot">
 													<button class="btn-refresh" ng-click="refresh()">Làm mới</button>
-													<button class="btn-add" ng-click="AddNhaCungCap()" >Thêm</button>
-													<button class="btn-Update" ng-click="UpdateNhaCungCap()" >Sửa</button>	
+													<button class="btn-add" ng-click="AddThongSo()" >Thêm</button>
+													<button class="btn-Update" ng-click="UpdateThongSo()" >Sửa</button>	
 												</div>
 											</div>
 										</ul>
@@ -910,10 +913,10 @@
 								
 							<!-- Hành động -->
 							<div class="action">
-								<button class="btn-show" ng-click="showFormMH = !showFormMH">
+								<button class="btn-show" ng-click="editSelectedMatHang()">
 									<i class="bx bx-plus"></i> Thông số kỹ thuật
 								</button>
-								<button class="btn-Update" ng-click="editSelectedmatHang()">
+								<button class="btn-Update" ng-click="editSelectedMatHang()">
 									<i class="bx bx-edit"></i> Sửa
 								</button>					
 								<button class="btn-Delete" ng-click="deleteMatHang(item)">
@@ -1032,10 +1035,14 @@
 												<li>
 													<label style="display: block;">Email</label>
 													<div style="height: max-content; display: flex;">
-														<input id="mail" ng-model="NguoiDung.email" type="text" class="form-control" placeholder="Email">
+														<input id="mail" ng-model="NguoiDung.email" type="email" class="form-control" placeholder="Email">
 														<span class="input-group-text">@gmail.com</span>
 													</div>
 												</li>
+											</div>
+											<div id="column">
+												<label> Địa chỉ</label>
+												<textarea name="" class=" form-control Nguoi_Dung"></textarea>
 											</div>
 										</ul>
 									</div>

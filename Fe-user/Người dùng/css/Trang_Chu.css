@@ -97,9 +97,8 @@ marquee {
 }
 
 .top-bar .right {
-  gap: 20px;
-  width: 40%;
-  justify-content: flex-end;
+  gap: 10px;
+  justify-content: var(--justify-space-between)
 }
 
 .top-bar .H-content {
@@ -114,14 +113,11 @@ marquee {
   color: #fff;
 }
 
-.top-bar .left i,
-.top-bar .right i {
-  margin-right: 15px;
-}
-
 .H-right-content {
   position: relative;
-  margin-left: 10px;
+  display: flex;
+  gap: 10px;
+  padding: 0 20px;
 }
 
 .top-bar .fas,
@@ -136,8 +132,8 @@ marquee {
 
 .flag-section .dropdown-content,
 .login-section .dropdown-content {
-  min-width: 180px;
-  left: -45px;
+  min-width: 170px;
+  left: -10px;
   background-color: #f9f9f9;
 }
 
@@ -437,16 +433,15 @@ marquee {
 
 .B-head #dropdown-content {
   background-color: #fff;
-  top: 50px;
   width: 100%;
   border-radius: 5px;
-  left: 0;
 }
 
 .B-head #dropdown-content .down {
   color: black;
   width: 100%;
   display: var(--display);
+  padding: 5px;
   height: 40px;
   border: 0px solid gray;
   align-items: center;
@@ -454,8 +449,9 @@ marquee {
 
 .B-head #dropdown-content .down span {
   width: 100%;
-  font-size: 14px;
-  color: #111111;
+    font-size: 17px;
+    font-weight: 600;
+    color: #2f2e2e;
 }
 
 .B-head #dropdown-content .down i {
@@ -476,17 +472,17 @@ marquee {
   display: none;
   position: absolute;
   z-index: 1;
-  left: 240px;
+  left: 290px;
   flex-wrap: wrap;
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.1),
     0 2px 6px 2px rgba(60, 64, 67, 0.15);
   top: 0;
   background-color: #fff;
-  width: 940px;
+  width: 1140px;
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
   color: black;
-  min-height: 390px;
+  min-height: 490px;
   padding: 10px;
   border-right: 1px solid gray;
 }
@@ -515,7 +511,7 @@ marquee {
   padding-bottom: 15px;
   text-decoration: none;
   color: #252525;
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .B-head .title .b a:hover {
@@ -534,6 +530,7 @@ marquee {
 /* Căn chỉnh footer */
 .footer {
   background-color: #fff;
+  border-bottom: 1px solid #dad9d9;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -591,7 +588,7 @@ marquee {
   width: 100%;
   padding-top: 20px;
   height: max-content;
-  background-color: #f2f2f2;
+  background-color: #ECECEC;
 }
 .B-frame {
   max-width: 100%;
@@ -610,7 +607,7 @@ marquee {
 
 .B-left {
   width: 25.3%;
-  height: 410px;
+  height: max-content;
   border-radius: 5px;
 }
 
@@ -623,12 +620,12 @@ marquee {
 
 .B-right {
   width: 100%;
-  height: 300px;
+  height: max-content;
 }
 
 .Menu-img {
   width: 100%;
-  height: 300px;
+  height: 350px;
   position: relative;
   overflow: hidden;
   border-radius: 5px;
@@ -638,7 +635,7 @@ marquee {
   position: absolute;
   top: 0;
   left: 0;
-  height: 300px;
+  height: 350px;
   display: flex;
   width: 100%;
   transition: 1s;
@@ -647,7 +644,7 @@ marquee {
 
 .Menu-img .Image img {
   width: 100%;
-  height: 300px;
+  height: 350px;
 }
 
 #dots {
@@ -704,32 +701,35 @@ marquee {
 
 .Right-img {
   width: 40%;
-  height: 300px;
+  height: max-content;
 }
 
 .Right-img #Image-2 img {
   width: 100%;
-  height: 150px;
+  height: 175px;
+}
+
+.B-footer {
+  width: 100%;
+  height: max-content;
+  border-radius: 5px;
+}
+
+.B-footer img {
+  width: 380px;
+  height: 170px;
   margin-bottom: 0px;
   border-radius: 5px;
 }
 
-.B-footer {
-  background-color: #3b5998;
-  width: 100%;
-  height: 100px;
-  margin-top: 10px;
-  border-radius: 5px;
-}
-
 /*-- 2. Danh mục nổi bật --*/
-.hot-categories {
+.categories {
   width: 100%;
   margin: 30px 0;
   background-color: #fff;
 }
 
-.hot-categories .title {
+.categories .title {
   font-size: 20px;
   font-weight: 500;
   color: #2b80dd;
@@ -737,36 +737,36 @@ marquee {
   justify-items: var(--justify-item-center);
 }
 
-.hot-categories .title p {
+.categories .title p {
   margin: 0;
   padding: 5px;
 }
 
-.hot-categories .categories {
+.categories .categories {
   width: 100%;
   height: var(--height);
   justify-content: var(--justify-space-between);
   display: var(--display);
 }
 
-.hot-categories .categories-item {
+.categories .categories-item {
   width: 20%;
   text-align: center;
   overflow: hidden;
 }
 
-.hot-categories .categories-item img {
+.categories .categories-item img {
   margin-top: 10px;
   height: 150px;
   width: 70%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.hot-categories .categories-item a {
+.categories .categories-item a {
   text-decoration: none;
 }
 
-.hot-categories .categories-item h3 {
+.categories .categories-item h3 {
   margin: 10px 0;
   text-decoration: none;
   color: black;
@@ -776,15 +776,15 @@ marquee {
   display: inline-block;
 }
 
-.hot-categories .categories-item:hover img {
+.categories .categories-item:hover img {
   transform: scale(1.1);
 }
 
-.hot-categories .categories-item:hover h3 {
+.categories .categories-item:hover h3 {
   color: #f25c05;
 }
 
-.hot-categories .categories-item:hover {
+.categories .categories-item:hover {
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.1),
     0 2px 6px 2px rgba(60, 64, 67, 0.15);
   color: #2b80dd;
@@ -799,8 +799,8 @@ marquee {
 .title-Lap {
   display: flex;
   align-items: var(--align-items);
+  padding: 10px;
   justify-content: space-between;
-  border-bottom: 2px solid #2b80dd;
 }
 
 .Product .title-Lap,
@@ -839,22 +839,28 @@ marquee {
 }
 
 .product-container {
-  display: var(--display);  
-  justify-content: var(--justify-space-between);
-  width: max-content;
-  height: var(--height);
-  transition: transform 0.5s ease-in-out; 
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+.product-slide {
+  transition: 1s;
+  position: relative;
+  width: 4000px;
+  list-style: none;
+  display: var(--display);
 }
 
 .product-item {
   border-radius: 5px;
   background-color: #ffffff;
-  padding: 15px 12px;
-  width: 200px;
+  padding: 15px 15px;
+  border: 1px solid #ccc;
+  width: 245px;
   margin: 0px 5px 5px 5px;
   cursor: pointer;
-  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.1),
-    0 2px 6px 2px rgba(60, 64, 67, 0.15);
   flex: 0 0 auto;
 }
 
@@ -870,7 +876,7 @@ marquee {
 }
 
 .product-item img {
-  height: 170px;
+  height: 200px;
   width: 100%;
 }
 
@@ -908,7 +914,8 @@ marquee {
 .product-item .content {
   color: black;
   margin: 0;
-  font-size: 15px;
+  font-weight: 600;
+  font-size: 14px;
   overflow: hidden;
   height: 35px;
 }
@@ -940,7 +947,7 @@ marquee {
 }
 
 .price-all span {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
     line-height: 20px;
     color: #E30019;
@@ -1037,11 +1044,11 @@ marquee {
 footer {
   background: #FFF;
 }
+
 .footer-container {
   display: flex;
   justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 40px;
 }
 
 .footer-section h3 {

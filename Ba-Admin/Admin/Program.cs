@@ -50,6 +50,8 @@ builder.Services.AddTransient<IGiamGiaDAL, GiamGiaDAL>();
 builder.Services.AddTransient<IGiamGiaBLL, GiamGiaBLL>();
 builder.Services.AddTransient<IThongSoKyThuatBLL, ThongSoKyThuatBLL>();
 builder.Services.AddTransient<IThongSoKyThuatDAL, ThongSoKyThuatDAL>();
+builder.Services.AddTransient<IAnhMatHangBLL, AnhMatHangBLL>();
+builder.Services.AddTransient<IAnhMatHangDAL, AnhMatHangDAL>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

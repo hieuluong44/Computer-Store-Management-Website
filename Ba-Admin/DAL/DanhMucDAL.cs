@@ -40,6 +40,7 @@ namespace DAL
                 var result = databaseHelper.ExecuteSProcedure("Them_DanhMuc",
                     "@IDDanhMuc", danhMucModel.IDDanhMuc,
                     "@TenDanhMuc", danhMucModel.TenDanhMuc,
+                    "@icon", danhMucModel.Icon,
                     "@IDDanhMucCha", danhMucModel.IDDanhMucCha);
                 if (result != null && !string.IsNullOrEmpty(result.ToString()))
                 {
@@ -76,6 +77,7 @@ namespace DAL
                 var result = databaseHelper.ExecuteSProcedure("Sua_DanhMuc", 
                     "@IDDanhMuc" , danhMucModel.IDDanhMuc,
                     "@TenDanhMuc", danhMucModel.TenDanhMuc,
+                    "@icon", danhMucModel.Icon,
                      "@IDDanhMucCha", danhMucModel.IDDanhMucCha);
                 if (result != null && !string.IsNullOrEmpty(result.ToString()))
                 {

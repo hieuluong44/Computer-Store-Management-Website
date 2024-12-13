@@ -22,11 +22,11 @@
                 </div>          
             </div>
             <div class="right">
-                <div class="H-right-content" style=" width: 40%;border-right: 1px solid #FFF;">
+                <div class="H-right-content" style="border-right: 1px solid #CCC;">
                     <i class="fas fa-headphones"></i>
                     <span>Hotline : 029 382 1922</span>
                 </div>
-                <div class="H-right-content" style="width: 10%;border-right: 1px solid #FFF;">
+                <div class="H-right-content"  style="border-right: 1px solid #CCC;">
                     <span id="selected-language">
                         <i class="fas fa-globe"></i> 
                     </span>
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                 </div>                    
-                <div class="H-right-content" style="width:20%">
+                <div class="H-right-content">
                     <i class="fas fa-user-circle"></i>
                     <div class="login-section">
                         <span class="login-text" style="cursor: pointer;">Tài khoản</span>
@@ -224,7 +224,7 @@
                             <!-- Lặp qua danh mục cha -->
                             <div class="dropdown-item" ng-repeat="item in danhMucCha" ng-mouseenter="toggleDanhMucConVaChau(item)">
                                 <div class="down">
-                                    <i class="bi bi-laptop"></i>
+                                    <i class="{{item.icon}}"></i>
                                     <span>{{ item.tenDanhMuc }}</span> <!-- Hiển thị tên danh mục cha -->
                                     <i class="fas fa-angle-right"></i>
                                 </div>
@@ -305,20 +305,20 @@
                             </div>
                             <div id="Image-2">
                                 <img src="Ảnh 1/12.jpg" alt="Ảnh lỗi" id="hinh-anh2">
-                            </div>
+                            </div> 
                         </div>  
                     </div>  
                     <div class="B-footer">
-                        <a href="">
-                            <img src="infor/Black Gold Modern 3D Black Friday Sale Leaderboard Ad.png" style="width: 100%; height: 100%; border-radius: 5px;" alt="">
-                        </a>
+                        <img src="Ảnh 1/13.jpg" alt="Ảnh lỗi" id="hinh-anh2">
+                        <img src="Ảnh 1/14.jpg" alt="Ảnh lỗi" id="hinh-anh2">
+                        <img src="Ảnh 1/15.jpg" alt="Ảnh lỗi" id="hinh-anh2">
                     </div>
                 </div>             
             </div>
                      
-            <div class="hot-categories">
+            <div class="categories">
                 <div class="title">
-                    <p>DANH MỤC NỔI BẬT</p>
+                    <p>DANH MỤC MẶT HÀNG</p>
                 </div>
                 <div class="categories">
                     <div class="categories-item">
@@ -372,45 +372,48 @@
                     </a>
                 </div>
                 <div class="product-list">
-                    <div class="button"> 
-                        <button id="back">←</button>
-                        <button id="next">→</button>
-                    </div> 
-                    <div class="product-container"> 
-                        <div class="product-item" ng-repeat = "item in list_MH">
-                            <div class="img">
-                                <a href="San_Pham.html">
-                                    <img ng-src="{{ item.duongDan? './Item/' + item.duongDan : './Item/Default.jpg' }}" class="avatar">
-                                </a>                                                       
-                            </div>                            
-                            <div class="item-describe">
-                                <p class="content">
-                                    {{ item.tenMatHang }}
-                                </p>                               
-                                <div class="product-code">
-                                    <span >Mã MH:</span>
-                                    <span class="IDMatHang">{{ item.idMatHang }}</span>
+                    <div class="product-container">
+                        <div class="button"> 
+                            <button id="back">←</button>
+                            <button id="next">→</button>
+                        </div>  
+                        <div class="product-slide">
+                            <div class="product-item" ng-repeat = "item in list_MH">
+                                <div class="img">
+                                    <a href="San_Pham.html">
+                                        <img ng-src="{{ item.duongDan }}" class="avatar">
+                                    </a>                                                       
+                                </div>                            
+                                <div class="item-describe">
+                                    <p class="content">
+                                        {{ item.tenMatHang }}
+                                    </p>                               
+                                    <div class="product-code">
+                                        <span >Mã MH:</span>
+                                        <span class="IDMatHang">{{ item.idMatHang }}</span>
+                                    </div>
+                                   <div class="price-all">
+                                        <span class="price-deal">{{  item.giaBanFormatted }}</span>
+                                        <span>đ</span>
+                                    </div>
+    
+                                    <div class="footer-item">
+                                        <p class="sold"> 
+                                            <span>Đã bán : </span>
+                                            <span id="quantity"> {{ item.tongSoLuongBan }}</span>                                
+                                        </p>              
+                                        <p class="status">
+                                            <i class="bi bi-check-lg"></i>
+                                            <span class="state"> {{ item.trangThai }}</span>
+                                        </p>
+                                    </div> 
                                 </div>
-                               <div class="price-all">
-                                    <span class="price-deal">{{  item.giaBanFormatted }}</span>
-                                    <span>đ</span>
-                                </div>
-
-                                <div class="footer-item">
-                                    <p class="sold"> 
-                                        <span>Đã bán : </span>
-                                        <span id="quantity"> {{ item.tongSoLuongBan }}</span>                                
-                                    </p>              
-                                    <p class="status">
-                                        <i class="bi bi-check-lg"></i>
-                                        <span class="state"> {{ item.trangThai }}</span>
-                                    </p>
-                                </div> 
-                            </div>
-                        </div>    
+                            </div>  
+                        </div>
                     </div>            
                 </div>
             </div>
+            
 
             <div class="Product">
                 <div class="title-Lap">
@@ -423,374 +426,355 @@
                     </a>
                 </div>
                 <div class="product-list">
-                    <div class="button"> 
-                        <button id="back">←</button>
-                        <button id="next">→</button>
-                    </div> 
                     <div class="product-container"> 
-                                        
-                        <div class="product-item">
-                            <div class="img">
-                                <a href="San_Pham.html">    
-                                <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
-                                </a>                        
+                        <div class="button"> 
+                            <button id="back">←</button> 
+                            <button id="next">→</button> 
+                        </div>
+                        <div class="product-slide">
+                            <div class="product-item">
+                                <div class="img">
+                                    <a href="San_Pham.html">    
+                                    <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
+                                    </a>                        
+                                </div>   
+                                <div class="item-describe">
+                                    <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
+                                    </p>                               
+                                    <div class="product-code">
+                                        <span>Mã SP:</span>
+                                        <span class="IDMatHang">VGGI0340</span>
+                                    </div>
+                                    <div class="price-all">
+                                        <div class="old-price">
+                                            <del>36.990.000</del>
+                                        </div>
+                                        <div class="new-price">
+                                            <span class="price-deal">29.490.000</span>
+                                            <span class="dead-old-price">-30%</span>
+                                        </div>
+                                    </div>
+                                    <div class="footer-item">
+                                        <p class="sold"> 
+                                            <span>Đã bán : </span>
+                                            <span id="quantity-reviews">12</span>                                
+                                        </p>               
+                                        <p class="status">
+                                            <i class="bi bi-check-lg"></i>
+                                            <span class="state">Còn hàng</span>
+                                        </p>
+                                    </div> 
+                                </div>
+                            </div>    
+                            <div class="product-item">
+                                <div class="img">
+                                    <a href="San_Pham.html">    
+                                    <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
+                                    </a>                        
+                                </div>   
+                                <div class="item-describe">
+                                    <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
+                                    </p>                               
+                                    <div class="product-code">
+                                        <span>Mã SP:</span>
+                                        <span class="code">VGGI0340</span>
+                                    </div>
+                                    <div class="price-all">
+                                        <div class="old-price">
+                                            <del>36.990.000</del>
+                                        </div>
+                                        <div class="new-price">
+                                            <span class="price-deal">29.490.000</span>
+                                            <span class="dead-old-price">-30%</span>
+                                        </div>
+                                    </div>
+                                    <div class="footer-item">
+                                        <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
+                                    </div> 
+                                </div>
                             </div>   
-                            <div class="item-describe">
-                                <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
-                                </p>                               
-                                <div class="product-code">
-                                    <span>Mã SP:</span>
-                                    <span class="IDMatHang">VGGI0340</span>
-                                </div>
-                                <div class="price-all">
-                                    <div class="old-price">
-                                        <del>36.990.000</del>
+                            <div class="product-item">
+                                <div class="img">
+                                    <a href="San_Pham.html">    
+                                    <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
+                                    </a>                        
+                                </div>   
+                                <div class="item-describe">
+                                    <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
+                                    </p>                               
+                                    <div class="product-code">
+                                        <span>Mã SP:</span>
+                                        <span class="code">VGGI0340</span>
                                     </div>
-                                    <div class="new-price">
-                                        <span class="price-deal">29.490.000</span>
-                                        <span class="dead-old-price">-30%</span>
+                                    <div class="price-all">
+                                        <div class="old-price">
+                                            <del>36.990.000</del>
+                                        </div>
+                                        <div class="new-price">
+                                            <span class="price-deal">29.490.000</span>
+                                            <span class="dead-old-price">-30%</span>
+                                        </div>
                                     </div>
+                                    <div class="footer-item">
+                                        <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
+                                    </div> 
                                 </div>
-                                <div class="footer-item">
-                                    <p class="sold"> 
-                                        <span>Đã bán : </span>
-                                        <span id="quantity-reviews">12</span>                                
-                                    </p>               
-                                    <p class="status">
-                                        <i class="bi bi-check-lg"></i>
-                                        <span class="state">Còn hàng</span>
-                                    </p>
-                                </div> 
-                            </div>
-                        </div>    
-                        <div class="product-item">
-                            <div class="img">
-                                <a href="San_Pham.html">    
-                                <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
-                                </a>                        
                             </div>   
-                            <div class="item-describe">
-                                <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
-                                </p>                               
-                                <div class="product-code">
-                                    <span>Mã SP:</span>
-                                    <span class="code">VGGI0340</span>
-                                </div>
-                                <div class="price-all">
-                                    <div class="old-price">
-                                        <del>36.990.000</del>
+                            <div class="product-item">
+                                <div class="img">
+                                    <a href="San_Pham.html">    
+                                    <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
+                                    </a>                        
+                                </div>   
+                                <div class="item-describe">
+                                    <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
+                                    </p>                               
+                                    <div class="product-code">
+                                        <span>Mã SP:</span>
+                                        <span class="code">VGGI0340</span>
                                     </div>
-                                    <div class="new-price">
-                                        <span class="price-deal">29.490.000</span>
-                                        <span class="dead-old-price">-30%</span>
+                                    <div class="price-all">
+                                        <div class="old-price">
+                                            <del>36.990.000</del>
+                                        </div>
+                                        <div class="new-price">
+                                            <span class="price-deal">29.490.000</span>
+                                            <span class="dead-old-price">-30%</span>
+                                        </div>
                                     </div>
+                                    <div class="footer-item">
+                                        <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
+                                    </div> 
                                 </div>
-                                <div class="footer-item">
-                                    <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
-                                </div> 
-                            </div>
-                        </div>   
-                        <div class="product-item">
-                            <div class="img">
-                                <a href="San_Pham.html">    
-                                <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
-                                </a>                        
                             </div>   
-                            <div class="item-describe">
-                                <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
-                                </p>                               
-                                <div class="product-code">
-                                    <span>Mã SP:</span>
-                                    <span class="code">VGGI0340</span>
-                                </div>
-                                <div class="price-all">
-                                    <div class="old-price">
-                                        <del>36.990.000</del>
+                            <div class="product-item">
+                                <div class="img">
+                                    <a href="San_Pham.html">    
+                                    <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
+                                    </a>                        
+                                </div>   
+                                <div class="item-describe">
+                                    <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
+                                    </p>                               
+                                    <div class="product-code">
+                                        <span>Mã SP:</span>
+                                        <span class="code">VGGI0340</span>
                                     </div>
-                                    <div class="new-price">
-                                        <span class="price-deal">29.490.000</span>
-                                        <span class="dead-old-price">-30%</span>
+                                    <div class="price-all">
+                                        <div class="old-price">
+                                            <del>36.990.000</del>
+                                        </div>
+                                        <div class="new-price">
+                                            <span class="price-deal">29.490.000</span>
+                                            <span class="dead-old-price">-30%</span>
+                                        </div>
                                     </div>
+                                    <div class="footer-item">
+                                        <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
+                                    </div> 
                                 </div>
-                                <div class="footer-item">
-                                    <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
-                                </div> 
-                            </div>
-                        </div>   
-                        <div class="product-item">
-                            <div class="img">
-                                <a href="San_Pham.html">    
-                                <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
-                                </a>                        
                             </div>   
-                            <div class="item-describe">
-                                <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
-                                </p>                               
-                                <div class="product-code">
-                                    <span>Mã SP:</span>
-                                    <span class="code">VGGI0340</span>
-                                </div>
-                                <div class="price-all">
-                                    <div class="old-price">
-                                        <del>36.990.000</del>
+                            <div class="product-item">
+                                <div class="img">
+                                    <a href="San_Pham.html">    
+                                    <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
+                                    </a>                        
+                                </div>   
+                                <div class="item-describe">
+                                    <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
+                                    </p>                               
+                                    <div class="product-code">
+                                        <span>Mã SP:</span>
+                                        <span class="code">VGGI0340</span>
                                     </div>
-                                    <div class="new-price">
-                                        <span class="price-deal">29.490.000</span>
-                                        <span class="dead-old-price">-30%</span>
+                                    <div class="price-all">
+                                        <div class="old-price">
+                                            <del>36.990.000</del>
+                                        </div>
+                                        <div class="new-price">
+                                            <span class="price-deal">29.490.000</span>
+                                            <span class="dead-old-price">-30%</span>
+                                        </div>
                                     </div>
+                                    <div class="footer-item">
+                                        <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
+                                    </div> 
                                 </div>
-                                <div class="footer-item">
-                                    <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
-                                </div> 
-                            </div>
-                        </div>   
-                        <div class="product-item">
-                            <div class="img">
-                                <a href="San_Pham.html">    
-                                <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
-                                </a>                        
+                            </div>  
+                            <div class="product-item">
+                                <div class="img">
+                                    <a href="San_Pham.html">    
+                                    <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
+                                    </a>                        
+                                </div>   
+                                <div class="item-describe">
+                                    <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
+                                    </p>                               
+                                    <div class="product-code">
+                                        <span>Mã SP:</span>
+                                        <span class="IDMatHang">VGGI0340</span>
+                                    </div>
+                                    <div class="price-all">
+                                        <div class="old-price">
+                                            <del>36.990.000</del>
+                                        </div>
+                                        <div class="new-price">
+                                            <span class="price-deal">29.490.000</span>
+                                            <span class="dead-old-price">-30%</span>
+                                        </div>
+                                    </div>
+                                    <div class="footer-item">
+                                        <p class="sold"> 
+                                            <span>Đã bán : </span>
+                                            <span id="quantity-reviews">12</span>                                
+                                        </p>               
+                                        <p class="status">
+                                            <i class="bi bi-check-lg"></i>
+                                            <span class="state">Còn hàng</span>
+                                        </p>
+                                    </div> 
+                                </div>
+                            </div>    
+                            <div class="product-item">
+                                <div class="img">
+                                    <a href="San_Pham.html">    
+                                    <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
+                                    </a>                        
+                                </div>   
+                                <div class="item-describe">
+                                    <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
+                                    </p>                               
+                                    <div class="product-code">
+                                        <span>Mã SP:</span>
+                                        <span class="code">VGGI0340</span>
+                                    </div>
+                                    <div class="price-all">
+                                        <div class="old-price">
+                                            <del>36.990.000</del>
+                                        </div>
+                                        <div class="new-price">
+                                            <span class="price-deal">29.490.000</span>
+                                            <span class="dead-old-price">-30%</span>
+                                        </div>
+                                    </div>
+                                    <div class="footer-item">
+                                        <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
+                                    </div> 
+                                </div>
                             </div>   
-                            <div class="item-describe">
-                                <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
-                                </p>                               
-                                <div class="product-code">
-                                    <span>Mã SP:</span>
-                                    <span class="code">VGGI0340</span>
-                                </div>
-                                <div class="price-all">
-                                    <div class="old-price">
-                                        <del>36.990.000</del>
+                            <div class="product-item">
+                                <div class="img">
+                                    <a href="San_Pham.html">    
+                                    <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
+                                    </a>                        
+                                </div>   
+                                <div class="item-describe">
+                                    <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
+                                    </p>                               
+                                    <div class="product-code">
+                                        <span>Mã SP:</span>
+                                        <span class="code">VGGI0340</span>
                                     </div>
-                                    <div class="new-price">
-                                        <span class="price-deal">29.490.000</span>
-                                        <span class="dead-old-price">-30%</span>
+                                    <div class="price-all">
+                                        <div class="old-price">
+                                            <del>36.990.000</del>
+                                        </div>
+                                        <div class="new-price">
+                                            <span class="price-deal">29.490.000</span>
+                                            <span class="dead-old-price">-30%</span>
+                                        </div>
                                     </div>
+                                    <div class="footer-item">
+                                        <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
+                                    </div> 
                                 </div>
-                                <div class="footer-item">
-                                    <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
-                                </div> 
-                            </div>
-                        </div>   
-                        <div class="product-item">
-                            <div class="img">
-                                <a href="San_Pham.html">    
-                                <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
-                                </a>                        
                             </div>   
-                            <div class="item-describe">
-                                <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
-                                </p>                               
-                                <div class="product-code">
-                                    <span>Mã SP:</span>
-                                    <span class="code">VGGI0340</span>
-                                </div>
-                                <div class="price-all">
-                                    <div class="old-price">
-                                        <del>36.990.000</del>
+                            <div class="product-item">
+                                <div class="img">
+                                    <a href="San_Pham.html">    
+                                    <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
+                                    </a>                        
+                                </div>   
+                                <div class="item-describe">
+                                    <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
+                                    </p>                               
+                                    <div class="product-code">
+                                        <span>Mã SP:</span>
+                                        <span class="code">VGGI0340</span>
                                     </div>
-                                    <div class="new-price">
-                                        <span class="price-deal">29.490.000</span>
-                                        <span class="dead-old-price">-30%</span>
+                                    <div class="price-all">
+                                        <div class="old-price">
+                                            <del>36.990.000</del>
+                                        </div>
+                                        <div class="new-price">
+                                            <span class="price-deal">29.490.000</span>
+                                            <span class="dead-old-price">-30%</span>
+                                        </div>
                                     </div>
+                                    <div class="footer-item">
+                                        <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
+                                    </div> 
                                 </div>
-                                <div class="footer-item">
-                                    <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
-                                </div> 
-                            </div>
-                        </div>  
+                            </div>   
+                            <div class="product-item">
+                                <div class="img">
+                                    <a href="San_Pham.html">    
+                                    <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
+                                    </a>                        
+                                </div>   
+                                <div class="item-describe">
+                                    <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
+                                    </p>                               
+                                    <div class="product-code">
+                                        <span>Mã SP:</span>
+                                        <span class="code">VGGI0340</span>
+                                    </div>
+                                    <div class="price-all">
+                                        <div class="old-price">
+                                            <del>36.990.000</del>
+                                        </div>
+                                        <div class="new-price">
+                                            <span class="price-deal">29.490.000</span>
+                                            <span class="dead-old-price">-30%</span>
+                                        </div>
+                                    </div>
+                                    <div class="footer-item">
+                                        <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
+                                    </div> 
+                                </div>
+                            </div>   
+                            <div class="product-item">
+                                <div class="img">
+                                    <a href="San_Pham.html">    
+                                    <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
+                                    </a>                        
+                                </div>   
+                                <div class="item-describe">
+                                    <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
+                                    </p>                               
+                                    <div class="product-code">
+                                        <span>Mã SP:</span>
+                                        <span class="code">VGGI0340</span>
+                                    </div>
+                                    <div class="price-all">
+                                        <div class="old-price">
+                                            <del>36.990.000</del>
+                                        </div>
+                                        <div class="new-price">
+                                            <span class="price-deal">29.490.000</span>
+                                            <span class="dead-old-price">-30%</span>
+                                        </div>
+                                    </div>
+                                    <div class="footer-item">
+                                        <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
+                                    </div> 
+                                </div>
+                            </div>  
+                        </div>
                     </div>
                 </div>            
             </div>
 
-            <div class="Product">
-                <div class="title-Lap">
-                    <div class="content-lap" >
-                        <a href="">SẢN PHẨM BÁN CHẠY</a>
-                    </div>               
-                    <a href="DS-Sản phẩm.html" class="Show-item">
-                        <span>Xem tất cả</span>
-                        <i>></i>
-                    </a>
-                </div>
-                <div class="product-list">
-                    <div class="button"> 
-                        <button id="back">←</button>
-                        <button id="next">→</button>
-                    </div> 
-                    <div class="product-container"> 
-                                        
-                        <div class="product-item">
-                            <div class="img">
-                                <a href="San_Pham.html">    
-                                <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
-                                </a>                        
-                            </div>   
-                            <div class="item-describe">
-                                <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
-                                </p>                               
-                                <div class="product-code">
-                                    <span>Mã SP:</span>
-                                    <span class="IDMatHang">VGGI0340</span>
-                                </div>
-                                <div class="price-all">
-                                    <div class="old-price">
-                                        <del>36.990.000</del>
-                                    </div>
-                                    <div class="new-price">
-                                        <span class="price-deal">29.490.000</span>
-                                        <span class="dead-old-price">-30%</span>
-                                    </div>
-                                </div>
-                                <div class="footer-item">
-                                    <p class="Star"> 
-                                        <i class="bi bi-star-fill"></i>
-                                        <span id="quantity-reviews">(12)</span>                                
-                                    </p>               
-                                    <p class="status">
-                                        <i class="bi bi-check-lg"></i>
-                                        <span class="state">Còn hàng</span>
-                                    </p>
-                                </div> 
-                            </div>
-                        </div>    
-                        <div class="product-item">
-                            <div class="img">
-                                <a href="San_Pham.html">    
-                                <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
-                                </a>                        
-                            </div>   
-                            <div class="item-describe">
-                                <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
-                                </p>                               
-                                <div class="product-code">
-                                    <span>Mã SP:</span>
-                                    <span class="code">VGGI0340</span>
-                                </div>
-                                <div class="price-all">
-                                    <div class="old-price">
-                                        <del>36.990.000</del>
-                                    </div>
-                                    <div class="new-price">
-                                        <span class="price-deal">29.490.000</span>
-                                        <span class="dead-old-price">-30%</span>
-                                    </div>
-                                </div>
-                                <div class="footer-item">
-                                    <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
-                                </div> 
-                            </div>
-                        </div>   
-                        <div class="product-item">
-                            <div class="img">
-                                <a href="San_Pham.html">    
-                                <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
-                                </a>                        
-                            </div>   
-                            <div class="item-describe">
-                                <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
-                                </p>                               
-                                <div class="product-code">
-                                    <span>Mã SP:</span>
-                                    <span class="code">VGGI0340</span>
-                                </div>
-                                <div class="price-all">
-                                    <div class="old-price">
-                                        <del>36.990.000</del>
-                                    </div>
-                                    <div class="new-price">
-                                        <span class="price-deal">29.490.000</span>
-                                        <span class="dead-old-price">-30%</span>
-                                    </div>
-                                </div>
-                                <div class="footer-item">
-                                    <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
-                                </div> 
-                            </div>
-                        </div>   
-                        <div class="product-item">
-                            <div class="img">
-                                <a href="San_Pham.html">    
-                                <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
-                                </a>                        
-                            </div>   
-                            <div class="item-describe">
-                                <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
-                                </p>                               
-                                <div class="product-code">
-                                    <span>Mã SP:</span>
-                                    <span class="code">VGGI0340</span>
-                                </div>
-                                <div class="price-all">
-                                    <div class="old-price">
-                                        <del>36.990.000</del>
-                                    </div>
-                                    <div class="new-price">
-                                        <span class="price-deal">29.490.000</span>
-                                        <span class="dead-old-price">-30%</span>
-                                    </div>
-                                </div>
-                                <div class="footer-item">
-                                    <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
-                                </div> 
-                            </div>
-                        </div>   
-                        <div class="product-item">
-                            <div class="img">
-                                <a href="San_Pham.html">    
-                                <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
-                                </a>                        
-                            </div>   
-                            <div class="item-describe">
-                                <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
-                                </p>                               
-                                <div class="product-code">
-                                    <span>Mã SP:</span>
-                                    <span class="code">VGGI0340</span>
-                                </div>
-                                <div class="price-all">
-                                    <div class="old-price">
-                                        <del>36.990.000</del>
-                                    </div>
-                                    <div class="new-price">
-                                        <span class="price-deal">29.490.000</span>
-                                        <span class="dead-old-price">-30%</span>
-                                    </div>
-                                </div>
-                                <div class="footer-item">
-                                    <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
-                                </div> 
-                            </div>
-                        </div>   
-                        <div class="product-item">
-                            <div class="img">
-                                <a href="San_Pham.html">    
-                                <img  src="img/Anh-1.jpg" alt="Sản phẩm 1">  
-                                </a>                        
-                            </div>   
-                            <div class="item-describe">
-                                <p class="content">Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB, RTX 4050 6GB, 16'' 2K+ 165Hz)
-                                </p>                               
-                                <div class="product-code">
-                                    <span>Mã SP:</span>
-                                    <span class="code">VGGI0340</span>
-                                </div>
-                                <div class="price-all">
-                                    <div class="old-price">
-                                        <del>36.990.000</del>
-                                    </div>
-                                    <div class="new-price">
-                                        <span class="price-deal">29.490.000</span>
-                                        <span class="dead-old-price">-30%</span>
-                                    </div>
-                                </div>
-                                <div class="footer-item">
-                                    <p class="Star"> ⭐ <span>(12 đánh giá)</span></p>               
-                                </div> 
-                            </div>
-                        </div>  
-                    </div>
-                </div>            
-            </div>
 
             <div class="footer-1">
                 <div class="title-foot">
@@ -934,7 +918,7 @@
         </div>
     </footer>
 
-    
+
     <script src="angular/angular.js"></script>
     <script src="angular/Trang_Chu.js"></script>
     <script src="angular/Danh_Muc.js"></script>

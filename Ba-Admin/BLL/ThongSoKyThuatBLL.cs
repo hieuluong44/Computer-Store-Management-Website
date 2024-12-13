@@ -26,7 +26,7 @@ namespace BLL
            return thongSoKyThuatDAL.Delete(IDThongSo);
         }
 
-        public List<GetThongSoKyThuat> GetALL(string IDMatHang)
+        public List<ThongSoKyThuatModel> GetALL(string IDMatHang)
         {
             return thongSoKyThuatDAL.GetALL(IDMatHang);
         }

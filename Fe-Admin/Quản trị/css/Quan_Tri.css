@@ -305,7 +305,7 @@ img{
 /*================ Page Phải =================*/
 
 #right {
-    width: 1180px;
+    width: 100%;
     margin-left: 100px;
     margin-bottom: 10px;
     height: 100dvh;
@@ -912,6 +912,8 @@ video {
 .product-table th , .product-table td {
     text-align: left;
     white-space: nowrap; 
+    width: 300px;
+    overflow: hidden;
     border: none;
     padding: 10px 20px;    
     height: max-content;
@@ -972,7 +974,7 @@ video {
 
 .tab-content .option .form {
     position: fixed;
-    max-width: 1000px;
+    max-width: 1020px;
     z-index: 11;
     top: 50%;
     left: 50%;
@@ -1004,7 +1006,9 @@ video {
 }
 
 .tab-content .container-form .between {
-    max-height: 300px;
+    max-height: 500px;
+    display: flex;
+    flex-wrap: wrap;
     overflow: hidden;
     overflow-y: scroll;
 }
@@ -1043,7 +1047,11 @@ video {
     padding: 10px 0;
     height: max-content;
 }
-
+.avatar-wrapper {
+    width: max-content;
+    display: flex ;
+    flex-wrap: wrap;
+}
 .tab-content .container-form .between .profile-img-user {
     width: 120px;
     height: 120px;
@@ -1057,9 +1065,10 @@ video {
 .tab-content .container-form .between .profile-img-item {
     width: 150px;
     height: 150px;
+    padding: 5px;
     object-fit: cover;
     border: 3px solid #007bff;
-    margin: 0 50px 5px 50px;
+    margin: 5px 10px 5px 10px;
     display: block;
 }
 

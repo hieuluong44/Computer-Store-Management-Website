@@ -10,6 +10,7 @@ namespace DAL.Interfaces
     { 
         List<GetMatHang> GetALL();
         bool Create(MatHangModel matHangModel);
+        bool CreateMatHang_ChiTiet(ThemMatHang_ChiTiet matHangModel);
         bool Update(MatHangModel matHangModel);
         bool Delete(string IDMatHang);
     }

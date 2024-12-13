@@ -1,11 +1,14 @@
-const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
-
-signUpButton.addEventListener('click', () => {
-	container.classList.add("right-panel-active");
-});
-
-signInButton.addEventListener('click', () => {
-	container.classList.remove("right-panel-active");
-});
+var RegForm =document.getElementById("RegForm");
+var LoginForm  =document.getElementById("LoginForm");
+var Indicator = document.getElementById("Indicator");
+            
+function register(){
+    RegForm.style.transform ="translateX(0px)";
+    LoginForm.style.transform ="translateX(0px)";  
+    Indicator.style.transform ="translateX(100px)";
+}
+function login(){
+    RegForm.style.transform ="translateX(500px)";
+    LoginForm.style.transform ="translateX(500px)";   
+    Indicator.style.transform ="translateX(0px)";
+}

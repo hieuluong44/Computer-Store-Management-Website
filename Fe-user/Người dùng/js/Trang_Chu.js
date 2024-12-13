@@ -42,6 +42,41 @@
 
 // ---------------------------------------------Phần Countdown (Chạy time Deal)--------------------------------------
 
+(function () {
+    const nextButtons = document.querySelectorAll('#next');
+    const backButtons = document.querySelectorAll('#back');
+    const productSlides = document.querySelectorAll('.product-slide');
+    const itemsPerPage = 5;
+
+    productSlides.forEach((productSlide, index) => {
+        let currentIndex = 0;
+
+        function updateSlidePosition() {
+            const slideWidth = productSlide.children[0].offsetWidth;
+            productSlide.style.transform = `translateX(-${currentIndex * (slideWidth + 10)}px)`; 
+        }
+
+        nextButtons[index].addEventListener('click', () => {
+            currentIndex++;
+            if (currentIndex > productSlide.children.length - itemsPerPage) {
+                currentIndex = 0;
+            }
+            updateSlidePosition();
+        });
+
+        backButtons[index].addEventListener('click', () => {
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = productSlide.children.length - itemsPerPage;
+            }
+            updateSlidePosition();
+        });
+
+        setInterval(() => {
+            nextButtons[index].click();
+        }, 3000); 
+    });
+})();
 
 
 

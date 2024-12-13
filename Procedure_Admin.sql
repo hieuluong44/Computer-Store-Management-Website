@@ -155,7 +155,7 @@ go
 
 /*-- 2. Quản lý mặt hàng --*/
 -- a) Get ALL
-alter proc Get_ALL_MatHang
+create proc Get_ALL_MatHang_Admin
 as
 begin
     select 
@@ -163,9 +163,10 @@ begin
         DM.TenDanhMuc,                    
         MH.TenMatHang,                        
         MH.DonGia,                            
-        MH.BaoHanh,                            
-        MH.HinhAnh1,     
+        MH.BaoHanh,  
+		AMH.DuongDan,
         CASE 
+            WHEN KH.SoLuong IS NULL THEN N'Chưa cập nhật'  -- Nếu không có bản ghi kho
             WHEN KH.SoLuong = 0 THEN N'Hết hàng'
             WHEN KH.SoLuong < 5 THEN N'Số lượng dưới 5'
             ELSE N'Còn hàng'
@@ -174,8 +175,10 @@ begin
         MatHang MH
     inner join 
         DanhMuc DM on MH.IDDanhMuc = DM.IDDanhMuc
-    inner join 
-        Kho KH on MH.IDMatHang = KH.IDMatHang
+	inner join AnhMatHang AMH on MH.IDMatHang = AMH.IDMatHang
+    left join 
+        Kho KH on MH.IDMatHang = KH.IDMatHang  
+		where AMH.ThuTu = 1
 end;
 go
 
@@ -195,44 +198,43 @@ begin
 end;
 go
 
-alter proc ThemMatHangVaThongSoJSON
+create proc ThemMatHang_ChiTiet
     @IDMatHang CHAR(10),
     @IDDanhMuc CHAR(10),
-    @IDGiamGia CHAR(10),
     @TenMatHang NVARCHAR(100),
     @DonGia FLOAT,
     @BaoHanh NVARCHAR(10),
-    @HinhAnh1 VARCHAR(MAX),
     @TrangThai NVARCHAR(10),
-    @ThongSoKyThuat NVARCHAR(MAX) -- Tham số JSON
+    @ThongSoKyThuat NVARCHAR(MAX), -- JSON thông số kỹ thuật
+    @AnhMatHang NVARCHAR(MAX) -- JSON ảnh mặt hàng
 AS
 BEGIN
-    BEGIN TRANSACTION;
+	insert into MatHang (IDMatHang, IDDanhMuc, TenMatHang, DonGia, BaoHanh, TrangThai)
+	values (@IDMatHang, @IDDanhMuc, @TenMatHang, @DonGia, @BaoHanh, @TrangThai);
+	if( @ThongSoKyThuat is not null)
+		begin 
+			insert into ThongSoKyThuat ( IDThongSo, IDMatHang, TenThongSo, GiaTriThongSo)
+				select JSON_VALUE(p.value, '$.IDThongSo'),
+						@IDMatHang,
+						JSON_VALUE(p.value, '$TenThongSo'),
+						JSON_VALUE(p.value, '$GiaTriThongSo')  
+				from OPENJSON(@ThongSoKyThuat) as p;
+		end;
 
-    BEGIN TRY
-        -- Thêm mặt hàng
-        INSERT INTO MatHang (IDMatHang, IDDanhMuc, IDGiamGia, TenMatHang, DonGia, BaoHanh, HinhAnh1, TrangThai)
-        VALUES (@IDMatHang, @IDDanhMuc, @IDGiamGia, @TenMatHang, @DonGia, @BaoHanh, @HinhAnh1, @TrangThai);
 
-        -- Thêm thông số kỹ thuật từ JSON
-        DECLARE @JSON NVARCHAR(MAX) = @ThongSoKyThuat;
-        
-        -- Thêm thông số kỹ thuật
-        INSERT INTO ThongSoKyThuat (IDThongSo, IDMatHang, TenThongSo, GiaTriThongSo)
-        SELECT NEWID(), @IDMatHang, 
-               JSON_VALUE(value, '$.TenThongSo'), 
-               JSON_VALUE(value, '$.GiaTriThongSo')
-        FROM OPENJSON(@JSON) 
-        WITH (value NVARCHAR(MAX) AS JSON);
-
-        COMMIT TRANSACTION;
-    END TRY
-    BEGIN CATCH
-        ROLLBACK TRANSACTION;
-        THROW;
-    END CATCH;
+		if( @AnhMatHang is not null)
+		begin 
+			insert into AnhMatHang( IDAnhMatHang, IDMatHang, DuongDan, ThuTu)
+				select JSON_VALUE(p.value, '$.IDAnhMatHang'),
+						@IDMatHang,
+						JSON_VALUE(p.value, 'DuongDan'),
+						ROW_NUMBER() OVER (ORDER BY (SELECT NULL))  
+				from OPENJSON(@ThongSoKyThuat) as p;
+		end;
+	select '';
 END;
 GO
+
 
 alter proc XoaMatHangVaThongSo
     @IDMatHang CHAR(10)
@@ -290,14 +292,32 @@ begin
 end;
 go
 
--- Thông số kĩ thuật 
--- a) Get
-alter proc Get_All_ThongSo 
-	@IDMatHang char(10)
+create proc getThongSoKyThuat
+    @IDMatHang char(10)
 as
-begin
-	select TS.IDThongSo, MH.TenMatHang, TS.TenThongSo, TS.GiaTriThongSo from ThongSoKyThuat TS 
-	inner join MatHang MH on TS.IDMatHang = MH.IDMatHang where TS.IDMatHang = @IDMatHang
+begin 
+    select 
+        TS.IDThongSo, 
+        TS.TenThongSo, 
+        TS.GiaTriThongSo
+    from ThongSoKyThuat TS
+    inner join MatHang MH on TS.IDMatHang = MH.IDMatHang
+    where MH.IDMatHang = @IDMatHang
+end;
+go
+
+create proc getAnhMatHang
+    @IDMatHang char(10)
+as
+begin 
+    select 
+        AMH.IDAnhMatHang, 
+        AMH.DuongDan, 
+        AMH.ThuTu
+    from AnhMatHang AMH
+    inner join MatHang MH on AMH.IDMatHang = MH.IDMatHang
+    where MH.IDMatHang = @IDMatHang
+    order by AMH.ThuTu;
 end;
 go
 

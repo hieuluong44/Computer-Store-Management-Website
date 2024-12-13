@@ -1,3 +1,22 @@
+document.getElementById('profile-img').addEventListener('click', function() {
+    document.getElementById('HinhAnh').click();
+});
+
+document.getElementById('HinhAnh').addEventListener('change', function(event) {
+    if (event.target.files.length > 0) {
+        // Xử lý file ảnh đã chọn
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('profile-img').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+
+
+
 // ========================  Mở menu   ===================== //
 const menuItems = document.querySelectorAll('.menu-content');
 menuItems.forEach(item => {
@@ -12,7 +31,6 @@ menuItems.forEach(item => {
         }
     });
 });
-
 
 
 // =====================   Hiển thị thông tin sản phẩm   ================= //

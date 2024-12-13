@@ -21,8 +21,8 @@ namespace Model
         public string IDMatHang { get; set; }
         public string TenMatHang { get; set; }
         public float DonGia { get; set; }
+        public string DuongDan { get;set; }
         public string BaoHanh { get; set; } 
-        public string HinhAnh1 { get; set; }
         public string ChiTiet { get; set; }
         public string TrangThai { get; set; }
     }
