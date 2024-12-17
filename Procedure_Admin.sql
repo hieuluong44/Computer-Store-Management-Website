@@ -378,6 +378,17 @@ begin
 end;
 go
 
+--Cập nhật trạng thái hoá đơn
+create proc CapNhat_TrangThai_DonBan
+    @IDDonBan char(10),
+	@TrangThai nvarchar(30)
+as
+begin
+	update HoaDonBan set TrangThai = @TrangThai
+    where IDDonBan = @IDDonBan
+end;
+go
+
 -- Xóa hóa đơn bán
 alter proc Xoa_HoaDonBan
     @IDDonBan char(10)
@@ -475,5 +486,19 @@ begin
 	inner join Kho kh on mh.IDMatHang = kh.IDMatHang
     group by mh.IDMatHang, mh.TenMatHang, mh.DonGia, mh.BaoHanh, kh.SoLuong, mh.TrangThai
     order by TongSoLuongBan desc; -- Sắp xếp theo tổng số lượng bán giảm dần
+end;
+go
+
+
+create proc Donban_TheoTrangThai
+    @TrangThai NVARCHAR(50)
+as
+begin
+    select HDB.IDDonBan, ND.TenNguoiDung, GG.NoiDung, GG.TyLeGiam, 
+           HDB.NgayBan, HDB.GhiChu, HDB.TongTien, HDB.TrangThai
+    from HoaDonBan HDB
+    inner join NguoiDung ND on HDB.IDNguoiDung = ND.IDNguoiDung
+    left join GiamGia GG on HDB.IDGiamGia = GG.IDGiamGia
+    where HDB.TrangThai LIKE '%' + @TrangThai + '%'
 end;
 go

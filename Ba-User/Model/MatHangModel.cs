@@ -15,7 +15,6 @@ namespace Model
         public int TongSoLuongBan { get; set; }
     }
 
-    /* Hiẻn thị list mặt hàng theo danh mục */
     public partial class Get_MatHang_DanhMuc
     {
         public string IDMatHang { get; set; }
@@ -33,10 +32,7 @@ namespace Model
         public string TenMatHang { get; set; }
         public float DonGia { get; set; }
         public string BaoHanh { get; set; }
-        public string HinhAnh1 { get; set; }
         public string ChiTiet { get; set; }
         public string TrangThai { get; set; }
-        public string TyLeGiam { get; set; }
-        public string NoiDung { get; set; }
     }
 }

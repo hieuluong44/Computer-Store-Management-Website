@@ -13,21 +13,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
   </head>
-  <body>
+  <body ng-app = "User">
     <div class="top-bar">
       <div class="frame">
           <div class="left">
               <div class="H-content">
-                  <i class="fas fa-map-marker-alt"></i>
+                  <i class="fas fa-map-marker-alt" style="padding: 0 20px;"></i>
                   <marquee onmouseover="stop()" onmouseout="start()">Số 14A, đường Trưng Nhị, phường Lê Lợi, thành phố Hưng Yên, tỉnh Hưng Yên</marquee>
               </div>          
           </div>
           <div class="right">
-              <div class="H-right-content" style="border-right: 1px solid #CCC;">
-                  <i class="fas fa-headphones"></i>
-                  <span>Hotline : 029 382 1922</span>
-              </div>
-              <div class="H-right-content"  style="border-right: 1px solid #CCC;">
+              <div class="H-right-content" style="border-right: 1px solid #CCC;"  >
                   <span id="selected-language">
                       <i class="fas fa-globe"></i> 
                   </span>
@@ -53,29 +49,13 @@
                   </div>
               </div>                    
               <div class="H-right-content">
-                  <i class="fas fa-user-circle"></i>
-                  <div class="login-section">
-                      <span class="login-text" style="cursor: pointer;">Tài khoản</span>
-                      <div class="dropdown-content">
-                          <a href="Trang_CaNhan.html" id="TCN-btn">
-                              <i class="bi bi-person"></i>
-                                tài khoản của bạn
-                          </a>
-                          <a href="Dang_Nhap.html" id="login-btn">
-                              <i class="fas fa-sign-in-alt"></i>
-                              Đăng nhập
-                          </a>
-                          <a href="#" id="logout-btn">
-                              <i class="fas fa-sign-out-alt"></i>
-                              Đăng xuất
-                          </a>
-                      </div>
-                  </div>
-              </div>             
+                  <i class="fas fa-headphones"></i>
+                  <span>Hotline : 029 382 1922</span>
+              </div>      
           </div>
       </div>
   </div>
-    <div class="H-head">
+  <div class="H-head">
       <div class="frame">    
           <a class="logo" href="Trang_Chu.html">
               <img src="img/logo.png" alt="" style="width: 100%; height: 100%;">
@@ -105,28 +85,47 @@
           </div>
           <div class="icons">
               <a href="#">
-                  <div class="icon">
-                      <i class="fas fa-envelope noti-icon"></i>
-                      <div class="icon-badge" style="right: -5px;">
-                          <span>0</span>
-                      </div>
+                  <div class="order">
+                      <i class="bi bi-pc"></i>
+                      <span class="order-text">Xây dựng cấu hình</span>
                   </div>
-              </a>   
+              </a>  
               <a href="#">
                   <div class="order">
-                      <i class="fa fa-shopping-cart"></i>
+                      <i class="bi bi-truck"></i>
                       <span class="order-text">Tra cứu đơn hàng</span>
                   </div>
-              </a>          
+              </a>       
               <a href="Gio_Hang.html">
                   <div class="cart">
-                      <i class="fas fa-shopping-cart"></i>
+                      <i class="bi bi-cart2"></i>
                       <div class="cart-badge">
                           <span>0</span>
                       </div>
                       <span class="cart-text">Giỏ hàng</span>
                   </div>
               </a>
+              <div class="login-section" ng-controller="UserCtrl">
+                <i class="fas fa-user-circle"></i>
+                <span class="login-text">{{ TenNguoiDung }}</span>
+                <div class="dropdown-content">
+                    <!-- Hiển thị khi đã đăng nhập -->
+                    <a href="Trang_CaNhan.html" id="TCN-btn" ng-if="isLoggedIn">
+                        <i class="bi bi-person"></i>
+                        <span>Hồ sơ của bạn</span>
+                    </a>
+                    <!-- Hiển thị nút đăng nhập nếu chưa đăng nhập -->
+                    <a href="Dang_Nhap.html" id="login-btn" ng-if="!isLoggedIn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Đăng nhập</span>
+                    </a>
+                    <!-- Hiển thị nút đăng xuất khi đã đăng nhập -->
+                    <a href="#" id="logout-btn" ng-if="isLoggedIn" ng-click="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Đăng xuất</span>
+                    </a>
+                </div>   
+            </div>  
           </div>
       </div>
   </div>
@@ -175,9 +174,8 @@
         display: none;
       "
     >
-      <div class="frame"></div>
     </div>
-    <div class="middle">
+    <div class="middle" ng-controller = "ChiTietMatHang">
       <div class="frame">
         <div class="head">
           <div class="content">
@@ -186,7 +184,7 @@
             <div id="column-1">
               <div class="content-1">
                 <div id="main-image">
-                  <img src="img/Anh-1.jpg" alt="Ảnh chính" id="large-image" />
+                  <img id="large-image" ng-src="{{ product.duongDan }}" alt="Ảnh sản phẩm">
                 </div>
                 <div id="carousel-wrapper">
                   <i class="bi bi-arrow-left-short" id="prev-btn"></i>
@@ -210,60 +208,60 @@
             </div>
 
             <!-- Cột 2 -->
-            <div id="column-2">
+            <div id="column-2" >
               <div id="title">
-                <h1>Lenovo Legion Y7000P 2024 (Core i7-14650HX, 16GB, 1TB,RTX 4050 6GB, 16'' 2K+ 165Hz)</h1>
+                  <h1>{{ product.tenMatHang }}</h1>
               </div>
               <div class="Evaluate">
                   <div class="ID-item">
-                    <b>Mã MH: </b>
-                    <span>MH0#$83019$#</span>
+                      <b>Mã MH: </b>
+                      <span>{{ product.idMatHang }}</span>
                   </div>
                   <span class="number">5.0</span>
                   <i class="bi bi-star-fill"></i>
                   <a href="assess" id="reviews">Xem đánh giá</a>
               </div> 
               <div class="describe">
-                <div class="infor-item">
-                  <div class="price">
-                    <span id="deal">
-                      <i id="new-prices">29.490.000</i>
-                    </span>
+                  <div class="infor-item">
+                      <div class="price">
+                        <span id="deal">
+                          <span id="new-prices">{{  product.giaBanFormatted }}</span>
+                          <span>đ</span>
+                      </span>                      
+                      </div>
+                      <div id="Bao_hanh">
+                          <b>Bảo hành: </b>
+                          <span class="guarantee">{{ product.baoHanh }}</span>
+                      </div>
+                      <div class="detail-quantity">
+                          <b>Tình trạng: </b>
+                          <span class="status-quantity">{{ product.trangThai }}</span>
+                      </div>
+                      <a id="Chi-tiet" href="#Muc-tieu">Xem chi tiết cấu hình</a>
+                      <a id="buy-now" href="San_Pham.html">
+                          <h3>Mua ngay</h3>
+                          <span>Giao tận nơi hoặc nhận ở cửa hàng</span>
+                      </a>
                   </div>
-                  <div id="Bao_hanh">
-                    <b>Bảo hành: </b>
-                    <span class="guarantee">12 tháng</span>
+                  <div class="free-gift">
+                      <div class="promotion">
+                          <p class="box_promotion">
+                              QUÀ TẶNG/KHUYẾN MÃI
+                          </p>
+                          <ul id="list-gift">
+                              <p>
+                                  <span>✅ Tặng Windows 11 bản quyền theo máy</span>
+                                  <span>✅ Miễn phí cân màu màn hình công nghệ cao</span>
+                                  <span>✅ Balo thời trang</span>
+                                  <span>✅ Chuột không dây + Bàn di cao cấp</span>
+                                  <span>✅ Tặng gói cài đặt, bảo dưỡng, vệ sinh máy trọn đời</span>
+                                  <span>✅ Tặng Voucher giảm giá cho lần mua tiếp theo</span>
+                              </p>
+                          </ul>
+                      </div>
                   </div>
-                  <div class="detail-quantity">
-                    <b>Tình trạng: </b>
-                    <span class="status-quantity">Còn hàng</span>
-                  </div>
-                  <a id="Chi-tiet" href="#Muc-tieu">Xem chi tiết cấu hình</a>
-                  <a id="buy-now" href="San_Pham.html">
-                    <img src="img/shopping-cart.png" alt="" />Mua ngay
-                    <span>Giao tận nơi hoặc nhận ở cửa hàng</span>
-                  </a>
-                </div>
-                <div class="free-gift">
-                  <div class="promotion">
-                    <p class="box_promotion">
-                      <img src="img/gift.png" alt="" />
-                      QUÀ TẶNG/KHUYẾN MÃI
-                    </p>
-                    <ul id="list-gift">
-                      <p>
-                        <span>✅ Tặng Windows 11 bản quyền theo máy</span>
-                        <span>✅ Miễn phí cân màu màn hình công nghệ cao</span>
-                        <span>✅ Balo thời trang</span>
-                        <span>✅ Chuột không dây + Bàn di cao cấp</span>
-                        <span>✅ Tặng gói cài đặt, bảo dưỡng, vệ sinh máy trọn đời</span>
-                        <span>✅ Tặng Voucher giảm giá cho lần mua tiếp theo</span>
-                      </p>
-                    </ul>
-                  </div>
-                </div>
               </div>
-            </div>              
+          </div>                  
           </div>
         </div>
         
@@ -274,76 +272,17 @@
               <div id="title-tab">
                 <h3>Thông số kỹ thuật</h3>
               </div>
-              <div id="content-tab">
+              <div id="content-tab" >
                 <p><span>Thông số kỹ thuật Lenovo Legion Y7000P 2024</span></p>
                 <table style="border: 1px solid #dee2e6">
                   <tbody>
-                    <tr id="color">
-                      <td><span id="h1">CPU</span></td>
+                    <tr ng-repeat = "item in listThongSo" ng-class="{'even-row': $index % 2 === 0, 'odd-row': $index % 2 !== 0}">
                       <td>
-                        <span id="h2">14th Generation Intel® Core™ i7-14650HX, 16C (8P +8E) / 24T, P-core up to 5.2GHz, E-core up to 3.7GHz,30MB Cache</span>
+                        <span id="h1">{{ item.tenThongSo }}</span>
                       </td>
-                    </tr>
-                    <tr>
-                      <td><span id="h1">RAM</span></td>
-                      <td><span id="h2">16 GB DDR5</span></td>
-                    </tr>
-                    <tr id="color">
-                      <td><span id="h1">Ổ cứng</span></td>
-                      <td><span id="h2">1TB PCIe NVMe M.2 SSD Gen 4</span></td>
-                    </tr>
-                    <tr>
-                      <td><span id="h1">Card VGA</span></td>
                       <td>
-                        <span id="h2">NVIDIA Geforce RTX 4050 6GB GDDR6</span>
+                        <span>{{ item.giaTriThongSo }}</span>
                       </td>
-                    </tr>
-                    <tr id="color">
-                      <td><span id="h1">MUX Swìtch</span></td>
-                      <td><span id="h2">Có</span></td>
-                    </tr>
-                    <tr>
-                      <td><span id="h1">Màn hình</span></td>
-                      <td>
-                        <span id="h2"
-                          >16" WQXGA (2560×1600) IPS 500nits Anti-glare, 100%
-                          sRGB, 165Hz, DisplayHDR™ 400, Dolby® Vision™, G-SYNC®,
-                          Low Blue Light</span
-                        >
-                      </td>
-                    </tr>
-                    <tr id="color">
-                      <td><span id="h1">Webcam</span></td>
-                      <td><span id="h2">HD Webcam </span></td>
-                    </tr>
-                    <tr>
-                      <td><span id="h1">Cổng kết nối</span></td>
-                      <td>
-                        <span id="h2"
-                          >3x USB 3.2 Gen 1 <br />
-                          1x USB 3.2 Gen 1 (Always On) <br />
-                          1x USB-C® 3.2 Gen 2 (support data transfer and
-                          DisplayPort™ 1.4) <br />
-                          1x USB-C® 3.2 Gen 2 (support data transfer, Power
-                          Delivery 140W and DisplayPort™ 1.4) <br />
-                          1x HDMI®, up to 8K/60Hz <br />
-                          1x Ethernet (RJ-45) <br />
-                          1x Headphone / microphone combo jack (3.5mm) <br />
-                          1x Power connector</span
-                        >
-                      </td>
-                    </tr>
-                    <tr id="color">
-                      <td><span id="h1">Trọng lượng</span></td>
-                      <td><span id="h2">2.3 kg</span></td>
-                    </tr>
-                    <tr>
-                      <td><span id="h1">Pin</span></td>
-                      <td><span id="h2">80whr, Super Rapid Charge</span></td>
-                    </tr>
-                    <tr id="color">
-                      <td><span id="h1">Hệ điều hành</span></td>
-                      <td><span id="h2">Windows bản quyền</span></td>
                     </tr>
                   </tbody>
                 </table>
@@ -577,6 +516,9 @@
 
 
     <ul class="notifications"></ul>
+    <script src="angular/angular.js"></script>
+    <script src="angular/Trang_Chu.js"></script>
+    <script src="angular/ChiTiet_SanPham.js"></script>    
     <script src="js/Gio_Hang.js"></script>
     <SCript src="js/Trang_Chu.js"></SCript>
     <script src="js/San_Pham.js"></script>

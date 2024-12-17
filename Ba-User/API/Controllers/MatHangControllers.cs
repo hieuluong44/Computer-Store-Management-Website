@@ -34,9 +34,10 @@ namespace API.Controllers
 
         [Route("Search_Gia")]
         [HttpGet]
-        public List<Tim_MatHang_Gia> Tim_MatHang_Gia(float GiaMin,float GiaMax)
+        public List<Tim_MatHang_Gia> Tim_MatHang_Gia(float GiaMin, float GiaMax)
         {
             return matHangBLL.tim_MatHang_Gia(GiaMin, GiaMax);
         }
+
     }
 }

@@ -117,11 +117,12 @@ form .btn:focus {
 }
 
 #LoginForm {
-    left: -500px;
+    left: 0;
+
 }
 
 #RegForm {
-    left: 0;
+    left: -500px;
 }
 
 #Forgot-pass {

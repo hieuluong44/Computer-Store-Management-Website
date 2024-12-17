@@ -38,6 +38,7 @@
   list-style-type: none;
   padding: 20px;
   gap: 10px;
+  border-bottom: 1px solid #eee;
   display: flex;
   height: max-content;
   font-size: 15px;
@@ -88,7 +89,7 @@
 }
 
 .Cart .table li .item-right .item-prices {
-  width: 40%;
+  width: 25%;
 }
 
 .Cart .table li .item-right .item-prices #oldprice {
@@ -100,6 +101,20 @@
 .Cart .table li .item-right .item-prices p {
   margin: 10px 0;
   font-size: 16px;
+}
+
+.Cart .table li .item-right .item-name {
+  width: 80%;
+}
+
+.Cart .table .check {
+  display: flex;
+  align-items: center;
+}
+
+.Cart .table .check input {
+  width: 15px;
+  height: 15px;
 }
 
 .Cart .cart-head .cart-list {
@@ -114,8 +129,8 @@
     padding: 20px;
     font-weight: 400;
     height: max-content;
-    border-bottom: 1px solid #ccc;
-    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
 }
 
 .Cart .cart-head .cart-list .Voucher .Voucher-container {
@@ -130,6 +145,78 @@
   font-size: 16px;
   margin: 0;
   width: 100% ;
+}
+
+.voucher-card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 10px;
+  transition: transform 0.3s ease;
+}
+
+.voucher-card:hover {
+  transform: translateY(-5px);
+}
+
+.voucher-header {
+  display: flex;
+  padding: 15px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.voucher-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+.voucher-info {
+  flex: 1;
+}
+
+.voucher-info h3 {
+  font-size: 16px;
+  margin: 0;
+  color: #333;
+}
+
+.voucher-info p {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
+}
+
+.voucher-validity {
+  font-size: 12px;
+  color: #999;
+}
+
+.voucher-footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: right;
+}
+
+.apply-btn {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.apply-btn:hover {
+  background-color: #0056b3;
 }
 
 .item-quantity {

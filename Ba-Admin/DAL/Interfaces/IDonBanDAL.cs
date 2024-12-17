@@ -9,6 +9,8 @@ namespace DAL.Interfaces
     public partial interface IDonBanDAL
     {
         List<getDonBan> GetALL();
+        List<TrangThaiDonHangModel> trangThaiDonHangs(string TrangThai);
+        bool CapNhatTrangThai(CapNhatTrangThai trangThaiDonHangModel);
         bool Create(DonBanModel donBanModel);
         bool Update(DonBanModel donBanModel);
         bool Delete(string IDDonBan);

@@ -19,6 +19,157 @@
     align-items: normal;
     justify-content: space-between;
 }
+.status-buttons {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .status-buttons button {
+    padding: 10px 20px;
+    margin-right: 15px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .status-buttons button:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .panel {
+    display: none; /* Ẩn mặc định */
+    opacity: 0; /* Mặc định độ mờ là 0 */
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Thêm hiệu ứng chuyển đổi */
+  }
+  
+  .panel.active {
+    display: block; /* Hiển thị panel khi có lớp active */
+    opacity: 1; /* Đặt độ mờ thành 1 khi hiển thị */
+    transform: translateY(0); /* Di chuyển panel về vị trí ban đầu */
+  }
+  
+  .waiting {
+    background-color: #ffecb3;
+  }
+  
+  .waitingForPickUp {
+    background-color: #e1f5fe;
+  }
+  
+  .inTransit {
+    background-color: #c8e6c9;
+  }
+  
+  .returned {
+    background-color: #ffccbc;
+  }
+  
+  .delivered {
+    background-color: #dcedc8;
+  }
+  
+  .cancelled {
+    background-color: #f8bbd0;
+  }
+
+
+  .product-card {
+    background-color: #fff;
+}
+
+/* Product Info */
+.product-info {
+    display: flex;
+    margin-top: 16px;
+}
+
+.product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.product-details {
+    flex: 1;
+}
+
+.product-title {
+    font-size: 14px;
+    margin: 0;
+    color: #333;
+}
+
+.product-quantity {
+    font-size: 12px;
+    color: #666;
+    margin: 4px 0;
+}
+
+.product-price {
+    display: flex;
+    gap: 8px;
+}
+
+.discount-price {
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Order Summary */
+.order-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    padding: 10px 0;
+    border-top: 1px solid #f1f1f1;
+}
+
+.total-label {
+    font-size: 14px;
+    color: #333;
+}
+
+.total-amount {
+    font-size: 18px;
+    color: red;
+    font-weight: bold;
+}
+
+/* Actions */
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.actions button {
+    background-color: #f5f5f5;
+    color: #333;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.actions .buy-again {
+    background-color: #ff5722;
+    color: #fff;
+}
+
+.actions button:hover {
+    background-color: #e0e0e0;
+}
+  
 
 .personal_page .left {
     width: 300px;
@@ -89,6 +240,11 @@
     background-color: #fff;
     border-radius: 5px;
     margin-left: 20px;
+}
+
+.personal_page .right  h1 {
+    margin: 0;
+    font-size: 22px;
 }
 
 #account-info {
@@ -275,3 +431,72 @@ input[type="password"] ,
     background-color: #2980b9;
 }
 
+
+.status-buttons {
+    display: flex;
+       background-color: #FFF;
+       padding: 10px;
+       border-bottom: 1px solid #CCC;
+ }
+ 
+.status-buttons button {
+   background-color: transparent;
+   border: none;
+   font-size: 16px;
+   color: #333;
+   padding: 10px 15px;
+   cursor: pointer;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+ }
+.status-buttons  button .count {
+   color: red;
+   font-weight: bold;
+   margin-left: 5px;
+ }
+ 
+.status-buttons button.active {
+   border-bottom: 2px solid red;
+   font-weight: bold;
+ }
+ .panel {
+   display: none; /* Ẩn mặc định */
+   opacity: 0; /* Mặc định độ mờ là 0 */
+   background-color: #f9f9f9;
+   margin-bottom: 20px;
+   border-radius: 5px;
+   transition: opacity 0.5s ease, transform 0.5s ease; /* Thêm hiệu ứng chuyển đổi */
+ }
+ 
+ .panel.active {
+   display: block; /* Hiển thị panel khi có lớp active */
+   opacity: 1; /* Đặt độ mờ thành 1 khi hiển thị */
+   transform: translateY(0); /* Di chuyển panel về vị trí ban đầu */
+ }
+ 
+ .waiting {
+   background-color: #ffecb3;
+ }
+ 
+ .waitingForPickUp {
+   background-color: #e1f5fe;
+ }
+ 
+ .inTransit {
+   background-color: #c8e6c9;
+ }
+ 
+ .returned {
+   background-color: #ffccbc;
+ }
+ 
+ .delivered {
+   background-color: #dcedc8;
+ }
+ 
+ .cancelled {
+   background-color: #f8bbd0;
+ }
+
+ 

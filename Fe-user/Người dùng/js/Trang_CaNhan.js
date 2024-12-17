@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 function togglePassword() {
-    const passwordInput = document.getElementById('passwordInput');
+    const passwordInput = document.getElementById('password');
     const showEye = document.getElementById('showEye');
     const hideEye = document.getElementById('hideEye');
     

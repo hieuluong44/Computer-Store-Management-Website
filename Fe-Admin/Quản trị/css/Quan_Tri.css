@@ -9,6 +9,7 @@
 body{
     background: #F5F7FD;
     display: flex;
+    cursor: pointer;
     justify-content: space-between;
     overflow: hidden;
 }
@@ -172,6 +173,7 @@ img{
 #left .menu-content {
     padding: 10px 16px;
     border-radius: 8px;
+    cursor: pointer;
     margin-bottom: 10px;
     list-style-type: none;
     position: relative;
@@ -950,10 +952,11 @@ video {
 
 .product-table button {
     padding: 5px 10px;
-    
     border-radius: 5px;
     cursor: pointer;
+    border-color: #7E75FF;
     background-color: #7E75FF;
+    border: 1px solid #7E75FF;
     color: white;
     margin-right: 10px;
 }
@@ -976,7 +979,7 @@ video {
     position: fixed;
     max-width: 1020px;
     z-index: 11;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 8px;
@@ -1092,6 +1095,7 @@ video {
 .tab-content .container-form .foot {
     display: flex;
     gap: 20px;
+    width: 100%;
     padding: 10px;
     justify-content: flex-end;
 }
@@ -1186,7 +1190,74 @@ video {
     font-size: 14px;
 }
 
+.status-buttons {
+     display: flex;
+        background-color: #FFF;
+        padding: 10px;
+        border-bottom: 1px solid #CCC;
+  }
+  
+.status-buttons button {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    color: #333;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+.status-buttons  button .count {
+    color: red;
+    font-weight: bold;
+    margin-left: 5px;
+  }
+  
+.status-buttons button.active {
+    border-bottom: 2px solid red;
+    font-weight: bold;
+  }
+  .panel {
+    display: none; /* Ẩn mặc định */
+    opacity: 0; /* Mặc định độ mờ là 0 */
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Thêm hiệu ứng chuyển đổi */
+  }
+  
+  .panel.active {
+    display: block; /* Hiển thị panel khi có lớp active */
+    opacity: 1; /* Đặt độ mờ thành 1 khi hiển thị */
+    transform: translateY(0); /* Di chuyển panel về vị trí ban đầu */
+  }
+  
+  .waiting {
+    background-color: #ffecb3;
+  }
+  
+  .waitingForPickUp {
+    background-color: #e1f5fe;
+  }
+  
+  .inTransit {
+    background-color: #c8e6c9;
+  }
+  
+  .returned {
+    background-color: #ffccbc;
+  }
+  
+  .delivered {
+    background-color: #dcedc8;
+  }
+  
+  .cancelled {
+    background-color: #f8bbd0;
+  }
 
+  
 /* Style cho phần Head */
 #ThongKe .title {
     display: flex;
@@ -1439,14 +1510,14 @@ video {
     border-radius: 10px;
 }
 
-#Home .status .items-list .item .progress::before{
-    content: "92%";
-    position: absolute;
-    top: -40px;
-    right: 0;
-    font-size: 22px;
-    font-weight: 600;
-}
+    #Home .status .items-list .item .progress::before{
+        content: "92%";
+        position: absolute;
+        top: -40px;
+        right: 0;
+        font-size: 22px;
+        font-weight: 600;
+    }
 
 #Home .status .items-list .item:nth-child(2) .progress{
     background: #d6d3d1;

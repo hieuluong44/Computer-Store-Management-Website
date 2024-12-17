@@ -24,6 +24,13 @@ namespace API.Controllers
             return giamGiaBLL.Hienthi_GiamGia();
         }
 
+        [Route("ApDung_GiamGia")]
+        [HttpGet]
+        public List<HienThi_GiamGia> ApDung_GiamGia()
+        {
+            return giamGiaBLL.ApDung_GiamGia();
+        }
+
         [Route("Tim_GiamGia_ND")]
         [HttpGet]
         public List<HienThi_GiamGia> Tim_GiamGia_ND(string NoiDung)

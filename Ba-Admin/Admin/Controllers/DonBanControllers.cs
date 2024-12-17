@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Model;
 using System.Numerics;
 using System.Reflection;
+using DAL;
 
 namespace API.Controllers
 {
@@ -41,6 +42,22 @@ namespace API.Controllers
             donBanBLL.Create(donBan);
         }
 
+        [Route("Update_TrangThai")]
+        [HttpPut]
+        public ActionResult<CapNhatTrangThai> CapNhatTrangThai(CapNhatTrangThai trangThaiDonHang)
+        {
+            try
+            {
+                donBanBLL.CapNhatTrangThai(trangThaiDonHang);
+                return Ok(new { message = "Cập nhật trạng thái thành công!" }); 
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = "Cập nhật trạng thái thất bại: " + ex.Message });
+            }
+        }
+
+
         [Route("Update")]
         [HttpPut]
         public void Update(DonBanModel donBan)
@@ -54,5 +71,13 @@ namespace API.Controllers
         {
             donBanBLL.Delete(IDDonBan);
         }
+
+        [Route("DonBan_TrangThai/{TrangThai}")]
+        [HttpGet]
+        public List<TrangThaiDonHangModel> trangThaiDonHangs(string TrangThai)
+        {
+            return donBanBLL.trangThaiDonHangs(TrangThai);
+        }
+
     }
 }

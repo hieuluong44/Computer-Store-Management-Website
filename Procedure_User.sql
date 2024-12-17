@@ -1,6 +1,30 @@
 ﻿/*------------------ TRANG NGƯỜI DÙNG -----------------------*/
-
+use [Dự án : Quản lý cửa hàng bán máy tính]
+go	
 /*======================= MẶT HÀNG ==========================*/
+alter proc Get_MatHang_User
+	@IDMatHang varchar(10)
+as
+begin 
+	 select 
+        MH.IDMatHang,                                         
+        MH.TenMatHang,                        
+        MH.DonGia,                            
+        MH.BaoHanh,  
+		AMH.DuongDan,
+        CASE 
+            WHEN KH.SoLuong IS NULL THEN N'Chưa cập nhật'  -- Nếu không có bản ghi kho
+            WHEN KH.SoLuong = 0 THEN N'Hết hàng'
+            WHEN KH.SoLuong < 5 THEN N'Số lượng dưới 5'
+            ELSE N'Còn hàng'
+        END as TrangThai
+    from 
+        MatHang MH
+	inner join AnhMatHang AMH on MH.IDMatHang = AMH.IDMatHang
+    left join  Kho KH on MH.IDMatHang = KH.IDMatHang 
+	where MH.IDMatHang = @IDMatHang and AMH.ThuTu = 1
+end;
+go
 
 /* Danh mục nổi bật */
 alter proc DanhMucHot 
@@ -48,16 +72,6 @@ end;
 go
 
 
-/*-- Chi tiết mặt hàng --*/
-create proc Get_ChiTietMatHang
-	@IDMatHang char(10)
-as
-begin
-	select * from MatHang MH
-	inner join ThongSoKyThuat KT on MH.IDMatHang = KT.IDMatHang
-end;
-go
-
 /*--Tìm mặt hàng bằng giá--*/
 alter proc Tim_MatHang_Gia
 	@GiaMin float,
@@ -65,7 +79,7 @@ alter proc Tim_MatHang_Gia
 as
 begin	
 	select
-	DM.TenDanhMuc, MH.TenMatHang, MH.DonGia, MH.BaoHanh, MH.HinhAnh1, MH.TrangThai
+	DM.TenDanhMuc, MH.TenMatHang, MH.DonGia, MH.BaoHanh, MH.TrangThai
 	from MatHang MH Inner join  DanhMuc DM on DM.IDDanhMuc = MH.IDDanhMuc
 	where @GiaMin <= DonGia and DonGia <= @GiaMax
 end;
@@ -207,3 +221,11 @@ BEGIN
 END;
 
 
+create proc Get_TaiKhoan 
+	@IDNguoiDung varchar(10)
+as
+begin
+	select IDNguoiDung,HinhAnh, TenNguoiDung, Email, SoDienThoai, MatKhau, DiaChi from NguoiDung 
+	where IDNguoiDung = @IDNguoiDung
+end; 
+go

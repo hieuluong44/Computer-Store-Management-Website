@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
 </head>
-<body >
+<body ng-app = "User" >
     <div class="H-head">
         <div class="frame">    
             <a class="logo" href="Trang_Chu.html">
@@ -31,16 +31,41 @@
               <div class="col-2">
               <div class="form-container">
                   <div class="form-btn">
-                    <span onclick="login()" ng-click="showLogin()">Đăng nhập</span>
                     <span onclick="register()" ng-click="showRegister()">Đăng ký</span>
+                    <span onclick="login()" ng-click="showLogin()" >Đăng nhập</span>
                     <hr id="Indicator">
                   </div>
                   
-                  <form id="LoginForm" ng-controller="Dang_NhapControllers">
-                    <input type="email"  ng-model="loginData.Email" placeholder="Email" 
-                    pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" 
-                    title="Email phải có đuôi @gmail.com" required />
-                      <input type="password" ng-model="loginData.MatKhau" placeholder="Mật khẩu" />
+                  <form id="RegForm">
+                    <input type="text" ng-model="registerData.TenNguoiDung" placeholder="Họ và tên" />
+                    <input type="tel" ng-model="registerData.SoDienThoai" placeholder="Số điện thoại" pattern="[0-9]{10}" title="Số điện thoại phải gồm 10 chữ số" />
+                    <input type="email"  ng-model="registerData.Email" placeholder="Email" 
+                   
+                    required />
+                      <input type="password" ng-model="registerData.MatKhau" placeholder="Mật khẩu" />
+                      <button>Tạo tài khoản</button>
+
+                      <div class="separator"> 
+                        <span id="or">hoặc đăng ký bằng</span> 
+                      </div>
+                      <div class="social-container">
+                          <div class="social-list">
+                              <a href="#" class="social" style="background-color: #0866FF;">
+                                  <i class="fab fa-facebook-f"></i>
+                                  <span>Facebook</span>
+                              </a>
+                          </div>
+                          <div class="social-list">
+                              <a href="#" class="social" style="background-color: #D5482D;">
+                                  <i class="fab fa-google-plus-g"></i>
+                                  <span>Google</span>
+                              </a>
+                          </div>
+                      </div>
+                  </form>
+                  <form id="LoginForm" ng-controller="Dang_NhapControllers" >
+                    <input type="email" ng-model="loginData.email" placeholder="Email" required />
+                      <input type="password" ng-model="loginData.matKhau" placeholder="Mật khẩu" />
                       <a id="Forgot-pass" href="#">
                           <i>Bạn quên mật khẩu?</i>
                       </a>
@@ -64,33 +89,7 @@
                       </div>
                   </form>
                   
-                  <form id="RegForm">
-                    <input type="text" ng-model="registerData.TenNguoiDung" placeholder="Họ và tên" />
-                    <input type="tel" ng-model="registerData.SoDienThoai" placeholder="Số điện thoại" pattern="[0-9]{10}" title="Số điện thoại phải gồm 10 chữ số" />
-                    <input type="email"  ng-model="registerData.Email" placeholder="Email" 
-                    pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" 
-                    title="Email phải có đuôi @gmail.com" required />
-                      <input type="password" ng-model="registerData.MatKhau" placeholder="Mật khẩu" />
-                      <button>Tạo tài khoản</button>
 
-                      <div class="separator"> 
-                        <span id="or">hoặc đăng ký bằng</span> 
-                      </div>
-                      <div class="social-container">
-                          <div class="social-list">
-                              <a href="#" class="social" style="background-color: #0866FF;">
-                                  <i class="fab fa-facebook-f"></i>
-                                  <span>Facebook</span>
-                              </a>
-                          </div>
-                          <div class="social-list">
-                              <a href="#" class="social" style="background-color: #D5482D;">
-                                  <i class="fab fa-google-plus-g"></i>
-                                  <span>Google</span>
-                              </a>
-                          </div>
-                      </div>
-                  </form>
               </div>
               </div>
           </div>

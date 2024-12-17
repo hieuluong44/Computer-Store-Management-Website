@@ -52,6 +52,7 @@ namespace API.Controllers
         {
             return mathangBLL.GetALL();
         }
+
         [Route("Create")]
         [HttpPost]
         public void Create([FromBody] MatHangModel matHangModel)
@@ -71,7 +72,6 @@ namespace API.Controllers
                     item.IDMatHang = matHangModel.IDMatHang;
                     item.IDThongSo = Guid.NewGuid().ToString();
                 }
-
             }
             mathangBLL.CreateMatHang_ChiTiet(matHangModel);
             return matHangModel;

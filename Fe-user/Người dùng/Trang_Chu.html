@@ -12,21 +12,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
 </head>
+
 <body ng-app = "User">
     <div class="top-bar">
         <div class="frame">
             <div class="left">
                 <div class="H-content">
-                    <i class="fas fa-map-marker-alt"></i>
+                    <i class="fas fa-map-marker-alt" style="padding: 0 20px;"></i>
                     <marquee onmouseover="stop()" onmouseout="start()">Số 14A, đường Trưng Nhị, phường Lê Lợi, thành phố Hưng Yên, tỉnh Hưng Yên</marquee>
                 </div>          
             </div>
             <div class="right">
-                <div class="H-right-content" style="border-right: 1px solid #CCC;">
-                    <i class="fas fa-headphones"></i>
-                    <span>Hotline : 029 382 1922</span>
-                </div>
-                <div class="H-right-content"  style="border-right: 1px solid #CCC;">
+                <div class="H-right-content" style="border-right: 1px solid #CCC;"  >
                     <span id="selected-language">
                         <i class="fas fa-globe"></i> 
                     </span>
@@ -52,25 +49,9 @@
                     </div>
                 </div>                    
                 <div class="H-right-content">
-                    <i class="fas fa-user-circle"></i>
-                    <div class="login-section">
-                        <span class="login-text" style="cursor: pointer;">Tài khoản</span>
-                        <div class="dropdown-content">
-                            <a href="Trang_CaNhan.html" id="TCN-btn">
-                                <i class="bi bi-person"></i>
-                                  tài khoản của bạn
-                            </a>
-                            <a href="Dang_Nhap.html" id="login-btn">
-                                <i class="fas fa-sign-in-alt"></i>
-                                Đăng nhập
-                            </a>
-                            <a href="#" id="logout-btn">
-                                <i class="fas fa-sign-out-alt"></i>
-                                Đăng xuất
-                            </a>
-                        </div>
-                    </div>
-                </div>             
+                    <i class="fas fa-headphones"></i>
+                    <span>Hotline : 029 382 1922</span>
+                </div>      
             </div>
         </div>
     </div>
@@ -104,28 +85,47 @@
             </div>
             <div class="icons">
                 <a href="#">
-                    <div class="icon">
-                        <i class="fas fa-envelope noti-icon"></i>
-                        <div class="icon-badge" style="right: -5px;">
-                            <span>0</span>
-                        </div>
+                    <div class="order">
+                        <i class="bi bi-pc"></i>
+                        <span class="order-text">Xây dựng cấu hình</span>
                     </div>
-                </a>   
+                </a>  
                 <a href="#">
                     <div class="order">
-                        <i class="fa fa-shopping-cart"></i>
+                        <i class="bi bi-truck"></i>
                         <span class="order-text">Tra cứu đơn hàng</span>
                     </div>
                 </a>       
                 <a href="Gio_Hang.html">
                     <div class="cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        <div class="cart-badge">
-                            <span>0</span>
+                        <i class="bi bi-cart2"></i>
+                        <div class="cart-badge" >
+                            <span id="cart-badge">0</span>
                         </div>
                         <span class="cart-text">Giỏ hàng</span>
                     </div>
                 </a>
+                <div class="login-section" ng-controller="UserCtrl">
+                    <i class="fas fa-user-circle"></i>
+                    <span class="login-text">{{ TenNguoiDung }}</span>
+                    <div class="dropdown-content">
+                        <!-- Hiển thị khi đã đăng nhập -->
+                        <a href="Trang_CaNhan.html" id="TCN-btn" ng-if="isLoggedIn">
+                            <i class="bi bi-person"></i>
+                            <span>Hồ sơ của bạn</span>
+                        </a>
+                        <!-- Hiển thị nút đăng nhập nếu chưa đăng nhập -->
+                        <a href="Dang_Nhap.html" id="login-btn" ng-if="!isLoggedIn">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Đăng nhập</span>
+                        </a>
+                        <!-- Hiển thị nút đăng xuất khi đã đăng nhập -->
+                        <a href="#" id="logout-btn" ng-if="isLoggedIn" ng-click="logout()">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Đăng xuất</span>
+                        </a>
+                    </div>   
+                </div>
             </div>
         </div>
     </div>
@@ -179,7 +179,7 @@
                         <span>Dịch vụ kỹ thuật tại nhà</span>
                     </a>
                 </li>
-                <li id="border">
+                <li class="border" id="border">
                     <a href="#" class="footer-link">
                         <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M18 5.69566V8.04349C18 9.06087 15.6495 10.3913 12.75 10.3913C9.8505 10.3913 7.5 9.06087 7.5 8.04349V5.69566" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -221,22 +221,19 @@
                 <div class="B-left" ng-controller="DanhMucController">
                     <div id="body-container">
                         <div id="dropdown-content">
-                            <!-- Lặp qua danh mục cha -->
                             <div class="dropdown-item" ng-repeat="item in danhMucCha" ng-mouseenter="toggleDanhMucConVaChau(item)">
                                 <div class="down">
                                     <i class="{{item.icon}}"></i>
-                                    <span>{{ item.tenDanhMuc }}</span> <!-- Hiển thị tên danh mục cha -->
+                                    <span>{{ item.tenDanhMuc }}</span>
                                     <i class="fas fa-angle-right"></i>
                                 </div>
                 
-                                <!-- Hiển thị danh mục con -->
                                 <div class="down-right" ng-show="item.isExpanded">
                                     <div class="title" ng-repeat="danhMucCon in danhMucCon[item.idDanhMuc]">
                                         <div class="a">
                                             {{ danhMucCon.tenDanhMucCon }}
                                         </div>
                 
-                                        <!-- Hiển thị danh mục cháu dưới danh mục con -->
                                         <div class="b">
                                             <div ng-repeat="danhMucChau in danhMucChau[danhMucCon.idDanhMucCon]">
                                                 <a href="">{{ danhMucChau.tenDanhMucCon }}</a>
@@ -283,8 +280,8 @@
                                 <img src="Ảnh 1/10.jpg" alt="Ảnh lỗi">
                             </div>
                             <div id="button">
-                                <button id="back">←</button>
-                                <button id="next">→</button>
+                                <button id="backImg">←</button>
+                                <button id="nextImg">→</button>
                             </div>
                             <ul id="dots">
                                 <li id="active"></li>
@@ -316,55 +313,25 @@
                 </div>             
             </div>
                      
-            <div class="categories">
+            <div class="categories" ng-controller="DanhMucController">
                 <div class="title">
                     <p>DANH MỤC MẶT HÀNG</p>
                 </div>
-                <div class="categories">
-                    <div class="categories-item">
+                <div id="categories">
+                    <div class="categories-item" ng-repeat = "item in danhMucCha">
                         <a href="">
-                            <img src="Danh mục/Laptop.jpg" alt="">
-                            <h3>Laptop</h3>
-                        </a>
-                    </div>
-                    <div class="categories-item">
-                        <a href="">
-                            <img src="Danh mục/Screen.jpg" alt="">
-                            <h3>Màn hình</h3>
-                        </a>
-                    </div>
-                    <div class="categories-item">
-                        <a href="">
-                            <img src="Danh mục/components.jpg" alt="">
-                            <h3>Linh kiện máy tính</h3>
-                        </a>
-                    </div>
-                    <div class="categories-item">
-                        <a href="">
-                            <img src="Danh mục/accessories.jpg" alt="">
-                            <h3>Phụ kiện</h3>
-                        </a>
-                    </div>
-                    <div class="categories-item">
-                        <a href="">
-                            <img src="Danh mục/laptop-gaming.jpg" alt="">
-                            <h3>Laptop gaming</h3>
-                        </a>
-                    </div>
-                    <div class="categories-item">
-                        <a href="">
-                            <img src="Danh mục/router.jpg" alt="">
-                            <h3>Thiết bị mạng</h3>
+                            <i class="{{ item.icon }}"></i>
+                            <h3>{{ item.tenDanhMuc }}</h3>
                         </a>
                     </div>
                 </div>
             </div>
 
             <!-- Hàng bán chạy -->
-            <div class="Product" ng-controller = "MatHangBanChayController">
-                <div class="title-Lap">
+            <div class="Product" ng-controller = "MatHangBanChayController" style="background-color: #f21c44;">
+                <div class="title-Lap" id="title-laphot">
                     <div class="content-lap" >
-                        <a href="">SẢN PHẨM BÁN CHẠY</a>
+                        <a href="" style="color: #FFF;">SẢN PHẨM BÁN CHẠY</a>
                     </div>               
                     <a href="DS-Sản phẩm.html" class="Show-item">
                         <span>Xem tất cả</span>
@@ -372,17 +339,20 @@
                     </a>
                 </div>
                 <div class="product-list">
-                    <div class="product-container">
+                    <div id="img">
+                        <img src="Ảnh 1/16.jpg">
+                    </div>
+                    <div class="product-container" id="product-container-hot">
                         <div class="button"> 
                             <button id="back">←</button>
                             <button id="next">→</button>
                         </div>  
-                        <div class="product-slide">
-                            <div class="product-item" ng-repeat = "item in list_MH">
+                        <div class="product-slide2">
+                            <div class="product-item" id="item-hot" ng-repeat = "item in list_MH">
                                 <div class="img">
-                                    <a href="San_Pham.html">
+                                    <a href="San_Pham.html" ng-click="setProductID(item.idMatHang)">
                                         <img ng-src="{{ item.duongDan }}" class="avatar">
-                                    </a>                                                       
+                                    </a>                                                                                    
                                 </div>                            
                                 <div class="item-describe">
                                     <p class="content">
@@ -428,9 +398,9 @@
                 <div class="product-list">
                     <div class="product-container"> 
                         <div class="button"> 
-                            <button id="back">←</button> 
-                            <button id="next">→</button> 
-                        </div>
+                            <button id="back">←</button>
+                            <button id="next">→</button>
+                        </div>  
                         <div class="product-slide">
                             <div class="product-item">
                                 <div class="img">
@@ -838,6 +808,7 @@
         </div>
     </div>
     
+    
     <footer>
         <div class="footer-container">
           <div class="footer-section">
@@ -918,13 +889,14 @@
         </div>
     </footer>
 
+    <div class="snow-container"></div>
 
     <script src="angular/angular.js"></script>
     <script src="angular/Trang_Chu.js"></script>
     <script src="angular/Danh_Muc.js"></script>
     <script src="angular/San_Pham.js"></script>
-    <script src="js/San_Pham.js"></script>
     <script src="js/Trang_Chu.js"></script>
+    <script src="js/San_Pham.js"></script>
     <script src="js/Gio_Hang.js"></script>
 </body>
 </html>

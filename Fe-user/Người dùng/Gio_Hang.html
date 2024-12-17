@@ -13,21 +13,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
   </head>
-  <body>
+  <body ng-app = "User">
     <div class="top-bar">
       <div class="frame">
           <div class="left">
               <div class="H-content">
-                  <i class="fas fa-map-marker-alt"></i>
+                  <i class="fas fa-map-marker-alt" style="padding: 0 20px;"></i>
                   <marquee onmouseover="stop()" onmouseout="start()">Số 14A, đường Trưng Nhị, phường Lê Lợi, thành phố Hưng Yên, tỉnh Hưng Yên</marquee>
               </div>          
           </div>
           <div class="right">
-              <div class="H-right-content" style="border-right: 1px solid #CCC;">
-                  <i class="fas fa-headphones"></i>
-                  <span>Hotline : 029 382 1922</span>
-              </div>
-              <div class="H-right-content"  style="border-right: 1px solid #CCC;">
+              <div class="H-right-content" style="border-right: 1px solid #CCC;"  >
                   <span id="selected-language">
                       <i class="fas fa-globe"></i> 
                   </span>
@@ -53,133 +49,149 @@
                   </div>
               </div>                    
               <div class="H-right-content">
-                  <i class="fas fa-user-circle"></i>
-                  <div class="login-section">
-                      <span class="login-text" style="cursor: pointer;">Tài khoản</span>
-                      <div class="dropdown-content">
-                          <a href="Trang_CaNhan.html" id="TCN-btn">
-                              <i class="bi bi-person"></i>
-                                tài khoản của bạn
-                          </a>
-                          <a href="Dang_Nhap.html" id="login-btn">
-                              <i class="fas fa-sign-in-alt"></i>
-                              Đăng nhập
-                          </a>
-                          <a href="#" id="logout-btn">
-                              <i class="fas fa-sign-out-alt"></i>
-                              Đăng xuất
-                          </a>
-                      </div>
-                  </div>
-              </div>             
+                  <i class="fas fa-headphones"></i>
+                  <span>Hotline : 029 382 1922</span>
+              </div>      
           </div>
       </div>
-  </div>
-      <div class="H-head">
-        <div class="frame">    
-            <a class="logo" href="Trang_Chu.html">
-                <img src="img/logo.png" alt="" style="width: 100%; height: 100%;">
-            </a>
-            <div class="title-categories">
-                <i class="bi bi-list"></i>
-                <span>Danh mục</span>
-            </div>
-            <div class="body-search">
-                <select name="category" id="category">
-                    <option value="">Tất cả sản phẩm</option>
-                    <option value="Gaming">Laptop Gaming</option>
-                    <option value="Office">Laptop Văn phòng</option>
-                    <option value="Do-hoa">Laptop Đồ hoạ</option>
-                    <option value="PC">PC Al</option>
-                    <option value="screen">Màn hình máy tính</option>
-                    <option value="phu-kien-1">Phụ kiện laptop, PC, khác</option>
-                    <option value="phu-kien-2">Chuột, bàn phím</option>
-                    <option value="bao-tri">Dịch vụ sửa chữa, bảo trì</option>
-                </select>                        
-                <form id="search-box">
-                    <input type="text" placeholder="Tìm kiếm...">
-                    <button type="submit">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </form>
-            </div>
-            <div class="icons">
-                <a href="#">
-                    <div class="icon">
-                        <i class="fas fa-envelope noti-icon"></i>
-                        <div class="icon-badge" style="right: -5px;">
-                            <span>0</span>
-                        </div>
-                    </div>
-                </a>   
-                <a href="#">
-                    <div class="order">
-                        <i class="fa fa-shopping-cart"></i>
-                        <span class="order-text">Tra cứu đơn hàng</span>
-                    </div>
-                </a>          
-                <a href="Gio_Hang.html">
-                    <div class="cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        <div class="cart-badge">
-                            <span>0</span>
-                        </div>
-                        <span class="cart-text">Giỏ hàng</span>
-                    </div>
-                </a>
-            </div>
-        </div>
     </div>
-      <div class="footer">
-        <div class="frame">
-          <ul class="footer-items">
-              <li id="border">
-                  <a href="#" class="footer-link">
-                      <i class="bx bx-gift"></i><span>Săn Voucher</span>
-                  </a>
-              </li>
-              <li id="border">
-                  <a href="#" class="footer-link">
-                      <i class="bx bx-news"></i><span>Tin công nghệ</span>
-                  </a>
-              </li>
-              <li id="border">
-                  <a href="#" class="footer-link">
-                      <i class="bx bx-cog"></i><span>Dịch vụ sửa chữa</span>
-                  </a>
-              </li>
-              <li id="border">
-                  <a href="#" class="footer-link">
-                      <i class="bx bx-wrench"></i><span>Dịch vụ kỹ thuật tại nhà</span>
-                  </a>
-              </li>
-              <li id="border">
-                  <a href="#" class="footer-link">
-                      <i class="bx bx-refresh"></i><span>Thu cũ đổi mới VGA</span>
-                  </a>
-              </li>
-              <li>
-                  <a href="#" class="footer-link">
-                      <i class="bx bx-shield"></i><span>Tra cứu bảo hành</span>
-                  </a>
-              </li>
-          </ul>
+    <div class="H-head">
+      <div class="frame">    
+          <a class="logo" href="Trang_Chu.html">
+              <img src="img/logo.png" alt="" style="width: 100%; height: 100%;">
+          </a>
+          <div class="title-categories">
+              <i class="bi bi-list"></i>
+              <span>Danh mục</span>
+          </div>
+          <div class="body-search">
+              <select name="category" id="category">
+                  <option value="">Tất cả sản phẩm</option>
+                  <option value="Gaming">Laptop Gaming</option>
+                  <option value="Office">Laptop Văn phòng</option>
+                  <option value="Do-hoa">Laptop Đồ hoạ</option>
+                  <option value="PC">PC Al</option>
+                  <option value="screen">Màn hình máy tính</option>
+                  <option value="phu-kien-1">Phụ kiện laptop, PC, khác</option>
+                  <option value="phu-kien-2">Chuột, bàn phím</option>
+                  <option value="bao-tri">Dịch vụ sửa chữa, bảo trì</option>
+              </select>                        
+              <form id="search-box">
+                  <input type="text" placeholder="Tìm kiếm...">
+                  <button type="submit">
+                      <i class="bi bi-search"></i>
+                  </button>
+              </form>
+          </div>
+          <div class="icons">
+              <a href="#">
+                  <div class="order">
+                      <i class="bi bi-pc"></i>
+                      <span class="order-text">Xây dựng cấu hình</span>
+                  </div>
+              </a>  
+              <a href="#">
+                  <div class="order">
+                      <i class="bi bi-truck"></i>
+                      <span class="order-text">Tra cứu đơn hàng</span>
+                  </div>
+              </a>       
+              <a href="Gio_Hang.html">
+                  <div class="cart">
+                      <i class="bi bi-cart2"></i>
+                      <div class="cart-badge" >
+                          <span id="cart-badge">0</span>
+                      </div>
+                      <span class="cart-text">Giỏ hàng</span>
+                  </div>
+              </a>
+              <div class="login-section" ng-controller="UserCtrl">
+                  <i class="fas fa-user-circle"></i>
+                  <span class="login-text">{{ TenNguoiDung }}</span>
+                  <div class="dropdown-content">
+                      <!-- Hiển thị khi đã đăng nhập -->
+                      <a href="Trang_CaNhan.html" id="TCN-btn" ng-if="isLoggedIn">
+                          <i class="bi bi-person"></i>
+                          <span>Hồ sơ của bạn</span>
+                      </a>
+                      <!-- Hiển thị nút đăng nhập nếu chưa đăng nhập -->
+                      <a href="Dang_Nhap.html" id="login-btn" ng-if="!isLoggedIn">
+                          <i class="fas fa-sign-in-alt"></i>
+                          <span>Đăng nhập</span>
+                      </a>
+                      <!-- Hiển thị nút đăng xuất khi đã đăng nhập -->
+                      <a href="#" id="logout-btn" ng-if="isLoggedIn" ng-click="logout()">
+                          <i class="fas fa-sign-out-alt"></i>
+                          <span>Đăng xuất</span>
+                      </a>
+                  </div>   
+              </div>
+          </div>
       </div>
-      </div> 
+    </div>
+    <div class="footer">
+      <div class="frame">
+        <ul class="footer-items">
+            <li id="border">
+                <a href="#" class="footer-link">
+                    <i class="bx bx-gift"></i><span>Săn Voucher</span>
+                </a>
+            </li>
+            <li id="border">
+                <a href="#" class="footer-link">
+                    <i class="bx bx-news"></i><span>Tin công nghệ</span>
+                </a>
+            </li>
+            <li id="border">
+                <a href="#" class="footer-link">
+                    <i class="bx bx-cog"></i><span>Dịch vụ sửa chữa</span>
+                </a>
+            </li>
+            <li id="border">
+                <a href="#" class="footer-link">
+                    <i class="bx bx-wrench"></i><span>Dịch vụ kỹ thuật tại nhà</span>
+                </a>
+            </li>
+            <li id="border">
+                <a href="#" class="footer-link">
+                    <i class="bx bx-refresh"></i><span>Thu cũ đổi mới VGA</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="footer-link">
+                    <i class="bx bx-shield"></i><span>Tra cứu bảo hành</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    </div>   
       <div class="Cart">
         <div class="frame">
           <div class="cart-head">
             <div class="cart-list">
               <div class="table">
               </div>
-              <div class="Voucher" >
-                <div class="Voucher-container">
-                  <i class="bi bi-ticket-perforated"></i>
-                  <h2>Sử dụng mã giảm giá</h2>
-                  <i class="bi bi-arrow-down-short"></i>
+              <div class="Voucher" ng-controller="GiamGiacontroller">
+                <div class="Voucher-container" ng-click="toggleVoucherList()">
+                    <i class="bi bi-ticket-perforated"></i>
+                    <h2>Sử dụng mã giảm giá</h2>
+                    <i class="bi bi-arrow-down-short" ng-class="{'rotate': showVoucherList}"></i>
                 </div>
-                <div></div>
+                <div class="voucher-card" ng-repeat ="voucher in ListGiamGia">
+                  <div class="voucher-header">
+                      <img ng-src="{{voucher.HinhAnh}}" alt="Voucher Image" class="voucher-icon">
+                      <div class="voucher-info">
+                          <h3>{{voucher.noiDung}}</h3>
+                          <p>Áp dụng giảm giá: {{voucher.tyLeGiam}}%</p>
+                          <p class="voucher-validity">HSD: {{voucher.ngayKetThuc | date:'dd/MM/yyyy'}}</p>
+                      </div>
+                  </div>
+                  <div class="voucher-footer">
+                      <button ng-click="applyVoucher(voucher)" class="apply-btn">Áp dụng</button>
+                  </div>
               </div>
+              
+              </div>            
             </div>
            
             <div class="shoping__checkout">
@@ -230,8 +242,8 @@
           </div>
           
         </div>
-      </div>
-      <footer>
+    </div>
+    <footer>
         <div class="footer-container">
           <div class="footer-section">
             <h3>Về GEARVN</h3>
@@ -310,9 +322,11 @@
             </div>
         </div>
     </footer>
-
+    <script src="angular/angular.js"></script>
+    <script src="angular/Trang_Chu.js"></script>
+    <script src="angular/ChiTiet_SanPham.js"></script>
+    <script src="angular/Giam_Gia.js"></script>
     <script src="js/Trang_Chu.js"></script>
-    <script src="js/San_Pham.js"></script>
     <script src="js/Gio_Hang.js"></script>
   </body>
 </html>

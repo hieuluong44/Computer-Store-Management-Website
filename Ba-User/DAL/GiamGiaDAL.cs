@@ -16,6 +16,30 @@ namespace DAL
         {
             _databaseHelper = databaseHelper;
         }
+
+        public List<HienThi_GiamGia> ApDung_GiamGia()
+        {
+            string msgError = "";
+            try
+            {
+                // Gọi stored procedure với tham số
+                var result = _databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "get_GiamGia_User");
+
+                // Kiểm tra xem có lỗi xảy ra khi gọi stored procedure
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError); // Ném ngoại lệ với thông báo lỗi
+                }
+
+                // Chuyển đổi kết quả thành danh sách các đối tượng MatHangModel
+                return result.ConvertTo<HienThi_GiamGia>().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public List<HienThi_GiamGia> Hienthi_GiamGia()
         {
             string msgError = "";

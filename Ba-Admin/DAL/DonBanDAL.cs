@@ -100,5 +100,42 @@ namespace DAL
                 throw ex;
             }
         }
+        public List<TrangThaiDonHangModel> trangThaiDonHangs(string TrangThai)
+        {
+            string msgError = "";
+            try
+            {
+                var result = databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "Donban_TheoTrangThai",
+                    "@TrangThai", TrangThai);
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+                return result.ConvertTo<TrangThaiDonHangModel>().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
+        }
+
+        public bool CapNhatTrangThai(CapNhatTrangThai trangThaiDonHangModel)
+        {
+            try
+            {
+                var result = databaseHelper.ExecuteSProcedure("CapNhat_TrangThai_DonBan",
+                     "@IDDonBan", trangThaiDonHangModel.IDDonBan,
+                      "@TrangThai ", trangThaiDonHangModel.TrangThai);
+                if (result != null && !string.IsNullOrEmpty(result.ToString()))
+                {
+                    throw new Exception(result.ToString());
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

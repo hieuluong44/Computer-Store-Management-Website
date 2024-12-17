@@ -18,6 +18,11 @@ namespace BLL
             this.giamGiaDAL = giamGia;
         }
 
+        public List<HienThi_GiamGia> ApDung_GiamGia()
+        {
+            return giamGiaDAL.ApDung_GiamGia();
+        }
+
         public List<HienThi_GiamGia> Hienthi_GiamGia()
         {
             return giamGiaDAL.Hienthi_GiamGia();

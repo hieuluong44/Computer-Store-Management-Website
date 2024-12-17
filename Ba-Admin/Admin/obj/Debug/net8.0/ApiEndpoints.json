@@ -435,6 +435,32 @@
   },
   {
     "ContainingType": "API.Controllers.DonBanControllers",
+    "Method": "trangThaiDonHangs",
+    "RelativePath": "api/DonBanControllers/DonBan_TrangThai/{TrangThai}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TrangThai",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Model.TrangThaiDonHangModel, Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.DonBanControllers",
     "Method": "GetAll",
     "RelativePath": "api/DonBanControllers/Get-All",
     "HttpMethod": "GET",
@@ -471,6 +497,32 @@
       {
         "Type": "System.Void",
         "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.DonBanControllers",
+    "Method": "CapNhatTrangThai",
+    "RelativePath": "api/DonBanControllers/Update_TrangThai",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "trangThaiDonHang",
+        "Type": "Model.CapNhatTrangThai",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Model.CapNhatTrangThai",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "StatusCode": 200
       }
     ]

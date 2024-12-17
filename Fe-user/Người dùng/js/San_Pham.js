@@ -82,66 +82,6 @@ smallImages.forEach((img) => {
 const buttons = document.querySelectorAll(".tab-content .foot .btn");
 const notifications = document.querySelector(".notifications");
 
-// Hàm hiển thị thông báo
-    function showToast(type, message) {
-      const toastDetails = {
-          success: {
-              icon: "fa-check-circle",
-              message: message,
-          },
-          error: {
-              icon: "fa-times-circle",
-              message: message,
-          },
-          info: {
-              icon: "fa-info-circle",
-              message: message,
-          },
-      };
-      const { icon, message: msg } = toastDetails[type];
-      const toast = document.createElement("li");
-      toast.className = `toast ${type}`;
-      toast.innerHTML = `
-          <div class="column">
-              <i class="fa ${icon}"></i>
-              <span>${msg}</span>
-          </div>
-          <i class="fa-solid fa-xmark" onclick="removeToast(this.parentElement)"></i>`;
-      notifications.appendChild(toast);
-      setTimeout(() => toast.remove(), 5000);
-  }
-
-/*====== Giỏ hàng ======*/
-var productInfo = {
-  img: document.querySelector("#large-image").src,
-  name: document.querySelector("#title h1").textContent,
-  idMatHang : document.querySelector(".ID-item span").textContent,
-  warranty : document.querySelector("#Bao_hanh span").textContent,
-  newprice: document.getElementById("new-prices").textContent,
-  quantity: 1,
-};
-
-
-document.getElementById("buy-now").addEventListener("click", function (event) {
-  console.log("hieu");
-  event.preventDefault(); // Ngăn hành động mặc định
-
-  var cart = JSON.parse(localStorage.getItem("cart")) || [];
-  var existingProduct = cart.find(item => item.name === productInfo.name);
-
-  if (existingProduct) {
-    existingProduct.quantity += 1; 
-    showToast("success", `Đã tăng số lượng sản phẩm "${productInfo.name}" trong giỏ hàng.`);
-  } else {
-    cart.push(productInfo);
-    showToast("success", `Đã thêm sản phẩm "${productInfo.name}" vào giỏ hàng.`);
-  }
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-
-  updateCartQuantity();
-});
-
 
 /*============================ Đánh giá ==============================*/
 

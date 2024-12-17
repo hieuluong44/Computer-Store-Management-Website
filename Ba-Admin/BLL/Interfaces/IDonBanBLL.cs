@@ -8,6 +8,9 @@ namespace BLL.Interfaces
 {
     public interface IDonBanBLL
     {
+        List<TrangThaiDonHangModel> trangThaiDonHangs(string TrangThai);
+        bool CapNhatTrangThai(CapNhatTrangThai trangThaiDonHangModel);
+
         List<getDonBan> GetALL();
         bool Create(DonBanModel donBanModel);
         bool Update(DonBanModel donBanModel);

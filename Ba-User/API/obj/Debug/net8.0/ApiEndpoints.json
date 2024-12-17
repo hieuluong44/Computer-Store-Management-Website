@@ -1,19 +1,81 @@
 [
   {
-    "ContainingType": "API.Controllers.DangNhapControllers",
-    "Method": "DangNhap",
-    "RelativePath": "api/DangNhapControllers/Dang_Nhap",
-    "HttpMethod": "POST",
+    "ContainingType": "API.Controllers.ChiTietMatHangControllers",
+    "Method": "GetAnhMatHangs",
+    "RelativePath": "api/ChiTietMatHangControllers/Get_AnhMH/{IDMatHang}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dangNhap",
-        "Type": "Model.DangNhapModel",
+        "Name": "IDMatHang",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Model.AnhMatHang, Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.ChiTietMatHangControllers",
+    "Method": "GetThongSoKyThuats",
+    "RelativePath": "api/ChiTietMatHangControllers/Get_ThongSo/{IDMatHang}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IDMatHang",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Model.ThongSoKyThuat, Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.ChiTietMatHangControllers",
+    "Method": "GetChiTietMatHangs",
+    "RelativePath": "api/ChiTietMatHangControllers/GetChiTiet_MatHangs/{IDMatHang}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IDMatHang",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Model.ChiTietMatHangModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "API.Controllers.DanhMucControllers",
@@ -78,6 +140,26 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.List\u00601[[Model.DanhMucConModel, Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.GiamGiaControllers",
+    "Method": "ApDung_GiamGia",
+    "RelativePath": "api/GiamGiaControllers/ApDung_GiamGia",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Model.HienThi_GiamGia, Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -221,6 +303,53 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.List\u00601[[Model.Tim_MatHang_Gia, Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.TaiKhoanControllers",
+    "Method": "DangNhap",
+    "RelativePath": "api/TaiKhoanControllers/Dang_Nhap",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MatKhau",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.TaiKhoanControllers",
+    "Method": "Get_TaiKhoan",
+    "RelativePath": "api/TaiKhoanControllers/Get_TaiKhoan/{IDNguoiDung}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IDNguoiDung",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Model.TaiKhoanModel, Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

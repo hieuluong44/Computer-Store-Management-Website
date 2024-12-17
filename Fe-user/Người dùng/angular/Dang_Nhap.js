@@ -31,24 +31,20 @@ app.controller('Dang_NhapControllers', function($scope, $http) {
 
     // Hàm đăng nhập
     $scope.login = function(event) {
-        event.preventDefault(); // Ngừng việc submit form và tải lại trang
     
-        var data = {
-            Email: $scope.loginData.Email,
-            MatKhau: $scope.loginData.MatKhau
-        };
-       
-        $http.post("http://localhost:5156/api/DangNhapControllers/Dang_Nhap", data)
+        var  Email =  $scope.loginData.email.trim();
+        var MatKhau =  $scope.loginData.matKhau.trim();
+        $http.post(`http://localhost:5156/api/TaiKhoanControllers/Dang_Nhap?Email=${Email}&MatKhau=${MatKhau}`)
             .then(function(response) {
-                if (response.data.Result === 1) {
+                console.log(response.data);
                     // Lưu thông tin vào localStorage
-                    localStorage.setItem("userID", response.data.IDNguoiDung);
+                    localStorage.setItem("userID", response.data.id);
+                    localStorage.setItem("name", response.data.name);
+                    localStorage.setItem("image", response.data.anh);
                     alert("Đăng nhập thành công!");
-                    window.location.href = "Trang_Chu.html"; // Chuyển hướng sang trang chủ
-                } else {
-                    alert("Thông tin đăng nhập không chính xác!");
-                }
-            }, function(error) {
+                    window.location.href = "Trang_Chu.html"; // Chuyển hướng sang trang ch
+            }).catch(function(error) {
+                console.error("Lỗi khi đăng nhập: ",error);
                 alert("Lỗi đăng nhập!");
             });
     };

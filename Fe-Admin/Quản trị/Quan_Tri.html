@@ -39,7 +39,7 @@
 						<li class="menu-content">
 							<div class="button NhapHang" data-tab="NhapHang">
 								<div class="content-body">
-									<i class="fas fa-chart-line"></i>
+									<i class="bi bi-currency-dollar"></i>
 									<span>Nhập hàng</span>
 								</div>
 							</div>
@@ -403,124 +403,237 @@
 				
 			</div>
 
-			<div class="tab-content" id="NhapHang" ng-controller="NhapHangController">
+			<!-- BÁN HÀNG -->
+			<div class="tab-content" id="BanHang" ng-controller="DonDatHangController">
 				<div class="container">
-					<div class="title">
-						<h1>Quản lý Nhập Hàng</h1>
+					<div class="title" style="border-bottom: 0;">
+						<h1>Quản lý đơn đặt hàng</h1>
 					</div>
-			
-					<div class="body">
-						<!-- Hiển thị dữ liệu danh sách Nhập Hàng -->
-						<div class="table">
-							<table class="product-table">
-								<thead>
-									<tr>
-										<th>STT</th>
-										<th>ID Hóa Đơn Nhập</th>
-										<th>Tên Nhà Cung Cấp</th>
-										<th>ID Chi Tiết Nhập</th>
-										<th>Tên Mặt Hàng</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr ng-repeat="item in getAllNhapHang()">
-										<td>{{ $index + 1 }}</td>
-										<td>{{ item.idHoaDonNhap }}</td>
-										<td>{{ item.tenNhaCungCap }}</td>
-										<td>{{ item.idChiTietNhap }}</td>
-										<td>{{ item.tenMatHang }}</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-			
-						<!-- Form nhập hàng -->
-						<div class="form">
+					<div class="status-buttons">
+						<button ng-click="switchStatus('Chờ xác nhận')" ng-class="{'active': currentStatus === 'Chờ xác nhận'}">
+							Đơn hàng chờ Xác Nhận <span class="count">({{orderCounts['Chờ xác nhận']}})</span>
+						</button>
+						<button ng-click="switchStatus('Chờ lấy hàng')" ng-class="{'active': currentStatus === 'Chờ lấy hàng'}">
+							Chờ Lấy Hàng <span class="count">({{orderCounts['Chờ lấy hàng']}})</span>
+						</button>
+						<button ng-click="switchStatus('Đang vận chuyển')" ng-class="{'active': currentStatus === 'Đang vận chuyển'}">
+							Đơn hàng đang Vận Chuyển <span class="count">({{orderCounts['Đang vận chuyển']}})</span>
+						</button>
+						<button ng-click="switchStatus('Trả hàng')" ng-class="{'active': currentStatus === 'Trả hàng'}">
+							Trả Hàng <span class="count">({{orderCounts['Trả hàng']}})</span>
+						</button>
+						<button ng-click="switchStatus('Đã giao')" ng-class="{'active': currentStatus === 'Đã giao'}">
+							Đơn hàng đã Giao <span class="count">({{orderCounts['Đã giao']}})</span>
+						</button>
+						<button ng-click="switchStatus('Yêu cầu huỷ hàng')" ng-class="{'active': currentStatus === 'Yêu cầu huỷ hàng'}">
+							Yêu cầu huỷ hàng <span class="count">({{orderCounts['Yêu cầu huỷ hàng']}})</span>
+						</button>
+						<button ng-click="switchStatus('Đã huỷ')" ng-class="{'active': currentStatus === 'Đã huỷ'}">
+							Đơn hàng Đã Hủy <span class="count">({{orderCounts['Đã huỷ']}})</span>
+						</button>
+					</div>
+					<div class="option">
+						<div ng-show="showFormChiTietDonDat" class="overlay" ng-click="showFormChiTietDonDat = false"></div>
+						<div ng-show="showFormChiTietDonDat" class="form">
 							<div class="container-form">
-								<div class="columns">
-									<!-- Cột 1: Thông tin Nhà Cung Cấp -->
-									<div class="column">
-										<h4>Thông tin Nhà Cung Cấp</h4>
-										<ul>
-											<li>
-												<label>ID Nhà Cung Cấp:</label>
-												<input type="text" ng-model="nhaCungCap.idNhaCungCap" class="form-control" readonly />
-											</li>
-											<li>
-												<label>Tên Nhà Cung Cấp:</label>
-												<input type="text" ng-model="nhaCungCap.tenNhaCungCap" class="form-control" readonly />
-											</li>
-											<li>
-												<label>Email:</label>
-												<input type="text" ng-model="nhaCungCap.email" class="form-control" readonly />
-											</li>
-											<li>
-												<label>Số Điện Thoại:</label>
-												<input type="text" ng-model="nhaCungCap.sdt" class="form-control" readonly />
-											</li>
-											<li>
-												<label>Địa Chỉ:</label>
-												<textarea ng-model="nhaCungCap.diaChi" class="form-control" readonly></textarea>
-											</li>
-										</ul>
-									</div>
-			
-									<!-- Cột 2: Thông tin Đơn Nhập -->
-									<div class="column">
-										<h4>Thông tin Đơn Nhập</h4>
-										<ul>
-											<li>
-												<label>ID Đơn Nhập:</label>
-												<input type="text" ng-model="donNhap.idDonNhap" class="form-control" readonly />
-											</li>
-											<li>
-												<label>Ngày Nhập:</label>
-												<input type="date" ng-model="donNhap.ngayNhap" class="form-control" />
-											</li>
-											<li>
-												<label>Trạng Thái:</label>
-												<input type="text" ng-model="donNhap.trangThai" class="form-control" />
-											</li>
-											<li>
-												<label>Ghi Chú:</label>
-												<textarea ng-model="donNhap.ghiChu" class="form-control"></textarea>
-											</li>
-											<li>
-												<label>Tổng Tiền:</label>
-												<input type="number" ng-model="donNhap.tongTien" class="form-control" readonly />
-											</li>
-										</ul>
-									</div>
-			
-									<!-- Cột 3: Chi Tiết Nhập -->
-									<div class="column">
-										<h4>Chi Tiết Nhập</h4>
-										<ul>
-											<li>
-												<label>ID Đơn Nhập:</label>
-												<input type="text" ng-model="chiTietNhap.idDonNhap" class="form-control" readonly />
-											</li>
-											<li>
-												<label>ID Mặt Hàng:</label>
-												<input type="text" ng-model="chiTietNhap.idMatHang" class="form-control" placeholder="Chọn ID Mặt Hàng" />
-											</li>
-											<li>
-												<label>Số Lượng:</label>
-												<input type="number" ng-model="chiTietNhap.soLuong" class="form-control" />
-											</li>
-											<li>
-												<label>Giá Nhập:</label>
-												<input type="number" ng-model="chiTietNhap.giaNhap" class="form-control" />
-											</li>
-										</ul>
+								<div class="head">
+									<h4>Chi tiết đơn đặt hàng</h4>
+								</div>
+								<div class="between">
+									<ul>
+										<div class="op">
+											<form action="#" class="ng-pristine ng-valid">
+											  <div class="filter">
+												<label>Search:
+												  <input type="search" class="form-control" placeholder="Nhập thông tin...." ng-model="searchChiTietDatHang" ng-change="filterChiTietDatHang()">
+												</label>
+											  </div>
+											</form>
+										</div>
+									</ul>
+
+									<div class="table">
+										<table class="product-table">
+											<thead>
+												<tr>
+													<th>Mã chi tiết đặt hàng</th>
+													<th>Mã mặt hàng</th>
+													<th>Tên mặt hàng</th>
+													<th>Số lượng mua</th>
+													<th>Giá bán</th>
+													<th>Action</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr ng-repeat="item in listChiTietDonHang">
+													<td>{{ item.idChiTietDonBan }}</td>
+													<td>{{ item.idMatHang}}</td>
+													<td>{{ item.tenMatHang }}</td>
+													<td>{{ item.soLuong }}</td>
+													<td>{{ item.giaBanFormatted }}</td>
+													<td>
+														<button class="btn btn-danger" ng-click="deleteItem(item)">
+															Xóa
+														</button>
+													</td>
+												</tr>
+											</tbody>
+										</table>
 									</div>
 								</div>
 							</div>
-			
-							<div class="foot">
-								<button class="btn" ng-click="refreshNhapHang()">Làm mới</button>
-								<button class="btn-success" ng-click="saveNhapHang()">Lưu</button>
-								<button class="btn-Update" ng-click="resetNhapHang()">Hủy</button>
+						</div>		
+						<div class="op">
+						  <form action="#" class="ng-pristine ng-valid">
+							<div class="filter">
+							  <label>Search:
+								<input type="search" class="form-control" placeholder="Nhập thông tin...." ng-model="searchDonDatHang" ng-change="filterDonDatHang()">
+							  </label>
+							</div>
+						  </form>
+						</div>
+						<div class="action">
+							<button class="btn btn-add" ng-click="editSelectedDonDatHang()">
+								<i class="bx bx-edit"></i> Chi tiết đơn đặt hàng
+							</button>			
+						</div>
+					</div>
+					<div class="body">
+						<div class="content">
+							<div class="table">
+								<table class="product-table">
+									<thead>
+										<tr>
+											<th>
+												<input type="checkbox">
+											</th>
+											<th>STT</th>
+											<th>Mã đơn bán</th>
+											<th>Tên khách hàng</th>
+											<th>Giảm giá</th>
+											<th>Áp dụng</th>
+											<th>Ngày bán</th>
+											<th>Tổng tiền</th>
+											<th>Ghi chú</th>
+											<th>Trạng thái</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="item in listDonHang">
+											<!-- Checkbox chọn hóa đơn -->
+											<td>
+												<input type="checkbox" 
+													   ng-model="item.selected" 
+													   ng-change="selectOnlyOne($index)">
+											</td>
+											<td>{{ ($index + 1) + (currentPageNguoiDung - 1) * pageSizeNguoiDung }}</td>
+											<td>{{ item.idDonBan }}</td>
+											<td>{{ item.tenNguoiDung }}</td>
+											<td>{{ item.noiDung }}</td>
+											<td>{{ item.tyLeGiam }}</td>
+											<td>{{ item.ngayBan }}</td>
+											<td>{{ item.tongTien }}</td>
+											<td>{{ item.ghiChu }}</td>
+											<td>
+												<select ng-model="item.trangThai" class="form-control" style="width: max-content;"
+														ng-options="status for status in ['Chờ xác nhận', 'Chờ lấy hàng', 'Đang vận chuyển', 'Trả hàng', 'Đã giao','Yêu cầu huỷ hàng', 'Đã huỷ']">
+												</select>
+											</td>
+											<td>
+												<button class="btn btn-primary" ng-click="updateStatus(item)">
+													Cập Nhật Trạng Thái
+												</button>
+											</td>											
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- BÁN HÀNG -->
+			<div class="tab-content" id="NhapHang" ng-controller="NhapHangController">
+				<div class="container">
+					<div class="title" style="border-bottom: 0;">
+						<h1>Quản lý đơn đặt hàng</h1>
+					</div>
+					<div class="status-buttons">
+						<button ng-click="switchStatus('Chờ xác nhận')" ng-class="{'active': currentStatus === 'Chờ xác nhận'}">
+							Đơn hàng Chờ Xác Nhận <span class="count">({{orderCounts['Chờ xác nhận']}})</span>
+						</button>
+						<button ng-click="switchStatus('Chờ lấy hàng')" ng-class="{'active': currentStatus === 'Chờ lấy hàng'}">
+							Đơn hàng Chờ Lấy Hàng <span class="count">({{orderCounts['Chờ lấy hàng']}})</span>
+						</button>
+						<button ng-click="switchStatus('Đang vận chuyển')" ng-class="{'active': currentStatus === 'Đang vận chuyển'}">
+							Đơn hàng Đang Vận Chuyển <span class="count">({{orderCounts['Đang vận chuyển']}})</span>
+						</button>
+						<button ng-click="switchStatus('Trả hàng')" ng-class="{'active': currentStatus === 'Trả hàng'}">
+							Đơn hàng Trả Hàng <span class="count">({{orderCounts['Trả hàng']}})</span>
+						</button>
+						<button ng-click="switchStatus('Đã giao')" ng-class="{'active': currentStatus === 'Đã giao'}">
+							Đơn hàng Đã Giao <span class="count">({{orderCounts['Đã giao']}})</span>
+						</button>
+						<button ng-click="switchStatus('Đã huỷ')" ng-class="{'active': currentStatus === 'Đã huỷ'}">
+							Đơn hàng Đã Hủy <span class="count">({{orderCounts['Đã huỷ']}})</span>
+						</button>
+					</div>
+					<div class="option">
+						<div class="op">
+						  <form action="#" class="ng-pristine ng-valid">
+							<div class="filter">
+							  <label>Search:
+								<input type="search" class="form-control" placeholder="Nhập thông tin...." ng-model="searchNhaCungCap" ng-change="filterNhaCungCap()">
+							  </label>
+							</div>
+						  </form>
+						</div>
+					</div>
+					<div class="body">
+						<div class="content">
+							<div class="table">
+								<table class="product-table">
+									<thead>
+										<tr>
+											<th>
+												<input type="checkbox">
+											</th>
+											<th>STT</th>
+											<th>Mã đơn bán</th>
+											<th>Tên khách hàng</th>
+											<th>Giảm giá</th>
+											<th>Áp dụng</th>
+											<th>Ngày bán</th>
+											<th>Tổng tiền</th>
+											<th>Ghi chú</th>
+											<th>Trạng thái</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="item in listDonHang">
+											<td><input type="checkbox" ng-model="item.selected"></td>
+											<td>{{ ($index + 1) + (currentPageNguoiDung - 1) * pageSizeNguoiDung }}</td>
+											<td>{{ item.idDonBan }}</td>
+											<td>{{ item.tenNguoiDung }}</td>
+											<td>{{ item.noiDung }}</td>
+											<td>{{ item.tyLeGiam }}</td>
+											<td>{{ item.ngayBan }}</td>
+											<td>{{ item.tongTien }}</td>
+											<td>{{ item.ghiChu }}</td>
+											<td>
+												<select ng-model="item.trangThai" class="form-control" style="width: max-content;" ng-options="status for status in ['Chờ xác nhận', 'Chờ lấy hàng', 'Đang vận chuyển', 'Trả hàng', 'Đã giao', 'Đã huỷ']">
+												
+												</select>
+											</td>
+											<td>
+												<button ng-click="updateStatus(item)">Cập Nhật Trạng Thái</button>
+											</td>
+										</tr>                                 
+									</tbody>
+								</table>
 							</div>
 						</div>
 					</div>
@@ -825,8 +938,8 @@
 											<div id="column">
 												<li>	
 													<label>Danh mục:</label>
-													<select ng-model="matHang.idDanhMuc" ng-options="dm.idDanhMuc as dm.tenDanhMuc for dm in listDanhMuc"></select>			
-													<input type="text" class = "form-control" name="" id="" placeholder="ID Danh mục">
+													<select ng-model="matHang.tenDanhMuc" ng-options="dm.idDanhMuc as dm.tenDanhMuc for dm in listDanhMuc"></select>			
+													<input type="text" class = "form-control" ng-model="matHang.idDanhMuc" placeholder="ID Danh mục">
 												</li>	
 												<li>
 													<label>Đơn giá:</label>
@@ -879,7 +992,7 @@
 												</thead>
 												<tbody>
 													<tr ng-repeat="item in listThongSo">
-														<td><input type="checkbox"></td>
+														<td><input type="checkbox" ng-model="thongso.selected"></td>
 														<td>{{ item.idThongSo }}</td>
 														<td>{{ item.tenThongSo }}</td>
 														<td>{{ item.giaTriThongSo }}</td>
@@ -1047,9 +1160,9 @@
 										</ul>
 									</div>
 									<div class="foot">
-										<button class="btn" ng-click="refresh()">Làm mới</button>
-										<button class="btn" ng-click="AddNguoiDung()" class="btn-success">Thêm</button>
-										<button class="btn" ng-click="UpdateNguoiDung()" class="btn-Update">Sửa</button>
+										<button class="btn btn-refresh" ng-click="refresh()">Làm mới</button>
+										<button class="btn btn-add" ng-click="AddNguoiDung()" class="btn-success">Thêm</button>
+										<button class="btn-Update" ng-click="UpdateNguoiDung()" class="btn-Update">Sửa</button>
 										<button ng-click="reset()" class="btn-Update">Hủy</button>
 									</div>
 								</div>
@@ -1222,10 +1335,10 @@
 			</div>
 
 			<!-- Đơn Nhập -->
-			<div class="tab-content" id="NhapHang" ng-controller="NhapHangController">
+			<div class="tab-content" id="DonNhap" ng-controller="HoaDonNhapController">
 				<div class="container">
 					<div class="title">
-						<h1>Quản lý Nhập Hàng</h1>
+						<h1>Hóa Đơn Nhập</h1>
 					</div>
 
 					<div class="body">
@@ -1235,7 +1348,7 @@
 							<div ng-show="showFormNhapHang" class="form">
 								<div class="container-form">
 									<div class="head">
-										<h4>{{ isEditingNhapHang ? 'Chỉnh sửa Đơn Nhập' : 'Tạo mới Đơn Nhập' }}</h4>
+										<h4>{{ isEditingNhapHang ? 'Chỉnh sửa Đơn Nhập' : 'Thêm mới Đơn Nhập' }}</h4>
 									</div>
 
 									<div class="between">
@@ -1246,23 +1359,23 @@
 												<ul>
 													<li>
 														<label>ID Nhà Cung Cấp:</label>
-														<input type="text" ng-model="nhaCungCap.idNhaCungCap" class="form-control" readonly />
+														<input type="text" ng-model="hoaDonNhap.idNhaCungCap" class="form-control" readonly />
 													</li>
 													<li>
 														<label>Tên Nhà Cung Cấp:</label>
-														<input type="text" ng-model="nhaCungCap.tenNhaCungCap" class="form-control" readonly />
+														<input type="text" ng-model="hoaDonNhap.tenNhaCungCap" class="form-control" readonly />
 													</li>
 													<li>
 														<label>Email:</label>
-														<input type="text" ng-model="nhaCungCap.email" class="form-control" readonly />
+														<input type="text" ng-model="hoaDonNhap.email" class="form-control" readonly />
 													</li>
 													<li>
 														<label>Số Điện Thoại:</label>
-														<input type="text" ng-model="nhaCungCap.sdt" class="form-control" readonly />
+														<input type="text" ng-model="hoaDonNhap.sdt" class="form-control" readonly />
 													</li>
 													<li>
 														<label>Địa Chỉ:</label>
-														<textarea ng-model="nhaCungCap.diaChi" class="form-control" readonly></textarea>
+														<textarea ng-model="hoaDonNhap.diaChi" class="form-control" readonly></textarea>
 													</li>
 												</ul>
 											</div>
@@ -1273,23 +1386,30 @@
 												<ul>
 													<li>
 														<label>ID Đơn Nhập:</label>
-														<input type="text" ng-model="donNhap.idDonNhap" class="form-control" readonly />
+														<input type="text" ng-model="hoaDonNhap.idDonNhap" class="form-control" readonly />
 													</li>
 													<li>
 														<label>Ngày Nhập:</label>
-														<input type="date" ng-model="donNhap.ngayNhap" class="form-control" />
+														<input type="date" ng-model="hoaDonNhap.ngayNhap" class="form-control" />
 													</li>
 													<li>
 														<label>Trạng Thái:</label>
-														<input type="text" ng-model="donNhap.trangThai" class="form-control" />
+														<select ng-model="hoaDonNhap.trangThai" class="form-control">
+															<option>Chờ xác nhận</option>
+															<option>Chờ lấy hàng</option>
+															<option>Đang vận chuyển</option>
+															<option>Trả hàng</option>
+															<option>Đã giao</option>
+															<option>Đã huỷ</option>
+														</select>
 													</li>
 													<li>
-														<label>Ghi Chú:</label>
-														<textarea ng-model="donNhap.ghiChu" class="form-control"></textarea>
+														<label>Ghi chú:</label>
+														<textarea ng-model="hoaDonNhap.ghiChu" class="form-control" placeholder="Nhập ghi chú"></textarea>
 													</li>
 													<li>
 														<label>Tổng Tiền:</label>
-														<input type="number" ng-model="donNhap.tongTien" class="form-control" readonly />
+														<input type="number" ng-model="hoaDonNhap.tongTien" class="form-control" readonly />
 													</li>
 												</ul>
 											</div>
@@ -1299,8 +1419,8 @@
 												<h4>Chi Tiết Nhập</h4>
 												<ul>
 													<li>
-														<label>ID Đơn Nhập:</label>
-														<input type="text" ng-model="chiTietNhap.idDonNhap" class="form-control" readonly />
+														<label>ID Chi Tiết Đơn Nhập:</label>
+														<input type="text" ng-model="chiTietNhap.idChiTietDonNhap" class="form-control" readonly />
 													</li>
 													<li>
 														<label>ID Mặt Hàng:</label>
@@ -1330,7 +1450,7 @@
 							<!-- Hành động -->
 							<div class="action">
 								<button class="btn-show" ng-click="showFormNhapHang = true">
-									<i class="bx bx-plus"></i> Tạo Đơn Nhập
+									<i class="bx bx-plus"></i> Thêm Đơn Nhập
 								</button>
 							</div>
 						</div>
@@ -1340,6 +1460,7 @@
 							<table class="product-table">
 								<thead>
 									<tr>
+										<th><input type="checkbox" /></th>
 										<th>STT</th>
 										<th>ID Đơn Nhập</th>
 										<th>Tên Nhà Cung Cấp</th>
@@ -1349,16 +1470,43 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="item in getAllNhapHang()">
-										<td>{{ $index + 1 }}</td>
+									<tr ng-repeat="item in getPaginatedNhapHang()">
+										<td><input type="checkbox" ng-model="item.selected" /></td>
+										<td>{{ ($index + 1) + (currentPageNhapHang - 1) * pageSizeNhapHang }}</td>
 										<td>{{ item.idDonNhap }}</td>
 										<td>{{ item.tenNhaCungCap }}</td>
 										<td>{{ item.ngayNhap }}</td>
 										<td>{{ item.trangThai }}</td>
-										<td>{{ item.tongTien }}</td>
+										<td>{{ item.tongTien | currency:" " }}</td>
 									</tr>
 								</tbody>
 							</table>
+						</div>
+
+						<!-- Phân trang -->
+						<div class="pagination-container">
+							<div class="results-per-page">
+								<label for="page-size">Results per page:</label>
+								<select id="page-size" ng-model="pageSizeNhapHang" ng-change="updatePageSizeNhapHang()">
+									<option value="10">10</option>
+									<option value="12" selected>12</option>
+									<option value="15">15</option>
+								</select>
+							</div>
+							<div class="pagination">
+								<button class="pagination-btn" ng-disabled="currentPageNhapHang === 1" ng-click="changePageNhapHang(currentPageNhapHang - 1)">
+									« Previous
+								</button>
+								<button class="page-number" ng-repeat="page in [].constructor(Math.ceil(filteredNhapHang.length / pageSizeNhapHang)) track by $index"
+										ng-click="changePageNhapHang($index + 1)"
+										ng-class="{'active': $index + 1 === currentPageNhapHang}">
+									{{ $index + 1 }}
+								</button>
+								<button class="pagination-btn" ng-disabled="currentPageNhapHang === Math.ceil(filteredNhapHang.length / pageSizeNhapHang)" 
+										ng-click="changePageNhapHang(currentPageNhapHang + 1)">
+									Next »
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -1590,9 +1738,9 @@
 										</ul>
 									</div>
 									<div class="foot">
-										<button class="btn" ng-click="refresh()">Làm mới</button>
-										<button class="btn" ng-click="AddNhaCungCap()" class="btn-success">Thêm</button>
-										<button class="btn" ng-click="UpdateNhaCungCap()" class="btn-Update">Sửa</button>
+										<button class="btn btn-refresh" ng-click="refresh()">Làm mới</button>
+										<button class="btn btn-add" ng-click="AddNhaCungCap()" class="btn-success">Thêm</button>
+										<button class="btn btn-Update" ng-click="UpdateNhaCungCap()" class="btn-Update">Sửa</button>
 										<button ng-click="reset()" class="btn-Update">Hủy</button>
 									</div>
 								</div>
@@ -1726,7 +1874,6 @@
 										</div>
 									</div>
 								</div>
-								
 								<div class="op">
 									<form action="#">
 										<div class="filter">
@@ -1744,7 +1891,6 @@
 									</button>							
 								</div>
 							</div>
-
 							<div class="table">
 								<table class="product-table">
 									<thead>
@@ -1767,7 +1913,7 @@
 											<td>{{ ($index + 1) + (currentPageGiamGia - 1) * pageSizeGiamGia }}</td>
 											<td>{{ item.idGiamGia }}</td>
 											<td class="center-content">
-												<img ng-src="{{ item.hinhAnh ? './item/' + item.hinhAnh : './item/Default.png' }}" class="avatar">
+												<img ng-src="{{ item.hinhAnh ? './sale/' + item.hinhAnh : './sale/Default.png' }}" class="avatar">
 												{{ item.noiDung }}
 											</td>
 											<td>{{ item.tyLeGiam }}</td>
@@ -1817,7 +1963,43 @@
 					
 					<div class="body">
 						<!-- Tìm kiếm kho -->
+	
+						
 						<div class="option">
+							<div ng-show="showFormKho" class="overlay" ng-click="showFormKho = false"></div>
+							<div class="form" ng-show="showFormKho">
+								<div class="container-form">
+									<div class="head">
+										<h4>Kho hàng</h4>
+									</div>
+									<div class="between">
+										<ul>
+											<div id="column">
+												<li>
+													<label>Tên mặt hàng</label>
+													<input ng-model="kho.idMatHang" type="text" class="form-control" placeholder="Tên mặt hàng">
+												</li>
+												<li>
+													<label>Số lượng</label>
+													<input ng-model="kho.soLuong" type="number" min="0" class="form-control" placeholder="Số lượng">
+												</li>
+											</div>
+											<div id="column">
+												<li>
+													<label>Ngày cập nhật</label>
+													<input ng-model="kho.ngayCapNhat" type="date" class="form-control">
+												</li>
+											</div>
+										</ul>
+									</div>
+									<div class="foot">
+										<button class="btn" ng-click="refreshKho()">Làm mới</button>
+										<button class="btn" ng-click="addKho()" class="btn-success">Thêm</button>
+										<button class="btn" ng-click="UpdateKho()" class="btn-Update">Sửa</button>
+										<button ng-click="resetKho()" class="btn-Update">Hủy</button>
+									</div>
+								</div>
+							</div>
 							<form action="#">
 								<div class="filter">
 									<label>Search:
@@ -1825,9 +2007,7 @@
 									</label>
 								</div>
 							</form>
-						</div>
-
-						<!-- Các thao tác Thêm, Sửa, Xoá -->
+							<!-- Các thao tác Thêm, Sửa, Xoá -->
 						<div class="action">
 							<button class="btn-add" ng-click="showFormKho = !showFormKho">
 								<i class="bx bx-plus"></i> Thêm mới
@@ -1839,6 +2019,9 @@
 								<i class="bx bx-trash"></i> Xóa
 							</button>
 						</div>
+						</div>
+
+						
 
 						<!-- Bảng dữ liệu kho -->
 						<div class="table">
@@ -1947,6 +2130,7 @@
     <script src="js/Quan_Tri.js"></script>
 	<script src="back-end/angular.min.js"></script>
 	<script src="back-end/Quan_Tri.js"></script>
+	<script src="back-end/Don_DatHang.js"></script>
 	<script src="back-end/Nhap_hang.js"></script>
 	<script src="back-end/Danh_Muc.js"></script>
 	<script src="back-end/Mat_Hang.js"></script>

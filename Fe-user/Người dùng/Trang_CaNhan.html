@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HIEUPC - Máy tính cao cấp & thiết bị điện tử hiện đại hàng đầu Việt Nam</title>
-    <link rel="icon" type="image/png" href="icon/logo.png">
+    <link rel="icon" type="image/png" href="img/logo1.png">
     <link rel="stylesheet" href="css/Trang_Chu.css">
     <link rel="stylesheet" href="css/Trang_CaNhan.css">
     <script src="https://code.iconify.design/3/3.0.0/iconify.min.js"></script>
@@ -13,21 +13,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
 </head>
-<body>
+<body ng-app = "User">
     <div class="top-bar">
         <div class="frame">
             <div class="left">
                 <div class="H-content">
-                    <i class="fas fa-map-marker-alt"></i>
+                    <i class="fas fa-map-marker-alt" style="padding: 0 20px;"></i>
                     <marquee onmouseover="stop()" onmouseout="start()">Số 14A, đường Trưng Nhị, phường Lê Lợi, thành phố Hưng Yên, tỉnh Hưng Yên</marquee>
                 </div>          
             </div>
             <div class="right">
-                <div class="H-right-content" style="border-right: 1px solid #CCC;">
-                    <i class="fas fa-headphones"></i>
-                    <span>Hotline : 029 382 1922</span>
-                </div>
-                <div class="H-right-content"  style="border-right: 1px solid #CCC;">
+                <div class="H-right-content" style="border-right: 1px solid #CCC;"  >
                     <span id="selected-language">
                         <i class="fas fa-globe"></i> 
                     </span>
@@ -53,25 +49,9 @@
                     </div>
                 </div>                    
                 <div class="H-right-content">
-                    <i class="fas fa-user-circle"></i>
-                    <div class="login-section">
-                        <span class="login-text" style="cursor: pointer;">Tài khoản</span>
-                        <div class="dropdown-content">
-                            <a href="Trang_CaNhan.html" id="TCN-btn">
-                                <i class="bi bi-person"></i>
-                                  tài khoản của bạn
-                            </a>
-                            <a href="Dang_Nhap.html" id="login-btn">
-                                <i class="fas fa-sign-in-alt"></i>
-                                Đăng nhập
-                            </a>
-                            <a href="#" id="logout-btn">
-                                <i class="fas fa-sign-out-alt"></i>
-                                Đăng xuất
-                            </a>
-                        </div>
-                    </div>
-                </div>             
+                    <i class="fas fa-headphones"></i>
+                    <span>Hotline : 029 382 1922</span>
+                </div>      
             </div>
         </div>
     </div>
@@ -105,28 +85,47 @@
             </div>
             <div class="icons">
                 <a href="#">
-                    <div class="icon">
-                        <i class="fas fa-envelope noti-icon"></i>
-                        <div class="icon-badge" style="right: -5px;">
-                            <span>0</span>
-                        </div>
+                    <div class="order">
+                        <i class="bi bi-pc"></i>
+                        <span class="order-text">Xây dựng cấu hình</span>
                     </div>
-                </a>   
+                </a>  
                 <a href="#">
                     <div class="order">
-                        <i class="fa fa-shopping-cart"></i>
+                        <i class="bi bi-truck"></i>
                         <span class="order-text">Tra cứu đơn hàng</span>
                     </div>
-                </a>           
+                </a>       
                 <a href="Gio_Hang.html">
                     <div class="cart">
-                        <i class="fas fa-shopping-cart"></i>
+                        <i class="bi bi-cart2"></i>
                         <div class="cart-badge">
                             <span>0</span>
                         </div>
                         <span class="cart-text">Giỏ hàng</span>
                     </div>
                 </a>
+                <div class="login-section" ng-controller="UserCtrl">
+                    <i class="fas fa-user-circle"></i>
+                    <span class="login-text">{{ TenNguoiDung }}</span>
+                    <div class="dropdown-content">
+                        <!-- Hiển thị khi đã đăng nhập -->
+                        <a href="Trang_CaNhan.html" id="TCN-btn" ng-if="isLoggedIn">
+                            <i class="bi bi-person"></i>
+                            <span>Hồ sơ của bạn</span>
+                        </a>
+                        <!-- Hiển thị nút đăng nhập nếu chưa đăng nhập -->
+                        <a href="Dang_Nhap.html" id="login-btn" ng-if="!isLoggedIn">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Đăng nhập</span>
+                        </a>
+                        <!-- Hiển thị nút đăng xuất khi đã đăng nhập -->
+                        <a href="#" id="logout-btn" ng-if="isLoggedIn" ng-click="logout()">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Đăng xuất</span>
+                        </a>
+                    </div>   
+                </div>  
             </div>
         </div>
     </div>
@@ -213,7 +212,7 @@
             </ul>
         </div>
     </div>  
-    <div class="personal_page">
+    <div class="personal_page" ng-controller = "trang_canhan">
         <div class="frame">
             <div class="left">
                 <div class="avatar">
@@ -223,7 +222,7 @@
                         </svg>
                     </div>
                     <div class="info">
-                        <div class="customer-name">Lương Hiếu</div>
+                        <div class="customer-name">{{ $Hoso.TenNguoiDung}}</div>
                     </div>
                 </div>
                 <ul class="left-sidebar">
@@ -279,58 +278,42 @@
                     <div class="profile-content">
                         <form>
                             <table>
-                              <tr>
-                                <td><label for="name">Họ tên</label></td>
-                                <td><input type="text" id="name" value="hhhhhhhh"></td>
-                              </tr>
-                              <tr>
-                                <td><label for="email">Email</label></td>
-                                <td>
-                                    <input type="text" id="name" value="hieuluong102@gmail.com">                                  
-                                </td>
-                              </tr>
-                              <tr>
-                                <td><label for="phone">Số điện thoại</label></td>
-                                <td>
-                                    <input type="text" id="name" value="0121928491">       
-                                </td>
-                              </tr>
-                              <tr>
-                                <td><label>Mật khẩu</label></td>
-                                <td>
-                                    <div class="radio-group">
-                                        <input id="passwordInput" type="password" value="5555">
-                                        <i id="showEye" class="fa fa-eye" onclick="togglePassword()" style="cursor: pointer;"></i>
-                                        <i id="hideEye" class="fa fa-eye-slash" onclick="togglePassword()" style="cursor: pointer; display: none;"></i>
-                                    </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td><label for="dob">Ngày sinh</label></td>
-                                <td>
-                                    <input type="date" name="" min="1970-01-01" min="2025-12-31" />
-                                  </td>
-                              </tr>
-                              <tr>
-                                <td></td>
-                                <td>
-                                  <button type="submit" class="btn-primary">Lưu</button>
-                                </td>
-                              </tr>
+                                <tr>
+                                    <td><label for="name">Họ tên</label></td>
+                                    <td><input type="text" id="name" ng-model="HoSo.tenNguoiDung" placeholder="Nhập họ tên"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="email">Email</label></td>
+                                    <td><input type="email" id="email" ng-model="HoSo.email" placeholder="Nhập email"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="phone">Số điện thoại</label></td>
+                                    <td><input type="text" id="phone" ng-model="HoSo.soDienThoai" placeholder="Nhập số điện thoại"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="password">Mật khẩu</label></td>
+                                    <td>
+                                        <div class="radio-group">
+                                            <input id="password" type="password" ng-model="HoSo.matKhau" placeholder="Nhập mật khẩu">
+                                            <i id="showEye" class="fa fa-eye" onclick="togglePassword()" style="cursor: pointer;"></i>
+                                            <i id="hideEye" class="fa fa-eye-slash" onclick="togglePassword()" style="cursor: pointer; display: none;"></i>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="dob">Ngày sinh</label></td>
+                                    <td><input type="date" id="dob" ng-model="HoSo.NgaySinh"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn-primary" ng-click="updateProfile()">Lưu</button>
+                                    </td>
+                                </tr>
                             </table>
                         </form>
-                      
-                        <div class="profile-photo">
-                            <img src="https://down-vn.img.susercontent.com/file/vn-11134233-7r98o-ltx8myi98owaba" alt="Profile photo">
-                            <input type="file" accept=".jpg,.jpeg,.png">
-                            <button type="button" class="btn-light">Chọn ảnh</button>
-                            <div class="file-info">
-                              <p>Dụng lượng file tối đa 1 MB</p>
-                              <p>Định dạng: .JPEG, .PNG</p>
-                            </div>
-                        </div>
-                    </div>
-                  </div>        
+                    </div>                                
+                </div>        
 
                 <div class="tab-content" id="address-info" >
                     <h2>Thông tin địa chỉ</h2>
@@ -343,8 +326,64 @@
                     <button class="add-new-address-btn">+ Thêm địa chỉ mới</button>
                 </div>
 
-                <div class="Order-Management"></div>
-                
+                <div class="tab-content" id="orders-history" >
+                    <div class="container">
+                      <div class="title">
+                        <h1>Quản lý đơn hàng</h1>
+                        <div class="status-buttons">
+                            <button ng-click="switchStatus('Chờ xác nhận')" ng-class="{'active': currentStatus === 'Chờ xác nhận'}">
+                                Tất cả
+                            </button>
+                            <button ng-click="switchStatus('Chờ lấy hàng')" ng-class="{'active': currentStatus === 'Chờ lấy hàng'}">
+                                Đang xử lý <span class="count">({{orderCounts['Chờ lấy hàng']}})</span>
+                            </button>
+                            <button ng-click="switchStatus('Đang vận chuyển')" ng-class="{'active': currentStatus === 'Đang vận chuyển'}">
+                                Đang Vận Chuyển <span class="count">({{orderCounts['Đang vận chuyển']}})</span>
+                            </button>
+                            <button ng-click="switchStatus('Đã giao')" ng-class="{'active': currentStatus === 'Đã giao'}">
+                                Đã Giao <span class="count">({{orderCounts['Đã giao']}})</span>
+                            </button>
+                            <button ng-click="switchStatus('Yêu cầu huỷ hàng')" ng-class="{'active': currentStatus === 'Yêu cầu huỷ hàng'}">
+                                Yêu cầu huỷ hàng <span class="count">({{orderCounts['Yêu cầu huỷ hàng']}})</span>
+                            </button>
+                            <button ng-click="switchStatus('Đã huỷ')" ng-class="{'active': currentStatus === 'Đã huỷ'}">
+                                Đã Hủy <span class="count">({{orderCounts['Đã huỷ']}})</span>
+                            </button>
+                        </div>
+                      </div>
+                  
+                      <div class="body">
+                            <div class="product-card">
+                                <!-- Product Info -->
+                                <div class="product-info">
+                                    <img src="product-image.jpg" alt="Product Image" class="product-image">
+                                    <div class="product-details">
+                                        <h3 class="product-title">
+                                            Serum B3-B5 Phục Hồi Dưỡng Ẩm AUSCHOO Phục Hồi Da Chuyên Sâu Ngừa Lão Hóa Mờ Nếp Nhăn Dịu Da 30ml
+                                        </h3>
+                                        <p class="product-quantity">x1</p>
+                                        <p class="product-price">
+                                            <span class="discount-price">269.000₫</span>
+                                        </p>
+                                    </div>
+                                </div>
+                        
+                                <!-- Order Summary -->
+                                <div class="order-summary">
+                                    <span class="total-label">Thành tiền:</span>
+                                    <span class="total-amount">229.099₫</span>
+                                </div>
+                        
+                                <!-- Actions -->
+                                <div class="actions">
+                                    <button class="buy-again">Mua Lại</button>
+                                    <button class="contact-seller">Liên Hệ Người Bán</button>
+                                    <button class="view-review">Xem Đánh Giá Shop</button>
+                                </div>
+                            </div>
+                      </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -429,9 +468,13 @@
         </div>
     </footer>
 
+    <script src="angular/angular.js"></script>
+    <script src="angular/Trang_Chu.js"></script>
+    <script src="angular/Trang_CaNhan.js"></script>
+    <script src="js/Trang_CaNhan.js"></script>
     <script src="js/Trang_Chu.js"></script>
     <script src="js/San_Pham.js"></script>
     <script src="js/Gio_Hang.js"></script>
-    <script src="js/Trang_CaNhan.js"></script>
+
 </body>
 </html>

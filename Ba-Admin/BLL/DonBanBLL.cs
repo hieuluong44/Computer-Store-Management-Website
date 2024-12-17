@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BLL.Interfaces;
 using DAL.Interfaces;
+using DAL;
 
 namespace BLL
 {
@@ -34,6 +35,15 @@ namespace BLL
         public bool Update(DonBanModel donBanModel)
         {
             return donBanDAL.Update(donBanModel);
+        }
+        public List<TrangThaiDonHangModel> trangThaiDonHangs(string TrangThai)
+        {
+            return donBanDAL.trangThaiDonHangs(TrangThai);
+        }
+
+        public bool CapNhatTrangThai(CapNhatTrangThai trangThaiDonHangModel)
+        {
+            return donBanDAL.CapNhatTrangThai(trangThaiDonHangModel);
         }
     }
 }

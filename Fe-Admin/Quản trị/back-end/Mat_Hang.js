@@ -1,5 +1,6 @@
 app.controller('MatHangController', function ($scope, $http) {
     $scope.listMatHang = [];
+    $scope.listDanhMuc = [];
     $scope.currentPageMatHang = 1;
     $scope.pageSizeMatHang = 10;
     $scope.matHang = {};
@@ -13,6 +14,14 @@ app.controller('MatHangController', function ($scope, $http) {
         $http.get("http://localhost:5159/api/MatHangControllers/Get-All")
             .then(response => {
                 $scope.listMatHang = response.data;
+            })
+            .catch(error => console.error("Lỗi khi tải mặt hàng:", error));
+    };
+
+    $scope.loadDanhMuc = function () {
+        $http.get("http://localhost:5159/api/MatHangControllers/Get-All")
+            .then(response => {
+                $scope.listDanhMuc = response.data;
             })
             .catch(error => console.error("Lỗi khi tải mặt hàng:", error));
     };
@@ -42,7 +51,6 @@ app.controller('MatHangController', function ($scope, $http) {
     };
 
     $scope.triggerFileInput = function(event) {
-        // Tìm input file và kích hoạt click
         var inputFile = angular.element(event.target).siblings('input[type="file"]');
         inputFile[0].click();
     };
@@ -50,14 +58,11 @@ app.controller('MatHangController', function ($scope, $http) {
     $scope.handleFileChange = function(event) {
         var file = event.target.files[0];
         if (file) {
-            // Giả sử bạn muốn hiển thị ảnh mới được chọn cho item hiện tại
             var reader = new FileReader();
             reader.onload = function(e) {
-                // Cập nhật đường dẫn ảnh cho item trong ListAnhMatHang
                 $scope.$apply(function() {
-                    // Giả sử bạn đã có chỉ mục của item, ví dụ là `itemIndex`
-                    var itemIndex = 0; // Cập nhật đúng giá trị của chỉ mục item cần thay đổi
-                    $scope.ListAnhMatHang[itemIndex].duongDan = e.target.result; // Đặt đường dẫn ảnh mới
+                    var itemIndex = 0; 
+                    $scope.ListAnhMatHang[itemIndex].duongDan = e.target.result; 
                 });
             };
             reader.readAsDataURL(file);
@@ -70,8 +75,14 @@ app.controller('MatHangController', function ($scope, $http) {
         if (selectedMatHang) {
             // Lấy id mặt hàng đã chọn
             const matHangId = selectedMatHang.idMatHang;
-
-            // Lấy ảnh mặt hàng từ API
+            $scope.matHang = {
+                idMatHang: selectedMatHang.idMatHang,
+                idDanhMuc : selectedMatHang.idDanhMuc,
+                tenMatHang: selectedMatHang.tenMatHang,
+                donGia: selectedMatHang.donGia,
+                baoHanh : selectedMatHang.baoHanh,
+                trangThai: selectedMatHang.trangThai
+            }
             $http.get(`http://localhost:5159/api/AnhMatHangControllers/Get-All/${matHangId}`)
                 .then(response => {
                     if (response.data && response.data.length > 0) {
@@ -80,7 +91,6 @@ app.controller('MatHangController', function ($scope, $http) {
                 })
                 .catch(error => console.error("Lỗi khi lấy ảnh mặt hàng:", error));
 
-            // Lấy thông số kỹ thuật từ API
             $http.get(`http://localhost:5159/api/ThongSoKyThuatControllers/Get-All/${matHangId}`)
                 .then(response => {
                     if (response.data && response.data.length > 0) {
@@ -89,7 +99,7 @@ app.controller('MatHangController', function ($scope, $http) {
                 })
                 .catch(error => console.error("Lỗi khi lấy thông số kỹ thuật:", error));
 
-            $scope.showFormMH = true;  // Hiển thị form sửa
+            $scope.showFormMH = true;
         } else {
             alert("Vui lòng chọn một mặt hàng để sửa!");
         }
@@ -104,7 +114,6 @@ app.controller('MatHangController', function ($scope, $http) {
                 alert("Vui lòng nhập tên mặt hàng.");
                 return;
             }
-
            
             $scope.matHang.idMatHang = "temp" + new Date().getTime();  
             $scope.listMatHang.push($scope.matHang);  
@@ -126,10 +135,10 @@ app.controller('MatHangController', function ($scope, $http) {
             })
             .then(response => {
                 alert("Cập nhật mặt hàng thành công.");
-                $scope.loadMatHang();  // Tải lại danh sách mặt hàng
-                $scope.matHang = {};  // Xóa thông tin mặt hàng
-                $scope.listThongSo = [];  // Xóa thông số kỹ thuật
-                $scope.showFormMH = false;  // Ẩn form
+                $scope.loadMatHang(); 
+                $scope.matHang = {}; 
+                $scope.listThongSo = [];  
+                $scope.showFormMH = false;  
             })
             .catch(error => {
                 console.error("Lỗi khi cập nhật mặt hàng:", error);
@@ -137,35 +146,30 @@ app.controller('MatHangController', function ($scope, $http) {
         }
     };
 
-    // Thêm thông số kỹ thuật
     $scope.AddThongSo = function () {
         if ($scope.matHang.idMatHang) {
-            // Nếu có id mặt hàng, gửi thông số lên server
             $http.post("http://localhost:5159/api/MatHangControllers/AddThongSo", {
                 matHangId: $scope.matHang.idMatHang,
                 thongSo: $scope.listThongSo
             })
             .then(response => {
                 alert("Thông số kỹ thuật đã được thêm.");
-                $scope.listThongSo = [];  // Xóa danh sách thông số sau khi thêm
+                $scope.listThongSo = [];  
             })
             .catch(error => console.error("Lỗi khi thêm thông số kỹ thuật:", error));
         } else {
-            // Nếu chưa có id mặt hàng, lưu thông số vào local
             $scope.listThongSo.push({
                 idThongSo: "temp" + new Date().getTime(),
                 tenThongSo: $scope.thongSo.tenThongSo,
                 giaTri: $scope.thongSo.giaTri
             });
             alert("Thông số đã được thêm vào danh sách.");
-            $scope.thongSo = {};  // Reset thông số
+            $scope.thongSo = {}; 
         }
     };
 
-    // Thêm ảnh mặt hàng
     $scope.setImage = function ($file) {
         if ($scope.matHang.idMatHang) {
-            // Nếu đã có id mặt hàng, upload ảnh lên server
             var formData = new FormData();
             formData.append('file', $file);
             $http.post("http://localhost:5159/api/MatHangControllers/UploadImage/" + $scope.matHang.idMatHang, formData, {
@@ -177,17 +181,15 @@ app.controller('MatHangController', function ($scope, $http) {
             })
             .catch(error => console.error("Lỗi khi tải ảnh mặt hàng:", error));
         } else {
-            // Nếu chưa có id mặt hàng, lưu ảnh vào local
             $scope.imageSrc = URL.createObjectURL($file);
         }
     };
 
-    // Làm mới dữ liệu
     $scope.refresh = function () {
         $scope.matHang = {};
         $scope.listThongSo = [];
         $scope.showFormMH = false;
     };
 
-    $scope.loadMatHang();  // Gọi hàm tải mặt hàng ban đầu
+    $scope.loadMatHang();  
 });

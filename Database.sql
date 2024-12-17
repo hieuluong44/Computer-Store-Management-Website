@@ -98,7 +98,7 @@ create table HoaDonBan (
 	IDNguoiDung varchar(10) not null,
 	IDGiamGia varchar(10) null, 
 	NgayBan date not null,
-	TrangThai nvarchar(30) default N'Chờ xác nhận' check (TrangThai in (N'Chờ xác nhận', N'Chờ lấy hàng', N'Đang vận chuyển',N'Trả hàng',N'Đã giao',N'Đã huỷ')) not null,
+	TrangThai nvarchar(30) default N'Chờ xác nhận' check (TrangThai in (N'Chờ xác nhận', N'Chờ lấy hàng', N'Đang vận chuyển',N'Trả hàng',N'Đã giao', N'Yêu cầu huỷ hàng' ,N'Đã huỷ')) not null,
 	GhiChu nvarchar(100) not null,
 	TongTien float default 0,
 	foreign key(IDNguoiDung) references NguoiDung(IDNguoiDung),
@@ -128,6 +128,7 @@ create table DanhGia (
 	foreign key(IDNguoiDung) references NguoiDung(IDNguoiDung)
 );
 go
+
 
 create table Kho (
     IDKho varchar(10) primary key not null,
@@ -819,7 +820,10 @@ insert into HoaDonBan (IDDonBan, IDNguoiDung, IDGiamGia,  NgayBan, TrangThai, Gh
 ('DB00000007', 'ND00000007','GG20394850', '2024-10-07', N'Chờ lấy hàng', N'Khách hàng đã sẵn sàng lấy hàng',0),
 ('DB00000008', 'ND00000008','GG38492010', '2024-10-08', N'Đang vận chuyển', N'Vận chuyển đang trong quá trình',0),
 ('DB00000009', 'ND00000009','GG48291020', '2024-10-09', N'Đã giao', N'Đơn hàng đã được nhận',0),
-('DB00000010', 'ND00000009', 'GG49502390','2024-10-10', N'Đã huỷ', N'Khách hàng đã hủy đơn hàng',0);
+('DB00000010', 'ND00000009', 'GG49502390','2024-10-10', N'Đã huỷ', N'Khách hàng đã hủy đơn hàng',0),
+('DB00000011', 'ND00000005', null,'2024-10-10', N'Yêu cầu huỷ hàng', N'Không còn nhu cầu mua',0),
+('DB00000012', 'ND00000006', 'GG49502390','2024-10-10', N'Yêu cầu huỷ hàng', N'Muốn mua thêm',0),
+('DB00000013', 'ND00000002', 'GG49502390','2024-10-10', N'Yêu cầu huỷ hàng', N'Không thích',0);
 go
 
 -- Bảng chi tiết đơn bán

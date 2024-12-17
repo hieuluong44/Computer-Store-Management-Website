@@ -19,6 +19,7 @@ namespace Model
     {
         public string IDChiTietDonBan { get; set; }
         public string IDDonBan { get; set; }
+        public string IDMatHang { get; set; }
         public string TenMatHang { get; set; }
         public int SoLuong { get; set; }
         public double GiaBan { get; set; }
