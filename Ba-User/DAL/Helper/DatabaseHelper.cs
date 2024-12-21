@@ -204,6 +204,16 @@ namespace DAL.Helper
             CloseConnection();
             sqlConnection?.Dispose();
         }
+
+        public object ExecuteScalarSProcedureWithTransaction(string v1, string v2, string iDDonBan, string v3, string iDNguoiDung, string v4, string hoTenNguoiNhan, string v5, string soDienThoaiNguoiNhan, string v6, string diaChiNguoiNhan, string v7, string v, DateTime ngayBan, string v8, string trangThai, string v9, string ghiChu, string v10, decimal tongTien, string v11, string? v12)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object ExecuteScalarSProcedureWithTransaction(string v1, string v2, string iDDonBan, string v3, string iDNguoiDung, string v4, string hoTenNguoiNhan, string v5, string soDienThoaiNguoiNhan, string v6, string diaChiNguoiNhan, string v7, DateTime ngayBan, string v8, string trangThai, string v9, string ghiChu, string v10, decimal tongTien, string v11, string? v12)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }

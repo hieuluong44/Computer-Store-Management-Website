@@ -46,6 +46,8 @@ namespace DAL.Helper.Interfaces
         /// <param name="paramObjects">List Param Objects, Each Item include 'ParamName' and 'ParamValue'</param>
         /// <returns>Value return from Store</returns>
         object ExecuteScalarSProcedure(out string msgError, string sprocedureName, params object[] paramObjects);
+        object ExecuteScalarSProcedureWithTransaction(string v1, string v2, string iDDonBan, string v3, string iDNguoiDung, string v4, string hoTenNguoiNhan, string v5, string soDienThoaiNguoiNhan, string v6, string diaChiNguoiNhan, string v7, string v, DateTime ngayBan, string v8, string trangThai, string v9, string ghiChu, string v10, decimal tongTien, string v11, string? v12);
+        object ExecuteScalarSProcedureWithTransaction(string v1, string v2, string iDDonBan, string v3, string iDNguoiDung, string v4, string hoTenNguoiNhan, string v5, string soDienThoaiNguoiNhan, string v6, string diaChiNguoiNhan, string v7, DateTime ngayBan, string v8, string trangThai, string v9, string ghiChu, string v10, decimal tongTien, string v11, string? v12);
         #endregion
     }
 }

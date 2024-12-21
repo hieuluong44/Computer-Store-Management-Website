@@ -17,11 +17,6 @@ namespace BLL
             this.donBanDAL = donBan;
         }
 
-        public bool Create(DonBanModel donBanModel)
-        {
-            return donBanDAL.Create(donBanModel);
-        }
-
         public bool Delete(string IDDonBan)
         {
             return donBanDAL.Delete(IDDonBan);

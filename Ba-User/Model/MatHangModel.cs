@@ -15,15 +15,16 @@ namespace Model
         public int TongSoLuongBan { get; set; }
     }
 
-    public partial class Get_MatHang_DanhMuc
+    public class Get_MatHang_DanhMuc
     {
+        public string DuongDan { get; set; }
         public string IDMatHang { get; set; }
+        public string TenDanhMucCha { get; set; }
         public string TenMatHang { get; set; }
         public float DonGia { get; set; }
-        public string DuongDan { get;set; }
         public string BaoHanh { get; set; } 
-        public string ChiTiet { get; set; }
         public string TrangThai { get; set; }
+        public int TongSoLuongBan { get; set; }
     }
 
     public partial class Tim_MatHang_Gia
@@ -32,7 +33,6 @@ namespace Model
         public string TenMatHang { get; set; }
         public float DonGia { get; set; }
         public string BaoHanh { get; set; }
-        public string ChiTiet { get; set; }
         public string TrangThai { get; set; }
     }
 }

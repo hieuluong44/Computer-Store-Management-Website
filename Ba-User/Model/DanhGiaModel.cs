@@ -7,6 +7,6 @@ namespace Model
 {
     public class DanhGiaModel
     {
-
+        
     }
 }

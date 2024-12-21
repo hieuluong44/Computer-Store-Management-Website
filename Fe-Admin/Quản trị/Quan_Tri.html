@@ -348,54 +348,6 @@
 							</div>
 						</div>
 					</div>
-					<div class="bottom-container">
-						<div class="prog-status">
-							<div class="header">
-								<h4>learning Progress</h4>
-								<div class="tabs">
-									<a href="#" class="active">1Y</a>
-									<a href="#">6M</a>
-									<a href="#">3M</a>
-								</div>
-							</div>
-				
-							<div class="details">
-								<div class="item">
-									<h2>3.45</h2>
-									<p>Current GPA</p>
-								</div>
-								<div class="separator"></div>
-								<div class="item">
-									<h2>4.78</h2>
-									<p>Class Average GPA</p>
-								</div>
-							</div>
-							<canvas class="prog-chart"></canvas>
-						</div>			
-						<div class="popular">
-							<div class="header">
-								<h4>Popular</h4>
-								<a href="#"># Data</a>
-							</div>
-				
-							<!-- <img src="assets/podcast.jpg"> -->
-							<div class="audio">
-								<i class='bx bx-podcast'></i>
-								<a href="#">Poedcast: Mastering Data Visualization</a>
-							</div>
-							<p>Learn to create compelling visualizations with data.</p>
-							<div class="listen">
-								<div class="author">
-									<!-- <img src="assets/profile.png"> -->
-									<div>
-										<a href="#">Alex</a>
-										<p>Data Analyst</p>
-									</div>
-								</div>
-								<button>Listen<i class='bx bx-right-arcolumn-alt'></i></button>
-							</div>		
-						</div>
-					</div>
 					<div class="map">
 						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.2610309563406!2d106.0599275922326!3d20.94202998855618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a30555555555%3A0x39a8acd006ab8e69!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBTxrAgUGjhuqFtIEvhu7kgVGh14bqtdCBIxrBuZyBZw6puLCBDxqEgc-G7nyAy!5e0!3m2!1svi!2s!4v1732110944979!5m2!1svi!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 					</div>
@@ -509,14 +461,18 @@
 											</th>
 											<th>STT</th>
 											<th>Mã đơn bán</th>
-											<th>Tên khách hàng</th>
+											<th>Mã người dùng</th>
+											<th>Tên người dùng</th>
+											<th>Họ tên người nhận</th>
+											<th>Số điện thoại người nhận</th>
+											<th>Địa chỉ người nhận</th>
 											<th>Giảm giá</th>
-											<th>Áp dụng</th>
+											<th>Tỷ lệ giảm</th>
 											<th>Ngày bán</th>
 											<th>Tổng tiền</th>
 											<th>Ghi chú</th>
 											<th>Trạng thái</th>
-											<th>Action</th>
+											<th>Hành động</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -527,9 +483,13 @@
 													   ng-model="item.selected" 
 													   ng-change="selectOnlyOne($index)">
 											</td>
-											<td>{{ ($index + 1) + (currentPageNguoiDung - 1) * pageSizeNguoiDung }}</td>
+											<td>{{ $index + 1 }}</td>
 											<td>{{ item.idDonBan }}</td>
+											<td>{{ item.idNguoiDung}}</td>
 											<td>{{ item.tenNguoiDung }}</td>
+											<td>{{ item.hoTenNguoiNhan }}</td>
+											<td>{{ item.soDienThoaiNguoiNhan }}</td>
+											<td>{{ item.soDienThoaiNguoiNhan}}</td>
 											<td>{{ item.noiDung }}</td>
 											<td>{{ item.tyLeGiam }}</td>
 											<td>{{ item.ngayBan }}</td>
@@ -537,14 +497,18 @@
 											<td>{{ item.ghiChu }}</td>
 											<td>
 												<select ng-model="item.trangThai" class="form-control" style="width: max-content;"
-														ng-options="status for status in ['Chờ xác nhận', 'Chờ lấy hàng', 'Đang vận chuyển', 'Trả hàng', 'Đã giao','Yêu cầu huỷ hàng', 'Đã huỷ']">
+														ng-options="status for status in ['Chờ xác nhận', 'Chờ lấy hàng', 'Đang vận chuyển', 'Trả hàng', 'Đã giao','Yêu cầu huỷ hàng', 'Đã huỷ']"
+														ng-disabled="item.trangThai === 'Đã huỷ'">
 												</select>
-											</td>
-											<td>
-												<button class="btn btn-primary" ng-click="updateStatus(item)">
-													Cập Nhật Trạng Thái
+											  </td>
+											  <td>
+												<button class="btn btn-primary" 
+														ng-click="updateStatus(item)"
+														ng-disabled="item.trangThai === 'Đã huỷ'">
+												  Cập Nhật Trạng Thái
 												</button>
-											</td>											
+											  </td>
+																					  
 										</tr>
 									</tbody>
 								</table>
@@ -1610,14 +1574,6 @@
 												ng-model="search.general" ng-change="updateFilteredHoaDonBan()" />
 										</label>
 									</div>
-									<div class="filter">
-										<label>Ngày Bán Từ:
-											<input type="date" class="form-control" ng-model="search.ngayBanStart" ng-change="updateFilteredHoaDonBan()" />
-										</label>
-										<label>Đến:
-											<input type="date" class="form-control" ng-model="search.ngayBanEnd" ng-change="updateFilteredHoaDonBan()" />
-										</label>
-									</div>
 								</form>
 							</div>
 
@@ -2073,21 +2029,23 @@
 				<div class="container">
 					<div class="title">
 						<h1>Thống kê & báo cáo</h1>
-                    </div>
+					</div>
 					<div class="body">
 						<div class="option">
+							<!-- Các tab để chọn thống kê -->
 							<button ng-click="setActiveTab('matHang')">Thống kê mặt hàng</button>
 							<button ng-click="setActiveTab('doanhThu')">Thống kê doanh thu</button>
 							<button ng-click="setActiveTab('hangTon')">Hàng tồn kho</button>
-	
+
+							<!-- Lọc theo ngày -->
 							<div class="op">
 								<form action="#">
 									<div class="filter" style="display: flex;">
 										<label>Từ ngày:
-										<input type="date" class="form-control" ng-model="startDate" />
+											<input type="date" class="form-control" ng-model="startDate" />
 										</label>
 										<label>Đến ngày:
-										<input type="date" class="form-control" ng-model="endDate" />
+											<input type="date" class="form-control" ng-model="endDate" />
 										</label>
 									</div>
 								</form>
@@ -2096,30 +2054,83 @@
 								<button class="btn-update" ng-click="filterReport()">Xem thống kê</button>
 							</div>
 						</div>
-						<!-- Foot: Dynamic content -->
+						
+						<!-- Nội dung thống kê động -->
 						<div class="foot">
+							<!-- Thống kê mặt hàng -->
 							<div ng-show="activeTab === 'matHang'" class="stat-content">
-								<h3>Thống kê mặt hàng</h3>
+								<h3>Thống kê mặt hàng bán chạy</h3>
 								<p>Danh sách các mặt hàng bán chạy...</p>
+								<!-- Đây có thể là bảng hoặc biểu đồ thống kê mặt hàng bán chạy -->
+								<table>
+									<thead>
+										<tr>
+											<th>Mặt hàng</th>
+											<th>Số lượng bán</th>
+											<th>Doanh thu</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="item in matHangData">
+											<td>{{item.name}}</td>
+											<td>{{item.sold}}</td>
+											<td>{{item.revenue | currency}}</td>
+										</tr>
+									</tbody>
+								</table>
 								<button class="btn-print" ng-click="printReport('matHang')">In báo cáo</button>
 							</div>
-	
+
+							<!-- Thống kê doanh thu -->
 							<div ng-show="activeTab === 'doanhThu'" class="stat-content">
 								<h3>Thống kê doanh thu</h3>
 								<p>Thông tin doanh thu theo thời gian...</p>
+								<!-- Doanh thu theo tháng hoặc theo ngày -->
+								<table>
+									<thead>
+										<tr>
+											<th>Ngày</th>
+											<th>Doanh thu</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="revenue in doanhThuData">
+											<td>{{revenue.date}}</td>
+											<td>{{revenue.amount | currency}}</td>
+										</tr>
+									</tbody>
+								</table>
 								<button class="btn-print" ng-click="printReport('doanhThu')">In báo cáo</button>
 							</div>
-	
+
+							<!-- Thống kê hàng tồn kho -->
 							<div ng-show="activeTab === 'hangTon'" class="stat-content">
 								<h3>Hàng tồn kho</h3>
 								<p>Danh sách hàng tồn kho...</p>
+								<!-- Danh sách mặt hàng trong kho -->
+								<table>
+									<thead>
+										<tr>
+											<th>Mặt hàng</th>
+											<th>Số lượng tồn</th>
+											<th>Giá trị tồn kho</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="item in hangTonData">
+											<td>{{item.name}}</td>
+											<td>{{item.stock}}</td>
+											<td>{{item.value | currency}}</td>
+										</tr>
+									</tbody>
+								</table>
 								<button class="btn-print" ng-click="printReport('hangTon')">In báo cáo</button>
 							</div>
 						</div>
 					</div>
-                    
 				</div>
 			</div>
+
 			
 		</div>
 	</div>

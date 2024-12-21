@@ -54,6 +54,7 @@ create table NguoiDung (
     IDNguoiDung varchar(10) primary key not null,
     HinhAnh varchar(Max) null,
     TenNguoiDung nvarchar(30) not null,
+	GioiTinh nvarchar(10) check (GioiTinh in (N'Nam', N'Nữ')),
     SoDienThoai varchar(10) not null UNIQUE,
     Email varchar(30) not null UNIQUE,
     MatKhau nvarchar(30) not null,
@@ -95,11 +96,14 @@ go
 
 create table HoaDonBan (
 	IDDonBan varchar(10) primary key not null,
-	IDNguoiDung varchar(10) not null,
+	IDNguoiDung varchar(10) null,
+	HoTenNguoiNhan nvarchar(50) not null,
+	SoDienThoaiNguoiNhan varchar(10) not null,
+	DiaChiNguoiNhan nvarchar(200) not null,
 	IDGiamGia varchar(10) null, 
 	NgayBan date not null,
 	TrangThai nvarchar(30) default N'Chờ xác nhận' check (TrangThai in (N'Chờ xác nhận', N'Chờ lấy hàng', N'Đang vận chuyển',N'Trả hàng',N'Đã giao', N'Yêu cầu huỷ hàng' ,N'Đã huỷ')) not null,
-	GhiChu nvarchar(100) not null,
+	GhiChu nvarchar(100) null,
 	TongTien float default 0,
 	foreign key(IDNguoiDung) references NguoiDung(IDNguoiDung),
 	foreign key(IDGiamGia) references GiamGia(IDGiamGia)
@@ -128,7 +132,6 @@ create table DanhGia (
 	foreign key(IDNguoiDung) references NguoiDung(IDNguoiDung)
 );
 go
-
 
 create table Kho (
     IDKho varchar(10) primary key not null,
@@ -592,7 +595,8 @@ INSERT INTO AnhMatHang (IDAnhMatHang, IDMatHang, DuongDan, ThuTu) values
 ('AMH0000076', 'MH00000067', 'Lenovo_Legion_Y7000P_2024.9.jpg', 9),
 ('AMH0000077', 'MH00000067', 'Lenovo_Legion_Y7000P_2024.10.jpg', 10),
 ('AMH0000078', 'MH00000067', 'Lenovo_Legion_Y7000P_2024.11.jpg', 11),
-('AMH0000079', 'MH00000067', 'Lenovo_Legion_Y7000P_2024.12.jpg', 12);
+('AMH0000079', 'MH00000067', 'Lenovo_Legion_Y7000P_2024.12.jpg', 12),
+('AMH0000080', 'MH00000023', 'Asus_TUF_Gaming_F15_2023.jpg', 1);
 
 INSERT INTO ThongSoKyThuat (IDThongSo, IDMatHang, TenThongSo, GiaTriThongSo) VALUES
 ('TS00000042', 'MH00000067', N'CPU', N'Intel® Core™ i7-13620H Processor 2.4 GHz (24M Cache, up to 4.9 GHz, 10 cores: 6 P-cores and 4 E-cores)'),
@@ -612,6 +616,27 @@ INSERT INTO ThongSoKyThuat (IDThongSo, IDMatHang, TenThongSo, GiaTriThongSo) VAL
 ('TS00000056', 'MH00000067', N'Trọng lượng', N'2.2 kg'),
 ('TS00000057', 'MH00000067', N'Màu sắc', N'Jaeger Gray'),
 ('TS00000058', 'MH00000067', N'Kích thước', N'35.4 x 25.1 x 2.24 ~ 2.49 cm');
+go
+
+INSERT INTO ThongSoKyThuat (IDThongSo, IDMatHang, TenThongSo, GiaTriThongSo) VALUES
+('TS00000059', 'MH00000040', N'Model', N'3020'),
+('TS00000060', 'MH00000040', N'Tốc độ in', N'lên đến 20 ppm'),
+('TS00000061', 'MH00000040', N'Chu kỳ nhiệm vụ', N'Lên đến 15.000 hình ảnh/tháng Công suất khối lượng tối đa dự kiến ​​trong bất kỳ tháng nào. Không dự kiến ​​sẽ duy trì thường xuyên.'),
+('TS00000062', 'MH00000040', N'Tốc độ xử lý', N'600MHz'),
+('TS00000063', 'MH00000040', N'Bộ nhớ in (chuẩn)', N'Tiêu chuẩn 128 MB'),
+('TS00000064', 'MH00000040', N'Kết nối', N'USB 2.0 tốc độ cao, Wi-Fi b/g/n'),
+('TS00000065', 'MH00000040', N'Độ phân giải in tối đa', N'600 x 600 dpi (chất lượng hình ảnh được nâng cao lên đến 1200 x 1200)'),
+('TS00000066', 'MH00000040', N'Thời gian in trang đầu tiên', N'Nhanh tới 8,5 giây'),
+('TS00000067', 'MH00000040', N'Ngôn ngữ mô tả trang (PDL)', N'GDI'),
+('TS00000068', 'MH00000040', N'Tính năng in', N'Trình điều khiển hai chiều, In sách nhỏ, Điều chỉnh độ sáng, Điều chỉnh độ tương phản, Kích thước trang tùy chỉnh, Làm nổi bật cạnh, Vừa với trang, Giám sát công việc, N-up, Chọn giấy theo thuộc tính, In áp phích, Thứ tự in, Thu nhỏ/Phóng to, Tỷ lệ, Bỏ qua trang trống, Lưu trữ và Gọi lại cài đặt trình điều khiển, Chế độ tiết kiệm mực, Hình mờ'),
+('TS00000069', 'MH00000040', N'In ấn di động', N'Apple® AirPrint®'),
+('TS00000070', 'MH00000040', N'Đầu ra hai mặt', N'Thủ công'),
+('TS00000071', 'MH00000040', N'Hỗ trợ hệ điều hành', N'Debian 5.0-7.1, Fedora 11-19, Mac OS ® 10.5-10.9, Mint 13-15, Red Hat Enterprise Linux 5, 6, SUSE Linux Enterprise Desktop 10, 11, Ubuntu 10.04-13.04, Windows Server 2012, Windows ® 2003 Server, Windows ® 2008 Server, Windows ® 7, Windows ® 8, Windows ® Vista, Windows ® XP, openSUSE 11.0-12.3'),
+('TS00000072', 'MH00000040', N'Sức chứa giấy', N'Khay (Khay chính): 150 tờ
+Khay (Khe nạp giấy thủ công): 1 tờ'),
+('TS00000073', 'MH00000040', N'Công suất đầu ra', N'100 tờ'),
+('TS00000074', 'MH00000040', N'Tính năng bảo mật', N'IPSec, IPv4, IPv6, Lọc địa chỉ Mac, SNMPv3, Vô hiệu hóa cổng USB, WPA2 Cá nhân'),
+('TS00000075', 'MH00000040', N'Nhiệt độ (hoạt động)', N'Nhiệt độ (hoạt động)');
 go
 
 
@@ -748,18 +773,19 @@ INSERT INTO ThongSoKyThuat (IDThongSo, IDMatHang, TenThongSo, GiaTriThongSo) VAL
 go
 
 -- Bảng người dùng
-insert into NguoiDung (IDNguoiDung, HinhAnh, TenNguoiDung, SoDienThoai, Email, MatKhau, VaiTro) values
-('ND00000000','hieu.jpg', N'Lương Công Hiếu', 0123912811, 'Hieuluong@gmail.com','123', N'Quản trị viên'),
-('ND00000001','Minh.jpg', N'Lý Văn Minh', 0282431812, 'LyMinh@gmail.com', '123', N'Khách hàng'),
-('ND00000002','Quynh.jpg', N'Đỗ Thị Quỳnh', 0182123813, 'Quynh@gmail.com','456', N'Khách hàng'),
-('ND00000003','Xuan.jpg', N'Đỗ Thị Xuân', 0431912814, 'DoXuan@gmail.com','p789', N'Khách hàng'),
-('ND00000004','PLinh.jpg', N'Nguyễn Phương Linh', 0212912815, 'PLinh@gmail.com','abc123', N'Khách hàng'),
-('ND00000005','DLinh.jpg', N'Bùi Diệu Linh', 02812912816, 'DieuLinh@gmail.com', 'xyz123', N'Khách hàng'),
-('ND00000006', 'Truong.jpg' , N'Đinh Thiên Trường', 0281912817, 'Truong@gmail.com','qwe123', N'Khách hàng'),
-('ND00000007','TrangDinh.jpg', N'Đinh Thị Huyển Trang', 04932912528, 'TrangDinh@gmail.com','ert123', N'Khách hàng'),
-('ND00000008','Quan.jpg', N'Đào Anh Quân', 0182412819, 'Quan@gmail.com','yui123', N'Khách hàng'),
-('ND00000009','HieuNguyen.jpg', N'Nguyễn Văn Hiếu', 0182831242, 'HieuNguyen@gmail.com', 'poi123', N'Khách hàng'),
-('ND00000010','TrangNguyen.jpg', N'Nguyễn Thị Huyền Trang', 0181441242, 'Trang@gmail.com','3123', N'Khách hàng');
+INSERT INTO NguoiDung (IDNguoiDung, HinhAnh, TenNguoiDung, GioiTinh, SoDienThoai, Email, MatKhau, VaiTro) 
+VALUES
+('ND00000000', 'hieu.jpg', N'Lương Công Hiếu', N'Nam', 0123912811, 'Hieuluong@gmail.com', '123', N'Quản trị viên'),
+('ND00000001', 'Minh.jpg', N'Lý Văn Minh', N'Nam', 0282431812, 'LyMinh@gmail.com', '123', N'Khách hàng'),
+('ND00000002', 'Quynh.jpg', N'Đỗ Thị Quỳnh', N'Nữ', 0182123813, 'Quynh@gmail.com', '456', N'Khách hàng'),
+('ND00000003', 'Xuan.jpg', N'Đỗ Thị Xuân', N'Nữ', 0431912814, 'DoXuan@gmail.com', 'p789', N'Khách hàng'),
+('ND00000004', 'PLinh.jpg', N'Nguyễn Phương Linh', N'Nữ', 0212912815, 'PLinh@gmail.com', 'abc123', N'Khách hàng'),
+('ND00000005', 'DLinh.jpg', N'Bùi Diệu Linh', N'Nữ', 02812912816, 'DieuLinh@gmail.com', 'xyz123', N'Khách hàng'),
+('ND00000006', 'Truong.jpg', N'Đinh Thiên Trường', N'Nam', 0281912817, 'Truong@gmail.com', 'qwe123', N'Khách hàng'),
+('ND00000007', 'TrangDinh.jpg', N'Đinh Thị Huyển Trang', N'Nữ', 04932912528, 'TrangDinh@gmail.com', 'ert123', N'Khách hàng'),
+('ND00000008', 'Quan.jpg', N'Đào Anh Quân', N'Nam', 0182412819, 'Quan@gmail.com', 'yui123', N'Khách hàng'),
+('ND00000009', 'HieuNguyen.jpg', N'Nguyễn Văn Hiếu', N'Nam', 0182831242, 'HieuNguyen@gmail.com', 'poi123', N'Khách hàng'),
+('ND00000010', 'TrangNguyen.jpg', N'Nguyễn Thị Huyền Trang', N'Nữ', 0181441242, 'Trang@gmail.com', '3123', N'Khách hàng');
 go
 
 -- Bảng nhà cung
@@ -810,20 +836,21 @@ insert into ChiTietDonNhap (IDChiTietDonNhap, IDDonNhap, IDMatHang, SoLuong, Gia
 go
 
 -- Bảng đơn bán
-insert into HoaDonBan (IDDonBan, IDNguoiDung, IDGiamGia,  NgayBan, TrangThai, GhiChu, TongTien) values
-('DB00000001', 'ND00000001',null,  '2024-10-01', N'Chờ xác nhận', N'Đơn hàng đầu tiên',0),
-('DB00000002', 'ND00000002','GG19283740', '2024-10-02', N'Chờ lấy hàng', N'Khách hàng đã thanh toán',0),
-('DB00000003', 'ND00000003','GG84920380', '2024-10-03', N'Đang vận chuyển', N'Đang trên đường giao hàng',0),
-('DB00000004', 'ND00000004', 'GG10293840', '2024-10-04', N'Trả hàng', N'Khách hàng đã yêu cầu trả hàng',0),
-('DB00000005', 'ND00000005', 'GG10293840', '2024-10-05', N'Đã giao', N'Đơn hàng đã được giao thành công',0),
-('DB00000006', 'ND00000006', null, '2024-10-06', N'Chờ xác nhận', N'Chờ xác nhận từ người bán',0),
-('DB00000007', 'ND00000007','GG20394850', '2024-10-07', N'Chờ lấy hàng', N'Khách hàng đã sẵn sàng lấy hàng',0),
-('DB00000008', 'ND00000008','GG38492010', '2024-10-08', N'Đang vận chuyển', N'Vận chuyển đang trong quá trình',0),
-('DB00000009', 'ND00000009','GG48291020', '2024-10-09', N'Đã giao', N'Đơn hàng đã được nhận',0),
-('DB00000010', 'ND00000009', 'GG49502390','2024-10-10', N'Đã huỷ', N'Khách hàng đã hủy đơn hàng',0),
-('DB00000011', 'ND00000005', null,'2024-10-10', N'Yêu cầu huỷ hàng', N'Không còn nhu cầu mua',0),
-('DB00000012', 'ND00000006', 'GG49502390','2024-10-10', N'Yêu cầu huỷ hàng', N'Muốn mua thêm',0),
-('DB00000013', 'ND00000002', 'GG49502390','2024-10-10', N'Yêu cầu huỷ hàng', N'Không thích',0);
+INSERT INTO HoaDonBan (IDDonBan, IDNguoiDung, HoTenNguoiNhan, SoDienThoaiNguoiNhan, DiaChiNguoiNhan, IDGiamGia, NgayBan, TrangThai, GhiChu, TongTien) 
+VALUES
+('DB00000001', 'ND00000001', N'Lương Công Hiếu', '012391281', N'123 Đường A, TP.HCM', null, '2024-10-01', N'Chờ xác nhận', N'Đơn hàng đầu tiên', 0),
+('DB00000002', 'ND00000002', N'Lý Văn Minh', '028243182', N'456 Đường B, TP.HCM', 'GG19283740', '2024-10-02', N'Chờ lấy hàng', N'Khách hàng đã thanh toán', 0),
+('DB00000003', 'ND00000003', N'Đỗ Thị Quỳnh', '018212383', N'789 Đường C, TP.HCM', 'GG84920380', '2024-10-03', N'Đang vận chuyển', N'Đang trên đường giao hàng', 0),
+('DB00000004', 'ND00000004', N'Nguyễn Phương Linh', '022912815', N'101 Đường D, TP.HCM', 'GG10293840', '2024-10-04', N'Trả hàng', N'Khách hàng đã yêu cầu trả hàng', 0),
+('DB00000005', 'ND00000005', N'Bùi Diệu Linh', '0281291216', N'202 Đường E, TP.HCM', 'GG10293840', '2024-10-05', N'Đã giao', N'Đơn hàng đã được giao thành công', 0),
+('DB00000006', 'ND00000006', N'Đinh Thiên Trường', '028192817', N'303 Đường F, TP.HCM', null, '2024-10-06', N'Chờ xác nhận', N'Chờ xác nhận từ người bán', 0),
+('DB00000007', 'ND00000007', N'Đinh Thị Huyển Trang', '0492912528', N'404 Đường G, TP.HCM', 'GG20394850', '2024-10-07', N'Chờ lấy hàng', N'Khách hàng đã sẵn sàng lấy hàng', 0),
+('DB00000008', 'ND00000008', N'Đào Anh Quân', '018241219', N'505 Đường H, TP.HCM', 'GG38492010', '2024-10-08', N'Đang vận chuyển', N'Vận chuyển đang trong quá trình', 0),
+('DB00000009', 'ND00000009', N'Nguyễn Văn Hiếu', '018231242', N'606 Đường I, TP.HCM', 'GG48291020', '2024-10-09', N'Đã giao', N'Đơn hàng đã được nhận', 0),
+('DB00000010', 'ND00000009', N'Nguyễn Văn Hiếu', '018231242', N'606 Đường I, TP.HCM', 'GG49502390', '2024-10-10', N'Đã huỷ', N'Khách hàng đã hủy đơn hàng', 0),
+('DB00000011', 'ND00000005', N'Bùi Diệu Linh', '0281291816', N'202 Đường E, TP.HCM', null, '2024-10-10', N'Yêu cầu huỷ hàng', N'Không còn nhu cầu mua', 0),
+('DB00000012', 'ND00000006', N'Đinh Thiên Trường', '021912817', N'303 Đường F, TP.HCM', 'GG49502390', '2024-10-10', N'Yêu cầu huỷ hàng', N'Muốn mua thêm', 0),
+('DB00000013', 'ND00000002', N'Đỗ Thị Quỳnh', '018212313', N'789 Đường C, TP.HCM', 'GG49502390', '2024-10-10', N'Yêu cầu huỷ hàng', N'Không thích', 0);
 go
 
 -- Bảng chi tiết đơn bán

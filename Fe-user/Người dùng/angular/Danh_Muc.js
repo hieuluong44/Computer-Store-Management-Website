@@ -32,10 +32,9 @@ app.controller('DanhMucController', function($scope, $http) {
             .then(function(response) {
                 console.log("Danh mục con từ API:", response.data);
                 if (response.data && response.data.length > 0) {
-                    // Lưu danh mục con
+
                     $scope.danhMucCon[idDanhMucCha] = response.data;
     
-                    // Gọi callback để xử lý danh mục cháu
                     if (callback) callback();
                 } else {
                     console.log("Không có danh mục con cho danh mục cha ID:", idDanhMucCha);
@@ -49,17 +48,16 @@ app.controller('DanhMucController', function($scope, $http) {
     
 
     $scope.loadDanhMucChau = function(idDanhMucCha) {
-        // Kiểm tra xem danh mục con có tồn tại không
+
         const danhMucConList = $scope.danhMucCon[idDanhMucCha];
         if (!danhMucConList) return;
     
-        // Lặp qua từng danh mục con để lấy danh mục cháu
         danhMucConList.forEach(function(danhMucCon) {
             $http.get(`http://localhost:5156/api/DanhMucControllers/Get_DanhMucChau/${danhMucCon.idDanhMucCon}`)
                 .then(function(response) {
                     console.log(`Danh mục cháu cho ${danhMucCon.idDanhMucCon}:`, response.data);
                     if (response.data) {
-                        // Lưu danh mục cháu
+                        
                         $scope.danhMucChau[danhMucCon.idDanhMucCon] = response.data;
                     }
                 }, function(error) {

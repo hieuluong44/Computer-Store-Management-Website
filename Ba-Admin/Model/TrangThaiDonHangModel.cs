@@ -9,7 +9,11 @@ namespace Model
     public class TrangThaiDonHangModel
     {
         public string IDDonBan { get; set; }
+        public string IDNguoiDung {  get; set; }
         public string TenNguoiDung {  get; set; }
+        public string HoTenNguoiNhan {  get; set; }
+        public string SoDienThoaiNguoiNhan { get; set; }
+        public string DiaChiNguoiNhan { get; set; }
         public string NoiDung {  get; set; }
         public float TyLeGiam { get;set; }
         public DateTime NgayBan { get; set; }

@@ -38,9 +38,6 @@ app.controller("ChiTietMatHang", function ($scope, $http) {
         $http.get(`http://localhost:5156/api/ChiTietMatHangControllers/GetChiTiet_MatHangs/${selectedProductID}`)
             .then(function (response) {
                 $scope.product = response.data;
-                if ($scope.product.donGia) {
-                    $scope.product.giaBanFormatted = parseFloat($scope.product.donGia).toLocaleString("vi-VN");
-                }
             }, console.error);
     } else {
         console.error("Không tìm thấy sản phẩm");
@@ -56,41 +53,35 @@ app.controller("ChiTietMatHang", function ($scope, $http) {
 
     function addToCart(product) {
         const allCarts = JSON.parse(localStorage.getItem("cart")) || {};
-        const userID = localStorage.getItem("userID") || "guest"; 
-        const cart = allCarts[userID] || [];
+        const userID = localStorage.getItem("userID") || "guest";
+        let cart = allCarts[userID] || [];
       
-        // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
         const existingProductIndex = cart.findIndex(p => p.idMatHang === product.idMatHang);
       
+
+        // Nếu sản phẩm đã có
         if (existingProductIndex !== -1) {
-          // Nếu sản phẩm đã có, tăng số lượng
-          cart[existingProductIndex].quantity += product.quantity;
-        } else {
-          // Nếu chưa có, thêm mới sản phẩm vào giỏ hàng
+          cart[existingProductIndex].quantity++;
+        } 
+
+
+        // Nếu sản phẩm chưa có
+        else {
+          product.quantity = 1;  
           cart.push(product);
         }
       
-        // Lưu lại giỏ hàng vào localStorage
         allCarts[userID] = cart;
         localStorage.setItem("cart", JSON.stringify(allCarts));
       
-        console.log("Giỏ hàng sau khi thêm sản phẩm: ", cart);
-        displayCart();  // Cập nhật lại giỏ hàng
-      }
-      
-
-    function updateCartQuantity(userID) {
-        const allCarts = JSON.parse(localStorage.getItem("cart")) || {};
-        const cart = allCarts[userID] || [];
-        const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
-        const cartQuantityElement = document.getElementById("cart-quantity");
-        if (cartQuantityElement) {
-            cartQuantityElement.textContent = totalQuantity;
-        }
+        displayCart();
+        updateCartQuantity(userID);
     }
-
-    document.getElementById("buy-now").addEventListener("click", function (event) {
-        event.preventDefault();
+      
+      
+    
+    // Gọi hàm sau khi thêm vào giỏ hàng
+    $scope.buyNow = function () {
         const product = {
             img: $scope.product.duongDan,
             name: $scope.product.tenMatHang,
@@ -100,5 +91,8 @@ app.controller("ChiTietMatHang", function ($scope, $http) {
             quantity: 1,
         };
         addToCart(product);
-    });
+        updateCartQuantity();
+        showToast('success', 'Sản phẩm đã được thêm vào giỏ hàng!');
+    };
+    
 });

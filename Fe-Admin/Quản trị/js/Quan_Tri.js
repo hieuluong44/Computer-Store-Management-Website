@@ -37,7 +37,7 @@ menuItems.forEach(item => {
 document.addEventListener("DOMContentLoaded", function() {
     const buttons = document.querySelectorAll(".button");
     const tabs = document.querySelectorAll(".tab-content"); 
-    const homeDiv = document.querySelector("#BanHang"); 
+    const homeDiv = document.querySelector("#Home"); 
 
     if (homeDiv) {
         homeDiv.style.display = "block"; 

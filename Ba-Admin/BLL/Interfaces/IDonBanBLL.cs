@@ -12,7 +12,6 @@ namespace BLL.Interfaces
         bool CapNhatTrangThai(CapNhatTrangThai trangThaiDonHangModel);
 
         List<getDonBan> GetALL();
-        bool Create(DonBanModel donBanModel);
         bool Update(DonBanModel donBanModel);
         bool Delete(string IDDonBan);
     }

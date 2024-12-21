@@ -1,26 +1,43 @@
 app.controller('ThongKeController', function($scope) {
-    // Tab đang được kích hoạt
-    $scope.activeTab = 'matHang'; // Mặc định là thống kê mặt hàng
-
-    // Thay đổi tab
-    $scope.setActiveTab = function(tabName) {
-        $scope.activeTab = tabName;
-    };
-
-    // Hàm in báo cáo
-    $scope.printReport = function(tabName) {
-        switch(tabName) {
-            case 'matHang':
-                alert('In báo cáo thống kê mặt hàng.');
-                break;
-            case 'doanhThu':
-                alert('In báo cáo thống kê doanh thu.');
-                break;
-            case 'hangTon':
-                alert('In báo cáo hàng tồn kho.');
-                break;
-            default:
-                alert('Không tìm thấy báo cáo.');
-        }
-    };
+    app.controller('ThongKeController', ['$scope', function($scope) {
+        $scope.activeTab = 'matHang'; // Tab mặc định
+        $scope.startDate = '';
+        $scope.endDate = '';
+    
+        // Dữ liệu ví dụ
+        $scope.matHangData = [
+            {name: 'Mặt hàng 1', sold: 100, revenue: 100000},
+            {name: 'Mặt hàng 2', sold: 80, revenue: 80000},
+            {name: 'Mặt hàng 3', sold: 120, revenue: 120000}
+        ];
+    
+        $scope.doanhThuData = [
+            {date: '2024-12-01', amount: 500000},
+            {date: '2024-12-02', amount: 600000}
+        ];
+    
+        $scope.hangTonData = [
+            {name: 'Mặt hàng 1', stock: 50, value: 50000},
+            {name: 'Mặt hàng 2', stock: 30, value: 30000}
+        ];
+    
+        // Chọn tab hiện tại
+        $scope.setActiveTab = function(tab) {
+            $scope.activeTab = tab;
+        };
+    
+        // Lọc báo cáo theo ngày
+        $scope.filterReport = function() {
+            // Áp dụng lọc theo startDate và endDate
+            console.log('Lọc từ ngày:', $scope.startDate, 'đến ngày:', $scope.endDate);
+            // Gọi API để lấy dữ liệu đã lọc nếu cần
+        };
+    
+        // In báo cáo
+        $scope.printReport = function(tab) {
+            console.log('In báo cáo cho tab:', tab);
+            // Implement logic for printing the report
+        };
+    }]);
+    
 });

@@ -17,30 +17,6 @@ namespace DAL
         {
             databaseHelper = baseHelper;
         }
-        public bool Create(DonBanModel donBanModel)
-        {
-            try
-            {
-                var result = databaseHelper.ExecuteSProcedure("Tao_HoaDonBan_ChiTietBan",
-                    "@IDDonBan", donBanModel.IDDonBan,
-                    "@IDNguoiDung ", donBanModel.IDNguoiDung,
-                    "@IDGiamGia" , donBanModel.IDGiamGia,
-                    "@Ngayban", donBanModel.NgayBan,
-                    "@TrangThai", donBanModel.TrangThai,
-                    "@GhiChu", donBanModel.GhiChu,
-                    "@TongTien", donBanModel.TongTien,
-                    "@listChiTienBan", donBanModel.listChiTienBan != null ? MessageConvert.SerializeObject(donBanModel.listChiTienBan) : null);
-                if (result != null && !string.IsNullOrEmpty(result.ToString()))
-                {
-                    throw new Exception(result.ToString());
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
 
         public bool Delete(string IDDonBan)
         {

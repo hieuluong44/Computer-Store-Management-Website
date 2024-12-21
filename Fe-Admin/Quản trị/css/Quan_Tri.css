@@ -216,11 +216,6 @@ img{
     text-align: left; 
 }
 
-#left .menu-content .bi{
-    display: none; 
-}
-
-#left:hover .menu-content .bi {display: block;}
 #left:hover .menu-content span, 
 #left:hover .content .title {
     opacity: 1; 
@@ -1446,6 +1441,7 @@ video {
 
 #Home .status .items-list{
     display: flex;
+    margin-bottom: 10px;
     align-items: center;
     gap: 14px;
 }

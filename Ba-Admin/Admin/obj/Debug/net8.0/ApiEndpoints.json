@@ -391,28 +391,6 @@
   },
   {
     "ContainingType": "API.Controllers.DonBanControllers",
-    "Method": "Create",
-    "RelativePath": "api/DonBanControllers/Create",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "donBan",
-        "Type": "Model.DonBanModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "API.Controllers.DonBanControllers",
     "Method": "Delete",
     "RelativePath": "api/DonBanControllers/Delete/{IDDonBan}",
     "HttpMethod": "DELETE",

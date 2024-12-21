@@ -165,84 +165,54 @@
         </ul>
     </div>
     </div>   
-      <div class="Cart">
-        <div class="frame">
+    <div class="Cart" ng-controller="DatHangController">
+      <div class="frame">
           <div class="cart-head">
-            <div class="cart-list">
-              <div class="table">
-              </div>
-              <div class="Voucher" ng-controller="GiamGiacontroller">
-                <div class="Voucher-container" ng-click="toggleVoucherList()">
-                    <i class="bi bi-ticket-perforated"></i>
-                    <h2>Sử dụng mã giảm giá</h2>
-                    <i class="bi bi-arrow-down-short" ng-class="{'rotate': showVoucherList}"></i>
-                </div>
-                <div class="voucher-card" ng-repeat ="voucher in ListGiamGia">
-                  <div class="voucher-header">
-                      <img ng-src="{{voucher.HinhAnh}}" alt="Voucher Image" class="voucher-icon">
-                      <div class="voucher-info">
-                          <h3>{{voucher.noiDung}}</h3>
-                          <p>Áp dụng giảm giá: {{voucher.tyLeGiam}}%</p>
-                          <p class="voucher-validity">HSD: {{voucher.ngayKetThuc | date:'dd/MM/yyyy'}}</p>
-                      </div>
-                  </div>
-                  <div class="voucher-footer">
-                      <button ng-click="applyVoucher(voucher)" class="apply-btn">Áp dụng</button>
+              <div class="cart-list">
+                  <div class="table">
+                      <ul>
+                          <!-- Lặp qua các mặt hàng trong giỏ -->
+                          <li ng-repeat="item in cartItems">
+                              <input type="checkbox" ng-model="item.selected" ng-change="updateSelectedItems()" /> 
+                              {{item.name}} - {{item.newprice}} VNĐ
+                          </li>
+                      </ul>
                   </div>
               </div>
-              
-              </div>            
-            </div>
-           
-            <div class="shoping__checkout">
-              <h5>Tổng giỏ hàng</h5>
+  
+              <!-- Thông tin khách hàng và hình thức thanh toán như trước -->
+              <div class="order-form">
+                  <!-- Thông tin khách hàng -->
+                  <div class="section customer">
+                      <h3>1. Thông tin khách hàng</h3>
+                      <input class="form-control" type="text" placeholder="Họ tên người nhận" ng-model="orderInfo.hoTenNguoiNhan" />
+                      <input class="form-control" type="tel" placeholder="Số điện thoại người nhận" ng-model="orderInfo.soDienThoaiNguoiNhan" />
+                      <textarea class="form-control" placeholder="Địa chỉ" ng-model="orderInfo.diaChiNguoiNhan"></textarea>
+                      <textarea class="form-control" placeholder="Ghi chú" ng-model="orderInfo.ghiChu"></textarea>
+                  </div>
+  
+                  <!-- Hình thức thanh toán -->
+                  <div class="section pay">
+                      <h3>2. Hình thức thanh toán</h3>
+                      <label><input type="radio" name="payment" value="COD" ng-model="orderInfo.hinhThucThanhToan" checked /> Thanh toán khi nhận hàng</label>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Chi tiết giỏ hàng -->
+          <div class="shoping__checkout">
               <ul>
-                <li>Số lượng hàng<span>0</span></li>
-                <li>Giảm giá<span id="deal">100000</span></li>
-                <li>Tổng thanh toán<span>0</span></li>
+                  <li>Số lượng hàng<span>{{orderInfo.soluongHang}}</span></li>
+                  <li>Giảm giá<span id="deal">{{orderInfo.giamGia}}</span></li>
+                  <li>Tổng thanh toán<span class="total-payment">{{orderInfo.tongThanhToan}}</span></li>
               </ul>
-              <a href="#" class="primary-btn">THANH TOÁN</a>
-            </div>
+              <a href="#" class="primary-btn" ng-click="placeOrder()">ĐẶT HÀNG NGAY</a>
           </div>
-
-          <!-- Thông tin khách hàng -->
-          <div class="order-form">
-            <!-- Thông tin khách hàng -->
-            <div class="section customer">
-              <h3>1. Thông tin khách hàng</h3>
-              <input type="text" placeholder="Họ tên" />
-              <input type="email" placeholder="Email" />
-              <input type="tel" placeholder="Số điện thoại" />
-              <select>
-                <option>--Chọn Tỉnh/TP--</option>
-                <option>Hà Nội</option>
-                <option>TP.Hồ Chí Minh</option>
-                <option>Đà Nẵng</option>
-              </select>
-              <textarea placeholder="Địa chỉ"></textarea>
-              <textarea placeholder="Ghi chú"></textarea>
-            </div>
-          
-            <!-- Hình thức thanh toán -->
-            <div class="section pay">
-              <h3>2. Hình thức thanh toán</h3>
-              <label><input type="radio" name="payment" value="COD" checked /> Thanh toán khi nhận hàng</label>
-              <label><input type="radio" name="payment" value="Bank" /> Chuyển khoản</label>
-
-            <!-- Hình thức vận chuyển -->
-              <h3>4. Hình thức vận chuyển</h3>
-              <label><input type="radio" name="delivery" value="normal" checked /> Giao hàng bình thường</label>
-              <label><input type="radio" name="delivery" value="normal" checked /> Giao hàng hoả tốc</label>
-              <label><input type="radio" name="delivery" value="normal" checked /> Giao hàng nhanh</label>
-              <button class="submit-button">Gửi đơn hàng</button>
-
-            </div>
-          
-            <!-- Nút gửi -->
-          </div>
-          
-        </div>
-    </div>
+      </div>
+  </div>
+  
+  
+  
     <footer>
         <div class="footer-container">
           <div class="footer-section">
@@ -322,11 +292,15 @@
             </div>
         </div>
     </footer>
+
+    <ul class="notifications"></ul>
     <script src="angular/angular.js"></script>
     <script src="angular/Trang_Chu.js"></script>
+    
     <script src="angular/ChiTiet_SanPham.js"></script>
+    <script src="angular/Gio_Hang.js"></script>
+
     <script src="angular/Giam_Gia.js"></script>
-    <script src="js/Trang_Chu.js"></script>
     <script src="js/Gio_Hang.js"></script>
   </body>
 </html>

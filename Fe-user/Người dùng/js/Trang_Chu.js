@@ -5,7 +5,6 @@
     const backButton = document.getElementById('backImg');
     const dots = document.querySelectorAll('#dots li');
     let currentIndex = 0;
-    console.log(images); // Kiểm tra xem images có phần tử nào không
 
     function showImage(index) {
         images.forEach((img, i) => {
@@ -21,7 +20,6 @@
         showImage(currentIndex);
     }
 
-    // Sự kiện cho các nút điều khiển
     backButton.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + images.length) % images.length;
         showImage(currentIndex);
@@ -36,7 +34,6 @@
         });
     });
 
-    // Chạy slider tự động
     setInterval(nextImage, 5000);
     showImage(currentIndex);
 })();
@@ -77,7 +74,7 @@
 
             setInterval(() => {
                 nextButtons[buttonIndex].click();
-            }, 5000);
+            }, 3000);
 
             updateSlidePosition();
         });
@@ -87,32 +84,3 @@
     handleSlide(productSlides2, 4, 0); 
 })();
 
-
-
-// ---------------------------------------------Phần tuyết rơi--------------------------------------
-
-const snowContainer = document.querySelector('.snow-container');
-
-function createSnowflake() {
-    const snowflake = document.createElement('div');
-    snowflake.classList.add('snowflake');
-    snowflake.innerHTML = '❄';
-
-    // Kích thước và vị trí ngẫu nhiên
-    const size = Math.random() * 20 + 10; // Kích thước từ 10px đến 30px
-    const positionX = Math.random() * window.innerWidth;
-
-    snowflake.style.left = `${positionX}px`;
-    snowflake.style.fontSize = `${size}px`;
-    snowflake.style.animationDuration = `${Math.random() * 2 + 10}s`; 
-
-    snowContainer.appendChild(snowflake);
-
-    // Xóa bông tuyết sau khi hoàn thành
-    setTimeout(() => {
-        snowflake.remove();
-    }, 5000);
-}
-
-// Tạo bông tuyết liên tục
-setInterval(createSnowflake, 100);

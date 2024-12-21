@@ -38,6 +38,8 @@ builder.Services.AddTransient<ITaiKhoanBLL, TaiKhoanBLL>();
 builder.Services.AddTransient<ITaiKhoanDAL, TaiKhoanDAL>();
 builder.Services.AddTransient<IChiTietMatHangBLL, ChiTietMatHangBLL>();
 builder.Services.AddTransient<IChiTietMatHangDAL, ChiTietMatHangDAL>();
+builder.Services.AddTransient<IDonDatHangBLL, DonDatHangBLL>();
+builder.Services.AddTransient<IDonDatHangDAL, DonDatHangDAL>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

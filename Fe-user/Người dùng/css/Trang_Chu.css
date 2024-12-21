@@ -73,7 +73,7 @@ i.fab {
   font-size: 15px;
   border-radius: 5px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-  z-index: 3;
+  z-index: 4;
   transition: all 0.3s ease;
   pointer-events: none;
 }
@@ -83,7 +83,7 @@ i.fab {
 .content:hover .dropdown-content {
   opacity: 1;
   transform: translateX(0);
-  z-index: 3;
+  z-index: 4;
   pointer-events: auto;
 }
 
@@ -942,18 +942,22 @@ marquee {
 
 .product-item a {
   text-decoration: none;
-  overflow: hidden;
-  text-align: left;
+    overflow: hidden;
+    justify-content: center;
+    display: flex;
+    text-align: center;
 }
 
 .product-item .img {
   width: 100%;
   overflow: hidden;
+  height: 200px;
 }
 
 .product-item img {
-  height: 200px;
-  width: 100%;
+  width: 80%;
+  padding:  10px;
+  height: 170px;
 }
 
 .Product:hover #next,.Product:hover #back{

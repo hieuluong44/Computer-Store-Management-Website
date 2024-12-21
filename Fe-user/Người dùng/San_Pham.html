@@ -97,14 +97,14 @@
                   </div>
               </a>       
               <a href="Gio_Hang.html">
-                  <div class="cart">
-                      <i class="bi bi-cart2"></i>
-                      <div class="cart-badge">
-                          <span>0</span>
-                      </div>
-                      <span class="cart-text">Giỏ hàng</span>
-                  </div>
-              </a>
+                <div class="cart">
+                    <i class="bi bi-cart2"></i>
+                    <div class="cart-badge">
+                        <span>{{ cartQuantity || 0 }}</span>
+                    </div>
+                    <span class="cart-text">Giỏ hàng</span>
+                </div>
+              </a>            
               <div class="login-section" ng-controller="UserCtrl">
                 <i class="fas fa-user-circle"></i>
                 <span class="login-text">{{ TenNguoiDung }}</span>
@@ -184,7 +184,7 @@
             <div id="column-1">
               <div class="content-1">
                 <div id="main-image">
-                  <img id="large-image" ng-src="{{ product.duongDan }}" alt="Ảnh sản phẩm">
+                  <img id="large-image" ng-src="{{ './Item/' +  product.duongDan }}" alt="Ảnh sản phẩm">
                 </div>
                 <div id="carousel-wrapper">
                   <i class="bi bi-arrow-left-short" id="prev-btn"></i>
@@ -225,7 +225,7 @@
                   <div class="infor-item">
                       <div class="price">
                         <span id="deal">
-                          <span id="new-prices">{{  product.giaBanFormatted }}</span>
+                          <span id="new-prices">{{ product.donGia | currency:'':'':'1.0-0' }}</span>
                           <span>đ</span>
                       </span>                      
                       </div>
@@ -238,10 +238,10 @@
                           <span class="status-quantity">{{ product.trangThai }}</span>
                       </div>
                       <a id="Chi-tiet" href="#Muc-tieu">Xem chi tiết cấu hình</a>
-                      <a id="buy-now" href="San_Pham.html">
-                          <h3>Mua ngay</h3>
-                          <span>Giao tận nơi hoặc nhận ở cửa hàng</span>
-                      </a>
+                      <a id="buy-now" href="#" ng-click="buyNow(product)">
+                        <h3>Mua ngay</h3>
+                        <span>Giao tận nơi hoặc nhận ở cửa hàng</span>
+                      </a>                      
                   </div>
                   <div class="free-gift">
                       <div class="promotion">
@@ -273,7 +273,7 @@
                 <h3>Thông số kỹ thuật</h3>
               </div>
               <div id="content-tab" >
-                <p><span>Thông số kỹ thuật Lenovo Legion Y7000P 2024</span></p>
+                <p><span>Thông số kỹ thuật {{ product.tenMatHang }}</span></p>
                 <table style="border: 1px solid #dee2e6">
                   <tbody>
                     <tr ng-repeat = "item in listThongSo" ng-class="{'even-row': $index % 2 === 0, 'odd-row': $index % 2 !== 0}">
@@ -519,8 +519,9 @@
     <script src="angular/angular.js"></script>
     <script src="angular/Trang_Chu.js"></script>
     <script src="angular/ChiTiet_SanPham.js"></script>    
+    <script src="angular/Gio_Hang.js"></script>
     <script src="js/Gio_Hang.js"></script>
-    <SCript src="js/Trang_Chu.js"></SCript>
     <script src="js/San_Pham.js"></script>
+    
     </body>
 </html>

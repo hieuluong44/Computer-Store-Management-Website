@@ -25,22 +25,6 @@ namespace API.Controllers
         {
             return donBanBLL.GetALL();
         }
-        [Route("Create")]
-        [HttpPost]
-        public void Create([FromBody] DonBanModel donBan)
-        {
-            donBan.IDDonBan = Guid.NewGuid().ToString();
-            if (donBan.listChiTienBan != null)
-            {
-                foreach (var item in donBan.listChiTienBan)
-                {
-                    item.IDDonBan = donBan.IDDonBan;
-                    item.IDChiTietDonBan = Guid.NewGuid().ToString();
-                }
-
-            }
-            donBanBLL.Create(donBan);
-        }
 
         [Route("Update_TrangThai")]
         [HttpPut]

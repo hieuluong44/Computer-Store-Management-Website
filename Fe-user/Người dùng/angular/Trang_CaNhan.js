@@ -1,5 +1,4 @@
 app.controller('trang_canhan', function($http, $scope, $window) {
-    // Kiểm tra trạng thái đăng nhập
     $scope.isLoggedIn = localStorage.getItem('userID') ? true : false;
 
     $scope.HoSo = {};

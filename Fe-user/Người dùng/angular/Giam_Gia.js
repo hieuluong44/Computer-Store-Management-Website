@@ -29,11 +29,11 @@ app.controller("GiamGiacontroller", function($scope, $http) {
         if (today >= startDate && today <= endDate && voucher.TrangThaiGiamGia === "Đang diễn ra") {
             let totalPrice = 0;
             cart.forEach(function(product) {
-                // Tính tổng tiền giỏ hàng
+                
                 totalPrice += parseFloat(product.newprice.replace(/\D/g, "")) * product.quantity;
             });
 
-            // Tính toán số tiền sau khi áp dụng mã giảm giá
+            
             const discountAmount = (totalPrice * voucher.TyLeGiam) / 100;
             const totalAfterDiscount = totalPrice - discountAmount;
 

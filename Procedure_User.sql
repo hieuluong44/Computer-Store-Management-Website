@@ -229,3 +229,15 @@ begin
 	where IDNguoiDung = @IDNguoiDung
 end; 
 go
+
+
+create proc GET_DanhGia_User 
+	@IDMatHang varchar(10)
+as
+begin
+	select DG.
+	from DanhGia DG
+	inner join NguoiDung ND on DG.IDNguoiDung = ND.IDNguoiDung
+	where IDMatHang = @IDMatHang
+end;
+go

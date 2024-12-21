@@ -150,6 +150,32 @@
     ]
   },
   {
+    "ContainingType": "API.Controllers.DonDatHangControllers",
+    "Method": "CreateDonDatHang",
+    "RelativePath": "api/DonDatHangControllers/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "donBan",
+        "Type": "Model.DonDatHangModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Model.DonDatHangModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "API.Controllers.GiamGiaControllers",
     "Method": "ApDung_GiamGia",
     "RelativePath": "api/GiamGiaControllers/ApDung_GiamGia",
