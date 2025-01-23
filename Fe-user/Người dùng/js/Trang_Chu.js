@@ -1,5 +1,5 @@
 // ---------------------------------------------Phần Slider (Chạy ảnh)--------------------------------------
-(function () {
+function myfunction(){
     const images = document.querySelectorAll('.Image');
     const nextButton = document.getElementById('nextImg');
     const backButton = document.getElementById('backImg');
@@ -36,11 +36,11 @@
 
     setInterval(nextImage, 5000);
     showImage(currentIndex);
-})();
+};
 
 // ---------------------------------------------Phần slide (Chạy sản phẩm)--------------------------------------
 
-(function () {
+function myfunction2() {
     const nextButtons = document.querySelectorAll('#next');
     const backButtons = document.querySelectorAll('#back');
     const productSlides = document.querySelectorAll('.product-slide');
@@ -53,7 +53,7 @@
 
             function updateSlidePosition() {
                 const slideWidth = slide.children[0].offsetWidth;
-                slide.style.transform = `translateX(-${currentIndex * (slideWidth + 10)}px)`;
+                slide.style.transform = `translateX(-${currentIndex * (slideWidth + 9.5)}px)`;
             }
 
             nextButtons[buttonIndex].addEventListener('click', () => {
@@ -82,5 +82,8 @@
 
     handleSlide(productSlides, 5, 1); 
     handleSlide(productSlides2, 4, 0); 
-})();
+};
+
+myfunction();
+myfunction2();
 

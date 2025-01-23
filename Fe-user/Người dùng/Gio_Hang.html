@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
   </head>
-  <body ng-app = "User">
+  <body ng-app = "User" ng-controller="DatHangController">
+
     <div class="top-bar">
       <div class="frame">
           <div class="left">
@@ -56,78 +57,74 @@
       </div>
     </div>
     <div class="H-head">
-      <div class="frame">    
-          <a class="logo" href="Trang_Chu.html">
-              <img src="img/logo.png" alt="" style="width: 100%; height: 100%;">
-          </a>
-          <div class="title-categories">
-              <i class="bi bi-list"></i>
-              <span>Danh mục</span>
-          </div>
-          <div class="body-search">
-              <select name="category" id="category">
-                  <option value="">Tất cả sản phẩm</option>
-                  <option value="Gaming">Laptop Gaming</option>
-                  <option value="Office">Laptop Văn phòng</option>
-                  <option value="Do-hoa">Laptop Đồ hoạ</option>
-                  <option value="PC">PC Al</option>
-                  <option value="screen">Màn hình máy tính</option>
-                  <option value="phu-kien-1">Phụ kiện laptop, PC, khác</option>
-                  <option value="phu-kien-2">Chuột, bàn phím</option>
-                  <option value="bao-tri">Dịch vụ sửa chữa, bảo trì</option>
-              </select>                        
-              <form id="search-box">
-                  <input type="text" placeholder="Tìm kiếm...">
-                  <button type="submit">
-                      <i class="bi bi-search"></i>
-                  </button>
-              </form>
-          </div>
-          <div class="icons">
-              <a href="#">
-                  <div class="order">
-                      <i class="bi bi-pc"></i>
-                      <span class="order-text">Xây dựng cấu hình</span>
-                  </div>
-              </a>  
-              <a href="#">
-                  <div class="order">
-                      <i class="bi bi-truck"></i>
-                      <span class="order-text">Tra cứu đơn hàng</span>
-                  </div>
-              </a>       
-              <a href="Gio_Hang.html">
-                  <div class="cart">
-                      <i class="bi bi-cart2"></i>
-                      <div class="cart-badge" >
-                          <span id="cart-badge">0</span>
-                      </div>
-                      <span class="cart-text">Giỏ hàng</span>
-                  </div>
-              </a>
-              <div class="login-section" ng-controller="UserCtrl">
-                  <i class="fas fa-user-circle"></i>
-                  <span class="login-text">{{ TenNguoiDung }}</span>
-                  <div class="dropdown-content">
-                      <!-- Hiển thị khi đã đăng nhập -->
-                      <a href="Trang_CaNhan.html" id="TCN-btn" ng-if="isLoggedIn">
-                          <i class="bi bi-person"></i>
-                          <span>Hồ sơ của bạn</span>
-                      </a>
-                      <!-- Hiển thị nút đăng nhập nếu chưa đăng nhập -->
-                      <a href="Dang_Nhap.html" id="login-btn" ng-if="!isLoggedIn">
-                          <i class="fas fa-sign-in-alt"></i>
-                          <span>Đăng nhập</span>
-                      </a>
-                      <!-- Hiển thị nút đăng xuất khi đã đăng nhập -->
-                      <a href="#" id="logout-btn" ng-if="isLoggedIn" ng-click="logout()">
-                          <i class="fas fa-sign-out-alt"></i>
-                          <span>Đăng xuất</span>
-                      </a>
-                  </div>   
-              </div>
-          </div>
-      </div>
+        <div class="frame">    
+            <a class="logo" href="Trang_Chu.html">
+                <img src="img/logo.png" alt="" style="width: 100%; height: 100%;">
+            </a>
+            <div class="title-categories">
+                <i class="bi bi-list"></i>
+                <span>Danh mục</span>
+            </div>
+            <div class="body-search">                     
+                <form id="search-box" ng-controller="SearchController">
+                    <input type="search" placeholder="Tìm kiếm..." ng-model="searchTerm" ng-keyup="searchProduct()">
+                    <div id="search-results" ng-if="searchResults.length > 0">
+                        <ul>
+                            <a href="San_Pham.html" ng-repeat="product in searchResults">
+                                <div ng-click="setProductID(product.idMatHang)" > 
+                                    <span id="name_mH">{{product.tenMatHang}}</span>
+                                    <span id="price-mH">{{product.donGia | currency:'':'':'1.0-0'}} đ</span>
+                                </div>
+                                <div id="img-search">
+                                    <img ng-src="{{ './Item/' + product.duongDan }}" alt="{{ product.name }}">
+                                </div>
+                            </a>
+                        </ul>
+                    </div>
+                </form>                
+            </div>
+            <div class="icons">
+                <a href="#">
+                    <div class="order">
+                        <i class="bi bi-pc"></i>
+                        <span class="order-text">Xây dựng cấu hình</span>
+                    </div>
+                </a>  
+                <a href="#">
+                    <div class="order">
+                        <i class="bi bi-truck"></i>
+                        <span class="order-text">Tra cứu đơn hàng</span>
+                    </div>
+                </a>       
+                <a href="Gio_Hang.html">
+                    <div class="cart">
+                        <i class="bi bi-cart2"></i>
+                        <div class="cart-badge" >
+                            <span id="cart-badge">0</span>
+                        </div>
+                        <span class="cart-text">Giỏ hàng</span>
+                    </div>
+                </a>
+                <div class="login-section" ng-controller="UserCtrl">
+                    <i class="fas fa-user-circle"></i>
+                    <span class="login-text">{{ TenNguoiDung }}</span>
+                    <div class="dropdown-content">
+                        <a href="Trang_CaNhan.html" id="TCN-btn" ng-if="isLoggedIn">
+                            <i class="bi bi-person"></i>
+                            <span>Hồ sơ của bạn</span>
+                        </a>
+                        <a href="Dang_Nhap.html" id="login-btn" ng-if="!isLoggedIn">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Đăng nhập</span>
+                        </a>
+                        <a href="#" id="logout-btn" ng-if="isLoggedIn" ng-click="logout()">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Đăng xuất</span>
+                        </a>
+                    </div>   
+                </div>
+            </div>
+        </div>
     </div>
     <div class="footer">
       <div class="frame">
@@ -165,52 +162,81 @@
         </ul>
     </div>
     </div>   
-    <div class="Cart" ng-controller="DatHangController">
-      <div class="frame">
-          <div class="cart-head">
-              <div class="cart-list">
-                  <div class="table">
-                      <ul>
-                          <!-- Lặp qua các mặt hàng trong giỏ -->
-                          <li ng-repeat="item in cartItems">
-                              <input type="checkbox" ng-model="item.selected" ng-change="updateSelectedItems()" /> 
-                              {{item.name}} - {{item.newprice}} VNĐ
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-  
-              <!-- Thông tin khách hàng và hình thức thanh toán như trước -->
-              <div class="order-form">
-                  <!-- Thông tin khách hàng -->
-                  <div class="section customer">
-                      <h3>1. Thông tin khách hàng</h3>
-                      <input class="form-control" type="text" placeholder="Họ tên người nhận" ng-model="orderInfo.hoTenNguoiNhan" />
-                      <input class="form-control" type="tel" placeholder="Số điện thoại người nhận" ng-model="orderInfo.soDienThoaiNguoiNhan" />
-                      <textarea class="form-control" placeholder="Địa chỉ" ng-model="orderInfo.diaChiNguoiNhan"></textarea>
-                      <textarea class="form-control" placeholder="Ghi chú" ng-model="orderInfo.ghiChu"></textarea>
-                  </div>
-  
-                  <!-- Hình thức thanh toán -->
-                  <div class="section pay">
-                      <h3>2. Hình thức thanh toán</h3>
-                      <label><input type="radio" name="payment" value="COD" ng-model="orderInfo.hinhThucThanhToan" checked /> Thanh toán khi nhận hàng</label>
-                  </div>
-              </div>
-          </div>
-  
-          <!-- Chi tiết giỏ hàng -->
-          <div class="shoping__checkout">
-              <ul>
-                  <li>Số lượng hàng<span>{{orderInfo.soluongHang}}</span></li>
-                  <li>Giảm giá<span id="deal">{{orderInfo.giamGia}}</span></li>
-                  <li>Tổng thanh toán<span class="total-payment">{{orderInfo.tongThanhToan}}</span></li>
-              </ul>
-              <a href="#" class="primary-btn" ng-click="placeOrder()">ĐẶT HÀNG NGAY</a>
-          </div>
-      </div>
-  </div>
-  
+
+    <div class="Cart">
+        <div class="frame">
+            <!-- Giỏ hàng không có sản phẩm -->
+            <div id="cart-empty">
+                <div class="cart-empty">
+                    <img src="img/empty_cart.png" alt="">
+                    <span>Chưa có sản phẩm nào trong giỏ hàng</span>
+                    <a href="Trang_Chu.html" class="primary-btn">Mua sắm ngay nào</a>    
+                </div>
+            </div>
+            
+            <div class="cart-head" id="cart-head">
+                <div class="cart-list">
+                    <div class="table">
+                        <ul id="cart-items-list">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Thanh toán -->
+            <div id="shoping__checkout">
+                <div class="shoping__checkout" >
+                    <ul>
+                        <li>Số lượng hàng<span>{{orderInfo.soluongHang}}</span></li>
+                        <li>Giảm giá<span id="deal">{{orderInfo.giamGia | currency:'':'':'1.0-0'}} đ</span></li>
+                        <li>Tổng thanh toán<span class="total-payment">{{orderInfo.tongThanhToan | currency:'':'':'1.0-0'}} đ</span></li>
+                    </ul>
+                    <a href="#" class="primary-btn" ng-click="PayMentShow = !PayMentShow">ĐẶT HÀNG NGAY</a>    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+      
+    
+    <div ng-show="PayMentShow" class="overlay" ng-click="PayMentShow = false"></div>
+    <div class="PayMent" ng-show="PayMentShow" >
+        <div class="body-show">
+            <!-- Thẻ chứa danh sách sản phẩm -->
+            <div class="product-list-pay">
+                <h3>Sản phẩm đã chọn</h3>
+                <ul>
+                    <li ng-repeat="item in selectedItems">
+                        <p>{{item.name}}</p>
+                        <p>{{item.quantity}}</p>
+                        <p>{{item.newprice}}</p>
+                    </li>
+                </ul>
+            </div>
+            
+
+            <!-- Thông tin khách hàng và hình thức thanh toán -->
+            <div class="order-form">
+                <div class="section customer">
+                    <h3>1. Thông tin khách hàng</h3>
+                    <input class="form-control" type="text" placeholder="Họ tên người nhận" ng-model="orderInfo.hoTenNguoiNhan" />
+                    <input class="form-control" type="tel" placeholder="Số điện thoại người nhận" ng-model="orderInfo.soDienThoaiNguoiNhan" />
+                    <textarea class="form-control" placeholder="Địa chỉ" ng-model="orderInfo.diaChiNguoiNhan"></textarea>
+                    <textarea class="form-control" placeholder="Ghi chú" ng-model="orderInfo.ghiChu"></textarea>
+                </div>
+
+                <div class="section pay">
+                    <h3>2. Hình thức thanh toán</h3>
+                    <label><input type="radio" name="payment" value="COD" ng-model="orderInfo.hinhThucThanhToan" /> Thanh toán khi nhận hàng</label>
+                </div>
+            </div>
+        </div>
+        <div class="choice">
+            <a href="#" class="closePayMent" ng-click="PayMentShowCLose()">Thoát</a>
+            <a href="#" class="primary-btn" ng-click="placeOrder()">THANH TOÁN</a>
+        </div>
+    </div>
+
   
   
     <footer>
@@ -296,9 +322,10 @@
     <ul class="notifications"></ul>
     <script src="angular/angular.js"></script>
     <script src="angular/Trang_Chu.js"></script>
-    
-    <script src="angular/ChiTiet_SanPham.js"></script>
+    <script src="angular/San_Pham.js"></script>
     <script src="angular/Gio_Hang.js"></script>
+    <script src="angular/ChiTiet_SanPham.js"></script>
+
 
     <script src="angular/Giam_Gia.js"></script>
     <script src="js/Gio_Hang.js"></script>

@@ -38,6 +38,14 @@ app.controller('DonDatHangController', function ($scope, $http) {
         });
     };
 
+    $scope.reset = function () {
+        $scope.listDonHang.forEach(function(item) { 
+            item.selected = false; 
+        });
+        $scope.showFormChiTietDonDat = false;
+    };
+
+
     // Hiển thị chi tiết đơn đặt hàng
     $scope.editSelectedDonDatHang = function () {
         const selectedDonDatHang = $scope.listDonHang.find(item => item.selected);

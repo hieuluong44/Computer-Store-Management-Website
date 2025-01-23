@@ -19,5 +19,6 @@ namespace Model
         public string TenMatHang { get; set; }
         public int SoLuong { get; set; }
         public DateTime NgayCapNhat { get; set; }
+        public string TrangThai { get; set; }
     }
 }

@@ -1,0 +1,213 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:8386"
+  },
+
+  "Routes": [
+    /*=============================== ADMIN ==================================*/
+    /* 1. Danh mục */
+    {
+      "UpstreamPathTemplate": "/api-admin/DanhMucControllers/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/DanhMucControllers/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5156
+        }
+      ]
+    },
+    /* 2. Loại mặt hàng*/
+    {
+      "UpstreamPathTemplate": "/api-admin/LoaiMatHangControllers/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/LoaiMatHangControllers/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5156
+        }
+      ]
+    },
+    /* 3. Mặt hàng */
+    {
+      "UpstreamPathTemplate": "/api-admin/MatHangControllers/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "PATCH" ],
+      "DownstreamPathTemplate": "/api/MatHangControllers/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5156
+        }
+      ]
+    },
+    /* 4. Giảm giá */
+    {
+      "UpstreamPathTemplate": "/api-admin/GiamGiaControllers/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/GiamGiaControllers/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5156
+        }
+      ]
+    },
+    /* 5. Người dùng */
+    {
+      "UpstreamPathTemplate": "/api-admin/NguoiDungControllers/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/NguoiDungControllers/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5156
+        }
+      ]
+    },
+    /* 6. Nhà cung cấp */
+    {
+      "UpstreamPathTemplate": "/api-admin/NhaCungCapControllers/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/NhaCungCapControllers/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5156
+        }
+      ]
+    },
+    /* 7. Đánh giá */
+    {
+      "UpstreamPathTemplate": "/api-admin/DanhGiaControllers/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/DanhGiaControllers/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5156
+        }
+      ]
+    },
+    /* 8. Kho */
+    {
+      "UpstreamPathTemplate": "/api-admin/KhoControllers/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/KhoControllers/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5156
+        }
+      ]
+    },
+    /* 9. Đơn bán */
+    {
+      "UpstreamPathTemplate": "/api-admin/DonBanControllers/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/DonBanControllers/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5156
+        }
+      ]
+    },
+    /* 10. Đơn nhập */
+    {
+      "UpstreamPathTemplate": "/api-admin/DonNhapControllers/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/DonNhapControllers/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5156
+        }
+      ]
+    },
+    /*================================ USER ==================================*/
+    {
+      "UpstreamPathTemplate": "/api-nguoidung/MatHangControllers/{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/MatHangControllers/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5156
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/api-nguoidung/GiamGiaControllers/{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/GiamGiaControllers/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5156
+        }
+      ]
+    }
+    //{
+    //  "UpstreamPathTemplate": "/api-nguoidung/MatHangControllers/{everything}",
+    //  "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+    //  "DownstreamPathTemplate": "/api/MatHangControllers/{everything}",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5156
+    //    }
+    //  ]
+    //},
+    //{
+    //  "UpstreamPathTemplate": "/api-nguoidung/MatHangControllers/{everything}",
+    //  "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+    //  "DownstreamPathTemplate": "/api/MatHangControllers/{everything}",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5156
+    //    }
+    //  ]
+    //},
+    //{
+    //  "UpstreamPathTemplate": "/api-nguoidung/MatHangControllers/{everything}",
+    //  "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+    //  "DownstreamPathTemplate": "/api/MatHangControllers/{everything}",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5156
+    //    }
+    //  ]
+    //},
+    //{
+    //  "UpstreamPathTemplate": "/api-nguoidung/MatHangControllers/{everything}",
+    //  "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+    //  "DownstreamPathTemplate": "/api/MatHangControllers/{everything}",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 5156
+    //    }
+    //  ]
+    //}
+  ]
+
+}

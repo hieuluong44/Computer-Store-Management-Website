@@ -64,24 +64,23 @@
                 <i class="bi bi-list"></i>
                 <span>Danh mục</span>
             </div>
-            <div class="body-search">
-                <select name="category" id="category">
-                    <option value="">Tất cả sản phẩm</option>
-                    <option value="Gaming">Laptop Gaming</option>
-                    <option value="Office">Laptop Văn phòng</option>
-                    <option value="Do-hoa">Laptop Đồ hoạ</option>
-                    <option value="PC">PC Al</option>
-                    <option value="screen">Màn hình máy tính</option>
-                    <option value="phu-kien-1">Phụ kiện laptop, PC, khác</option>
-                    <option value="phu-kien-2">Chuột, bàn phím</option>
-                    <option value="bao-tri">Dịch vụ sửa chữa, bảo trì</option>
-                </select>                        
-                <form id="search-box">
-                    <input type="text" placeholder="Tìm kiếm...">
-                    <button type="submit">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </form>
+            <div class="body-search">                     
+                <form id="search-box" ng-controller="SearchController">
+                    <input type="search" placeholder="Tìm kiếm..." ng-model="searchTerm" ng-keyup="searchProduct()">
+                    <div id="search-results" ng-if="searchResults.length > 0">
+                        <ul>
+                            <a ng-click="setProductID(product.idMatHang)" href="San_Pham.html" ng-repeat="product in searchResults">
+                                <div> 
+                                    <span id="name_mH">{{product.tenMatHang}}</span>
+                                    <span id="price-mH">{{product.donGia | currency:'':'':'1.0-0'}} đ</span>
+                                </div>
+                                <div id="img-search">
+                                    <img ng-src="{{ './Item/' + product.duongDan }}" alt="{{ product.name }}">
+                                </div>
+                            </a>
+                        </ul>
+                    </div>
+                </form>                
             </div>
             <div class="icons">
                 <a href="#">
@@ -99,8 +98,8 @@
                 <a href="Gio_Hang.html">
                     <div class="cart">
                         <i class="bi bi-cart2"></i>
-                        <div class="cart-badge">
-                            <span>0</span>
+                        <div class="cart-badge" >
+                            <span id="cart-badge">0</span>
                         </div>
                         <span class="cart-text">Giỏ hàng</span>
                     </div>
@@ -109,23 +108,20 @@
                     <i class="fas fa-user-circle"></i>
                     <span class="login-text">{{ TenNguoiDung }}</span>
                     <div class="dropdown-content">
-                        <!-- Hiển thị khi đã đăng nhập -->
                         <a href="Trang_CaNhan.html" id="TCN-btn" ng-if="isLoggedIn">
                             <i class="bi bi-person"></i>
                             <span>Hồ sơ của bạn</span>
                         </a>
-                        <!-- Hiển thị nút đăng nhập nếu chưa đăng nhập -->
                         <a href="Dang_Nhap.html" id="login-btn" ng-if="!isLoggedIn">
                             <i class="fas fa-sign-in-alt"></i>
                             <span>Đăng nhập</span>
                         </a>
-                        <!-- Hiển thị nút đăng xuất khi đã đăng nhập -->
                         <a href="#" id="logout-btn" ng-if="isLoggedIn" ng-click="logout()">
                             <i class="fas fa-sign-out-alt"></i>
                             <span>Đăng xuất</span>
                         </a>
                     </div>   
-                </div>  
+                </div>
             </div>
         </div>
     </div>
@@ -217,12 +213,12 @@
             <div class="left">
                 <div class="avatar">
                     <div class="ava">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24 0C10.752 0 0 10.752 0 24C0 37.248 10.752 48 24 48C37.248 48 48 37.248 48 24C48 10.752 37.248 0 24 0ZM24 9.6C28.632 9.6 32.4 13.368 32.4 18C32.4 22.632 28.632 26.4 24 26.4C19.368 26.4 15.6 22.632 15.6 18C15.6 13.368 19.368 9.6 24 9.6ZM24 43.2C19.128 43.2 13.368 41.232 9.264 36.288C13.4679 32.9897 18.6567 31.1971 24 31.1971C29.3433 31.1971 34.5321 32.9897 38.736 36.288C34.632 41.232 28.872 43.2 24 43.2Z" fill="#6D6E72"></path>
-                        </svg>
+                        <img ng-src = " {{ HoSo.hinhAnh? './User/' + HoSo.hinhAnh : './User/Default.png'}} " alt="Avatar Preview" id="avatarImage">
                     </div>
                     <div class="info">
-                        <div class="customer-name">{{ $Hoso.TenNguoiDung}}</div>
+                        <div class="customer-name">
+                            <input type="text" ng-model="HoSo.tenNguoiDung" style="border: 0px; font-size: 18px;font-weight: 550;">
+                        </div>
                     </div>
                 </div>
                 <ul class="left-sidebar">
@@ -257,8 +253,8 @@
                             <span>Quản lý đơn hàng</span>
                         </a>
                     </li>
-                    <li class="last">
-                        <a href="javascript:void(0);" class="js-btn-logout">
+                    <li class="last" ng-controller="UserCtrl">
+                        <a href="javascript:void(0);" class="js-btn-logout" ng-click="logout()">
                             <span class="icon">
                                 <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3.78947 8C3.78947 7.44772 4.23719 7 4.78947 7H11.3684V0.727273C11.3684 0.534388 11.2993 0.349404 11.1763 0.213013C11.0533 0.0766233 10.8865 0 10.7125 0H0.655882C0.481931 0 0.315105 0.0766233 0.192103 0.213013C0.0691017 0.349404 0 0.534388 0 0.727273V15.2727C0 15.4656 0.0691017 15.6506 0.192103 15.787C0.315105 15.9234 0.481931 16 0.655882 16H10.7125C10.8865 16 11.0533 15.9234 11.1763 15.787C11.2993 15.6506 11.3684 15.4656 11.3684 15.2727V9H4.78947C4.23719 9 3.78947 8.55229 3.78947 8ZM17.808 7.48591L13.9525 3.6804C13.5849 3.31761 12.9835 3.3553 12.6641 3.76113C12.3935 4.10505 12.4221 4.59688 12.7308 4.9071L14.8135 7H11.3684V9H14.8135L12.7308 11.0929C12.4221 11.4031 12.3935 11.8949 12.6641 12.2389C12.9835 12.6447 13.5849 12.6824 13.9525 12.3196L17.808 8.51409C17.931 8.37772 18 8.1928 18 8C18 7.8072 17.931 7.62229 17.808 7.48591Z" fill="#535353"></path>
@@ -301,10 +297,6 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><label for="dob">Ngày sinh</label></td>
-                                    <td><input type="date" id="dob" ng-model="HoSo.NgaySinh"></td>
-                                </tr>
-                                <tr>
                                     <td></td>
                                     <td>
                                         <button type="button" class="btn-primary" ng-click="updateProfile()">Lưu</button>
@@ -312,21 +304,60 @@
                                 </tr>
                             </table>
                         </form>
+                        <div class="upload-container">
+                            <div class="avatar-preview" id="avatarPreview">
+                                <img ng-src = " {{ HoSo.hinhAnh? './User/' + HoSo.hinhAnh : './User/Default.png'}} " alt="Avatar Preview" id="avatarImage">
+                            </div>
+                            <label for="fileInput" class="upload-btn">Chọn Ảnh</label>
+                            <input type="file" id="fileInput" accept="image/jpeg, image/png" />
+                            <p class="info-text">Dụng lượng file tối đa 1 MB<br>Định dạng: .JPEG, .PNG</p>
+                        </div>
                     </div>                                
                 </div>        
 
-                <div class="tab-content" id="address-info" >
+                <div class="tab-content" id="address-info">
                     <h2>Thông tin địa chỉ</h2>
-                    <div class="address-item">
-                        <button class="default-btn">Mặc định</button>
-                        <span class="name">Lương Hiếu</span> | <span class="address">null</span>
-                        <span class="country">Vietnam</span>
-                        <button class="update-btn">Cập nhật</button>
+                
+                    <!-- Danh sách các địa chỉ -->
+                    <div id="address-list">
+                        <!-- Các địa chỉ sẽ được hiển thị ở đây -->
+                        <div class="address-item" ng-repeat="address in addresses track by address.id">
+                            <span class="name">{{ address.name }}</span> | 
+                            <span class="address">{{ address.address }}</span> | 
+                            <span class="phone">{{ address.phone }}</span>
+                            <button class="delete-btn" ng-click="deleteAddress(address)">Xóa</button>
+                        </div>
+                        
+                        
                     </div>
-                    <button class="add-new-address-btn">+ Thêm địa chỉ mới</button>
+                
+                    <!-- Nút Thêm địa chỉ mới -->
+                    <button class="add-new-address-btn" ng-click="toggleAddAddressForm()">+ Thêm địa chỉ mới</button>
+                
+                    <!-- Form thêm địa chỉ mới -->
+                    <div id="add-address-form" ng-show="showAddAddressForm">
+                        <h3>Thêm địa chỉ mới</h3>
+                        <form ng-submit="saveAddress()">
+                            <label for="name">Tên :</label>
+                            <input type="text" id="name" ng-model="newAddress.name" required>
+                
+                            <label for="address">Địa chỉ :</label>
+                            <textarea name="" id="address" ng-model="newAddress.address" ></textarea>
+                
+                            <label for="phone">Số điện thoại :</label>
+                            <input type="text" id="phone" ng-model="newAddress.phone" required>
+                
+                            <button type="submit">Lưu</button>
+                            <button type="button" ng-click="hideAddAddressForm()">Hủy</button>
+                        </form>
+                    </div>
                 </div>
+                
+                
+                
+                
 
-                <div class="tab-content" id="orders-history" >
+                <div class="tab-content" id="orders-history">
                     <div class="container">
                       <div class="title">
                         <h1>Quản lý đơn hàng</h1>
@@ -471,6 +502,7 @@
     <script src="angular/angular.js"></script>
     <script src="angular/Trang_Chu.js"></script>
     <script src="angular/Trang_CaNhan.js"></script>
+    <script src="angular/San_Pham.js"></script>
     <script src="js/Trang_CaNhan.js"></script>
     <script src="js/Trang_Chu.js"></script>
     <script src="js/San_Pham.js"></script>

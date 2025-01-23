@@ -13,7 +13,7 @@ begin
         MH.BaoHanh,  
 		AMH.DuongDan,
         CASE 
-            WHEN KH.SoLuong IS NULL THEN N'Chưa cập nhật'  -- Nếu không có bản ghi kho
+            WHEN KH.SoLuong IS NULL THEN N'Chưa cập nhật'  
             WHEN KH.SoLuong = 0 THEN N'Hết hàng'
             WHEN KH.SoLuong < 5 THEN N'Số lượng dưới 5'
             ELSE N'Còn hàng'
@@ -44,30 +44,39 @@ begin
 end;
 go
 
-
 alter proc Get_MatHang_DanhMuc
 as
 begin
     select 
         MH.IDMatHang,                    
-        DMCha.TenDanhMuc AS TenDanhMucCha, 
+        DM.IDDanhMuc,
         MH.TenMatHang,                  
         MH.DonGia,
         AMH.DuongDan,   
-		AMH.ThuTu,
+        AMH.ThuTu,
         case 
             WHEN kh.SoLuong = 0 THEN N'Liên hệ'
             WHEN kh.SoLuong < 5 THEN N'Số lượng có hạn'
             ELSE N'Còn hàng'
         end as TrangThai                 
-    from 
-        MatHang MH
-    inner join  DanhMuc DM on MH.IDDanhMuc = DM.IDDanhMuc  
-    left join  DanhMuc DMCha on DM.IDDanhMucCha = DMCha.IDDanhMuc  
+    from MatHang MH
+    inner join  DanhMuc DM on MH.IDDanhMuc = DM.IDDanhMuc    
     inner join  Kho KH on MH.IDMatHang = KH.IDMatHang  
+    inner join AnhMatHang AMH on MH.IDMatHang = AMH.IDMatHang         
+end;
+go
+
+select * from Kho
+
+
+alter proc Tim_MatHang_Ten
+	@TenMatHang nvarchar(100) 
+as
+begin 
+	select top(10) MH.IDMatHang, MH.TenMatHang, AMH.DuongDan, MH.DonGia  from MatHang MH
 	inner join AnhMatHang AMH on MH.IDMatHang = AMH.IDMatHang
-    where  DMCha.IDDanhMuc IS NOT NULL and KH.SoLuong > 5        
-    order by  DMCha.TenDanhMuc, MH.TenMatHang;                  
+	where AMH.ThuTu = 1 and MH.TenMatHang like N'%' + @TenMatHang +'%'
+	ORDER BY MH.TenMatHang; 
 end;
 go
 
@@ -151,10 +160,11 @@ go
 /*======================= NGƯỜI DÙNG ==========================*/
 /*-------Xem thông tin tài khoản ---------*/
 alter proc Hien_TK
+	@IDNguoiDung varchar(10)
 as 
 begin
-	select TenNguoiDung, SoDienThoai, Email, MatKhau
-	from NguoiDung
+	select HinhAnh, TenNguoiDung, GioiTinh, SoDienThoai, Email, MatKhau
+	from NguoiDung where IDNguoiDung = @IDNguoiDung
 end;
 go
 
@@ -180,7 +190,7 @@ go
 
 
 /*Đăng nhập*/
-create proc DangNhap_NguoiDung
+alter proc DangNhap_NguoiDung
     @Email varchar(30),
     @MatKhau nvarchar(30)
 as
@@ -196,10 +206,10 @@ alter proc DangKy_NguoiDung
     @IDNguoiDung char(10),
     @HinhAnh varchar(max) null,
     @TenNguoiDung nvarchar(30),
+	@GioiTinh nvarchar(10),
     @SoDienThoai varchar(10),
     @Email varchar(30),
-    @MatKhau nvarchar(30),
-    @VaiTro nvarchar(20) = N'Khách hàng' 
+    @MatKhau nvarchar(30)
 AS
 BEGIN
     IF EXISTS (SELECT 1 FROM NguoiDung WHERE Email = @Email)
@@ -214,30 +224,42 @@ BEGIN
         RETURN;
     END
 
-    INSERT INTO NguoiDung (IDNguoiDung, TenNguoiDung, SoDienThoai, Email, MatKhau)
-    VALUES (@IDNguoiDung, @TenNguoiDung, @SoDienThoai, @Email, @MatKhau);
+    INSERT INTO NguoiDung (IDNguoiDung, HinhAnh, TenNguoiDung, GioiTinh, SoDienThoai, Email, MatKhau)
+    VALUES (@IDNguoiDung, @HinhAnh, @TenNguoiDung, @GioiTinh, @SoDienThoai, @Email, @MatKhau);
 
     PRINT 'Đăng ký thành công.';
 END;
-
-
-create proc Get_TaiKhoan 
-	@IDNguoiDung varchar(10)
-as
-begin
-	select IDNguoiDung,HinhAnh, TenNguoiDung, Email, SoDienThoai, MatKhau, DiaChi from NguoiDung 
-	where IDNguoiDung = @IDNguoiDung
-end; 
 go
 
-
-create proc GET_DanhGia_User 
-	@IDMatHang varchar(10)
+create proc get_listMH_DM 
+ @IDDanhMuc char(10)  -- Tham số ID danh mục
 as
 begin
-	select DG.
-	from DanhGia DG
-	inner join NguoiDung ND on DG.IDNguoiDung = ND.IDNguoiDung
-	where IDMatHang = @IDMatHang
+    select 
+        MH.IDMatHang,                    
+        DMCha.TenDanhMuc AS TenDanhMucCha,  -- Tên danh mục cha
+        DMCon.TenDanhMuc AS TenDanhMucCon,  -- Tên danh mục con
+        DMChau.TenDanhMuc AS TenDanhMucChau, -- Tên danh mục cháu
+        MH.TenMatHang,                  
+        MH.DonGia,
+        AMH.DuongDan,   
+        AMH.ThuTu,
+        case 
+            WHEN kh.SoLuong = 0 THEN N'Liên hệ'
+            WHEN kh.SoLuong < 5 THEN N'Số lượng có hạn'
+            ELSE N'Còn hàng'
+        end as TrangThai                 
+    from 
+        MatHang MH
+    inner join DanhMuc DM on MH.IDDanhMuc = DM.IDDanhMuc  
+    inner join DanhMuc DMCha on DM.IDDanhMucCha = DMCha.IDDanhMuc  
+    left join DanhMuc DMCon on DMCha.IDDanhMuc = DMCon.IDDanhMucCha  
+    left join DanhMuc DMChau on DMCon.IDDanhMuc = DMChau.IDDanhMucCha  
+    inner join Kho KH on MH.IDMatHang = KH.IDMatHang  
+    inner join AnhMatHang AMH on MH.IDMatHang = AMH.IDMatHang
+    where 
+        (DMCha.IDDanhMuc = 'DM00000001' OR DMCon.IDDanhMuc = 'DM00000001' OR DMChau.IDDanhMuc = 'DM00000001') AND AMH.ThuTu = '1'
+    order by 
+        DMCha.TenDanhMuc, DMCon.TenDanhMuc, DMChau.TenDanhMuc, MH.TenMatHang;
 end;
 go

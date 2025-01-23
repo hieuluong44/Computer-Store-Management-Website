@@ -6,13 +6,12 @@
 
 .Cart .frame {
   height: max-content;
-  margin: 0 60px;
+  margin: 0px 230px;
   display: block;
   padding: 20px 100px;
 }
 
 .Cart .frame .cart-head{
-  display: flex;
   gap: 10px;
   margin-bottom: 20px;
   justify-content: space-between;
@@ -31,6 +30,7 @@
 .Cart .table {
   border-collapse: collapse;
   table-layout: fixed;
+  border-radius: 10px;
   height: max-content;
   width: 100%;
   background: #fff;
@@ -52,7 +52,9 @@
 
 
 .Cart .table li .item-left .item-img img {
-  width: 120px;
+  width: 110px;
+  padding: 10px;
+  border: 1px solid #eee;
   height: 100px;
 }
 
@@ -114,8 +116,8 @@
 
 .Cart .cart-head .cart-list {
   height: max-content;
-  width: 65%;
   background-color: #FFF;
+  border-radius: 5px;
 }
 
 .Cart .cart-head .cart-list .Voucher {
@@ -141,6 +143,31 @@
   font-size: 16px;
   margin: 0;
   width: 100% ;
+}
+
+#cart-empty {
+  display: block;
+}
+.cart-empty {
+  width: 100%;
+  background-color: #FFF;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  border-radius: 5px;
+  padding-bottom: 30px;
+  align-items: center;
+}
+
+.cart-empty img {
+  height: 300px;
+}
+
+.cart-empty span {
+  font-size: 15px;
+  color: #828282;
 }
 
 .voucher-card {
@@ -279,6 +306,7 @@
 .shoping__checkout {
   background: #FFF;
   z-index: 2;
+  border-radius: 5px;
   position: sticky;
   gap: 30px;
   box-shadow:0px -3px 9px 0px rgba(0, 0, 0, 0.3);
@@ -319,7 +347,6 @@
 }
 
 .primary-btn {
-  display: flex;
   padding: 10px;
   align-items: center;
   color: #ffffff;
@@ -351,21 +378,6 @@ a {
   font-size: 20px;
 }
 
-
-.order-form {
-  font-family: Arial, sans-serif;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #FFF;
-  width: 35%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-.order-form .customer,.order-form .pay {
-  width: 100%;
-}
-
-
 h2 {
   text-align: center;
   margin-bottom: 20px;
@@ -390,7 +402,7 @@ select {
   width: 100%;
   border: 1px solid #dee2e6;
   border-radius: 0.375rem;
-  font-size: 15px;
+  font-size: 17px;
 }
 
 textarea {
@@ -424,5 +436,83 @@ input[type="radio"] {
   background-color: #0056b3;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 10; 
+}
+
+.PayMent {
+  position: fixed;
+  max-width: 1020px;
+  z-index: 11;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  flex-wrap: wrap;
+  background-color: #FFF;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.product-list {
+  width: 40%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin-right: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-list h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.product-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.product-list li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.body-show {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.order-form {
+  width: 55%;
+}
 
 
+.order-form {
+  font-family: Arial, sans-serif;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #FFF;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.order-form .customer,.order-form .pay {
+  width: 100%;
+}
+
+.choice {
+  height: 100px;
+}
+
+[ng-cloak] {
+  visibility: hidden;
+}

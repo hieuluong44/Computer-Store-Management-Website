@@ -22,7 +22,7 @@
 			<h2>Chào mừng đến với HIEUPC Store</h2>
         </div>
     </div> 
-    <div class="account-page">
+    <div class="account-page" ng-controller="Dang_NhapControllers" >
       <div class="container">
           <div class="row">
               <div class="col-2">
@@ -37,13 +37,21 @@
                   </div>
                   
                   <form id="RegForm">
-                    <input type="text" ng-model="registerData.TenNguoiDung" placeholder="Họ và tên" />
-                    <input type="tel" ng-model="registerData.SoDienThoai" placeholder="Số điện thoại" pattern="[0-9]{10}" title="Số điện thoại phải gồm 10 chữ số" />
-                    <input type="email"  ng-model="registerData.Email" placeholder="Email" 
-                   
+                    <input type="text" ng-model="registerData.tenNguoiDung" placeholder="Họ và tên" />
+                    <div class="gender">
+                      <label for=""> Giới tính : </label>
+                      <label>
+                        <input type="radio" ng-model="registerData.gioiTinh" value="Nam"> Nam
+                      </label>
+                      <label>
+                        <input type="radio" ng-model="registerData.gioiTinh" value="Nu"> Nữ
+                      </label>
+                    </div>                    
+                    <input type="tel" ng-model="registerData.soDienThoai" placeholder="Số điện thoại" pattern="[0-9]{10}" title="Số điện thoại phải gồm 10 chữ số" />
+                    <input type="email"  ng-model="registerData.email" placeholder="Email" 
                     required />
-                      <input type="password" ng-model="registerData.MatKhau" placeholder="Mật khẩu" />
-                      <button>Tạo tài khoản</button>
+                      <input type="password" ng-model="registerData.matKhau" placeholder="Mật khẩu" />
+                      <button type="submit" ng-click="register()">Tạo tài khoản</button>
 
                       <div class="separator"> 
                         <span id="or">hoặc đăng ký bằng</span> 
@@ -63,7 +71,7 @@
                           </div>
                       </div>
                   </form>
-                  <form id="LoginForm" ng-controller="Dang_NhapControllers" >
+                  <form id="LoginForm">
                     <input type="email" ng-model="loginData.email" placeholder="Email" required />
                       <input type="password" ng-model="loginData.matKhau" placeholder="Mật khẩu" />
                       <a id="Forgot-pass" href="#">
@@ -88,9 +96,7 @@
                           </div>
                       </div>
                   </form>
-                  
-
-              </div>
+                </div>
               </div>
           </div>
       </div>

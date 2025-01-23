@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCartSummary(userID);
 });
   
-  // Hiển thị giỏ hàng
+
+// Hiển thị giỏ hàng
 function displayCart() {
     const allCarts = JSON.parse(localStorage.getItem("cart")) || {};
     const userID = localStorage.getItem("userID") || "guest";
@@ -14,11 +15,11 @@ function displayCart() {
     const tableBody = document.querySelector(".table");
     if (!tableBody) return;
   
-    // Xoá các dòng hiện tại
     tableBody.innerHTML = '';
   
     cart.forEach((product, index) => {
       const totalPrice = (parseFloat(product.newprice) * product.quantity).toLocaleString("vi-VN");
+      const pricenew = (parseFloat(product.newprice).toLocaleString("vi-VN"));
   
       var newRow = document.createElement("li");
       newRow.innerHTML = `
@@ -40,7 +41,7 @@ function displayCart() {
             <p>Bảo hành : ${product.warranty}</p>
           </div>
           <div class="item-prices">
-            <p>${product.newprice} đ</p>
+            <p  class = "price">${pricenew} đ</p>
             <div class="sum">
               <p style="font-size: 18px">Tổng: </p>
               <p class="total">${totalPrice} đ</p>
@@ -94,8 +95,7 @@ document.addEventListener("change", function(e) {
     }
 });
   
-  
-  
+
 // Cập nhật tổng thanh toán khi thay đổi trạng thái checkbox
 function updateCheckoutTotal() {
     const allCarts = JSON.parse(localStorage.getItem("cart")) || {};
@@ -154,7 +154,6 @@ function changeQuantity(index, change) {
       checkbox.checked = isChecked;  
     }
   
-  
     updateCartSummary(userID);
 }
   
@@ -173,7 +172,7 @@ function updateCartArray(index, product, userID) {
   
   
    
-  // Xóa sản phẩm khỏi giỏ hàng
+// Xóa sản phẩm khỏi giỏ hàng
 function deleteItem(index) {
     const allCarts = JSON.parse(localStorage.getItem("cart")) || {};
     const userID = localStorage.getItem("userID") || "guest";
@@ -185,6 +184,7 @@ function deleteItem(index) {
   
     displayCart();
     updateCartSummary(userID);
+    location.reload();
 }
   
   
@@ -223,7 +223,7 @@ function updateCartQuantity(userID) {
   
     updateCheckoutTotal();
 }
-  
+
 
   
 // Hàm cập nhật tổng số lượng sản phẩm và tổng tiền trong giỏ hàng

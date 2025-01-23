@@ -11,7 +11,6 @@ namespace Model
         public string SoDienThoaiNguoiNhan { get; set; } = string.Empty;
         public string DiaChiNguoiNhan { get; set; } = string.Empty; 
         public DateTime NgayBan { get; set; } = DateTime.Now; 
-        public string TrangThai { get; set; } = "Chờ xác nhận"; 
         public string? GhiChu { get; set; } 
         public decimal TongTien { get; set; } = 0; 
         public List<ChiTietDonBan> ListChiTietBan { get; set; } = new List<ChiTietDonBan>();

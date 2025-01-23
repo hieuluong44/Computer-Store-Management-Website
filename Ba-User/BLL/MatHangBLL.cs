@@ -27,9 +27,14 @@ namespace BLL
             return matHangDAL.list_MatHang();
         }
 
-        public List<Tim_MatHang_Gia> tim_MatHang_Gia(float GiaMin, float GiaMax)
+        public List<Tim_MatHang> tim_MatHang_Gia(float GiaMin, float GiaMax)
         {
             return matHangDAL.tim_MatHang_Gia(GiaMin, GiaMax);
+        }
+
+        public List<Tim_MatHang> tim_MatHang_Ten(string TenMatHang)
+        {
+            return matHangDAL.tim_MatHang_Ten(TenMatHang);
         }
     }
 }

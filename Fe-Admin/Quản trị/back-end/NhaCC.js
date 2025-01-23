@@ -1,216 +1,126 @@
 app.controller('NhaCungCapController', function ($scope, $http) {
-    // Khai báo các biến liên quan đến dữ liệu và phân trang
     $scope.listNhaCungCap = [];
-    $scope.filteredNhaCungCap = [];
-    $scope.currentPageNhaCungCap = 1;
-    $scope.pageSizeNhaCungCap = 10;
-    
+    $scope.currentPage = 1;
+    $scope.pageSize = 10;       
+
     const IDAuto = { 
         chars1: ['h', 'a', 'x', 'e'], 
         chars2: ['d', 'g', 't'], 
         generateID: function (prefix) { 
-            const randomNumber = Math.floor(Math.random() * (99999999 - 100000000 + 1)) + 100; 
+            const maxLength = 10; 
+            const randomNumberLength = maxLength - prefix.length - 2; 
+            const randomNumber = Math.floor(
+                Math.random() * Math.pow(10, randomNumberLength)
+            )
+                .toString()
+                .padStart(randomNumberLength, '0'); 
             const randomChar1 = this.chars1[Math.floor(Math.random() * this.chars1.length)]; 
             const randomChar2 = this.chars2[Math.floor(Math.random() * this.chars2.length)]; 
-            return `${prefix}${randomChar1}${randomChar1}${randomNumber}${randomChar2}${randomNumber}`; 
+            return `${prefix}${randomChar1}${randomNumber}${randomChar2}`; 
         }
-    }; 
+    };    
 
-    const buttons = document.querySelectorAll(".tab-content .foot .btn");
-    const notifications = document.querySelector(".notifications");
-
-    // Hàm hiển thị thông báo
-    function showToast(type, message) {
+    const showToast = (type, message) => {
         const toastDetails = {
-            success: {
-                icon: "fa-check-circle",
-                message: message,
-            },
-            error: {
-                icon: "fa-times-circle",
-                message: message,
-            },
-            info: {
-                icon: "fa-info-circle",
-                message: message,
-            },
+            success: { icon: "fa-check-circle", message },
+            error: { icon: "fa-times-circle", message },
+            info: { icon: "fa-info-circle", message },
         };
         const { icon, message: msg } = toastDetails[type];
-        const toast = document.createElement("li");
+        const toast = document.createElement("div");
         toast.className = `toast ${type}`;
         toast.innerHTML = `
             <div class="column">
                 <i class="fa ${icon}"></i>
                 <span>${msg}</span>
             </div>
-            <i class="fa-solid fa-xmark" onclick="removeToast(this.parentElement)"></i>`;
-        notifications.appendChild(toast);
-        setTimeout(() => toast.remove(), 5000);
-    }
-
-    // Lọc nhà cung cấp theo từ khóa tìm kiếm
-    $scope.filterNhaCungCap = function () {
-        const keyword = ($scope.searchNhaCungCap || "").toLowerCase();
-        $scope.filteredNhaCungCap = $scope.listNhaCungCap.filter(user => {
-            return (user.idNhaCungCap && user.idNhaCungCap.toLowerCase().includes(keyword)) ||
-                   (user.tenNhaCungCap && user.tenNhaCungCap.toLowerCase().includes(keyword)) ||
-                   (user.email && user.email.toLowerCase().includes(keyword)) ||
-                   (user.soDienThoai && user.soDienThoai.toString().includes(keyword));
-        });
-        $scope.currentPageNhaCungCap = 1; // Đặt lại trang đầu tiên sau khi tìm kiếm
+            <i class="bi bi-x-circle" onclick="this.parentElement.remove()"></i>`;
+        document.body.appendChild(toast);
     };
 
-    // Tải dữ liệu nhà cung cấp từ API
-    $scope.loadNhaCungCap = function () {
-        $http({
-            method: 'GET',
-            url: "http://localhost:5159/api/NhaCungCapControllers/Get-All",
-        }).then(function (response) {
-            $scope.listNhaCungCap = response.data;
-            $scope.filteredNhaCungCap = $scope.listNhaCungCap; // Lưu trữ danh sách chưa lọc
-            $scope.totalPagesNhaCungCap = Math.ceil($scope.listNhaCungCap.length / $scope.pageSizeNhaCungCap); // Tổng số trang
-            console.log("Nha Cung Cap data loaded:", response.data);
-        }).catch(function (error) {
-            console.error("Error loading Nha Cung Cap:", error);
-        });
+
+    // Hàm tải danh sách nhà cung cấp từ API
+    $scope.loadNhaCungCap = function() {
+        $http.get("http://localhost:5159/api/NhaCungCapControllers/Get-All")
+        .then((response) => {
+            $scope.listNhaCungCap = response.data || [];
+            $scope.totalPages = Math.ceil($scope.listNhaCungCap.length / $scope.pageSize);
+        })
+        .catch((error) => console.error("Lỗi:", error));    
     };
 
-    // Phân trang dữ liệu nhà cung cấp
-    $scope.getPaginatedNhaCungCap = function () {
-        const start = ($scope.currentPageNhaCungCap - 1) * $scope.pageSizeNhaCungCap;
-        return $scope.filteredNhaCungCap.slice(start, start + $scope.pageSizeNhaCungCap);
+    $scope.paginatedData = function () {
+        const start = ($scope.currentPage - 1) * $scope.pageSize;
+        return $scope.listNhaCungCap.slice(start, start + $scope.pageSize);
     };
 
-    // Chuyển trang
-    $scope.changePageNhaCungCap = function (page) {
-        const totalPages = Math.ceil($scope.filteredNhaCungCap.length / $scope.pageSizeNhaCungCap);
-        if (page >= 1 && page <= totalPages) {
-            $scope.currentPageNhaCungCap = page;
-        }
+    $scope.changePage = function (page) {
+        if (page >= 1 && page <= $scope.totalPages) $scope.currentPage = page;
     };
 
-    // Cập nhật kích thước trang
-    $scope.updatePageSizeNhaCungCap = function () {
-        $scope.currentPageNhaCungCap = 1;
-    };
-
-    // Tải dữ liệu khi mở trang
-    $scope.loadNhaCungCap();
-
-    // Làm mới trạng thái chọn
-    $scope.refresh = function () {
-        $scope.listNhaCungCap.forEach(function(user){ 
-            user.selected = false; 
-        });
+    $scope.reset = () => {
         $scope.nhaCungCap = {};
+        $scope.showFormNCC = false;
     };
 
-    // Đặt lại form
-    $scope.reset = function() { 
-        $scope.listNhaCungCap.forEach(function(user){ 
-            user.selected = false; 
-        });
-        $scope.nhaCungCap = {}; 
-        $scope.showFormNCC = false;       
+    const idNhaCungCap = IDAuto.generateID("NCC");
+
+    $scope.AddNhaCungCap = () => {
+        const nhaCungCap = {
+            idNhaCungCap: idNhaCungCap,
+            tenNhaCungCap: $scope.nhaCungCap.tenNhaCungCap,
+            email: `${$scope.nhaCungCap.email}@gmail.com`,
+            soDienThoai: $scope.nhaCungCap.soDienThoai,
+            diaChi: $scope.nhaCungCap.diaChi,
+        };
+    $http.post("http://localhost:5159/api/NhaCungCapControllers/Create", nhaCungCap)
+    .then((response) => {
+        console.log("API Success Response:", response.data);
+        showToast("success", "Thêm nhà cung cấp thành công!");
+        $scope.loadNhaCungCap($scope.currentPageNhaCungCap);
+        $scope.reset();
+    })
+    .catch((error) => {
+        console.error("API Error Response:", error);
+        showToast("error", "Thêm nhà cung cấp thất bại!");
+    });
+
     };
 
-    // Thêm nhà cung cấp
-    $scope.AddNhaCungCap = function () { 
-        let email = $scope.nhaCungCap.email || ""; 
-        if (!email.endsWith("@gmail.com")) { 
-            email += "@gmail.com"; 
-        } 
-        const nhaCungCap = { 
-            idNhaCungCap: IDAuto.generateID("NCC"),
-            tenNhaCungCap: $scope.nhaCungCap.tenNhaCungCap, 
-            email: email, 
-            soDienThoai: parseInt($scope.nhaCungCap.soDienThoai), 
-            diaChi: $scope.nhaCungCap.diaChi 
-        }; 
-        $http({
-            method: 'POST',
-            url: 'http://localhost:5159/api/NhaCungCapControllers/Create',
-            headers: { 'Content-Type': 'application/json' },
-            data: nhaCungCap
-        }).then(function (response) {
-            showToast("success", "Nhà cung cấp đã được thêm thành công!"); // Gọi hàm hiển thị thông báo
-            $scope.loadNhaCungCap(); 
-            $scope.nhaCungCap = {}; 
-            $scope.showFormNCC = false;
-        }).catch(function (error) {
-            showToast("error", "Không thể thêm nhà cung cấp. Vui lòng thử lại!");
-        });
-    };
-
-    // Chỉnh sửa nhà cung cấp đã chọn
-    $scope.editSelectedNhaCungCap = function () { 
-        const selectedNhaCungCap = $scope.listNhaCungCap.find(user => user.selected); 
-        if (selectedNhaCungCap) { 
-            let email = selectedNhaCungCap.email.split('@')[0]; 
-            $scope.nhaCungCap = { 
-                idNhaCungCap: selectedNhaCungCap.idNhaCungCap, 
-                tenNhaCungCap: selectedNhaCungCap.tenNhaCungCap, 
-                email: email, // Chỉ hiển thị phần trước @
-                soDienThoai: selectedNhaCungCap.soDienThoai.toString(), 
-                diaChi: selectedNhaCungCap.diaChi 
-            }; 
-            $scope.showFormNCC = true; 
-        } else { 
-            showToast("info", "Vui lòng chọn một nhà cung cấp để sửa!!");
-        } 
-    };
-    
-    // Cập nhật nhà cung cấp
-    $scope.UpdateNhaCungCap = function () { 
-        const idNhaCungCap = $scope.nhaCungCap.idNhaCungCap; 
-        let email = $scope.nhaCungCap.email || ""; 
-        if (!email.endsWith("@gmail.com")) { 
-            email += "@gmail.com"; 
-        }
-        const nhaCungCap = { 
-            idNhaCungCap: idNhaCungCap, 
-            tenNhaCungCap: $scope.nhaCungCap.tenNhaCungCap, 
-            email: email, 
-            soDienThoai: parseInt($scope.nhaCungCap.soDienThoai), 
-            diaChi: $scope.nhaCungCap.diaChi 
-        }; 
-        $http({
-            method: 'PUT', 
-            url: `http://localhost:5159/api/NhaCungCapControllers/Update/${idNhaCungCap}`,
-            headers: { 'Content-Type': 'application/json' },
-            data: nhaCungCap
-        }).then(function (response) {
-            showToast("success", "Thông tin nhà cung cấp đã được sửa thành công!"); 
-            $scope.nhaCungCap = {}; 
-            $scope.showFormNCC = false; 
-            $scope.loadNhaCungCap();
-        }).catch(function (error) {
-            showToast("error", "Thông tin nhà cung cấp đã được sửa không thành công!"); 
-        });
-    };
-    
-    // Xóa nhà cung cấp đã chọn
-    $scope.deleteSelectedNhaCungCap = function () {
-        const selectedNhaCungCap = $scope.listNhaCungCap.find(user => user.selected);
-       
-        if (selectedNhaCungCap) {
-            const confirmDelete = confirm("Bạn có chắc chắn muốn xóa nhà cung cấp này?");
-            if (confirmDelete) {
-                $http({
-                    method: 'DELETE',
-                    url: `http://localhost:5159/api/NhaCungCapControllers/Delete/${selectedNhaCungCap.idNhaCungCap}`,
-                    headers: { 'Content-Type': 'application/json' }
-                }).then(function (response) {
-                    debugger;
-                    showToast("success", "Nhà cung cấp đã được xóa thành công!");
-                    $scope.loadNhaCungCap();
-                    $scope.refresh();
-                }).catch(function (error) {
-                    showToast("error", "Xóa không thành công!");
-                });
-            }
+    $scope.editSelectedNhaCungCap = () => {
+        const selected = $scope.listNhaCungCap.find(user => user.selected);
+        if (selected) {
+            $scope.nhaCungCap = { ...selected };
+            $scope.showFormNCC = true;
         } else {
-            showToast("info", "Vui lòng chọn một nhà cung cấp để xóa!");
+            showToast("info", "Vui lòng chọn nhà cung cấp để sửa!");
         }
     };
+
+    $scope.UpdateNhaCungCap = () => {
+        $http.put(`http://localhost:5159/api/NhaCungCapControllers/Update/${$scope.nhaCungCap.idNhaCungCap}`, $scope.nhaCungCap)
+            .then(() => {
+                showToast("success", "Cập nhật nhà cung cấp thành công!");
+                $scope.loadNhaCungCap($scope.currentPageNhaCungCap);  // Tải lại dữ liệu sau khi cập nhật
+                $scope.reset();
+            })
+            .catch(() => showToast("error", "Cập nhật nhà cung cấp thất bại!"));
+    };
+
+    $scope.deleteSelectedNhaCungCap = () => {
+        const selected = $scope.listNhaCungCap.find(user => user.selected);
+        if (selected && confirm("Bạn có chắc chắn muốn xóa?")) {
+            $http.delete(`http://localhost:5159/api/NhaCungCapControllers/Delete/${selected.idNhaCungCap}`)
+                .then(() => {
+                    showToast("success", "Xóa nhà cung cấp thành công!");
+                    $scope.loadNhaCungCap($scope.currentPageNhaCungCap);  // Tải lại dữ liệu sau khi xóa
+                })
+                .catch(() => showToast("error", "Xóa nhà cung cấp thất bại!"));
+        } else {
+            showToast("info", "Vui lòng chọn nhà cung cấp để xóa!");
+        }
+    };
+
+    // Khởi tạo tải dữ liệu ban đầu
+    $scope.loadNhaCungCap($scope.currentPageNhaCungCap);
 });

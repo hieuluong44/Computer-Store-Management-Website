@@ -31,10 +31,16 @@ namespace API.Controllers
             return matHangBLL.list_MatHang();
         }
 
+        [Route("Search_Ten/{TenMatHang}")]
+        [HttpGet]
+        public List<Tim_MatHang> Tim_MatHang_Ten(string TenMatHang)
+        {
+            return matHangBLL.tim_MatHang_Ten(TenMatHang);
+        }
 
         [Route("Search_Gia")]
         [HttpGet]
-        public List<Tim_MatHang_Gia> Tim_MatHang_Gia(float GiaMin, float GiaMax)
+        public List<Tim_MatHang> Tim_MatHang_Gia(float GiaMin, float GiaMax)
         {
             return matHangBLL.tim_MatHang_Gia(GiaMin, GiaMax);
         }

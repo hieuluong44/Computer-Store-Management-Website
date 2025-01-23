@@ -1,0 +1,54 @@
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\appsettings.Development.json
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\appsettings.json
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\BanMayTinh_Gateway.exe
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\BanMayTinh_Gateway.deps.json
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\BanMayTinh_Gateway.runtimeconfig.json
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\BanMayTinh_Gateway.dll
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\BanMayTinh_Gateway.pdb
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\Microsoft.OpenApi.dll
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.csproj.AssemblyReference.cache
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.GeneratedMSBuildEditorConfig.editorconfig
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.AssemblyInfoInputs.cache
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.AssemblyInfo.cs
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.csproj.CoreCompileInputs.cache
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.MvcApplicationPartsAssemblyInfo.cs
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.MvcApplicationPartsAssemblyInfo.cache
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\staticwebassets.build.json
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\staticwebassets.development.json
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\staticwebassets\msbuild.BanMayTinh_Gateway.Microsoft.AspNetCore.StaticWebAssets.props
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\staticwebassets\msbuild.build.BanMayTinh_Gateway.props
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.BanMayTinh_Gateway.props
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.BanMayTinh_Gateway.props
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\staticwebassets.pack.json
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\scopedcss\bundle\BanMayTinh_Gateway.styles.css
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTi.43FF802B.Up2Date
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.dll
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\refint\BanMayTinh_Gateway.dll
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.pdb
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.genruntimeconfig.cache
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\ref\BanMayTinh_Gateway.dll
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\Brigde.json
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\FluentValidation.dll
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\IPAddressRange.dll
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\Microsoft.AspNetCore.MiddlewareAnalysis.dll
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\Microsoft.Extensions.DiagnosticAdapter.dll
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\Newtonsoft.Json.dll
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+F:\Quản lý cửa hàng bán máy tính\BanMayTinh_Gateway\BanMayTinh_Gateway\bin\Debug\net8.0\Ocelot.dll
+F:\DoAn2_LuongCongHieu_10122166\Ba-Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.csproj.AssemblyReference.cache
+F:\DoAn2_LuongCongHieu_10122166\Ba-Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.GeneratedMSBuildEditorConfig.editorconfig
+F:\DoAn2_LuongCongHieu_10122166\Ba-Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.AssemblyInfoInputs.cache
+F:\DoAn2_LuongCongHieu_10122166\Ba-Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.AssemblyInfo.cs
+F:\DoAn2_LuongCongHieu_10122166\Ba-Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.csproj.CoreCompileInputs.cache
+F:\DoAn2_LuongCongHieu_10122166\Ba-Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.MvcApplicationPartsAssemblyInfo.cs
+F:\DoAn2_LuongCongHieu_10122166\Ba-Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.MvcApplicationPartsAssemblyInfo.cache
+F:\DoAn2_LuongCongHieu_10122166\Ba-Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.sourcelink.json
+F:\DoAn2_LuongCongHieu_10122166\Ba-Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.dll
+F:\DoAn2_LuongCongHieu_10122166\Ba-Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\refint\BanMayTinh_Gateway.dll
+F:\DoAn2_LuongCongHieu_10122166\Ba-Gateway\BanMayTinh_Gateway\obj\Debug\net8.0\BanMayTinh_Gateway.pdb

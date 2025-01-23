@@ -19,10 +19,11 @@ namespace API.Controllers
         }
         [Route("Get-All")]
         [HttpGet]
-        public IEnumerable<NhaCungCapModel> GetAll()
+        public IEnumerable<NhaCungCapModel> GetALL()
         {
-            return nhacungCapBLL.GetALL();
+           return nhacungCapBLL.GetALL();
         }
+
         [Route("Create")]
         [HttpPost]
         public void Create([FromBody] NhaCungCapModel nhaCungCapModel)

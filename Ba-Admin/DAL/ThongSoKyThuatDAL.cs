@@ -60,7 +60,6 @@ namespace DAL
             }
         }
 
-        // Lấy tất cả thông số kỹ thuật theo mã mặt hàng
         public List<ThongSoKyThuatModel> GetALL(string IDMatHang)
         {
             string msgError = "";

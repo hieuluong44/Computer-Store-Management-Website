@@ -198,44 +198,6 @@ begin
 end;
 go
 
-create proc ThemMatHang_ChiTiet
-    @IDMatHang CHAR(10),
-    @IDDanhMuc CHAR(10),
-    @TenMatHang NVARCHAR(100),
-    @DonGia FLOAT,
-    @BaoHanh NVARCHAR(10),
-    @TrangThai NVARCHAR(10),
-    @ThongSoKyThuat NVARCHAR(MAX), -- JSON thông số kỹ thuật
-    @AnhMatHang NVARCHAR(MAX) -- JSON ảnh mặt hàng
-AS
-BEGIN
-	insert into MatHang (IDMatHang, IDDanhMuc, TenMatHang, DonGia, BaoHanh, TrangThai)
-	values (@IDMatHang, @IDDanhMuc, @TenMatHang, @DonGia, @BaoHanh, @TrangThai);
-	if( @ThongSoKyThuat is not null)
-		begin 
-			insert into ThongSoKyThuat ( IDThongSo, IDMatHang, TenThongSo, GiaTriThongSo)
-				select JSON_VALUE(p.value, '$.IDThongSo'),
-						@IDMatHang,
-						JSON_VALUE(p.value, '$TenThongSo'),
-						JSON_VALUE(p.value, '$GiaTriThongSo')  
-				from OPENJSON(@ThongSoKyThuat) as p;
-		end;
-
-
-		if( @AnhMatHang is not null)
-		begin 
-			insert into AnhMatHang( IDAnhMatHang, IDMatHang, DuongDan, ThuTu)
-				select JSON_VALUE(p.value, '$.IDAnhMatHang'),
-						@IDMatHang,
-						JSON_VALUE(p.value, 'DuongDan'),
-						ROW_NUMBER() OVER (ORDER BY (SELECT NULL))  
-				from OPENJSON(@ThongSoKyThuat) as p;
-		end;
-	select '';
-END;
-GO
-
-
 alter proc XoaMatHangVaThongSo
     @IDMatHang CHAR(10)
 AS
@@ -466,10 +428,9 @@ go
 
 
 /*--- Thống kê mặt hàng bán chạy --*/
-alter proc ThongKeTop10MatHangBanChay
+alter proc  ThongKeTop10MatHangBanChay
 as
 begin
-    -- Lấy top 10 mặt hàng bán chạy nhất dựa trên tổng số lượng đã bán
     select top 10 
         mh.IDMatHang, 
         mh.TenMatHang, 
@@ -485,8 +446,51 @@ begin
     inner join MatHang mh on ctdb.IDMatHang = mh.IDMatHang
 	inner join Kho kh on mh.IDMatHang = kh.IDMatHang
     group by mh.IDMatHang, mh.TenMatHang, mh.DonGia, mh.BaoHanh, kh.SoLuong, mh.TrangThai
-    order by TongSoLuongBan desc; -- Sắp xếp theo tổng số lượng bán giảm dần
+    order by TongSoLuongBan desc; 
 end;
+go
+
+
+alter PROCEDURE ThongKeDoanhThu
+    @TuNgay DATE = NULL, 
+    @DenNgay DATE = NULL 
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT 
+        SUM(ctdb.SoLuong * ctdb.GiaBan) AS TongDoanhThu, 
+        COUNT(DISTINCT hdb.IDDonBan) AS SoDonHang,
+        COUNT(DISTINCT ctdb.IDMatHang) AS SoMatHangBan,
+        CONVERT(DATE, hdb.NgayBan) AS NgayBan
+    FROM 
+        HoaDonBan hdb
+    INNER JOIN 
+        ChiTietDonBan ctdb ON hdb.IDDonBan = ctdb.IDDonBan
+    WHERE 
+        hdb.TrangThai = N'Đã giao' 
+        AND (@TuNgay IS NULL OR hdb.NgayBan >= @TuNgay) 
+        AND (@DenNgay IS NULL OR hdb.NgayBan <= @DenNgay); 
+END;
+go
+
+CREATE PROCEDURE ThongKeTonKho
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        mh.TenMatHang,
+        kho.SoLuong AS SoLuongTon,
+        kho.SoLuong * mh.DonGia AS GiaTriTonKho
+    FROM 
+        Kho kho
+    INNER JOIN 
+        MatHang mh ON kho.IDMatHang = mh.IDMatHang
+    WHERE 
+        kho.SoLuong > 0 
+    ORDER BY 
+        mh.TenMatHang;
+END;
 go
 
 

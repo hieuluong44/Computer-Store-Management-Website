@@ -67,11 +67,10 @@ app.controller('HoaDonBanController', function ($scope, $http) {
 
     // Cập nhật số lượng bản ghi trên mỗi trang
     $scope.updatePageSizeHoaDonBan = function () {
-        $scope.currentPageHoaDonBan = 1; // Reset về trang 1 khi thay đổi số lượng bản ghi trên trang
-        $scope.loadHoaDonBan(); // Tải lại dữ liệu
+        $scope.currentPageHoaDonBan = 1; 
+        $scope.loadHoaDonBan(); 
     };
 
-    // Chuyển trang
     $scope.changePageHoaDonBan = function (pageNumber) {
         if (pageNumber >= 1 && pageNumber <= $scope.totalPagesHoaDonBan) {
             $scope.currentPageHoaDonBan = pageNumber;

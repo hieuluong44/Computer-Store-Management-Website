@@ -58,7 +58,6 @@ create table NguoiDung (
     SoDienThoai varchar(10) not null UNIQUE,
     Email varchar(30) not null UNIQUE,
     MatKhau nvarchar(30) not null,
-	DiaChi nvarchar(200) null,
     VaiTro nvarchar(20) not null default N'Khách hàng' check (VaiTro in (N'Khách hàng', N'Quản trị viên'))
 );
 go
@@ -1021,3 +1020,4 @@ drop table if exists LoaiMatHang;
 drop table if exists GiamGia;
 drop table if exists DanhMuc;
 
+select * from Kho

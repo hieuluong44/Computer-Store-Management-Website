@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using BLL.Interfaces;
 using DAL.Interfaces;
+using Microsoft.IdentityModel.Tokens;
+using System.Net.Sockets;
+using System.Security.Claims;
 
 namespace BLL
 {

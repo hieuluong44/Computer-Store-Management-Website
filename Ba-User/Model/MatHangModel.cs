@@ -27,12 +27,11 @@ namespace Model
         public int TongSoLuongBan { get; set; }
     }
 
-    public partial class Tim_MatHang_Gia
+    public partial class Tim_MatHang
     {
-        public string TenDanhMuc { get; set; }
+        public string IDMatHang { get; set; }
+        public string DuongDan { get; set; }
         public string TenMatHang { get; set; }
         public float DonGia { get; set; }
-        public string BaoHanh { get; set; }
-        public string TrangThai { get; set; }
     }
 }

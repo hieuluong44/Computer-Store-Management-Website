@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HIEUPC - Máy tính cao cấp & thiết bị điện tử hiện đại hàng đầu Việt Nam</title>
-    <link rel="icon" type="image/png" href="icon/logo.png">
+    <link rel="icon" type="image/png" href="img/logo1.png">
     <link rel="stylesheet" href="css/Trang_Chu.css">
     <script src="https://code.iconify.design/3/3.0.0/iconify.min.js"></script>
     <link href='https://unpkg.com/boxicons/css/boxicons.min.css' rel='stylesheet'>
@@ -57,31 +57,30 @@
     </div>
     <div class="H-head">
         <div class="frame">    
-            <a class="logo" href="#">
+            <a class="logo" href="Trang_Chu.html">
                 <img src="img/logo.png" alt="" style="width: 100%; height: 100%;">
             </a>
             <div class="title-categories">
                 <i class="bi bi-list"></i>
                 <span>Danh mục</span>
             </div>
-            <div class="body-search">
-                <select name="category" id="category">
-                    <option value="">Tất cả sản phẩm</option>
-                    <option value="Gaming">Laptop Gaming</option>
-                    <option value="Office">Laptop Văn phòng</option>
-                    <option value="Do-hoa">Laptop Đồ hoạ</option>
-                    <option value="PC">PC Al</option>
-                    <option value="screen">Màn hình máy tính</option>
-                    <option value="phu-kien-1">Phụ kiện laptop, PC, khác</option>
-                    <option value="phu-kien-2">Chuột, bàn phím</option>
-                    <option value="bao-tri">Dịch vụ sửa chữa, bảo trì</option>
-                </select>                        
-                <form id="search-box">
-                    <input type="text" placeholder="Tìm kiếm...">
-                    <button type="submit">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </form>
+            <div class="body-search">                     
+                <form id="search-box" ng-controller="SearchController">
+                    <input type="search" placeholder="Tìm kiếm..." ng-model="searchTerm" ng-change="searchProduct()">
+                    <div id="search-results" ng-if="searchResults.length > 0">
+                        <ul>
+                            <a  href="San_Pham.html" ng-repeat="product in searchResults">
+                                <div> 
+                                    <span id="name_mH" ng-click="setProductID(product.idMatHang)">{{product.tenMatHang}}</span>
+                                    <span id="price-mH">{{product.donGia | currency:'':'':'1.0-0'}} đ</span>
+                                </div>
+                                <div id="img-search">
+                                    <img ng-src="{{ './Item/' + product.duongDan }}" alt="{{ product.name }}">
+                                </div>
+                            </a>
+                        </ul>
+                    </div>
+                </form>                
             </div>
             <div class="icons">
                 <a href="#">
@@ -109,17 +108,14 @@
                     <i class="fas fa-user-circle"></i>
                     <span class="login-text">{{ TenNguoiDung }}</span>
                     <div class="dropdown-content">
-                        <!-- Hiển thị khi đã đăng nhập -->
                         <a href="Trang_CaNhan.html" id="TCN-btn" ng-if="isLoggedIn">
                             <i class="bi bi-person"></i>
                             <span>Hồ sơ của bạn</span>
                         </a>
-                        <!-- Hiển thị nút đăng nhập nếu chưa đăng nhập -->
                         <a href="Dang_Nhap.html" id="login-btn" ng-if="!isLoggedIn">
                             <i class="fas fa-sign-in-alt"></i>
                             <span>Đăng nhập</span>
                         </a>
-                        <!-- Hiển thị nút đăng xuất khi đã đăng nhập -->
                         <a href="#" id="logout-btn" ng-if="isLoggedIn" ng-click="logout()">
                             <i class="fas fa-sign-out-alt"></i>
                             <span>Đăng xuất</span>
@@ -212,30 +208,31 @@
             </ul>
         </div>
     </div>   
-    <div class="page-change" style="height: 30px; width: 100%; background-color: #ECECEC; display: none;" >
-        <div class="frame"></div>
-    </div>
+
     <div class="body">
         <div class="B-frame">
             <div class="B-head">
                 <div class="B-left" ng-controller="DanhMucController">
                     <div id="body-container">
                         <div id="dropdown-content">
-                            <div class="dropdown-item" ng-repeat="item in danhMucCha" ng-mouseenter="toggleDanhMucConVaChau(item)">
+                            <div class="dropdown-item" ng-repeat="item in danhMucCha" 
+                                ng-mouseenter="toggleDanhMucConVaChau(item)" 
+                                ng-click="saveDanhMucToLocal(item.idDanhMuc)">
                                 <div class="down">
                                     <i class="{{item.icon}}"></i>
-                                    <span>{{ item.tenDanhMuc }}</span>
+                                    <span>{{ item.tenDanhMuc }} </span>
                                     <i class="fas fa-angle-right"></i>
                                 </div>
-                
+
                                 <div class="down-right" ng-show="item.isExpanded">
                                     <div class="title" ng-repeat="danhMucCon in danhMucCon[item.idDanhMuc]">
-                                        <div class="a">
+                                        <div class="a" ng-click="saveDanhMucToLocal(danhMucCon.idDanhMucCon)">
                                             {{ danhMucCon.tenDanhMucCon }}
                                         </div>
-                
+
                                         <div class="b">
-                                            <div ng-repeat="danhMucChau in danhMucChau[danhMucCon.idDanhMucCon]">
+                                            <div ng-repeat="danhMucChau in danhMucChau[danhMucCon.idDanhMucCon]" 
+                                                ng-click="saveDanhMucToLocal(danhMucChau.idDanhMucChau)">
                                                 <a href="">{{ danhMucChau.tenDanhMucCon }}</a>
                                             </div>
                                         </div>
@@ -319,7 +316,7 @@
                 </div>
                 <div id="categories">
                     <div class="categories-item" ng-repeat = "item in danhMucCha">
-                        <a href="">
+                        <a href="DS_SanPham.html">
                             <i class="{{ item.icon }}"></i>
                             <h3>{{ item.tenDanhMuc }}</h3>
                         </a>
@@ -411,8 +408,6 @@
                                             <img ng-src="{{ './Item/' + matHang.duongDan }}">
                                         </a>
                                     </div>
-            
-                                    <!-- Mô tả sản phẩm -->
                                     <div class="item-describe">
                                         <p class="content">{{ matHang.tenMatHang }}</p>
                                         <div class="product-code">
@@ -584,7 +579,8 @@
             </div>
         </div>
     </footer>
-
+<!--Start of Fchat.vn--><script type="text/javascript" src="https://cdn.fchat.vn/assets/embed/webchat.js?id=67852288c640ff9f410ca003" async="async"></script><!--End of Fchat.vn-->
+    </script>
     <script src="angular/angular.js"></script>
     <script src="angular/Trang_Chu.js"></script>
     <script src="angular/Danh_Muc.js"></script>

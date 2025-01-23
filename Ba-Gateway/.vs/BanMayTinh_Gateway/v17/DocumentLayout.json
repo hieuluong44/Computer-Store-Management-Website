@@ -1,0 +1,140 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Gateway\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AD516531-9E3C-4143-A77E-B01F0C862DC1}|BanMayTinh_Gateway\\BanMayTinh_Gateway.csproj|f:\\doan2_luongconghieu_10122166\\ba-gateway\\banmaytinh_gateway\\jwtmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD516531-9E3C-4143-A77E-B01F0C862DC1}|BanMayTinh_Gateway\\BanMayTinh_Gateway.csproj|solutionrelative:banmaytinh_gateway\\jwtmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD516531-9E3C-4143-A77E-B01F0C862DC1}|BanMayTinh_Gateway\\BanMayTinh_Gateway.csproj|f:\\doan2_luongconghieu_10122166\\ba-gateway\\banmaytinh_gateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD516531-9E3C-4143-A77E-B01F0C862DC1}|BanMayTinh_Gateway\\BanMayTinh_Gateway.csproj|solutionrelative:banmaytinh_gateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD516531-9E3C-4143-A77E-B01F0C862DC1}|BanMayTinh_Gateway\\BanMayTinh_Gateway.csproj|f:\\doan2_luongconghieu_10122166\\ba-gateway\\banmaytinh_gateway\\models\\nguoidungmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD516531-9E3C-4143-A77E-B01F0C862DC1}|BanMayTinh_Gateway\\BanMayTinh_Gateway.csproj|solutionrelative:banmaytinh_gateway\\models\\nguoidungmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD516531-9E3C-4143-A77E-B01F0C862DC1}|BanMayTinh_Gateway\\BanMayTinh_Gateway.csproj|f:\\doan2_luongconghieu_10122166\\ba-gateway\\banmaytinh_gateway\\banmaytinh_gateway.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{AD516531-9E3C-4143-A77E-B01F0C862DC1}|BanMayTinh_Gateway\\BanMayTinh_Gateway.csproj|solutionrelative:banmaytinh_gateway\\banmaytinh_gateway.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD516531-9E3C-4143-A77E-B01F0C862DC1}|BanMayTinh_Gateway\\BanMayTinh_Gateway.csproj|f:\\doan2_luongconghieu_10122166\\ba-gateway\\banmaytinh_gateway\\brigde.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{AD516531-9E3C-4143-A77E-B01F0C862DC1}|BanMayTinh_Gateway\\BanMayTinh_Gateway.csproj|solutionrelative:banmaytinh_gateway\\brigde.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD516531-9E3C-4143-A77E-B01F0C862DC1}|BanMayTinh_Gateway\\BanMayTinh_Gateway.csproj|f:\\doan2_luongconghieu_10122166\\ba-gateway\\banmaytinh_gateway\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{AD516531-9E3C-4143-A77E-B01F0C862DC1}|BanMayTinh_Gateway\\BanMayTinh_Gateway.csproj|solutionrelative:banmaytinh_gateway\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Gateway\\BanMayTinh_Gateway\\Program.cs",
+              "RelativeDocumentMoniker": "BanMayTinh_Gateway\\Program.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Gateway\\BanMayTinh_Gateway\\Program.cs",
+              "RelativeToolTip": "BanMayTinh_Gateway\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-17T17:57:54.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BanMayTinh_Gateway.http",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Gateway\\BanMayTinh_Gateway\\BanMayTinh_Gateway.http",
+              "RelativeDocumentMoniker": "BanMayTinh_Gateway\\BanMayTinh_Gateway.http",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Gateway\\BanMayTinh_Gateway\\BanMayTinh_Gateway.http",
+              "RelativeToolTip": "BanMayTinh_Gateway\\BanMayTinh_Gateway.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-01-17T17:57:51.432Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Gateway\\BanMayTinh_Gateway\\appsettings.json",
+              "RelativeDocumentMoniker": "BanMayTinh_Gateway\\appsettings.json",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Gateway\\BanMayTinh_Gateway\\appsettings.json",
+              "RelativeToolTip": "BanMayTinh_Gateway\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-17T17:45:10.401Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Brigde.json",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Gateway\\BanMayTinh_Gateway\\Brigde.json",
+              "RelativeDocumentMoniker": "BanMayTinh_Gateway\\Brigde.json",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Gateway\\BanMayTinh_Gateway\\Brigde.json",
+              "RelativeToolTip": "BanMayTinh_Gateway\\Brigde.json",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-17T17:32:18.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NguoiDungModel.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Gateway\\BanMayTinh_Gateway\\Models\\NguoiDungModel.cs",
+              "RelativeDocumentMoniker": "BanMayTinh_Gateway\\Models\\NguoiDungModel.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Gateway\\BanMayTinh_Gateway\\Models\\NguoiDungModel.cs",
+              "RelativeToolTip": "BanMayTinh_Gateway\\Models\\NguoiDungModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-17T17:31:02.542Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "JwtMiddleware.cs",
+              "DocumentMoniker": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Gateway\\BanMayTinh_Gateway\\JwtMiddleware.cs",
+              "RelativeDocumentMoniker": "BanMayTinh_Gateway\\JwtMiddleware.cs",
+              "ToolTip": "F:\\DoAn2_LuongCongHieu_10122166\\Ba-Gateway\\BanMayTinh_Gateway\\JwtMiddleware.cs",
+              "RelativeToolTip": "BanMayTinh_Gateway\\JwtMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-17T17:30:56.215Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

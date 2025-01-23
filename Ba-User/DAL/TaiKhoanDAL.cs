@@ -13,10 +13,33 @@ namespace DAL
     {
         private readonly IDatabaseHelper _databaseHelper;
 
-        // Constructor để Dependency Injection
         public TaiKhoanDAL(IDatabaseHelper databaseHelper)
         {
             _databaseHelper = databaseHelper;
+        }
+
+        public bool DangKy(TaiKhoanModel taiKhoanModel)
+        {
+            try
+            {
+                var result = _databaseHelper.ExecuteSProcedure("DangKy_NguoiDung",
+                   "@IDNguoiDung", taiKhoanModel.IDNguoiDung,
+                   "@HinhAnh" , taiKhoanModel.HinhAnh,
+                   "@TenNguoiDung", taiKhoanModel.TenNguoiDung,
+                   "@GioiTinh", taiKhoanModel.GioiTinh,
+                   "@SoDienThoai", taiKhoanModel.SoDienThoai,
+                    "@Email", taiKhoanModel.Email,
+                    "@MatKhau", taiKhoanModel.MatKhau);
+                if (result != null && !string.IsNullOrEmpty(result.ToString()))
+                {
+                    throw new Exception(result.ToString());
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public TaiKhoanModel DangNhap(string Email, string MatKhau)
@@ -40,19 +63,19 @@ namespace DAL
             }
         }
 
-        public List<TaiKhoanModel> Get_TaiKhoan(string IDNguoiDung)
+        public TaiKhoanModel Get_TaiKhoan(string IDNguoiDung)
         {
             string msgError = "";
             try
             {
-                var result = _databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "Get_TaiKhoan",
+                var result = _databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "Hien_TK",
                     "@IDNguoiDung", IDNguoiDung);
 
                 if (!string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(msgError);
                 }
-                return result.ConvertTo<TaiKhoanModel>().ToList();
+                return result.ConvertTo<TaiKhoanModel>().FirstOrDefault();
             }
             catch (Exception ex)
             {

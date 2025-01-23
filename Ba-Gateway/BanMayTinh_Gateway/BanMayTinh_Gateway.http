@@ -1,0 +1,6 @@
+@BanMayTinh_Gateway_HostAddress = http://localhost:5039
+
+GET {{BanMayTinh_Gateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

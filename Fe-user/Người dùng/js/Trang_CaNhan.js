@@ -42,3 +42,27 @@ function togglePassword() {
         hideEye.style.display = 'none';
     }
 }
+
+
+
+const fileInput = document.getElementById('fileInput');
+        const avatarPreview = document.getElementById('avatarPreview');
+        const avatarImage = document.getElementById('avatarImage');
+
+        fileInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+
+            if (file) {
+                if (file.size > 1024 * 1024) {
+                    alert("Dung lượng file vượt quá 1 MB!");
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    avatarImage.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+

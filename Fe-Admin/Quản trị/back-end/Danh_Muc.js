@@ -90,14 +90,11 @@ app.controller("DanhMuccontroller", function ($scope, $http) {
             console.log("Server response:", response);
 
             Swal.fire({
-                icon: 'success',
-                title: 'Thành công!',
-                text: 'Thêm danh mục cha thành công!',
-                confirmButtonText: 'Xác nhận'
+                icon: 'success', title: 'Thành công!', text: 'Thêm danh mục cha thành công!', confirmButtonText: 'Xác nhận'
             });
 
             $scope.newDanhMuc = {};
-            $scope.LoadDanhMuc(); // Load lại danh sách danh mục
+            $scope.LoadDanhMuc(); 
         }).catch(function (error) {
             console.error("Error:", error);
 

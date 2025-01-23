@@ -25,7 +25,6 @@ namespace DAL
                     "@SoDienThoaiNguoiNhan", donDatHang.SoDienThoaiNguoiNhan,
                     "@DiaChiNguoiNhan", donDatHang.DiaChiNguoiNhan,
                     "@NgayBan", donDatHang.NgayBan,
-                    "@TrangThai", donDatHang.TrangThai ?? "Chờ xác nhận", 
                     "@GhiChu", donDatHang.GhiChu ?? (object)DBNull.Value, 
                     "@TongTien", donDatHang.TongTien,
                     "@listChiTietBan", donDatHang.ListChiTietBan?.Count > 0

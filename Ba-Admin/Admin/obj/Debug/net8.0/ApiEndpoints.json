@@ -1127,7 +1127,7 @@
   },
   {
     "ContainingType": "API.Controllers.NhaCungCapControllers",
-    "Method": "GetAll",
+    "Method": "GetALL",
     "RelativePath": "api/NhaCungCapControllers/Get-All",
     "HttpMethod": "GET",
     "IsController": true,
@@ -1168,6 +1168,57 @@
       {
         "Type": "System.Void",
         "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.ThongKe_BaoCaoControllers",
+    "Method": "GetThongKeDoanhThu",
+    "RelativePath": "api/ThongKe_BaoCaoControllers/DoanhThu",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tuNgay",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "denNgay",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ThongKe_BaoCaoControllers",
+    "Method": "GetThongKeTonKho",
+    "RelativePath": "api/ThongKe_BaoCaoControllers/TonKho",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.ThongKe_BaoCaoControllers",
+    "Method": "ThongKeTop10MatHangBanChay",
+    "RelativePath": "api/ThongKe_BaoCaoControllers/Top10MatHangBanChay",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Model.MatHangBanChayModel, Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "StatusCode": 200
       }
     ]

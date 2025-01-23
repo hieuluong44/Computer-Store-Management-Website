@@ -1,38 +1,44 @@
 app.controller('DanhMucController', function($scope, $http) {
-    $scope.danhMucCha = []; // Chứa danh mục cha
-    $scope.danhMucCon = {}; // Chứa danh mục con theo ID danh mục cha
-    $scope.danhMucChau = {}; // Chứa danh mục cháu theo ID danh mục con
+    $scope.danhMucCha = []; 
+    $scope.danhMucCon = {}; 
+    $scope.danhMucChau = {}; 
 
     // Lấy danh mục cha từ API
     $http.get("http://localhost:5156/api/DanhMucControllers/Get_DanhMuc")
         .then(function(response) {
-            $scope.danhMucCha = response.data; // Dữ liệu danh mục cha
+            $scope.danhMucCha = response.data; 
             console.log("Danh mục cha:", $scope.danhMucCha);
         }, function(error) {
             console.log("Lỗi khi lấy danh mục cha", error);
         });
 
-        $scope.toggleDanhMucConVaChau = function(danhMucCha) {
-            console.log("Hover vào danh mục cha:", danhMucCha);
-        
-            if (!danhMucCha.isExpanded) {
-                // Gọi API lấy danh mục con
-                $scope.getDanhMucCon(danhMucCha.idDanhMuc, function() {
-                    // Sau khi lấy danh mục con, tự động lấy danh mục cháu
-                    $scope.loadDanhMucChau(danhMucCha.idDanhMuc);
-                });
-            }
-        
-            // Đảo ngược trạng thái hiển thị
-            danhMucCha.isExpanded = !danhMucCha.isExpanded;
-        };
+    // Toggle mở danh mục con và cháu khi hover
+    $scope.toggleDanhMucConVaChau = function(danhMucCha) {
+        console.log("Hover vào danh mục cha:", danhMucCha);
+    
+        if (!danhMucCha.isExpanded) {
+            $scope.getDanhMucCon(danhMucCha.idDanhMuc, function() {
+                // Sau khi lấy danh mục con, tự động lấy danh mục cháu
+                $scope.loadDanhMucChau(danhMucCha.idDanhMuc);
+            });
+        }
+    
+        // Đảo ngược trạng thái hiển thị
+        danhMucCha.isExpanded = !danhMucCha.isExpanded;
+    };
 
+    // Hàm này dùng để lưu vào localStorage ID của danh mục bất kỳ (cha, con, cháu)
+    $scope.saveDanhMucToLocal = function(idDanhMuc) {
+        console.log("Lưu ID danh mục vào localStorage:", idDanhMuc);
+        localStorage.setItem('idDanhMuc', idDanhMuc); // Lưu vào localStorage
+    };
+
+    // Lấy danh mục con từ API
     $scope.getDanhMucCon = function(idDanhMucCha, callback) {
         $http.get(`http://localhost:5156/api/DanhMucControllers/Get_DanhMucCon/${idDanhMucCha}`)
             .then(function(response) {
                 console.log("Danh mục con từ API:", response.data);
                 if (response.data && response.data.length > 0) {
-
                     $scope.danhMucCon[idDanhMucCha] = response.data;
     
                     if (callback) callback();
@@ -44,11 +50,8 @@ app.controller('DanhMucController', function($scope, $http) {
             });
     };
     
-    
-    
-
+    // Load danh mục cháu từ API
     $scope.loadDanhMucChau = function(idDanhMucCha) {
-
         const danhMucConList = $scope.danhMucCon[idDanhMucCha];
         if (!danhMucConList) return;
     
@@ -57,7 +60,6 @@ app.controller('DanhMucController', function($scope, $http) {
                 .then(function(response) {
                     console.log(`Danh mục cháu cho ${danhMucCon.idDanhMucCon}:`, response.data);
                     if (response.data) {
-                        
                         $scope.danhMucChau[danhMucCon.idDanhMucCon] = response.data;
                     }
                 }, function(error) {
@@ -65,5 +67,4 @@ app.controller('DanhMucController', function($scope, $http) {
                 });
         });
     };
-    
 });

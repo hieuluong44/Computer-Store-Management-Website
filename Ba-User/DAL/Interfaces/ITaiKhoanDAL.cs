@@ -8,7 +8,8 @@ namespace DAL.Interfaces
 {
     public interface ITaiKhoanDAL
     {
-        List<TaiKhoanModel> Get_TaiKhoan(string IDNguoiDung);
+        TaiKhoanModel Get_TaiKhoan(string IDNguoiDung);
+        bool DangKy(TaiKhoanModel taiKhoanModel);
         TaiKhoanModel DangNhap(string Email, string MatKhau);
     }
 }
