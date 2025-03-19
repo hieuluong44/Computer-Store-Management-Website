@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\BanMayTinh_Gateway.props" />
-</Project>
